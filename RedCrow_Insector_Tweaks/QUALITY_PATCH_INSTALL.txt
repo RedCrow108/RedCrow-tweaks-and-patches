@@ -1,40 +1,38 @@
-RedCrow — Quality Patch overlay v0.7
+RedCrow Quality Patch v0.7.3
 
-КУДА КОПИРОВАТЬ
+Эта версия заменяет повреждённые DLL из v0.7 и v0.7.1.
 
-Распакуй содержимое архива в:
+УСТАНОВКА
 
-D:\Ins\HSK-Launcher-4.6.0\data\addons\RedCrow\
+1. Полностью закрой RimWorld.
 
-Согласись на объединение папки RedCrow_Insector_Tweaks
-и замену файла About\About.xml.
+2. Удали старый файл:
+   D:\Ins\HSK-Launcher-4.6.0\data\addons\RedCrow\
+   RedCrow_Insector_Tweaks\1.5\Assemblies\
+   RedCrow.InsectorTweaks.dll
 
-После установки DLL должна находиться здесь:
+3. Распакуй папку RedCrow_Insector_Tweaks из архива в:
+   D:\Ins\HSK-Launcher-4.6.0\data\addons\RedCrow\
 
-D:\Ins\HSK-Launcher-4.6.0\data\addons\RedCrow\
-RedCrow_Insector_Tweaks\1.5\Assemblies\RedCrow.InsectorTweaks.dll
+4. Согласись на объединение папок и замену About\About.xml.
 
-ВАЖНО
+5. Проверь новый файл:
+   1.5\Assemblies\RedCrow.InsectorTweaks.dll
+   Размер: 14 336 байт.
 
-Не копируй в мод:
-- 0Harmony.dll
-- Assembly-CSharp.dll
+6. В папке Assemblies не должно быть:
+   - 0Harmony.dll
+   - Assembly-CSharp.dll
 
-Они использовались только для компиляции. Harmony берётся из отдельного
-активного мода с packageId brrainz.harmony.
+7. Полностью запусти RimWorld заново.
 
-ЧТО ДЕЛАЕТ ПАТЧ
+Патч не заменяет XML-файл навыковых мутаций, поэтому установленный
+фикс интеллектуальной группы v0.7.2 сохраняется.
 
-- RC_Mutation_CraftingAptitude:
-  +1 уровень качества продукции, созданной с навыком Crafting.
+ОЖИДАЕМЫЙ РЕЗУЛЬТАТ
 
-- RC_Mutation_ConstructionAptitude:
-  +1 уровень качества постройки, созданной с навыком Construction.
-
-- RC_Mutation_ArtisticAptitude:
-  художественная продукция сразу получает Legendary.
-
-Максимум ограничен уровнем Legendary.
-Изменяются только новые предметы и постройки.
-
-После установки полностью перезапусти RimWorld.
+- Искусство: новая художественная продукция получает Legendary.
+- Ремесло: качество новой продукции повышается на 1 уровень.
+- Строительство: качество новой постройки повышается на 1 уровень.
+- Выше Legendary качество не поднимается.
+- Уже существующие предметы и здания не изменяются.

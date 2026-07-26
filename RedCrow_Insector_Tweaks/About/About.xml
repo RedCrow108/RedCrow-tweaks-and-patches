@@ -11,12 +11,10 @@
   <description>
 Personal balance and compatibility changes for VRE Insector (HSK/CE Patched).
 
-Included:
-- Expanded Combat, Craft and Intellectual skill-specialization degrades.
-- Quality bonuses implemented through a Harmony patch.
-- Mutation-point rebalance.
-- Parthenogenesis, Spawning sack and Jelly sacks compatibility.
-- VFE Insectoids 2 crossover genes made immediately available for the HSK fork.
+Quality patch v0.7.3:
+- Crafting specialization: +1 product quality tier.
+- Construction specialization: +1 construction quality tier.
+- Artistic specialization: guaranteed Legendary artistic products.
   </description>
 
   <modDependencies>
@@ -29,10 +27,12 @@ Included:
     <li>
       <packageId>CarbineAction.HSK.VRE.Insector</packageId>
       <displayName>VRE Insector (HSK/CE Patched)</displayName>
+      <downloadUrl>https://github.com/carbineact1on/HSK-Race-Collection</downloadUrl>
     </li>
     <li>
       <packageId>CarbineAction.HSK.VFE.Insectoid2</packageId>
       <displayName>VFE Insectoids 2 (HSK/CE Patched)</displayName>
+      <downloadUrl>https://github.com/carbineact1on/HSK-Race-Collection</downloadUrl>
     </li>
   </modDependencies>
 

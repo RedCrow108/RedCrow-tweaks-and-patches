@@ -1,0 +1,26 @@
+RedCrow.InsectorTweaks.dll — validation report
+
+File size: 14336 bytes
+SHA-256: 8a10beb8d91a6c59f4317d4b310bb7c41dcf5783df8eda114935ce4e6ed88c50
+Assembly version: 0.7.3.0
+Target framework metadata: .NET Framework 4.7.2
+Assembly-CSharp reference: 1.5.9214.33606
+Harmony reference: 2.3.3.0
+
+Target method verified in the supplied Assembly-CSharp.dll:
+RimWorld.QualityUtility.GenerateQualityCreatedByPawn(
+    Verse.Pawn pawn,
+    RimWorld.SkillDef relevantSkill)
+
+Checks completed:
+- PE32/CLI structure recognized.
+- CLR metadata streams recognized:
+  #~, #Strings, #US, #GUID, #Blob.
+- Assembly and reference metadata parsed.
+- Method definitions and IL bodies parsed.
+- File retains the complete valid PE section layout.
+- No bundled 0Harmony.dll.
+- No bundled Assembly-CSharp.dll.
+
+This build is structurally validated against the supplied game libraries.
+It still requires an in-game runtime test with the user's mod list.
