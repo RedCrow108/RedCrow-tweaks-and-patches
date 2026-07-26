@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!--
+    Parallel balance branch for RedCrow Insector Tweaks.
+    Intended to be merged on top of v0.7 after quality-patch testing.
+  -->
+
+  <!-- Ocelli eyes: mutation points 1 -> 2 -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_OcelliEyes"]</xpath>
+    <value>
+      <mutation>2</mutation>
+    </value>
+  </Operation>
+
+  <!-- Porous skin: mutation points 1 -> 2 -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_PorousSkin"]</xpath>
+    <value>
+      <mutation>2</mutation>
+    </value>
+  </Operation>
+
+  <!-- Low grey matter: mutation points 1 -> 5 -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_LowGreyMatter"]</xpath>
+    <value>
+      <mutation>5</mutation>
+    </value>
+  </Operation>
+
+  <!-- Sensitive brain goop:
+       Psychic sensitivity +30% -> +130%
+       Meditation focus gain +20% -> +50%
+       Psychic entropy recovery remains +20%
+  -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_SensitiveBrainGoop"]/statOffsets/PsychicSensitivity</xpath>
+    <value>
+      <PsychicSensitivity>1.3</PsychicSensitivity>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_SensitiveBrainGoop"]/statOffsets/MeditationFocusGain</xpath>
+    <value>
+      <MeditationFocusGain>0.5</MeditationFocusGain>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_SensitiveBrainGoop"]/statOffsets/PsychicEntropyRecoveryRate</xpath>
+    <value>
+      <PsychicEntropyRecoveryRate>0.2</PsychicEntropyRecoveryRate>
+    </value>
+  </Operation>
+
+</Patch>
