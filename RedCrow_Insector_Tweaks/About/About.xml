@@ -12,14 +12,20 @@
 Personal balance and compatibility changes for VRE Insector (HSK/CE Patched).
 
 Included:
-- Expanded skill-specialization degrades divided into Combat, Craft and Intellectual groups.
-- Group incompatibilities and work restrictions.
+- Expanded Combat, Craft and Intellectual skill-specialization degrades.
+- Quality bonuses implemented through a Harmony patch.
 - Mutation-point rebalance.
 - Parthenogenesis, Spawning sack and Jelly sacks compatibility.
 - VFE Insectoids 2 crossover genes made immediately available for the HSK fork.
   </description>
 
   <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
     <li>
       <packageId>CarbineAction.HSK.VRE.Insector</packageId>
       <displayName>VRE Insector (HSK/CE Patched)</displayName>
@@ -31,6 +37,7 @@ Included:
   </modDependencies>
 
   <loadAfter>
+    <li>brrainz.harmony</li>
     <li>CarbineAction.HSK.VRE.Insector</li>
     <li>CarbineAction.HSK.VFE.Insectoid2</li>
   </loadAfter>
