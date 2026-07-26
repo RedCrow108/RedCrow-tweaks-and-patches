@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!--
-    Logical groups are implemented with exclusionTags:
-    - only one Combat gene;
-    - only one Craft gene;
-    - any number of Intellectual genes;
-    - no mixing between different groups.
-  -->
+  <!-- v0.7.2: Intellectual genes are mutually compatible and do not disable work. -->
 
   <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene">
     <defName>RC_Mutation_ShootingAptitude</defName>
@@ -45,8 +39,11 @@
     </disabledWorkTags>
     <exclusionTags>
       <li>RC_SkillGroup_Combat</li>
-      <li>RC_SkillGroups_CombatCraft</li>
-      <li>RC_SkillGroups_CombatIntellectual</li>
+      <li>RC_CombatCraftExclusive</li>
+      <li>RC_CombatVsArtistic</li>
+      <li>RC_CombatVsSocial</li>
+      <li>RC_CombatVsMedicine</li>
+      <li>RC_CombatVsResearch</li>
     </exclusionTags>
     <modExtensions>
       <li Class="VanillaGenesExpanded.GeneExtension">
@@ -89,8 +86,11 @@
     </disabledWorkTags>
     <exclusionTags>
       <li>RC_SkillGroup_Combat</li>
-      <li>RC_SkillGroups_CombatCraft</li>
-      <li>RC_SkillGroups_CombatIntellectual</li>
+      <li>RC_CombatCraftExclusive</li>
+      <li>RC_CombatVsArtistic</li>
+      <li>RC_CombatVsSocial</li>
+      <li>RC_CombatVsMedicine</li>
+      <li>RC_CombatVsResearch</li>
     </exclusionTags>
     <modExtensions>
       <li Class="VanillaGenesExpanded.GeneExtension">
@@ -131,8 +131,11 @@
     </disabledWorkTags>
     <exclusionTags>
       <li>RC_SkillGroup_Craft</li>
-      <li>RC_SkillGroups_CombatCraft</li>
-      <li>RC_SkillGroups_CraftIntellectual</li>
+      <li>RC_CombatCraftExclusive</li>
+      <li>RC_CraftVsArtistic</li>
+      <li>RC_CraftVsSocial</li>
+      <li>RC_CraftVsMedicine</li>
+      <li>RC_CraftVsResearch</li>
     </exclusionTags>
     <modExtensions>
       <li Class="VanillaGenesExpanded.GeneExtension">
@@ -172,8 +175,11 @@
     </disabledWorkTags>
     <exclusionTags>
       <li>RC_SkillGroup_Craft</li>
-      <li>RC_SkillGroups_CombatCraft</li>
-      <li>RC_SkillGroups_CraftIntellectual</li>
+      <li>RC_CombatCraftExclusive</li>
+      <li>RC_CraftVsArtistic</li>
+      <li>RC_CraftVsSocial</li>
+      <li>RC_CraftVsMedicine</li>
+      <li>RC_CraftVsResearch</li>
     </exclusionTags>
     <modExtensions>
       <li Class="VanillaGenesExpanded.GeneExtension">
@@ -214,8 +220,11 @@
     </disabledWorkTags>
     <exclusionTags>
       <li>RC_SkillGroup_Craft</li>
-      <li>RC_SkillGroups_CombatCraft</li>
-      <li>RC_SkillGroups_CraftIntellectual</li>
+      <li>RC_CombatCraftExclusive</li>
+      <li>RC_CraftVsArtistic</li>
+      <li>RC_CraftVsSocial</li>
+      <li>RC_CraftVsMedicine</li>
+      <li>RC_CraftVsResearch</li>
     </exclusionTags>
     <modExtensions>
       <li Class="VanillaGenesExpanded.GeneExtension">
@@ -255,8 +264,11 @@
     </disabledWorkTags>
     <exclusionTags>
       <li>RC_SkillGroup_Craft</li>
-      <li>RC_SkillGroups_CombatCraft</li>
-      <li>RC_SkillGroups_CraftIntellectual</li>
+      <li>RC_CombatCraftExclusive</li>
+      <li>RC_CraftVsArtistic</li>
+      <li>RC_CraftVsSocial</li>
+      <li>RC_CraftVsMedicine</li>
+      <li>RC_CraftVsResearch</li>
     </exclusionTags>
     <modExtensions>
       <li Class="VanillaGenesExpanded.GeneExtension">
@@ -300,8 +312,11 @@
     </disabledWorkTags>
     <exclusionTags>
       <li>RC_SkillGroup_Craft</li>
-      <li>RC_SkillGroups_CombatCraft</li>
-      <li>RC_SkillGroups_CraftIntellectual</li>
+      <li>RC_CombatCraftExclusive</li>
+      <li>RC_CraftVsArtistic</li>
+      <li>RC_CraftVsSocial</li>
+      <li>RC_CraftVsMedicine</li>
+      <li>RC_CraftVsResearch</li>
     </exclusionTags>
     <modExtensions>
       <li Class="VanillaGenesExpanded.GeneExtension">
@@ -342,8 +357,11 @@
     </disabledWorkTags>
     <exclusionTags>
       <li>RC_SkillGroup_Craft</li>
-      <li>RC_SkillGroups_CombatCraft</li>
-      <li>RC_SkillGroups_CraftIntellectual</li>
+      <li>RC_CombatCraftExclusive</li>
+      <li>RC_CraftVsArtistic</li>
+      <li>RC_CraftVsSocial</li>
+      <li>RC_CraftVsMedicine</li>
+      <li>RC_CraftVsResearch</li>
     </exclusionTags>
     <modExtensions>
       <li Class="VanillaGenesExpanded.GeneExtension">
@@ -356,7 +374,7 @@
   <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene">
     <defName>RC_Mutation_ArtisticAptitude</defName>
     <label>интеллектуальная специализация: искусство</label>
-    <description>Носитель приобретает художественную специализацию. Навык искусства повышается на 5, интерес — на одну ступень. Эту специализацию можно сочетать с другими интеллектуальными специализациями, но не с боевыми или ремесленными.</description>
+    <description>Носитель приобретает художественную специализацию. Навык искусства повышается на 5, интерес — на одну ступень. Эту специализацию можно сочетать с остальными интеллектуальными специализациями; она не ограничивает доступные виды работ.</description>
     <iconPath>UI/Icons/Genes/Gene_Serotonin</iconPath>
     <displayOrderInCategory>2201</displayOrderInCategory>
     <selectionWeight>0</selectionWeight>
@@ -368,20 +386,9 @@
       <skill>Artistic</skill>
       <modType>AddOneLevel</modType>
     </passionMod>
-    <disabledWorkTags>
-      <li>Violent</li>
-      <li>Shooting</li>
-      <li>Hunting</li>
-      <li>Cooking</li>
-      <li>Mining</li>
-      <li>Animals</li>
-      <li>PlantWork</li>
-      <li>Crafting</li>
-      <li>Constructing</li>
-    </disabledWorkTags>
     <exclusionTags>
-      <li>RC_SkillGroups_CombatIntellectual</li>
-      <li>RC_SkillGroups_CraftIntellectual</li>
+      <li>RC_CombatVsArtistic</li>
+      <li>RC_CraftVsArtistic</li>
     </exclusionTags>
     <modExtensions>
       <li Class="VanillaGenesExpanded.GeneExtension">
@@ -394,7 +401,7 @@
   <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene">
     <defName>RC_Mutation_SocialAptitude</defName>
     <label>интеллектуальная специализация: общение</label>
-    <description>Носитель приобретает социальную специализацию. Навык общения повышается на 5, интерес — на одну ступень. Способность к переговорам, улучшение торговой цены, социальное влияние, шанс успешного ареста и эффективность обращения увеличиваются на 50%, а красота — на 3. Эту специализацию можно сочетать с другими интеллектуальными специализациями.</description>
+    <description>Носитель приобретает социальную специализацию. Навык общения повышается на 5, интерес — на одну ступень. Способность к переговорам, улучшение торговой цены, социальное влияние, шанс успешного ареста и эффективность обращения увеличиваются на 50%, а красота — на 3. Эту специализацию можно сочетать с остальными интеллектуальными специализациями; она не ограничивает доступные виды работ.</description>
     <iconPath>UI/Icons/Genes/Gene_VocalGlands</iconPath>
     <displayOrderInCategory>2202</displayOrderInCategory>
     <selectionWeight>0</selectionWeight>
@@ -416,20 +423,9 @@
       <ArrestSuccessChance>1.5</ArrestSuccessChance>
       <ConversionPower>1.5</ConversionPower>
     </statFactors>
-    <disabledWorkTags>
-      <li>Violent</li>
-      <li>Shooting</li>
-      <li>Hunting</li>
-      <li>Cooking</li>
-      <li>Mining</li>
-      <li>Animals</li>
-      <li>PlantWork</li>
-      <li>Crafting</li>
-      <li>Constructing</li>
-    </disabledWorkTags>
     <exclusionTags>
-      <li>RC_SkillGroups_CombatIntellectual</li>
-      <li>RC_SkillGroups_CraftIntellectual</li>
+      <li>RC_CombatVsSocial</li>
+      <li>RC_CraftVsSocial</li>
     </exclusionTags>
     <modExtensions>
       <li Class="VanillaGenesExpanded.GeneExtension">
@@ -442,7 +438,7 @@
   <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene">
     <defName>RC_Mutation_MedicineAptitude</defName>
     <label>интеллектуальная специализация: медицина</label>
-    <description>Носитель приобретает медицинскую специализацию. Навык медицины повышается на 5, интерес — на одну ступень. Скорость медицинских операций, лечения и качество лечения увеличиваются на 25%, а шанс успешной операции удваивается. Эту специализацию можно сочетать с другими интеллектуальными специализациями.</description>
+    <description>Носитель приобретает медицинскую специализацию. Навык медицины повышается на 5, интерес — на одну ступень. Скорость медицинских операций, лечения и качество лечения увеличиваются на 25%, а шанс успешной операции удваивается. Эту специализацию можно сочетать с остальными интеллектуальными специализациями; она не ограничивает доступные виды работ.</description>
     <iconPath>UI/Icons/Genes/Gene_AntimicrobialPeptides</iconPath>
     <displayOrderInCategory>2203</displayOrderInCategory>
     <selectionWeight>0</selectionWeight>
@@ -460,20 +456,9 @@
       <MedicalTendSpeed>1.25</MedicalTendSpeed>
       <MedicalTendQuality>1.25</MedicalTendQuality>
     </statFactors>
-    <disabledWorkTags>
-      <li>Violent</li>
-      <li>Shooting</li>
-      <li>Hunting</li>
-      <li>Cooking</li>
-      <li>Mining</li>
-      <li>Animals</li>
-      <li>PlantWork</li>
-      <li>Crafting</li>
-      <li>Constructing</li>
-    </disabledWorkTags>
     <exclusionTags>
-      <li>RC_SkillGroups_CombatIntellectual</li>
-      <li>RC_SkillGroups_CraftIntellectual</li>
+      <li>RC_CombatVsMedicine</li>
+      <li>RC_CraftVsMedicine</li>
     </exclusionTags>
     <modExtensions>
       <li Class="VanillaGenesExpanded.GeneExtension">
@@ -486,7 +471,7 @@
   <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene">
     <defName>RC_Mutation_IntellectualAptitude</defName>
     <label>интеллектуальная специализация: умственный труд</label>
-    <description>Носитель приобретает исследовательскую специализацию. Навык умственного труда повышается на 5, интерес — на одну ступень, а скорость исследования увеличивается на 25%. Эту специализацию можно сочетать с другими интеллектуальными специализациями.</description>
+    <description>Носитель приобретает исследовательскую специализацию. Навык умственного труда повышается на 5, интерес — на одну ступень, а скорость исследования увеличивается на 25%. Эту специализацию можно сочетать с остальными интеллектуальными специализациями; она не ограничивает доступные виды работ.</description>
     <iconPath>UI/Icons/Genes/Gene_HighGreyMatter</iconPath>
     <displayOrderInCategory>2204</displayOrderInCategory>
     <selectionWeight>0</selectionWeight>
@@ -501,20 +486,9 @@
     <statFactors>
       <ResearchSpeed>1.25</ResearchSpeed>
     </statFactors>
-    <disabledWorkTags>
-      <li>Violent</li>
-      <li>Shooting</li>
-      <li>Hunting</li>
-      <li>Cooking</li>
-      <li>Mining</li>
-      <li>Animals</li>
-      <li>PlantWork</li>
-      <li>Crafting</li>
-      <li>Constructing</li>
-    </disabledWorkTags>
     <exclusionTags>
-      <li>RC_SkillGroups_CombatIntellectual</li>
-      <li>RC_SkillGroups_CraftIntellectual</li>
+      <li>RC_CombatVsResearch</li>
+      <li>RC_CraftVsResearch</li>
     </exclusionTags>
     <modExtensions>
       <li Class="VanillaGenesExpanded.GeneExtension">
