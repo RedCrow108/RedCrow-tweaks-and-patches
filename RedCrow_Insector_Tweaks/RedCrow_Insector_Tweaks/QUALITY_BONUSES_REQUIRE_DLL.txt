@@ -1,0 +1,15 @@
+RED CROW — QUALITY BONUS LIMITATIONS
+
+This build implements every requested effect that GeneDef XML can express.
+
+Not implemented in this XML-only build:
+- Crafting: +1 product quality.
+- Construction: +1 construction quality.
+- Artistic: +7 product quality / guaranteed legendary products.
+
+RimWorld determines created-item and construction quality in game code rather
+than through an ordinary pawn StatDef that GeneDef XML can offset. These three
+effects require a small compiled C# / Harmony assembly.
+
+Everything else in the requested Combat, Craft and Intellectual
+specializations is included.

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!--
+    Allow Jelly sacks and Spawning sack together by removing their shared Tail tag.
+  -->
+  <Operation Class="PatchOperationRemove">
+    <xpath>/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_JellySacks"]/exclusionTags/li[text()="Tail"]</xpath>
+  </Operation>
+
+  <Operation Class="PatchOperationRemove">
+    <xpath>/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_SpawningSack"]/exclusionTags/li[text()="Tail"]</xpath>
+  </Operation>
+
+  <!--
+    Allow Spawning sack and Parthenogenesis together by removing their shared
+    Fertility tag.
+  -->
+  <Operation Class="PatchOperationRemove">
+    <xpath>/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_SpawningSack"]/exclusionTags/li[text()="Fertility"]</xpath>
+  </Operation>
+
+  <Operation Class="PatchOperationRemove">
+    <xpath>/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_Parthenogenesis"]/exclusionTags/li[text()="Fertility"]</xpath>
+  </Operation>
+
+</Patch>
