@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>RedCrow — Insector Tweaks</name>
+  <author>RedCrow</author>
+  <packageId>RedCrow.InsectorTweaks</packageId>
+
+  <supportedVersions>
+    <li>1.5</li>
+  </supportedVersions>
+
+  <description>
+Personal balance and compatibility changes for VRE Insector (HSK/CE Patched).
+
+Included:
+- Expanded skill-specialization degrades divided into Combat, Craft and Intellectual groups.
+- Group incompatibilities and work restrictions.
+- Mutation-point rebalance.
+- Parthenogenesis, Spawning sack and Jelly sacks compatibility.
+- VFE Insectoids 2 crossover genes made immediately available for the HSK fork.
+  </description>
+
+  <modDependencies>
+    <li>
+      <packageId>CarbineAction.HSK.VRE.Insector</packageId>
+      <displayName>VRE Insector (HSK/CE Patched)</displayName>
+    </li>
+    <li>
+      <packageId>CarbineAction.HSK.VFE.Insectoid2</packageId>
+      <displayName>VFE Insectoids 2 (HSK/CE Patched)</displayName>
+    </li>
+  </modDependencies>
+
+  <loadAfter>
+    <li>CarbineAction.HSK.VRE.Insector</li>
+    <li>CarbineAction.HSK.VFE.Insectoid2</li>
+  </loadAfter>
+</ModMetaData>
