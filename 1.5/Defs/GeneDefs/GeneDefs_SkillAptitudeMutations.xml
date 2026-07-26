@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- v0.7.2: Intellectual genes are mutually compatible and do not disable work. -->
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene">
+    <defName>RC_Mutation_ShootingAptitude</defName>
+    <label>боевая специализация: дальний бой</label>
+    <description>Нервная система носителя перестраивается для ведения дальнего боя. Навык дальнего боя повышается на 5, интерес к нему — на одну ступень. Перезарядка и прицеливание ускоряются, а точность стрельбы возрастает. Такая специализация исключает остальные боевые, ремесленные и интеллектуальные специализации и делает недоступными соответствующие работы.</description>
+    <iconPath>UI/Icons/Genes/Gene_CompoundEye</iconPath>
+    <displayOrderInCategory>2001</displayOrderInCategory>
+    <selectionWeight>0</selectionWeight>
+    <mutation>1</mutation>
+    <aptitudes>
+      <Shooting>5</Shooting>
+    </aptitudes>
+    <passionMod>
+      <skill>Shooting</skill>
+      <modType>AddOneLevel</modType>
+    </passionMod>
+    <statOffsets>
+      <ShootingAccuracyPawn>0.5</ShootingAccuracyPawn>
+    </statOffsets>
+    <statFactors>
+      <ReloadSpeed>2</ReloadSpeed>
+      <AimingDelayFactor>0.5</AimingDelayFactor>
+    </statFactors>
+    <disabledWorkTags>
+      <li>Cooking</li>
+      <li>Mining</li>
+      <li>Animals</li>
+      <li>PlantWork</li>
+      <li>Crafting</li>
+      <li>Constructing</li>
+      <li>Artistic</li>
+      <li>Social</li>
+      <li>Caring</li>
+      <li>Intellectual</li>
+    </disabledWorkTags>
+    <exclusionTags>
+      <li>RC_SkillGroup_Combat</li>
+      <li>RC_CombatCraftExclusive</li>
+      <li>RC_CombatVsArtistic</li>
+      <li>RC_CombatVsSocial</li>
+      <li>RC_CombatVsMedicine</li>
+      <li>RC_CombatVsResearch</li>
+    </exclusionTags>
+    <modExtensions>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene">
+    <defName>RC_Mutation_MeleeAptitude</defName>
+    <label>боевая специализация: ближний бой</label>
+    <description>Нервная система носителя перестраивается для ближнего боя. Навык ближнего боя повышается на 5, интерес к нему — на одну ступень. Время между атаками сокращается вдвое, а шанс уклонения увеличивается на 50%. Такая специализация исключает остальные боевые, ремесленные и интеллектуальные специализации и делает недоступными соответствующие работы.</description>
+    <iconPath>UI/Icons/Genes/Gene_RipperBlades</iconPath>
+    <displayOrderInCategory>2002</displayOrderInCategory>
+    <selectionWeight>0</selectionWeight>
+    <mutation>1</mutation>
+    <aptitudes>
+      <Melee>5</Melee>
+    </aptitudes>
+    <passionMod>
+      <skill>Melee</skill>
+      <modType>AddOneLevel</modType>
+    </passionMod>
+    <statFactors>
+      <MeleeCooldownFactor>0.5</MeleeCooldownFactor>
+      <MeleeDodgeChance>1.5</MeleeDodgeChance>
+    </statFactors>
+    <disabledWorkTags>
+      <li>Cooking</li>
+      <li>Mining</li>
+      <li>Animals</li>
+      <li>PlantWork</li>
+      <li>Crafting</li>
+      <li>Constructing</li>
+      <li>Artistic</li>
+      <li>Social</li>
+      <li>Caring</li>
+      <li>Intellectual</li>
+    </disabledWorkTags>
+    <exclusionTags>
+      <li>RC_SkillGroup_Combat</li>
+      <li>RC_CombatCraftExclusive</li>
+      <li>RC_CombatVsArtistic</li>
+      <li>RC_CombatVsSocial</li>
+      <li>RC_CombatVsMedicine</li>
+      <li>RC_CombatVsResearch</li>
+    </exclusionTags>
+    <modExtensions>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene">
+    <defName>RC_Mutation_CookingAptitude</defName>
+    <label>ремесленная специализация: кулинария</label>
+    <description>Носитель приобретает узкую специализацию в кулинарии. Навык повышается на 5, интерес — на одну ступень. Скорость приготовления пищи и разделки увеличивается на 25%, а приготовленная им пища не вызывает пищевого отравления. Специализация исключает остальные ремесленные, боевые и интеллектуальные специализации.</description>
+    <iconPath>UI/Icons/Genes/Gene_RobustMidgut</iconPath>
+    <displayOrderInCategory>2101</displayOrderInCategory>
+    <selectionWeight>0</selectionWeight>
+    <mutation>1</mutation>
+    <aptitudes>
+      <Cooking>5</Cooking>
+    </aptitudes>
+    <passionMod>
+      <skill>Cooking</skill>
+      <modType>AddOneLevel</modType>
+    </passionMod>
+    <statFactors>
+      <CookSpeed>1.25</CookSpeed>
+      <ButcheryFleshSpeed>1.25</ButcheryFleshSpeed>
+    </statFactors>
+    <foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+    <disabledWorkTags>
+      <li>Violent</li>
+      <li>Shooting</li>
+      <li>Hunting</li>
+      <li>Artistic</li>
+      <li>Social</li>
+      <li>Caring</li>
+      <li>Intellectual</li>
+    </disabledWorkTags>
+    <exclusionTags>
+      <li>RC_SkillGroup_Craft</li>
+      <li>RC_CombatCraftExclusive</li>
+      <li>RC_CraftVsArtistic</li>
+      <li>RC_CraftVsSocial</li>
+      <li>RC_CraftVsMedicine</li>
+      <li>RC_CraftVsResearch</li>
+    </exclusionTags>
+    <modExtensions>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene">
+    <defName>RC_Mutation_MiningAptitude</defName>
+    <label>ремесленная специализация: горное дело</label>
+    <description>Носитель приобретает узкую специализацию в горном деле. Навык повышается на 5, интерес — на одну ступень. Скорость горных работ и глубинного бурения увеличивается на 25%. Специализация исключает остальные ремесленные, боевые и интеллектуальные специализации.</description>
+    <iconPath>UI/Icons/Genes/Gene_MegaspiderHorns</iconPath>
+    <displayOrderInCategory>2102</displayOrderInCategory>
+    <selectionWeight>0</selectionWeight>
+    <mutation>1</mutation>
+    <aptitudes>
+      <Mining>5</Mining>
+    </aptitudes>
+    <passionMod>
+      <skill>Mining</skill>
+      <modType>AddOneLevel</modType>
+    </passionMod>
+    <statFactors>
+      <MiningSpeed>1.25</MiningSpeed>
+      <DeepDrillingSpeed>1.25</DeepDrillingSpeed>
+    </statFactors>
+    <disabledWorkTags>
+      <li>Violent</li>
+      <li>Shooting</li>
+      <li>Hunting</li>
+      <li>Artistic</li>
+      <li>Social</li>
+      <li>Caring</li>
+      <li>Intellectual</li>
+    </disabledWorkTags>
+    <exclusionTags>
+      <li>RC_SkillGroup_Craft</li>
+      <li>RC_CombatCraftExclusive</li>
+      <li>RC_CraftVsArtistic</li>
+      <li>RC_CraftVsSocial</li>
+      <li>RC_CraftVsMedicine</li>
+      <li>RC_CraftVsResearch</li>
+    </exclusionTags>
+    <modExtensions>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene">
+    <defName>RC_Mutation_AnimalsAptitude</defName>
+    <label>ремесленная специализация: животноводство</label>
+    <description>Носитель приобретает узкую специализацию в животноводстве. Навык повышается на 5, интерес — на одну ступень. Скорость остригания, доения и другого сбора ресурсов с животных увеличивается на 50%; шанс успешного приручения и обучения также увеличивается на 50%. Специализация исключает остальные ремесленные, боевые и интеллектуальные специализации.</description>
+    <iconPath>UI/Icons/Genes/Gene_VocalGlands</iconPath>
+    <displayOrderInCategory>2103</displayOrderInCategory>
+    <selectionWeight>0</selectionWeight>
+    <mutation>1</mutation>
+    <aptitudes>
+      <Animals>5</Animals>
+    </aptitudes>
+    <passionMod>
+      <skill>Animals</skill>
+      <modType>AddOneLevel</modType>
+    </passionMod>
+    <statFactors>
+      <AnimalGatherSpeed>1.5</AnimalGatherSpeed>
+      <TameAnimalChance>1.5</TameAnimalChance>
+      <TrainAnimalChance>1.5</TrainAnimalChance>
+    </statFactors>
+    <disabledWorkTags>
+      <li>Violent</li>
+      <li>Shooting</li>
+      <li>Hunting</li>
+      <li>Artistic</li>
+      <li>Social</li>
+      <li>Caring</li>
+      <li>Intellectual</li>
+    </disabledWorkTags>
+    <exclusionTags>
+      <li>RC_SkillGroup_Craft</li>
+      <li>RC_CombatCraftExclusive</li>
+      <li>RC_CraftVsArtistic</li>
+      <li>RC_CraftVsSocial</li>
+      <li>RC_CraftVsMedicine</li>
+      <li>RC_CraftVsResearch</li>
+    </exclusionTags>
+    <modExtensions>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene">
+    <defName>RC_Mutation_PlantsAptitude</defName>
+    <label>ремесленная специализация: растениеводство</label>
+    <description>Носитель приобретает узкую специализацию в растениеводстве. Навык повышается на 5, интерес — на одну ступень. Скорость рубки деревьев, сбора и посадки растений увеличивается на 25%, как и эффективность жатвы. Специализация исключает остальные ремесленные, боевые и интеллектуальные специализации.</description>
+    <iconPath>UI/Icons/Genes/Gene_Hiveglands</iconPath>
+    <displayOrderInCategory>2104</displayOrderInCategory>
+    <selectionWeight>0</selectionWeight>
+    <mutation>1</mutation>
+    <aptitudes>
+      <Plants>5</Plants>
+    </aptitudes>
+    <passionMod>
+      <skill>Plants</skill>
+      <modType>AddOneLevel</modType>
+    </passionMod>
+    <statFactors>
+      <PlantWorkSpeed>1.25</PlantWorkSpeed>
+      <PlantHarvestYield>1.25</PlantHarvestYield>
+    </statFactors>
+    <disabledWorkTags>
+      <li>Violent</li>
+      <li>Shooting</li>
+      <li>Hunting</li>
+      <li>Artistic</li>
+      <li>Social</li>
+      <li>Caring</li>
+      <li>Intellectual</li>
+    </disabledWorkTags>
+    <exclusionTags>
+      <li>RC_SkillGroup_Craft</li>
+      <li>RC_CombatCraftExclusive</li>
+      <li>RC_CraftVsArtistic</li>
+      <li>RC_CraftVsSocial</li>
+      <li>RC_CraftVsMedicine</li>
+      <li>RC_CraftVsResearch</li>
+    </exclusionTags>
+    <modExtensions>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene">
+    <defName>RC_Mutation_CraftingAptitude</defName>
+    <label>ремесленная специализация: ремесло</label>
+    <description>Носитель приобретает узкую производственную специализацию. Навык ремесла повышается на 5, интерес — на одну ступень. Скорость переплавки, переработки механоидов, ковки, обработки камня, создания электроники и шитья увеличивается на 25%. Специализация исключает остальные ремесленные, боевые и интеллектуальные специализации.</description>
+    <iconPath>UI/Icons/Genes/Gene_Hiveglands</iconPath>
+    <displayOrderInCategory>2105</displayOrderInCategory>
+    <selectionWeight>0</selectionWeight>
+    <mutation>1</mutation>
+    <aptitudes>
+      <Crafting>5</Crafting>
+    </aptitudes>
+    <passionMod>
+      <skill>Crafting</skill>
+      <modType>AddOneLevel</modType>
+    </passionMod>
+    <statFactors>
+      <SmeltingSpeed>1.25</SmeltingSpeed>
+      <ButcheryMechanoidSpeed>1.25</ButcheryMechanoidSpeed>
+      <SmithingSpeed>1.25</SmithingSpeed>
+      <StonecuttingSpeed>1.25</StonecuttingSpeed>
+      <ElectronicCraftingSpeed>1.25</ElectronicCraftingSpeed>
+      <TailoringSpeed>1.25</TailoringSpeed>
+    </statFactors>
+    <disabledWorkTags>
+      <li>Violent</li>
+      <li>Shooting</li>
+      <li>Hunting</li>
+      <li>Artistic</li>
+      <li>Social</li>
+      <li>Caring</li>
+      <li>Intellectual</li>
+    </disabledWorkTags>
+    <exclusionTags>
+      <li>RC_SkillGroup_Craft</li>
+      <li>RC_CombatCraftExclusive</li>
+      <li>RC_CraftVsArtistic</li>
+      <li>RC_CraftVsSocial</li>
+      <li>RC_CraftVsMedicine</li>
+      <li>RC_CraftVsResearch</li>
+    </exclusionTags>
+    <modExtensions>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene">
+    <defName>RC_Mutation_ConstructionAptitude</defName>
+    <label>ремесленная специализация: строительство</label>
+    <description>Носитель приобретает узкую строительную специализацию. Навык строительства повышается на 5, интерес — на одну ступень. Шанс успешного строительства удваивается, скорость строительства увеличивается на 25%, а скорость выравнивания поверхностей — на 50%. Специализация исключает остальные ремесленные, боевые и интеллектуальные специализации.</description>
+    <iconPath>UI/Icons/Genes/Gene_Hiveglands</iconPath>
+    <displayOrderInCategory>2106</displayOrderInCategory>
+    <selectionWeight>0</selectionWeight>
+    <mutation>1</mutation>
+    <aptitudes>
+      <Construction>5</Construction>
+    </aptitudes>
+    <passionMod>
+      <skill>Construction</skill>
+      <modType>AddOneLevel</modType>
+    </passionMod>
+    <statFactors>
+      <ConstructSuccessChance>2</ConstructSuccessChance>
+      <ConstructionSpeed>1.25</ConstructionSpeed>
+      <SmoothingSpeed>1.5</SmoothingSpeed>
+    </statFactors>
+    <disabledWorkTags>
+      <li>Violent</li>
+      <li>Shooting</li>
+      <li>Hunting</li>
+      <li>Artistic</li>
+      <li>Social</li>
+      <li>Caring</li>
+      <li>Intellectual</li>
+    </disabledWorkTags>
+    <exclusionTags>
+      <li>RC_SkillGroup_Craft</li>
+      <li>RC_CombatCraftExclusive</li>
+      <li>RC_CraftVsArtistic</li>
+      <li>RC_CraftVsSocial</li>
+      <li>RC_CraftVsMedicine</li>
+      <li>RC_CraftVsResearch</li>
+    </exclusionTags>
+    <modExtensions>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene">
+    <defName>RC_Mutation_ArtisticAptitude</defName>
+    <label>интеллектуальная специализация: искусство</label>
+    <description>Носитель приобретает художественную специализацию. Навык искусства повышается на 5, интерес — на одну ступень. Эту специализацию можно сочетать с остальными интеллектуальными специализациями; она не ограничивает доступные виды работ.</description>
+    <iconPath>UI/Icons/Genes/Gene_Serotonin</iconPath>
+    <displayOrderInCategory>2201</displayOrderInCategory>
+    <selectionWeight>0</selectionWeight>
+    <mutation>1</mutation>
+    <aptitudes>
+      <Artistic>5</Artistic>
+    </aptitudes>
+    <passionMod>
+      <skill>Artistic</skill>
+      <modType>AddOneLevel</modType>
+    </passionMod>
+    <exclusionTags>
+      <li>RC_CombatVsArtistic</li>
+      <li>RC_CraftVsArtistic</li>
+    </exclusionTags>
+    <modExtensions>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene">
+    <defName>RC_Mutation_SocialAptitude</defName>
+    <label>интеллектуальная специализация: общение</label>
+    <description>Носитель приобретает социальную специализацию. Навык общения повышается на 5, интерес — на одну ступень. Способность к переговорам, улучшение торговой цены, социальное влияние, шанс успешного ареста и эффективность обращения увеличиваются на 50%, а красота — на 3. Эту специализацию можно сочетать с остальными интеллектуальными специализациями; она не ограничивает доступные виды работ.</description>
+    <iconPath>UI/Icons/Genes/Gene_VocalGlands</iconPath>
+    <displayOrderInCategory>2202</displayOrderInCategory>
+    <selectionWeight>0</selectionWeight>
+    <mutation>1</mutation>
+    <aptitudes>
+      <Social>5</Social>
+    </aptitudes>
+    <passionMod>
+      <skill>Social</skill>
+      <modType>AddOneLevel</modType>
+    </passionMod>
+    <statOffsets>
+      <PawnBeauty>3</PawnBeauty>
+    </statOffsets>
+    <statFactors>
+      <NegotiationAbility>1.5</NegotiationAbility>
+      <TradePriceImprovement>1.5</TradePriceImprovement>
+      <SocialImpact>1.5</SocialImpact>
+      <ArrestSuccessChance>1.5</ArrestSuccessChance>
+      <ConversionPower>1.5</ConversionPower>
+    </statFactors>
+    <exclusionTags>
+      <li>RC_CombatVsSocial</li>
+      <li>RC_CraftVsSocial</li>
+    </exclusionTags>
+    <modExtensions>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene">
+    <defName>RC_Mutation_MedicineAptitude</defName>
+    <label>интеллектуальная специализация: медицина</label>
+    <description>Носитель приобретает медицинскую специализацию. Навык медицины повышается на 5, интерес — на одну ступень. Скорость медицинских операций, лечения и качество лечения увеличиваются на 25%, а шанс успешной операции удваивается. Эту специализацию можно сочетать с остальными интеллектуальными специализациями; она не ограничивает доступные виды работ.</description>
+    <iconPath>UI/Icons/Genes/Gene_AntimicrobialPeptides</iconPath>
+    <displayOrderInCategory>2203</displayOrderInCategory>
+    <selectionWeight>0</selectionWeight>
+    <mutation>1</mutation>
+    <aptitudes>
+      <Medicine>5</Medicine>
+    </aptitudes>
+    <passionMod>
+      <skill>Medicine</skill>
+      <modType>AddOneLevel</modType>
+    </passionMod>
+    <statFactors>
+      <MedicalOperationSpeed>1.25</MedicalOperationSpeed>
+      <MedicalSurgerySuccessChance>2</MedicalSurgerySuccessChance>
+      <MedicalTendSpeed>1.25</MedicalTendSpeed>
+      <MedicalTendQuality>1.25</MedicalTendQuality>
+    </statFactors>
+    <exclusionTags>
+      <li>RC_CombatVsMedicine</li>
+      <li>RC_CraftVsMedicine</li>
+    </exclusionTags>
+    <modExtensions>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene">
+    <defName>RC_Mutation_IntellectualAptitude</defName>
+    <label>интеллектуальная специализация: умственный труд</label>
+    <description>Носитель приобретает исследовательскую специализацию. Навык умственного труда повышается на 5, интерес — на одну ступень, а скорость исследования увеличивается на 25%. Эту специализацию можно сочетать с остальными интеллектуальными специализациями; она не ограничивает доступные виды работ.</description>
+    <iconPath>UI/Icons/Genes/Gene_HighGreyMatter</iconPath>
+    <displayOrderInCategory>2204</displayOrderInCategory>
+    <selectionWeight>0</selectionWeight>
+    <mutation>1</mutation>
+    <aptitudes>
+      <Intellectual>5</Intellectual>
+    </aptitudes>
+    <passionMod>
+      <skill>Intellectual</skill>
+      <modType>AddOneLevel</modType>
+    </passionMod>
+    <statFactors>
+      <ResearchSpeed>1.25</ResearchSpeed>
+    </statFactors>
+    <exclusionTags>
+      <li>RC_CombatVsResearch</li>
+      <li>RC_CraftVsResearch</li>
+    </exclusionTags>
+    <modExtensions>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+</Defs>
