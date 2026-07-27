@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="VRE_EvolutionGene"
+      MayRequire="arpomo6.hmc.project">
+    <defName>RC_Evolution_NaturalSymbiosis</defName>
+    <label>природный симбиоз</label>
+    <description>Нервная система носителя перестраивается для глубокой связи с живой средой. Инстинкты позволяют ему лучше понимать растения и животных, но отдаляют от сложных общественных отношений и светской жизни. Носитель приобретает черту «Близость к природе».</description>
+
+    <iconPath>UI/Icons/Genes/Gene_Natural_Pockets</iconPath>
+
+    <unlockable>false</unlockable>
+    <selectionWeight>0</selectionWeight>
+    <displayOrderInCategory>3000</displayOrderInCategory>
+
+    <forcedTraits>
+      <li>
+        <def>HMC_TouchOfNature</def>
+      </li>
+    </forcedTraits>
+
+    <modExtensions>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+</Defs>
