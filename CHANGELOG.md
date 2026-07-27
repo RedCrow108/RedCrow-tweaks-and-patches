@@ -4,6 +4,11 @@
 
 - Documentation cleanup after v0.7.4 validation.
 
+### Added
+
+- Added the open Natural Symbiosis evolution, which grants the HMC Touch of Nature trait when HSK More Content is active.
+- Natural Symbiosis does not yet participate in the VFE Insectoids 2 core-based evolution unlock system.
+
 ## 0.7.4
 
 ### Fixed
