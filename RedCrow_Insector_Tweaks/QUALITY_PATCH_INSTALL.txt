@@ -1,38 +1,46 @@
-RedCrow Quality Patch v0.7.3
+RedCrow Quality Patch v0.7.4
 
-Эта версия заменяет повреждённые DLL из v0.7 и v0.7.1.
+Эта версия заменяет повреждённые DLL из выпусков v0.7–v0.7.3.
 
 УСТАНОВКА
 
 1. Полностью закрой RimWorld.
 
-2. Удали старый файл:
+2. Найди папку установленного мода RedCrow_Insector_Tweaks.
+
+   Общий путь к файлу внутри мода:
+   RedCrow_Insector_Tweaks/1.5/Assemblies/RedCrow.InsectorTweaks.dll
+
+   Пример для одной из установок HSK Launcher:
    D:\Ins\HSK-Launcher-4.6.0\data\addons\RedCrow\
-   RedCrow_Insector_Tweaks\1.5\Assemblies\
-   RedCrow.InsectorTweaks.dll
+   RedCrow_Insector_Tweaks\1.5\Assemblies\RedCrow.InsectorTweaks.dll
 
-3. Распакуй папку RedCrow_Insector_Tweaks из архива в:
-   D:\Ins\HSK-Launcher-4.6.0\data\addons\RedCrow\
+   Путь HSK Launcher приведён только как пример. Фактическая папка мода
+   зависит от места установки и настроек лаунчера.
 
-4. Согласись на объединение папок и замену About\About.xml.
+3. Замени старый RedCrow.InsectorTweaks.dll файлом из Quality Patch v0.7.4.
 
-5. Проверь новый файл:
-   1.5\Assemblies\RedCrow.InsectorTweaks.dll
-   Размер: 14 336 байт.
+4. Проверь новый файл:
+   Версия сборки: 0.7.4.0
+   Размер: 7168 байт
+   SHA-256:
+   59b36d45b2c8d161323ae527e3319d3e988bb7e7ef01d8443ef9c1186b316e4d
 
-6. В папке Assemblies не должно быть:
+5. В папку Assemblies нельзя копировать:
    - 0Harmony.dll
    - Assembly-CSharp.dll
 
-7. Полностью запусти RimWorld заново.
+   Эти библиотеки использовались только как references при сборке DLL.
 
-Патч не заменяет XML-файл навыковых мутаций, поэтому установленный
-фикс интеллектуальной группы v0.7.2 сохраняется.
+6. Полностью запусти RimWorld заново.
+
+Патч не заменяет XML-файл навыковых мутаций, поэтому установленный фикс
+интеллектуальной группы v0.7.2 сохраняется.
 
 ОЖИДАЕМЫЙ РЕЗУЛЬТАТ
 
-- Искусство: новая художественная продукция получает Legendary.
-- Ремесло: качество новой продукции повышается на 1 уровень.
-- Строительство: качество новой постройки повышается на 1 уровень.
-- Выше Legendary качество не поднимается.
+- Artistic specialization: guaranteed Legendary artistic products.
+- Crafting specialization: +1 product quality tier.
+- Construction specialization: +1 construction quality tier.
+- Качество не повышается выше Legendary.
 - Уже существующие предметы и здания не изменяются.

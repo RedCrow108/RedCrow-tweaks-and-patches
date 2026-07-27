@@ -30,5 +30,17 @@ Metadata and source checks:
 - Assembly-CSharp.dll and 0Harmony.dll are references with Copy Local=false.
 - Neither dependency is copied into the mod Assemblies directory.
 
-The DLL still requires an in-game smoke test with the intended RimWorld/HSK
-mod list; metadata validation does not execute the Harmony patch.
+In-game validation:
+- RimWorld started successfully with the intended HSK mod list.
+- RedCrow.InsectorTweaks.dll loaded without Mono metadata errors.
+- Harmony postfix was installed with Priority.Last.
+- RC_Mutation_ArtisticAptitude was detected on the crafting pawn.
+- Two small sculptures were produced.
+- Original qualities Good and Excellent were both changed to Legendary.
+- No BadImageFormatException, ReflectionTypeLoadException,
+  or "type 0x00 not handled" errors were observed.
+
+The in-game smoke test completed successfully. Artistic specialization is
+confirmed to guarantee Legendary artistic products. Crafting +1 and
+Construction +1 remain metadata/source-validated intended behaviors and
+still require separate in-game verification.
