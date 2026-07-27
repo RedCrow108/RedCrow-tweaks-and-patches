@@ -8,6 +8,13 @@
 
 - Added the open Natural Symbiosis evolution, which grants the HMC Touch of Nature trait when HSK More Content is active.
 - Natural Symbiosis does not yet participate in the VFE Insectoids 2 core-based evolution unlock system.
+- Added the open Strong Back evolution.
+- Added the open Ambidexterity evolution.
+- Added separate Cleaner and Jack of All Trades mutations.
+- Cleaner and Jack of All Trades are mutually exclusive.
+- Added melee and ranged combat enhancement mutations.
+- Melee and ranged combat enhancement mutations are mutually exclusive.
+- New mutations and evolutions do not yet use the VFE Insectoids 2 core-based unlock system.
 
 ## 0.7.4
 

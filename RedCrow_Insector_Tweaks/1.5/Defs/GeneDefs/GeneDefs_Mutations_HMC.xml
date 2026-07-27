@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="VRE_MutationGene"
+      MayRequire="arpomo6.hmc.project">
+    <defName>RC_Mutation_Cleaner</defName>
+    <label>уборщик</label>
+    <description>Организм носителя адаптируется к постоянному обслуживанию улья. Повышенная подвижность, выносливость и навязчивая тяга к порядку делают его идеальным уборщиком. Носитель приобретает черту «Уборщик».</description>
+
+    <iconPath>UI/Icons/Genes/Gene_AntimicrobialPeptides</iconPath>
+
+    <unlockable>false</unlockable>
+    <selectionWeight>0</selectionWeight>
+    <displayOrderInCategory>2301</displayOrderInCategory>
+
+    <forcedTraits>
+      <li>
+        <def>SuperCCleaner</def>
+      </li>
+    </forcedTraits>
+
+    <exclusionTags>
+      <li>RC_WorkerRoleMutation</li>
+    </exclusionTags>
+
+    <modExtensions>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="VRE_MutationGene"
+      MayRequire="arpomo6.hmc.project">
+    <defName>RC_Mutation_JackOfAllTrades</defName>
+    <label>мастер на все руки</label>
+    <description>Нервная система носителя приобретает исключительную пластичность, позволяя быстро осваивать самые разные занятия. Он не становится узким специалистом, но способен эффективно выполнять почти любую работу. Носитель приобретает черту «Мастер на все руки».</description>
+
+    <iconPath>UI/Icons/Genes/Gene_HighGreyMatter</iconPath>
+
+    <unlockable>false</unlockable>
+    <selectionWeight>0</selectionWeight>
+    <displayOrderInCategory>2302</displayOrderInCategory>
+
+    <forcedTraits>
+      <li>
+        <def>HMC_jack_of_all_trades</def>
+      </li>
+    </forcedTraits>
+
+    <exclusionTags>
+      <li>RC_WorkerRoleMutation</li>
+    </exclusionTags>
+
+    <modExtensions>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="VRE_MutationGene"
+      MayRequire="arpomo6.hmc.project">
+    <defName>RC_Mutation_MeleeEnhancement</defName>
+    <label>усиление ближнего боя</label>
+    <description>Тело носителя перестраивается для затяжных схваток на ближней дистанции. Усиливаются болевой порог, сопротивляемость повреждениям, агрессивные реакции и эффективность рукопашных атак.</description>
+
+    <iconPath>UI/Icons/Genes/Gene_RipperBlades</iconPath>
+
+    <unlockable>false</unlockable>
+    <selectionWeight>0</selectionWeight>
+    <displayOrderInCategory>2303</displayOrderInCategory>
+
+    <forcedTraits>
+      <li>
+        <def>Tough</def>
+      </li>
+      <li>
+        <def>PainThreshold</def>
+        <degree>1</degree>
+      </li>
+      <li>
+        <def>Brawler</def>
+      </li>
+      <li>
+        <def>HMC_IronFist</def>
+      </li>
+    </forcedTraits>
+
+    <exclusionTags>
+      <li>RC_CombatEnhancementMutation</li>
+    </exclusionTags>
+
+    <modExtensions>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="VRE_MutationGene"
+      MayRequire="arpomo6.hmc.project">
+    <defName>RC_Mutation_RangedEnhancement</defName>
+    <label>усиление дальнего боя</label>
+    <description>Сенсорная система и моторные центры носителя перестраиваются для ведения боя на дистанции. Он становится устойчивее, быстрее реагирует на угрозы и точнее использует стрелковое и артиллерийское вооружение.</description>
+
+    <iconPath>UI/Icons/Genes/Gene_CompoundEye</iconPath>
+
+    <unlockable>false</unlockable>
+    <selectionWeight>0</selectionWeight>
+    <displayOrderInCategory>2304</displayOrderInCategory>
+
+    <forcedTraits>
+      <li>
+        <def>Tough</def>
+      </li>
+      <li>
+        <def>HMC_artillerist</def>
+      </li>
+      <li>
+        <def>Nimble</def>
+      </li>
+      <li>
+        <def>ShootingAccuracy</def>
+        <degree>2</degree>
+      </li>
+    </forcedTraits>
+
+    <exclusionTags>
+      <li>RC_CombatEnhancementMutation</li>
+    </exclusionTags>
+
+    <modExtensions>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+</Defs>
