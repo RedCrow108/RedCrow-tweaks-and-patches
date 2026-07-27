@@ -1,26 +1,34 @@
-RedCrow.InsectorTweaks.dll — validation report
+RedCrow.InsectorTweaks.dll — v0.7.4 validation report
 
-File size: 14336 bytes
-SHA-256: 8a10beb8d91a6c59f4317d4b310bb7c41dcf5783df8eda114935ce4e6ed88c50
-Assembly version: 0.7.3.0
-Target framework metadata: .NET Framework 4.7.2
-Assembly-CSharp reference: 1.5.9214.33606
-Harmony reference: 2.3.3.0
+Build:
+- Configuration: Release / AnyCPU
+- Compiler: Microsoft C# compiler 4.8.9221.0
+- Target reference assemblies: .NET Framework 4.7.2
+- Build errors: 0
+- Build warnings: 0
 
-Target method verified in the supplied Assembly-CSharp.dll:
-RimWorld.QualityUtility.GenerateQualityCreatedByPawn(
-    Verse.Pawn pawn,
-    RimWorld.SkillDef relevantSkill)
+Artifact:
+- File size: 7168 bytes
+- SHA-256: 59b36d45b2c8d161323ae527e3319d3e988bb7e7ef01d8443ef9c1186b316e4d
+- Assembly version: 0.7.4.0
+- CLR image runtime: v4.0.30319
+- TargetFrameworkAttribute: .NETFramework,Version=v4.7.2
 
-Checks completed:
-- PE32/CLI structure recognized.
-- CLR metadata streams recognized:
-  #~, #Strings, #US, #GUID, #Blob.
-- Assembly and reference metadata parsed.
-- Method definitions and IL bodies parsed.
-- File retains the complete valid PE section layout.
-- No bundled 0Harmony.dll.
-- No bundled Assembly-CSharp.dll.
+Assembly references:
+- Assembly-CSharp, Version=1.5.9214.33606
+- 0Harmony, Version=2.3.3.0
+- mscorlib, Version=4.0.0.0
 
-This build is structurally validated against the supplied game libraries.
-It still requires an in-game runtime test with the user's mod list.
+Metadata and source checks:
+- QualityPatch.Postfix has HarmonyPriority(Priority.Last).
+- Runtime HarmonyMethod priority is explicitly set to Priority.Last.
+- Artistic specialization forces QualityCategory.Legendary.
+- Crafting specialization adds one quality level, capped at Legendary.
+- Construction specialization adds one quality level, capped at Legendary.
+- Diagnostic Verse.Log messages are present for installation, failures,
+  missing definitions, skipped calls, and applied quality changes.
+- Assembly-CSharp.dll and 0Harmony.dll are references with Copy Local=false.
+- Neither dependency is copied into the mod Assemblies directory.
+
+The DLL still requires an in-game smoke test with the intended RimWorld/HSK
+mod list; metadata validation does not execute the Harmony patch.

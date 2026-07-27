@@ -1,1 +1,1 @@
-457821375b9326ea5775e149f5b71f4a04a5a11a78899e565e7fa7470b5ea097  RedCrow.InsectorTweaks.dll
+59b36d45b2c8d161323ae527e3319d3e988bb7e7ef01d8443ef9c1186b316e4d  RedCrow.InsectorTweaks.dll
