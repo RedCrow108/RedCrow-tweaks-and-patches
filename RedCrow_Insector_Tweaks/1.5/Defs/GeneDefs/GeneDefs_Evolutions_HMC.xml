@@ -28,4 +28,58 @@
     </modExtensions>
   </VanillaRacesExpandedInsector.GenelineGeneDef>
 
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="VRE_EvolutionGene"
+      MayRequire="arpomo6.hmc.project">
+    <defName>RC_Evolution_StrongBack</defName>
+    <label>тяжеловоз</label>
+    <description>Носитель развивает усиленный скелет, мощную мускулатуру и устойчивую систему распределения нагрузки. Он способен переносить значительно больше груза, чем обычный представитель своего вида. Носитель приобретает черту «Тяжеловоз».</description>
+
+    <iconPath>UI/Icons/Genes/Gene_MegaspiderHorns</iconPath>
+
+    <unlockable>false</unlockable>
+    <selectionWeight>0</selectionWeight>
+    <displayOrderInCategory>3001</displayOrderInCategory>
+
+    <forcedTraits>
+      <li>
+        <def>StrongBack</def>
+      </li>
+    </forcedTraits>
+
+    <modExtensions>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="VRE_EvolutionGene"
+      MayRequire="arpomo6.hmc.project">
+    <defName>RC_Evolution_Ambidexterity</defName>
+    <label>амбидекстрия</label>
+    <description>Моторные центры мозга носителя перестраиваются так, чтобы обе стороны тела обладали одинаковой точностью и координацией. Носитель приобретает черту «Амбидекстрия».</description>
+
+    <iconPath>UI/Icons/Genes/Gene_Hiveglands</iconPath>
+
+    <unlockable>false</unlockable>
+    <selectionWeight>0</selectionWeight>
+    <displayOrderInCategory>3002</displayOrderInCategory>
+
+    <forcedTraits>
+      <li>
+        <def>HMC_ambidextrous</def>
+      </li>
+    </forcedTraits>
+
+    <modExtensions>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
 </Defs>
