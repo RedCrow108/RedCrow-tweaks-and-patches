@@ -514,6 +514,8 @@ namespace RedCrow.InsectorTweaks
                     hediffs[index] as Hediff_Injury;
                 if (injury != null &&
                     injury.Part != null &&
+                    !pawn.health.hediffSet.PartIsMissing(
+                        injury.Part) &&
                     ValidPartDefNames.Contains(
                         injury.Part.def.defName))
                 {
@@ -535,24 +537,51 @@ namespace RedCrow.InsectorTweaks
             }
 
             pawn.health.RestorePart(part, null, true);
-            int damageAmount =
-                Math.Max(
-                    0,
-                    (int)pawn.health.hediffSet.GetPartHealth(part) - 2);
-            if (damageAmount <= 0)
+            float restoredHealth =
+                pawn.health.hediffSet.GetPartHealth(part);
+            float targetHealth = Math.Min(2f, restoredHealth);
+            float injurySeverity =
+                Math.Max(0f, restoredHealth - targetHealth);
+
+            if (injurySeverity > 0f)
             {
-                return;
+                Hediff_Injury injury = HediffMaker.MakeHediff(
+                    HediffDefOf.Cut,
+                    pawn,
+                    part) as Hediff_Injury;
+                if (injury == null)
+                {
+                    Log.Error(
+                        "[RedCrow Stage 3] Could not create the " +
+                        "controlled regeneration injury for " +
+                        pawn.LabelShort + ", part=" +
+                        part.def.defName + ".");
+                    return;
+                }
+
+                injury.Severity = injurySeverity;
+                pawn.health.AddHediff(
+                    injury,
+                    part,
+                    null,
+                    null);
+
+                float actualHealth =
+                    pawn.health.hediffSet.GetPartHealth(part);
+                if (actualHealth < targetHealth)
+                {
+                    injury.Severity = Math.Max(
+                        0f,
+                        injury.Severity -
+                            (targetHealth - actualHealth));
+                }
             }
 
-            DamageInfo damageInfo = new DamageInfo(
-                DamageDefOf.Cut,
-                damageAmount,
-                999f,
-                -1f,
-                null,
-                part);
-            damageInfo.SetAllowDamagePropagation(false);
-            pawn.TakeDamage(damageInfo);
+            Log.Message(
+                "[RedCrow Stage 3] Restored segment: pawn=" +
+                pawn.LabelShort + "; part=" +
+                part.def.defName + "; health=" +
+                pawn.health.hediffSet.GetPartHealth(part) + ".");
         }
 
         private static BodyPartRecord FindLargestMissingPart(

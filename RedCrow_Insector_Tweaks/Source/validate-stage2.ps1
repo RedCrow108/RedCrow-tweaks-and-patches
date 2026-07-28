@@ -205,6 +205,8 @@ $uvGenes = @(
 )
 foreach ($defName in $uvGenes) {
     Assert-GeneTag $defName "UVSensitivity"
+    Assert-GeneTag $defName "RC_Conflict_UVSensitivity_LightStride"
+    Assert-GeneTag $defName "RC_Conflict_UVSensitivity_SolarNutrition"
 }
 
 foreach ($defName in @(
@@ -213,12 +215,19 @@ foreach ($defName in @(
 )) {
     Assert-GeneTag $defName "RC_LightDependence"
 }
+Assert-GeneTag "RC_Mutation_LightStride" `
+    "RC_Conflict_UVSensitivity_LightStride"
+Assert-GeneTag "RC_Mutation_TwilightStride" `
+    "RC_Conflict_TwilightStride_SolarNutrition"
 
 foreach ($defName in @(
     "RC_Mutation_SolarOverdrive",
     "RC_Evolution_ChlorophyllMetabolism"
 )) {
     Assert-GeneTag $defName "RC_SolarMetabolism"
+    Assert-GeneTag $defName "RC_Conflict_UVSensitivity_SolarNutrition"
+    Assert-GeneTag $defName `
+        "RC_Conflict_TwilightStride_SolarNutrition"
 }
 
 foreach ($defName in @(

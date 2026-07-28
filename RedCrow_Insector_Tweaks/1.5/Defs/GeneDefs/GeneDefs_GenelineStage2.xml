@@ -46,6 +46,8 @@
     </customEffectDescriptions>
     <exclusionTags>
       <li>UVSensitivity</li>
+      <li>RC_Conflict_UVSensitivity_LightStride</li>
+      <li>RC_Conflict_UVSensitivity_SolarNutrition</li>
     </exclusionTags>
     <modExtensions Inherit="False">
       <li Class="VanillaGenesExpanded.GeneExtension">
@@ -76,6 +78,8 @@
     </customEffectDescriptions>
     <exclusionTags>
       <li>UVSensitivity</li>
+      <li>RC_Conflict_UVSensitivity_LightStride</li>
+      <li>RC_Conflict_UVSensitivity_SolarNutrition</li>
     </exclusionTags>
   </VanillaRacesExpandedInsector.GenelineGeneDef>
 
@@ -302,6 +306,8 @@
     </customEffectDescriptions>
     <exclusionTags>
       <li>UVSensitivity</li>
+      <li>RC_Conflict_UVSensitivity_LightStride</li>
+      <li>RC_Conflict_UVSensitivity_SolarNutrition</li>
     </exclusionTags>
   </VanillaRacesExpandedInsector.GenelineGeneDef>
 
@@ -407,6 +413,7 @@
     </conditionalStatAffecters>
     <exclusionTags>
       <li>RC_LightDependence</li>
+      <li>RC_Conflict_UVSensitivity_LightStride</li>
     </exclusionTags>
   </VanillaRacesExpandedInsector.GenelineGeneDef>
 
@@ -430,6 +437,7 @@
     </conditionalStatAffecters>
     <exclusionTags>
       <li>RC_LightDependence</li>
+      <li>RC_Conflict_TwilightStride_SolarNutrition</li>
     </exclusionTags>
   </VanillaRacesExpandedInsector.GenelineGeneDef>
 
@@ -499,6 +507,8 @@
     </conditionalStatAffecters>
     <exclusionTags>
       <li>RC_SolarMetabolism</li>
+      <li>RC_Conflict_UVSensitivity_SolarNutrition</li>
+      <li>RC_Conflict_TwilightStride_SolarNutrition</li>
     </exclusionTags>
   </VanillaRacesExpandedInsector.GenelineGeneDef>
 
@@ -514,6 +524,8 @@
     </customEffectDescriptions>
     <exclusionTags>
       <li>UVSensitivity</li>
+      <li>RC_Conflict_UVSensitivity_LightStride</li>
+      <li>RC_Conflict_UVSensitivity_SolarNutrition</li>
     </exclusionTags>
     <modExtensions Inherit="False">
       <li Class="VanillaGenesExpanded.GeneExtension">
@@ -535,6 +547,8 @@
     </customEffectDescriptions>
     <exclusionTags>
       <li>RC_SolarMetabolism</li>
+      <li>RC_Conflict_UVSensitivity_SolarNutrition</li>
+      <li>RC_Conflict_TwilightStride_SolarNutrition</li>
     </exclusionTags>
     <modExtensions Inherit="False">
       <li Class="VanillaGenesExpanded.GeneExtension">
@@ -561,6 +575,8 @@
     </customEffectDescriptions>
     <exclusionTags>
       <li>UVSensitivity</li>
+      <li>RC_Conflict_UVSensitivity_LightStride</li>
+      <li>RC_Conflict_UVSensitivity_SolarNutrition</li>
     </exclusionTags>
     <modExtensions Inherit="False">
       <li Class="VanillaGenesExpanded.GeneExtension">

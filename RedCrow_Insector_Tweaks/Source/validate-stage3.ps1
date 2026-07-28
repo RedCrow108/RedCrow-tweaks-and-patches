@@ -257,7 +257,10 @@ foreach ($requiredText in @(
     "rateSegmentRegeneration",
     "55000",
     "65000",
-    "SetAllowDamagePropagation(false)",
+    "PartIsMissing",
+    "HediffMaker.MakeHediff",
+    "HediffDefOf.Cut",
+    "Restored segment",
     "Priority.Last"
 )) {
     Assert-True ($sourceText.Contains($requiredText)) (

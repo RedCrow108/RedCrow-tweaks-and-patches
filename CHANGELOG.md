@@ -27,6 +27,12 @@
   those source mods.
 - Runtime verification that curiosity prevents skill decay remains pending;
   the recreation gain from Crafting curiosity was confirmed in game.
+- Fixed segment restoration under HSK/Combat Extended by creating the
+  controlled bleeding injury directly instead of applying combat damage
+  that could destroy the restored part again.
+- Added selective light-geneline conflicts: UV sensitivity now conflicts
+  with light stride and solar nutrition, while twilight stride conflicts
+  with solar nutrition. Aligned combinations remain available.
 - Added the open Natural Symbiosis evolution, which grants the HMC Touch of Nature trait when HSK More Content is active.
 - Natural Symbiosis does not yet participate in the VFE Insectoids 2 core-based evolution unlock system.
 - Added the open Strong Back evolution.
