@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <HediffDef>
+    <defName>RC_ExternalNoiseCutoff</defName>
+    <label>отсечение внешнего гула</label>
+    <description>Слуховой орган полностью отсечён от внешних звуков.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <allowMothballIfLowPriorityWorldPawn>true</allowMothballIfLowPriorityWorldPawn>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <maxSeverity>1.0</maxSeverity>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <minSeverity>0</minSeverity>
+        <capMods>
+          <li>
+            <capacity>Hearing</capacity>
+            <setMax>0</setMax>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>RC_ArchiteNutrition</defName>
+    <label>архитное питание улья</label>
+    <description>Архиты поддерживают обмен веществ почти без внешней пищи.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <allowMothballIfLowPriorityWorldPawn>true</allowMothballIfLowPriorityWorldPawn>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <maxSeverity>1.0</maxSeverity>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <hungerRateFactorOffset>-0.9999</hungerRateFactorOffset>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>
