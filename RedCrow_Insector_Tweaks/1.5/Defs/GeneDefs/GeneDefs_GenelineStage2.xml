@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Stage 2 presentation. Autonomous elements keep a local fallback icon. -->
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      Name="RC_Stage2EvolutionBase"
+      ParentName="VRE_EvolutionGene"
+      Abstract="True">
+    <unlockable>false</unlockable>
+    <selectionWeight>0</selectionWeight>
+    <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
+    <modExtensions>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      Name="RC_Stage2MutationBase"
+      ParentName="VRE_MutationGene"
+      Abstract="True">
+    <unlockable>false</unlockable>
+    <selectionWeight>0</selectionWeight>
+    <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
+    <modExtensions>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <!-- Tier 1 -->
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage2MutationBase">
+    <defName>RC_Mutation_MildPhotophobia</defName>
+    <label>слабая светобоязнь</label>
+    <description>Фасеточные глаза носителя болезненно реагируют на прямой солнечный свет. Под солнцем зрение снижается на 10%, а настроение — на 3.</description>
+    <displayOrderInCategory>2501</displayOrderInCategory>
+    <mutation>1</mutation>
+    <dislikesSunlight>true</dislikesSunlight>
+    <customEffectDescriptions>
+      <li>Прямой солнечный свет: зрение −10%, настроение −3.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>UVSensitivity</li>
+    </exclusionTags>
+    <modExtensions Inherit="False">
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+        <hediffToWholeBody>RC_MildPhotophobia</hediffToWholeBody>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage2MutationBase">
+    <defName>RC_Mutation_SolarVulnerability</defName>
+    <label>солнечная уязвимость</label>
+    <description>Светочувствительные ткани носителя болезненно реагируют на прямые солнечные лучи. Под солнцем скорость передвижения умножается на 0,9, а настроение снижается на 6.</description>
+    <iconPath>UI/Icons/Genes/Gene_MildUVSensitivity</iconPath>
+    <displayOrderInCategory>2502</displayOrderInCategory>
+    <mutation>1</mutation>
+    <dislikesSunlight>true</dislikesSunlight>
+    <conditionalStatAffecters>
+      <li Class="ConditionalStatAffecter_InSunlight">
+        <statFactors>
+          <MoveSpeed>0.9</MoveSpeed>
+        </statFactors>
+      </li>
+    </conditionalStatAffecters>
+    <customEffectDescriptions>
+      <li>Прямой солнечный свет: скорость передвижения ×0,9, настроение −6.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>UVSensitivity</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <!-- Tier 2 -->
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage2MutationBase">
+    <defName>RC_Mutation_SwarmSensoryCrown</defName>
+    <label>сенсорный венец роя</label>
+    <description>Два подвижных усика дополняют зрение носителя и заглушают негативную мысль о темноте. Каждый сохранившийся усик добавляет 0,00675 боли и снижает красоту на 1; боевые штрафы темноты не отменяются.</description>
+    <displayOrderInCategory>2511</displayOrderInCategory>
+    <mutation>2</mutation>
+    <customEffectDescriptions>
+      <li>Добавляет по одному сенсорному усику на каждое ухо.</li>
+      <li>Каждый усик: боль +0,00675, красота −1.</li>
+      <li>Отключает только негативную мысль о темноте.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>Antennas</li>
+      <li>Antenna</li>
+      <li>AG_Antennae</li>
+    </exclusionTags>
+    <modExtensions Inherit="False">
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+        <hediffsToBodyParts>
+          <li>
+            <hediff>RC_SwarmSensoryAntenna</hediff>
+            <bodyparts>
+              <li>Ear</li>
+              <li>Ear</li>
+            </bodyparts>
+          </li>
+        </hediffsToBodyParts>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage2EvolutionBase">
+    <defName>RC_Evolution_LongImagoCycle</defName>
+    <label>долгий цикл имаго</label>
+    <description>Жизненный цикл носителя растянут во много раз. Ожидаемая продолжительность жизни умножается на 8; до 13 лет биологическое взросление идёт в пять раз медленнее и постепенно возвращается к обычной скорости к 18 годам.</description>
+    <displayOrderInCategory>3201</displayOrderInCategory>
+    <evolution>2</evolution>
+    <statFactors>
+      <LifespanFactor>8</LifespanFactor>
+    </statFactors>
+    <biologicalAgeTickFactorFromAgeCurve>
+      <points>
+        <li>(13, 0.2)</li>
+        <li>(18, 1)</li>
+      </points>
+    </biologicalAgeTickFactorFromAgeCurve>
+    <exclusionTags>
+      <li>AG_Aging</li>
+      <li>Aging</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <!-- Only one curiosity instinct can be active. Runtime effects are supplied
+       by Stage2Effects.cs and do not depend on VRE Genie static trackers. -->
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage2EvolutionBase">
+    <defName>RC_Evolution_CuriosityShooting</defName>
+    <label>инстинкт стрелка</label>
+    <description>Положительный опыт стрельбы приносит досуг в размере опыта ×0,001 и не позволяет опыту стрельбы снижаться. Другие навыки не затрагиваются.</description>
+    <displayOrderInCategory>3202</displayOrderInCategory>
+    <evolution>2</evolution>
+    <exclusionTags>
+      <li>VRE_Curiosity</li>
+      <li>Curiosity</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage2EvolutionBase">
+    <defName>RC_Evolution_CuriosityMelee</defName>
+    <label>инстинкт жвала</label>
+    <description>Положительный опыт ближнего боя приносит досуг в размере опыта ×0,001 и не позволяет опыту ближнего боя снижаться. Другие навыки не затрагиваются.</description>
+    <displayOrderInCategory>3203</displayOrderInCategory>
+    <evolution>2</evolution>
+    <exclusionTags>
+      <li>VRE_Curiosity</li>
+      <li>Curiosity</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage2EvolutionBase">
+    <defName>RC_Evolution_CuriosityConstruction</defName>
+    <label>инстинкт строителя</label>
+    <description>Положительный опыт строительства приносит досуг в размере опыта ×0,001 и не позволяет опыту строительства снижаться. Другие навыки не затрагиваются.</description>
+    <displayOrderInCategory>3204</displayOrderInCategory>
+    <evolution>2</evolution>
+    <exclusionTags>
+      <li>VRE_Curiosity</li>
+      <li>Curiosity</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage2EvolutionBase">
+    <defName>RC_Evolution_CuriosityMining</defName>
+    <label>инстинкт проходчика</label>
+    <description>Положительный опыт горного дела приносит досуг в размере опыта ×0,001 и не позволяет опыту горного дела снижаться. Другие навыки не затрагиваются.</description>
+    <displayOrderInCategory>3205</displayOrderInCategory>
+    <evolution>2</evolution>
+    <exclusionTags>
+      <li>VRE_Curiosity</li>
+      <li>Curiosity</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage2EvolutionBase">
+    <defName>RC_Evolution_CuriosityCooking</defName>
+    <label>инстинкт кормильца</label>
+    <description>Положительный опыт готовки приносит досуг в размере опыта ×0,001 и не позволяет опыту готовки снижаться. Другие навыки не затрагиваются.</description>
+    <displayOrderInCategory>3206</displayOrderInCategory>
+    <evolution>2</evolution>
+    <exclusionTags>
+      <li>VRE_Curiosity</li>
+      <li>Curiosity</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage2EvolutionBase">
+    <defName>RC_Evolution_CuriosityPlants</defName>
+    <label>инстинкт садовника</label>
+    <description>Положительный опыт растениеводства приносит досуг в размере опыта ×0,001 и не позволяет опыту растениеводства снижаться. Другие навыки не затрагиваются.</description>
+    <displayOrderInCategory>3207</displayOrderInCategory>
+    <evolution>2</evolution>
+    <exclusionTags>
+      <li>VRE_Curiosity</li>
+      <li>Curiosity</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage2EvolutionBase">
+    <defName>RC_Evolution_CuriosityAnimals</defName>
+    <label>инстинкт укротителя</label>
+    <description>Положительный опыт обращения с животными приносит досуг в размере опыта ×0,001 и не позволяет этому опыту снижаться. Другие навыки не затрагиваются.</description>
+    <displayOrderInCategory>3208</displayOrderInCategory>
+    <evolution>2</evolution>
+    <exclusionTags>
+      <li>VRE_Curiosity</li>
+      <li>Curiosity</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage2EvolutionBase">
+    <defName>RC_Evolution_CuriosityCrafting</defName>
+    <label>инстинкт ткача</label>
+    <description>Положительный опыт ремесла приносит досуг в размере опыта ×0,001 и не позволяет опыту ремесла снижаться. Другие навыки не затрагиваются.</description>
+    <displayOrderInCategory>3209</displayOrderInCategory>
+    <evolution>2</evolution>
+    <exclusionTags>
+      <li>VRE_Curiosity</li>
+      <li>Curiosity</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage2EvolutionBase">
+    <defName>RC_Evolution_CuriosityArtistic</defName>
+    <label>инстинкт узорщика</label>
+    <description>Положительный опыт искусства приносит досуг в размере опыта ×0,001 и не позволяет опыту искусства снижаться. Другие навыки не затрагиваются.</description>
+    <displayOrderInCategory>3210</displayOrderInCategory>
+    <evolution>2</evolution>
+    <exclusionTags>
+      <li>VRE_Curiosity</li>
+      <li>Curiosity</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage2EvolutionBase">
+    <defName>RC_Evolution_CuriosityMedicine</defName>
+    <label>инстинкт целителя</label>
+    <description>Положительный опыт медицины приносит досуг в размере опыта ×0,001 и не позволяет опыту медицины снижаться. Другие навыки не затрагиваются.</description>
+    <displayOrderInCategory>3211</displayOrderInCategory>
+    <evolution>2</evolution>
+    <exclusionTags>
+      <li>VRE_Curiosity</li>
+      <li>Curiosity</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage2EvolutionBase">
+    <defName>RC_Evolution_CuriositySocial</defName>
+    <label>инстинкт связного</label>
+    <description>Положительный опыт общения приносит досуг в размере опыта ×0,001 и не позволяет опыту общения снижаться. Другие навыки не затрагиваются.</description>
+    <displayOrderInCategory>3212</displayOrderInCategory>
+    <evolution>2</evolution>
+    <exclusionTags>
+      <li>VRE_Curiosity</li>
+      <li>Curiosity</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage2EvolutionBase">
+    <defName>RC_Evolution_CuriosityIntellectual</defName>
+    <label>инстинкт мыслителя</label>
+    <description>Положительный опыт исследований приносит досуг в размере опыта ×0,001 и не позволяет интеллектуальному опыту снижаться. Другие навыки не затрагиваются.</description>
+    <displayOrderInCategory>3213</displayOrderInCategory>
+    <evolution>2</evolution>
+    <exclusionTags>
+      <li>VRE_Curiosity</li>
+      <li>Curiosity</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage2MutationBase">
+    <defName>RC_Mutation_SolarExhaustion</defName>
+    <label>солнечное истощение</label>
+    <description>Прямой солнечный свет перегружает чувствительные ткани носителя. Под солнцем скорость передвижения умножается на 0,8, а настроение снижается на 12.</description>
+    <iconPath>UI/Icons/Genes/Gene_IntenseUVSensitivity</iconPath>
+    <displayOrderInCategory>2512</displayOrderInCategory>
+    <mutation>2</mutation>
+    <dislikesSunlight>true</dislikesSunlight>
+    <conditionalStatAffecters>
+      <li Class="ConditionalStatAffecter_InSunlight">
+        <statFactors>
+          <MoveSpeed>0.8</MoveSpeed>
+        </statFactors>
+      </li>
+    </conditionalStatAffecters>
+    <customEffectDescriptions>
+      <li>Прямой солнечный свет: скорость передвижения ×0,8, настроение −12.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>UVSensitivity</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <!-- Tier 3 -->
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_Stage2EvolutionBase"
+      MayRequire="CarbineAction.HSK.VRE.Archon">
+    <defName>RC_Evolution_AcceleratedBroodMaturity</defName>
+    <label>ускоренное созревание выводка</label>
+    <description>Носитель значительно раньше осваивает труд взрослых: базовые работы, переноска и уборка доступны с 3 лет; большинство специальностей — с 4; лечение, надзор, строительство и искусство — с 7; кузнечное дело и исследования — с 10.</description>
+    <iconPath>UI/Icons/Genes/Gene_EarlyMaturity</iconPath>
+    <displayOrderInCategory>3221</displayOrderInCategory>
+    <evolution>3</evolution>
+    <modExtensions Inherit="False">
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes>
+      </li>
+      <li Class="VREArchon.LifeStageWorkSettingsExtension">
+        <lifeStageWorkSettings>
+          <Firefighter>4</Firefighter>
+          <Patient>0</Patient>
+          <Doctor>7</Doctor>
+          <PatientBedRest>0</PatientBedRest>
+          <Childcare MayRequire="Ludeon.RimWorld.Biotech">0</Childcare>
+          <BasicWorker>3</BasicWorker>
+          <Warden>7</Warden>
+          <Handling>4</Handling>
+          <Cooking>4</Cooking>
+          <Hunting>4</Hunting>
+          <Construction>7</Construction>
+          <Growing>4</Growing>
+          <Mining>4</Mining>
+          <PlantCutting>4</PlantCutting>
+          <Smithing>10</Smithing>
+          <Tailoring>4</Tailoring>
+          <Art>7</Art>
+          <Hauling>3</Hauling>
+          <Cleaning>3</Cleaning>
+          <Research>10</Research>
+        </lifeStageWorkSettings>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage2EvolutionBase">
+    <defName>RC_Evolution_AgelessImago</defName>
+    <label>нестареющий имаго</label>
+    <description>После 13 лет биологическое старение носителя постепенно замедляется и полностью прекращается к 18,5 годам.</description>
+    <iconPath>UI/Icons/Genes/Gene_Ageless</iconPath>
+    <displayOrderInCategory>3222</displayOrderInCategory>
+    <evolution>3</evolution>
+    <biologicalAgeTickFactorFromAgeCurve>
+      <points>
+        <li>(13, 1)</li>
+        <li>(18.5, 0)</li>
+      </points>
+    </biologicalAgeTickFactorFromAgeCurve>
+    <exclusionTags>
+      <li>AG_Aging</li>
+      <li>Aging</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_Stage2EvolutionBase"
+      MayRequire="sarg.alphagenes">
+    <defName>RC_Evolution_MatriarchWail</defName>
+    <label>вопль матки</label>
+    <description>Носитель получает направленный вопль дальностью 12,9 клетки. До 16 поражённых клеток лишаются слуха и получают множитель 0,5 к точности стрельбы и уклонению в ближнем бою на 30000 тиков; восстановление способности также занимает 30000 тиков.</description>
+    <iconPath>UI/Icons/Genes/AG_SonicBoom</iconPath>
+    <displayOrderInCategory>3223</displayOrderInCategory>
+    <evolution>3</evolution>
+    <abilities>
+      <li>AG_BansheeScream</li>
+    </abilities>
+    <descriptionHyperlinks>
+      <AbilityDef>AG_BansheeScream</AbilityDef>
+    </descriptionHyperlinks>
+    <exclusionTags>
+      <li>RC_Ability_BansheeScream</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage2MutationBase">
+    <defName>RC_Mutation_LightStride</defName>
+    <label>световая поступь</label>
+    <description>При общей освещённости не ниже 50% скорость передвижения носителя умножается на 1,5; в темноте ниже 50% — на 0,5. Прямой солнечный свет не требуется.</description>
+    <displayOrderInCategory>2521</displayOrderInCategory>
+    <mutation>3</mutation>
+    <conditionalStatAffecters>
+      <li Class="VanillaGenesExpanded.ConditionalStatAffecter_Darkness">
+        <statFactors>
+          <MoveSpeed>0.5</MoveSpeed>
+        </statFactors>
+      </li>
+      <li Class="VanillaGenesExpanded.ConditionalStatAffecter_InLight">
+        <statFactors>
+          <MoveSpeed>1.5</MoveSpeed>
+        </statFactors>
+      </li>
+    </conditionalStatAffecters>
+    <exclusionTags>
+      <li>RC_LightDependence</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage2MutationBase">
+    <defName>RC_Mutation_TwilightStride</defName>
+    <label>сумрачная поступь</label>
+    <description>В темноте ниже 50% скорость передвижения носителя умножается на 1,5; при общей освещённости не ниже 50% — на 0,5.</description>
+    <displayOrderInCategory>2522</displayOrderInCategory>
+    <mutation>3</mutation>
+    <conditionalStatAffecters>
+      <li Class="VanillaGenesExpanded.ConditionalStatAffecter_Darkness">
+        <statFactors>
+          <MoveSpeed>1.5</MoveSpeed>
+        </statFactors>
+      </li>
+      <li Class="VanillaGenesExpanded.ConditionalStatAffecter_InLight">
+        <statFactors>
+          <MoveSpeed>0.5</MoveSpeed>
+        </statFactors>
+      </li>
+    </conditionalStatAffecters>
+    <exclusionTags>
+      <li>RC_LightDependence</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <!-- Tier 4 -->
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_Stage2EvolutionBase"
+      MayRequire="sarg.alphagenes,Ludeon.RimWorld.Royalty">
+    <defName>RC_Evolution_PsiMimicry</defName>
+    <label>пси-мимикрия</label>
+    <description>Носитель получает способность психически маскировать собственное тело и становиться невидимым на 5000 тиков. Восстановление способности занимает 30000 тиков.</description>
+    <iconPath>UI/Icons/Genes/AG_Invisibility</iconPath>
+    <displayOrderInCategory>3231</displayOrderInCategory>
+    <evolution>4</evolution>
+    <abilities>
+      <li>AG_Invisibility</li>
+    </abilities>
+    <descriptionHyperlinks>
+      <AbilityDef>AG_Invisibility</AbilityDef>
+    </descriptionHyperlinks>
+    <exclusionTags>
+      <li>RC_Ability_Invisibility</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_Stage2EvolutionBase"
+      MayRequire="sarg.alphagenes">
+    <defName>RC_Evolution_InsanityPulse</defName>
+    <label>импульс безумия</label>
+    <description>Носитель получает пси-импульс дальностью 15,9 клетки, который вызывает берсерк у восприимчивой цели. Цели с низкой психической чувствительностью могут сопротивляться; восстановление занимает 60000 тиков.</description>
+    <iconPath>UI/Icons/Genes/AG_InsanityBlast</iconPath>
+    <displayOrderInCategory>3232</displayOrderInCategory>
+    <evolution>4</evolution>
+    <abilities>
+      <li>AG_InsanityBlast</li>
+    </abilities>
+    <descriptionHyperlinks>
+      <AbilityDef>AG_InsanityBlast</AbilityDef>
+    </descriptionHyperlinks>
+    <exclusionTags>
+      <li>RC_Ability_InsanityBlast</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage2MutationBase">
+    <defName>RC_Mutation_SolarOverdrive</defName>
+    <label>солнечный разгон</label>
+    <description>Прямой солнечный свет ускоряет носителя, а его отсутствие вызывает глубокую вялость. Под солнцем скорость передвижения ×1,3, общая скорость работы ×1,15 и скорость падения отдыха ×0,8; без солнца соответственно ×0,5, ×0,8 и ×1,25.</description>
+    <displayOrderInCategory>2531</displayOrderInCategory>
+    <mutation>4</mutation>
+    <conditionalStatAffecters>
+      <li Class="ConditionalStatAffecter_InSunlight">
+        <statFactors>
+          <MoveSpeed>1.3</MoveSpeed>
+          <WorkSpeedGlobal>1.15</WorkSpeedGlobal>
+          <RestFallRateFactor>0.8</RestFallRateFactor>
+        </statFactors>
+      </li>
+      <li Class="VanillaGenesExpanded.ConditionalStatAffecter_NoSunlight">
+        <statFactors>
+          <MoveSpeed>0.5</MoveSpeed>
+          <RestFallRateFactor>1.25</RestFallRateFactor>
+          <WorkSpeedGlobal>0.8</WorkSpeedGlobal>
+        </statFactors>
+      </li>
+    </conditionalStatAffecters>
+    <exclusionTags>
+      <li>RC_SolarMetabolism</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage2MutationBase">
+    <defName>RC_Mutation_SolarStupor</defName>
+    <label>солнечный ступор</label>
+    <description>Прямой солнечный свет почти полностью отключает нервную систему носителя: максимум сознания ограничивается 10%, пока пешка остаётся под солнцем.</description>
+    <displayOrderInCategory>2532</displayOrderInCategory>
+    <mutation>4</mutation>
+    <dislikesSunlight>true</dislikesSunlight>
+    <customEffectDescriptions>
+      <li>Прямой солнечный свет: максимум сознания 10%.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>UVSensitivity</li>
+    </exclusionTags>
+    <modExtensions Inherit="False">
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+        <hediffToWholeBody>RC_SolarStupor</hediffToWholeBody>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage2EvolutionBase">
+    <defName>RC_Evolution_ChlorophyllMetabolism</defName>
+    <label>хлорофильный метаболизм</label>
+    <description>Кожа носителя преобразует прямой солнечный свет в питание. Под солнцем скорость голода уменьшается почти до нуля на 0,9999; без прямого солнца обмен веществ работает обычно.</description>
+    <displayOrderInCategory>3233</displayOrderInCategory>
+    <evolution>4</evolution>
+    <customEffectDescriptions>
+      <li>Прямой солнечный свет: скорость голода −0,9999.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>RC_SolarMetabolism</li>
+    </exclusionTags>
+    <modExtensions Inherit="False">
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes>
+        <hediffToWholeBody>RC_ChlorophyllMetabolism</hediffToWholeBody>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <!-- Tier 5 -->
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage2MutationBase">
+    <defName>RC_Mutation_SolarDeath</defName>
+    <label>солнечная гибель</label>
+    <description>Ткани носителя вспыхивают под прямым солнечным светом. Каждые 500 тиков солнце наносит 15 единиц постоянного ожогового урона; без немедленного укрытия мутация смертельна.</description>
+    <displayOrderInCategory>2541</displayOrderInCategory>
+    <mutation>5</mutation>
+    <dislikesSunlight>true</dislikesSunlight>
+    <skinColorOverride>(250, 240, 240)</skinColorOverride>
+    <randomBrightnessFactor>0</randomBrightnessFactor>
+    <customEffectDescriptions>
+      <li>Прямой солнечный свет: 15 постоянного ожогового урона каждые 500 тиков.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>UVSensitivity</li>
+    </exclusionTags>
+    <modExtensions Inherit="False">
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+        <hediffToWholeBody>RC_SolarDeath</hediffToWholeBody>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+</Defs>

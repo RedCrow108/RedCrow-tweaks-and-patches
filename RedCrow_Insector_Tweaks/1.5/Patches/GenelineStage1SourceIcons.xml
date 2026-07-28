@@ -4,7 +4,7 @@
   <!-- Autonomous genes keep the local fallback unless the source textures exist. -->
   <Operation Class="PatchOperationFindMod">
     <mods>
-      <li>sarg.alphagenes</li>
+      <li>Alpha Genes</li>
     </mods>
     <match Class="PatchOperationSequence">
       <success>Always</success>
@@ -57,7 +57,7 @@
 
   <Operation Class="PatchOperationFindMod">
     <mods>
-      <li>arpomo6.hmc.project</li>
+      <li>HSK more content</li>
     </mods>
     <match Class="PatchOperationReplace">
       <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Evolution_CarryingFolds"]/iconPath</xpath>

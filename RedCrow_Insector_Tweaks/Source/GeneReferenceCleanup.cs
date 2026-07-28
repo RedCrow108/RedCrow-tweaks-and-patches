@@ -164,6 +164,11 @@ namespace RedCrow.InsectorTweaks
                     traits.RecalculateSuppression();
                 }
 
+                int restoredAbilities =
+                    RestoreAbilitiesGrantedByCurrentGenes(
+                        tracker,
+                        removedGeneDef);
+
                 int remainingOverrides =
                     CountMissingOverrideReferences(tracker);
                 int remainingTraitSuppressions =
@@ -195,7 +200,9 @@ namespace RedCrow.InsectorTweaks
                         "; cleared missing overrides=" +
                         staleOverrides +
                         ", rebuilt trait suppressions=" +
-                        staleTraitSuppressions + ".");
+                        staleTraitSuppressions +
+                        ", restored shared abilities=" +
+                        restoredAbilities + ".");
                 }
             }
             catch (Exception exception)
@@ -283,6 +290,62 @@ namespace RedCrow.InsectorTweaks
             }
 
             return count;
+        }
+
+        private static int RestoreAbilitiesGrantedByCurrentGenes(
+            Pawn_GeneTracker tracker,
+            GeneDef removedGeneDef)
+        {
+            if (removedGeneDef == null ||
+                removedGeneDef.abilities == null ||
+                removedGeneDef.abilities.Count == 0 ||
+                tracker.pawn == null ||
+                tracker.pawn.abilities == null)
+            {
+                return 0;
+            }
+
+            int restored = 0;
+            List<Gene> genes = tracker.GenesListForReading;
+
+            for (int abilityIndex = 0;
+                abilityIndex < removedGeneDef.abilities.Count;
+                abilityIndex++)
+            {
+                AbilityDef ability = removedGeneDef.abilities[abilityIndex];
+                if (ability == null ||
+                    tracker.pawn.abilities.GetAbility(
+                        ability,
+                        false) != null)
+                {
+                    continue;
+                }
+
+                bool stillGranted = false;
+                for (int geneIndex = 0;
+                    geneIndex < genes.Count;
+                    geneIndex++)
+                {
+                    Gene gene = genes[geneIndex];
+                    if (gene != null &&
+                        gene.def != null &&
+                        gene.Active &&
+                        gene.def.abilities != null &&
+                        gene.def.abilities.Contains(ability))
+                    {
+                        stillGranted = true;
+                        break;
+                    }
+                }
+
+                if (stillGranted)
+                {
+                    tracker.pawn.abilities.GainAbility(ability);
+                    restored++;
+                }
+            }
+
+            return restored;
         }
 
         private static bool HasCurrentGenelineGene(

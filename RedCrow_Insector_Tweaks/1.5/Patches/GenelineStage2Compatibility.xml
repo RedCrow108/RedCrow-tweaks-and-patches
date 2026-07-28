@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Alpha Genes supplies optional source icons, antenna graphics, and
+       three active AbilityDefs. No Alpha texture or implementation is copied. -->
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Alpha Genes</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Mutation_MildPhotophobia"]/iconPath</xpath>
+          <value>
+            <iconPath>UI/Icons/Genes/AG_SolarMinor</iconPath>
+          </value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Mutation_SwarmSensoryCrown"]/iconPath</xpath>
+          <value>
+            <iconPath>UI/Icons/Genes/AGI_AntennaIcon</iconPath>
+          </value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Mutation_SwarmSensoryCrown"]</xpath>
+          <value>
+            <renderNodeProperties>
+              <li>
+                <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+                <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+                <texPath>Things/Pawn/Humanlike/HeadAttachments/AGI_Antenna/AGI_Antenna</texPath>
+                <useSkinShader>true</useSkinShader>
+                <useRottenColor>true</useRottenColor>
+                <colorType>Skin</colorType>
+                <parentTagDef>Head</parentTagDef>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <drawData>
+                  <defaultData>
+                    <layer>80</layer>
+                  </defaultData>
+                  <dataNorth>
+                    <layer>10</layer>
+                  </dataNorth>
+                </drawData>
+              </li>
+            </renderNodeProperties>
+          </value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Evolution_LongImagoCycle"]/iconPath</xpath>
+          <value>
+            <iconPath>UI/Icons/Genes/AG_ExtraordinaryLifespan</iconPath>
+          </value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Mutation_LightStride"]/iconPath</xpath>
+          <value>
+            <iconPath>UI/Icons/Genes/AG_LightStrider</iconPath>
+          </value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Mutation_TwilightStride"]/iconPath</xpath>
+          <value>
+            <iconPath>UI/Icons/Genes/AG_NightStrider</iconPath>
+          </value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Mutation_SolarOverdrive"]/iconPath</xpath>
+          <value>
+            <iconPath>UI/Icons/Genes/AG_UVPoweredMajor</iconPath>
+          </value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Mutation_SolarStupor"]/iconPath</xpath>
+          <value>
+            <iconPath>UI/Icons/Genes/AG_SolarUnconscious</iconPath>
+          </value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Mutation_SolarDeath"]/iconPath</xpath>
+          <value>
+            <iconPath>UI/Icons/Genes/AG_SolarAnnihilation</iconPath>
+          </value>
+        </li>
+
+        <!-- Prevent an original Alpha ability or lighting gene from stacking
+             with the corresponding Geneline variant. -->
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/GeneDef[defName="AG_LightStriding"]</xpath>
+          <value>
+            <exclusionTags>
+              <li>RC_LightDependence</li>
+            </exclusionTags>
+          </value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/GeneDef[defName="AG_NightStriding"]</xpath>
+          <value>
+            <exclusionTags>
+              <li>RC_LightDependence</li>
+            </exclusionTags>
+          </value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/GeneDef[defName="AG_UVPowered_Major"]</xpath>
+          <value>
+            <exclusionTags>
+              <li>RC_SolarMetabolism</li>
+            </exclusionTags>
+          </value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/GeneDef[defName="AG_BansheeScream"]</xpath>
+          <value>
+            <exclusionTags>
+              <li>RC_Ability_BansheeScream</li>
+            </exclusionTags>
+          </value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/GeneDef[defName="AG_InsanityBlast"]</xpath>
+          <value>
+            <exclusionTags>
+              <li>RC_Ability_InsanityBlast</li>
+            </exclusionTags>
+          </value>
+        </li>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/GeneDef[defName="AG_Invisibility"]</xpath>
+          <match Class="PatchOperationAdd">
+            <xpath>Defs/GeneDef[defName="AG_Invisibility"]</xpath>
+            <value>
+              <exclusionTags>
+                <li>RC_Ability_Invisibility</li>
+              </exclusionTags>
+            </value>
+          </match>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+
+  <!-- VRE Genie is optional for stage 2. It supplies only source icons; the
+       local C# implementation owns the curiosity runtime behavior. -->
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>VRE Genie (HSK/CE Patched)</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Evolution_CuriosityShooting"]/iconPath</xpath>
+          <value><iconPath>UI/Icons/Genes/Curiosity/Gene_CuriosityShooting</iconPath></value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Evolution_CuriosityMelee"]/iconPath</xpath>
+          <value><iconPath>UI/Icons/Genes/Curiosity/Gene_CuriosityMelee</iconPath></value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Evolution_CuriosityConstruction"]/iconPath</xpath>
+          <value><iconPath>UI/Icons/Genes/Curiosity/Gene_CuriosityConstruction</iconPath></value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Evolution_CuriosityMining"]/iconPath</xpath>
+          <value><iconPath>UI/Icons/Genes/Curiosity/Gene_CuriosityMining</iconPath></value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Evolution_CuriosityCooking"]/iconPath</xpath>
+          <value><iconPath>UI/Icons/Genes/Curiosity/Gene_CuriosityCooking</iconPath></value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Evolution_CuriosityPlants"]/iconPath</xpath>
+          <value><iconPath>UI/Icons/Genes/Curiosity/Gene_CuriosityPlants</iconPath></value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Evolution_CuriosityAnimals"]/iconPath</xpath>
+          <value><iconPath>UI/Icons/Genes/Curiosity/Gene_CuriosityAnimals</iconPath></value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Evolution_CuriosityCrafting"]/iconPath</xpath>
+          <value><iconPath>UI/Icons/Genes/Curiosity/Gene_CuriosityCrafting</iconPath></value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Evolution_CuriosityArtistic"]/iconPath</xpath>
+          <value><iconPath>UI/Icons/Genes/Curiosity/Gene_CuriosityArtistic</iconPath></value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Evolution_CuriosityMedicine"]/iconPath</xpath>
+          <value><iconPath>UI/Icons/Genes/Curiosity/Gene_CuriosityMedical</iconPath></value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Evolution_CuriositySocial"]/iconPath</xpath>
+          <value><iconPath>UI/Icons/Genes/Curiosity/Gene_CuriositySocial</iconPath></value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Evolution_CuriosityIntellectual"]/iconPath</xpath>
+          <value><iconPath>UI/Icons/Genes/Curiosity/Gene_CuriosityIntellectual</iconPath></value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>VRE Phytokin (HSK/CE Patched)</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Evolution_ChlorophyllMetabolism"]/iconPath</xpath>
+          <value>
+            <iconPath>UI/Icons/Genes/Gene_Photosynthesis</iconPath>
+          </value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/GeneDef[defName="VRE_Photosynthesis"]</xpath>
+          <value>
+            <exclusionTags>
+              <li>RC_SolarMetabolism</li>
+            </exclusionTags>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+
+</Patch>

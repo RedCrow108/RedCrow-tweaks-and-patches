@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Direct-sunlight mood effects owned by local genes. -->
+  <ThoughtDef>
+    <defName>RC_MildPhotophobiaThought</defName>
+    <workerClass>ThoughtWorker_InSunlight</workerClass>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <requiredGenes>
+      <li>RC_Mutation_MildPhotophobia</li>
+    </requiredGenes>
+    <stages>
+      <li>
+        <label>слабая светобоязнь</label>
+        <description>Солнце режет глаза.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>RC_SolarVulnerabilityThought</defName>
+    <workerClass>ThoughtWorker_InSunlight</workerClass>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <requiredGenes>
+      <li>RC_Mutation_SolarVulnerability</li>
+    </requiredGenes>
+    <stages>
+      <li>
+        <label>солнечная уязвимость</label>
+        <description>Солнце обжигает глаза и неприятно покалывает кожу.</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>RC_SolarExhaustionThought</defName>
+    <workerClass>ThoughtWorker_InSunlight</workerClass>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <requiredGenes>
+      <li>RC_Mutation_SolarExhaustion</li>
+    </requiredGenes>
+    <stages>
+      <li>
+        <label>солнечное истощение</label>
+        <description>Солнечный свет обжигает глаза и кожу.</description>
+        <baseMoodEffect>-12</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

@@ -42,6 +42,7 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="GeneReferenceCleanup.cs" />
     <Compile Include="QualityPatch.cs" />
+    <Compile Include="Stage2Effects.cs" />
   </ItemGroup>
 
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

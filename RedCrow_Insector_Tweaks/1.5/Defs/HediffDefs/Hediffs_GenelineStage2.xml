@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Autonomous stage 2 health effects. -->
+  <HediffDef>
+    <defName>RC_MildPhotophobia</defName>
+    <label>слабая светобоязнь</label>
+    <description>Фасеточные глаза болезненно реагируют на прямой солнечный свет.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <allowMothballIfLowPriorityWorldPawn>true</allowMothballIfLowPriorityWorldPawn>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <maxSeverity>1.0</maxSeverity>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="AnimalBehaviours.HediffCompProperties_StageBySunlight">
+        <sunlightStageIndex>1</sunlightStageIndex>
+        <sunlessStageIndex>0.1</sunlessStageIndex>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <minSeverity>0.1</minSeverity>
+      </li>
+      <li>
+        <minSeverity>1</minSeverity>
+        <capMods>
+          <li>
+            <capacity>Sight</capacity>
+            <offset>-0.1</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>RC_SwarmSensoryAntenna</defName>
+    <label>сенсорный усик роя</label>
+    <labelNoun>сенсорный усик роя</labelNoun>
+    <description>Подвижный сенсорный орган дополняет зрение и пространственное восприятие, но перегружает нервную систему.</description>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <hediffClass>HediffWithComps</hediffClass>
+    <allowMothballIfLowPriorityWorldPawn>true</allowMothballIfLowPriorityWorldPawn>
+    <maxSeverity>1.0</maxSeverity>
+    <isBad>false</isBad>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1</partEfficiency>
+    </addedPartProps>
+    <stages>
+      <li>
+        <painOffset>0.00675</painOffset>
+        <statOffsets>
+          <PawnBeauty>-1</PawnBeauty>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>RC_SolarStupor</defName>
+    <label>солнечный ступор</label>
+    <description>Прямой солнечный свет почти полностью отключает нервную систему.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <allowMothballIfLowPriorityWorldPawn>true</allowMothballIfLowPriorityWorldPawn>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <initialSeverity>0.001</initialSeverity>
+    <maxSeverity>1.0</maxSeverity>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="AnimalBehaviours.HediffCompProperties_StageBySunlight">
+        <sunlightStageIndex>1</sunlightStageIndex>
+        <sunlessStageIndex>0.1</sunlessStageIndex>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <minSeverity>0</minSeverity>
+      </li>
+      <li>
+        <minSeverity>0.1</minSeverity>
+      </li>
+      <li>
+        <minSeverity>1</minSeverity>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <setMax>0.1</setMax>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>RC_ChlorophyllMetabolism</defName>
+    <label>хлорофильный метаболизм</label>
+    <description>Прямой солнечный свет преобразуется в химическую энергию и почти останавливает голод.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <maxSeverity>1.0</maxSeverity>
+    <allowMothballIfLowPriorityWorldPawn>true</allowMothballIfLowPriorityWorldPawn>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="AnimalBehaviours.HediffCompProperties_StageBySunlight" />
+    </comps>
+    <stages>
+      <li>
+        <label>на солнце</label>
+        <minSeverity>0.1</minSeverity>
+        <hungerRateFactorOffset>-0.9999</hungerRateFactorOffset>
+      </li>
+      <li>
+        <label>без солнца</label>
+        <minSeverity>1</minSeverity>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>RC_SolarDeath</defName>
+    <label>солнечная гибель</label>
+    <description>Ткани носителя получают постоянные ожоги под прямым солнечным светом.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <allowMothballIfLowPriorityWorldPawn>true</allowMothballIfLowPriorityWorldPawn>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <maxSeverity>1.0</maxSeverity>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="AnimalBehaviours.HediffCompProperties_HighlyFlammable">
+        <damageToInflict>VEF_PermanentBurn</damageToInflict>
+        <damageAmount>15</damageAmount>
+        <tickInterval>500</tickInterval>
+        <sunlightBurns>true</sunlightBurns>
+      </li>
+    </comps>
+  </HediffDef>
+
+</Defs>
