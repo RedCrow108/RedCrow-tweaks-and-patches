@@ -16,6 +16,17 @@
   after a Geneline element is removed.
 - Corrected optional source-icon detection to use the installed mod names
   expected by RimWorld 1.5 PatchOperationFindMod.
+- Added eight autonomous stage-3 Geneline effects: alien hive visage,
+  pheromone unity, unconstrained carapace, hive electro-organ, two raid
+  presence tiers, matriarch calm aura, and segment restoration.
+- Added source-aware mood aura memories, apparel movement-penalty removal,
+  pawn-specific raid wealth multipliers, and persisted limb-regeneration
+  timing.
+- Reused Alpha Genes and VRE Hussar art only through conditional
+  compatibility patches; all stage-3 mechanics remain available without
+  those source mods.
+- Runtime verification that curiosity prevents skill decay remains pending;
+  the recreation gain from Crafting curiosity was confirmed in game.
 - Added the open Natural Symbiosis evolution, which grants the HMC Touch of Nature trait when HSK More Content is active.
 - Natural Symbiosis does not yet participate in the VFE Insectoids 2 core-based evolution unlock system.
 - Added the open Strong Back evolution.

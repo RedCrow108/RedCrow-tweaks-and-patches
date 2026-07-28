@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThoughtDef>
+    <defName>RC_AlienHiveVisageMemory</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>1</stackLimit>
+    <nullifyingTraits>
+      <li>Kind</li>
+    </nullifyingTraits>
+    <nullifyingGenes>
+      <li>RC_Mutation_AlienHiveVisage</li>
+    </nullifyingGenes>
+    <stages>
+      <li>
+        <label>чуждый лик</label>
+        <description>Я не могу забыть этот нечеловеческий, отталкивающий облик.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>RC_MatriarchCalmMemory</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>1</stackLimit>
+    <nullifyingGenes>
+      <li>RC_Evolution_MatriarchCalmAura</li>
+    </nullifyingGenes>
+    <stages>
+      <li>
+        <label>маточный покой</label>
+        <description>Рядом с этим существом я чувствую спокойствие и связь с чем-то большим.</description>
+        <baseMoodEffect>10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

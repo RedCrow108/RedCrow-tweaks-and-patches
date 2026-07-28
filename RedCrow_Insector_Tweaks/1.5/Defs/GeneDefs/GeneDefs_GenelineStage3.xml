@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      Name="RC_Stage3EvolutionBase"
+      ParentName="VRE_EvolutionGene"
+      Abstract="True">
+    <unlockable>false</unlockable>
+    <selectionWeight>0</selectionWeight>
+    <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
+    <modExtensions>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      Name="RC_Stage3MutationBase"
+      ParentName="VRE_MutationGene"
+      Abstract="True">
+    <unlockable>false</unlockable>
+    <selectionWeight>0</selectionWeight>
+    <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
+    <modExtensions>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <!-- Tier 1 -->
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_Stage3MutationBase">
+    <defName>RC_Mutation_AlienHiveVisage</defName>
+    <label>лик чуждого роя</label>
+    <description>Черты носителя принимают отталкивающую, явно нечеловеческую форму. Красота снижается на 3. Любой психически восприимчивый человек в радиусе 6 клеток получает настроение −5 от увиденного.</description>
+    <displayOrderInCategory>2601</displayOrderInCategory>
+    <mutation>1</mutation>
+    <statOffsets>
+      <PawnBeauty>-3</PawnBeauty>
+    </statOffsets>
+    <missingGeneRomanceChanceFactor>0</missingGeneRomanceChanceFactor>
+    <customEffectDescriptions>
+      <li>Красота: −3.</li>
+      <li>Люди в радиусе 6 клеток: настроение −5 на 1 день.</li>
+      <li>Не действует на добрых, психически глухих и таких же носителей.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>Beauty</li>
+    </exclusionTags>
+    <modExtensions Inherit="False">
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+        <hediffToWholeBody>RC_AlienHiveVisageAura</hediffToWholeBody>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <!-- Tier 2 -->
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_Stage3EvolutionBase">
+    <defName>RC_Evolution_PheromoneUnity</defName>
+    <label>феромонное единение</label>
+    <description>Железы носителя выделяют феромоны, усиливающие его социальное присутствие. Социальное влияние повышается на 0,25, но чувствительные ткани постоянно добавляют 0,0125 боли. Эффект не создаёт ауру настроения.</description>
+    <displayOrderInCategory>3301</displayOrderInCategory>
+    <evolution>2</evolution>
+    <customEffectDescriptions>
+      <li>Социальное влияние: +0,25.</li>
+      <li>Боль: +0,0125.</li>
+      <li>Аура эйфории отсутствует.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>RC_PheromoneSecretor</li>
+    </exclusionTags>
+    <modExtensions Inherit="False">
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes>
+        <hediffToWholeBody>RC_PheromoneUnity</hediffToWholeBody>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_Stage3EvolutionBase">
+    <defName>RC_Evolution_UnconstrainedCarapace</defName>
+    <label>свободный панцирь</label>
+    <description>Сочленения панциря подстраиваются под одежду. Отрицательные модификаторы скорости передвижения от надетых предметов становятся равны нулю; остальные свойства одежды не меняются.</description>
+    <displayOrderInCategory>3302</displayOrderInCategory>
+    <evolution>2</evolution>
+    <customEffectDescriptions>
+      <li>Убирает только штрафы одежды к скорости передвижения.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>RC_ApparelMovePenaltyImmunity</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <!-- Tier 3 -->
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_Stage3MutationBase">
+    <defName>RC_Mutation_HiveElectroOrgan</defName>
+    <label>электроорган улья</label>
+    <description>Техноорганические катушки накапливают заряд и передают его ближайшим батареям. Каждые 40 тиков одна поддерживаемая батарея в радиусе 5 клеток получает 1 единицу энергии. Постоянное напряжение повышает порог нервного срыва на 0,2.</description>
+    <displayOrderInCategory>2621</displayOrderInCategory>
+    <mutation>3</mutation>
+    <statOffsets>
+      <MentalBreakThreshold>0.2</MentalBreakThreshold>
+    </statOffsets>
+    <customEffectDescriptions>
+      <li>Раз в 40 тиков заряжает случайную поддерживаемую батарею в радиусе 5 клеток на 1.</li>
+      <li>Порог нервного срыва: +0,2.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>RC_TeslaOrgan</li>
+    </exclusionTags>
+    <modExtensions Inherit="False">
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+        <hediffToWholeBody>RC_HiveElectroOrgan</hediffToWholeBody>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_Stage3MutationBase">
+    <defName>RC_Mutation_ThreatMark</defName>
+    <label>метка угрозы</label>
+    <description>Налётчики воспринимают носителя как особенно опасную цель. При расчёте богатства пешек его собственная рыночная стоимость умножается на 1,5.</description>
+    <displayOrderInCategory>2622</displayOrderInCategory>
+    <mutation>3</mutation>
+    <customEffectDescriptions>
+      <li>Вклад рыночной стоимости носителя в богатство пешек: ×1,5.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>RC_RaidPresence</li>
+      <li>AG_Presence</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <!-- Tier 4 -->
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_Stage3EvolutionBase">
+    <defName>RC_Evolution_MatriarchCalmAura</defName>
+    <label>аура маточного покоя</label>
+    <description>Разум носителя становится центром успокаивающего психического поля. Психическая чувствительность повышается на 0,5, эффективность медитации на 0,3, восстановление энтропии на 0,25. Психически восприимчивые люди в радиусе 6 клеток получают настроение +10.</description>
+    <displayOrderInCategory>3321</displayOrderInCategory>
+    <evolution>4</evolution>
+    <statOffsets>
+      <PsychicSensitivity>0.5</PsychicSensitivity>
+      <MeditationFocusGain>0.3</MeditationFocusGain>
+      <PsychicEntropyRecoveryRate>0.25</PsychicEntropyRecoveryRate>
+    </statOffsets>
+    <customEffectDescriptions>
+      <li>Психическая чувствительность: +0,5.</li>
+      <li>Эффективность медитации: +0,3.</li>
+      <li>Восстановление энтропии: +0,25.</li>
+      <li>Люди в радиусе 6 клеток: настроение +10 на 1 день.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>PsychicAbility</li>
+    </exclusionTags>
+    <modExtensions Inherit="False">
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes>
+        <hediffToWholeBody>RC_MatriarchCalmAura</hediffToWholeBody>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <!-- Tier 5 -->
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_Stage3MutationBase">
+    <defName>RC_Mutation_DoomOmen</defName>
+    <label>знамение погибели</label>
+    <description>Одно присутствие носителя заставляет врагов готовить подавляющую силу. При расчёте богатства пешек его собственная рыночная стоимость умножается на 4.</description>
+    <displayOrderInCategory>2641</displayOrderInCategory>
+    <mutation>5</mutation>
+    <customEffectDescriptions>
+      <li>Вклад рыночной стоимости носителя в богатство пешек: ×4.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>RC_RaidPresence</li>
+      <li>AG_Presence</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_Stage3EvolutionBase">
+    <defName>RC_Evolution_SegmentRestoration</defName>
+    <label>восстановление сегментов</label>
+    <description>Регенеративные ткани медленно восстанавливают внешние части тела. Раз в 55000–65000 тиков случайная подходящая рана теряет 1 тяжести; если таких ран нет, восстанавливается крупнейшая допустимая утраченная часть с 2 единицами здоровья.</description>
+    <displayOrderInCategory>3341</displayOrderInCategory>
+    <evolution>5</evolution>
+    <marketValueFactor>1.25</marketValueFactor>
+    <customEffectDescriptions>
+      <li>Раз в 55000–65000 тиков лечит 1 тяжести случайной раны на внешней части тела.</li>
+      <li>Если подходящих ран нет, восстанавливает крупнейший допустимый утраченный сегмент с 2 здоровьем и кровотечением.</li>
+      <li>Внутренние органы не восстанавливаются.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>AG_Regeneration</li>
+      <li>RC_Regeneration</li>
+    </exclusionTags>
+    <modExtensions Inherit="False">
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes>
+        <hediffToWholeBody>RC_SegmentRestoration</hediffToWholeBody>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+</Defs>
