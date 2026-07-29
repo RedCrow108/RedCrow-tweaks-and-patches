@@ -7,7 +7,9 @@ partial because the remaining exhaustive tests were explicitly deferred.
 
 Release version: `0.8.0`
 
-Release commit: the commit containing this document (PR #8 final head).
+Release metadata commit: `67988faef9499f8733b48d08d58ea914b9d53b8e`.
+
+Final PR head: recorded by PR #8 and the release report.
 
 The implementation baseline through the final code fix is commit `0eef0bf`.
 

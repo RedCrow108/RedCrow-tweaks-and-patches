@@ -86,55 +86,124 @@
 
         <!-- Prevent an original Alpha ability or lighting gene from stacking
              with the corresponding Geneline variant. -->
-        <li Class="PatchOperationAdd">
+        <li Class="PatchOperationConditional">
           <xpath>Defs/GeneDef[defName="AG_LightStriding"]</xpath>
-          <value>
-            <exclusionTags>
-              <li>RC_LightDependence</li>
-            </exclusionTags>
-          </value>
+          <match Class="PatchOperationConditional">
+            <xpath>Defs/GeneDef[defName="AG_LightStriding"]/exclusionTags</xpath>
+            <match Class="PatchOperationAdd">
+              <xpath>Defs/GeneDef[defName="AG_LightStriding"]/exclusionTags</xpath>
+              <value>
+                <li>RC_LightDependence</li>
+              </value>
+            </match>
+            <nomatch Class="PatchOperationAdd">
+              <xpath>Defs/GeneDef[defName="AG_LightStriding"]</xpath>
+              <value>
+                <exclusionTags>
+                  <li>RC_LightDependence</li>
+                </exclusionTags>
+              </value>
+            </nomatch>
+          </match>
         </li>
-        <li Class="PatchOperationAdd">
+        <li Class="PatchOperationConditional">
           <xpath>Defs/GeneDef[defName="AG_NightStriding"]</xpath>
-          <value>
-            <exclusionTags>
-              <li>RC_LightDependence</li>
-            </exclusionTags>
-          </value>
+          <match Class="PatchOperationConditional">
+            <xpath>Defs/GeneDef[defName="AG_NightStriding"]/exclusionTags</xpath>
+            <match Class="PatchOperationAdd">
+              <xpath>Defs/GeneDef[defName="AG_NightStriding"]/exclusionTags</xpath>
+              <value>
+                <li>RC_LightDependence</li>
+              </value>
+            </match>
+            <nomatch Class="PatchOperationAdd">
+              <xpath>Defs/GeneDef[defName="AG_NightStriding"]</xpath>
+              <value>
+                <exclusionTags>
+                  <li>RC_LightDependence</li>
+                </exclusionTags>
+              </value>
+            </nomatch>
+          </match>
         </li>
-        <li Class="PatchOperationAdd">
+        <li Class="PatchOperationConditional">
           <xpath>Defs/GeneDef[defName="AG_UVPowered_Major"]</xpath>
-          <value>
-            <exclusionTags>
-              <li>RC_SolarMetabolism</li>
-            </exclusionTags>
-          </value>
+          <match Class="PatchOperationConditional">
+            <xpath>Defs/GeneDef[defName="AG_UVPowered_Major"]/exclusionTags</xpath>
+            <match Class="PatchOperationAdd">
+              <xpath>Defs/GeneDef[defName="AG_UVPowered_Major"]/exclusionTags</xpath>
+              <value>
+                <li>RC_SolarMetabolism</li>
+              </value>
+            </match>
+            <nomatch Class="PatchOperationAdd">
+              <xpath>Defs/GeneDef[defName="AG_UVPowered_Major"]</xpath>
+              <value>
+                <exclusionTags>
+                  <li>RC_SolarMetabolism</li>
+                </exclusionTags>
+              </value>
+            </nomatch>
+          </match>
         </li>
-        <li Class="PatchOperationAdd">
+        <li Class="PatchOperationConditional">
           <xpath>Defs/GeneDef[defName="AG_BansheeScream"]</xpath>
-          <value>
-            <exclusionTags>
-              <li>RC_Ability_BansheeScream</li>
-            </exclusionTags>
-          </value>
+          <match Class="PatchOperationConditional">
+            <xpath>Defs/GeneDef[defName="AG_BansheeScream"]/exclusionTags</xpath>
+            <match Class="PatchOperationAdd">
+              <xpath>Defs/GeneDef[defName="AG_BansheeScream"]/exclusionTags</xpath>
+              <value>
+                <li>RC_Ability_BansheeScream</li>
+              </value>
+            </match>
+            <nomatch Class="PatchOperationAdd">
+              <xpath>Defs/GeneDef[defName="AG_BansheeScream"]</xpath>
+              <value>
+                <exclusionTags>
+                  <li>RC_Ability_BansheeScream</li>
+                </exclusionTags>
+              </value>
+            </nomatch>
+          </match>
         </li>
-        <li Class="PatchOperationAdd">
+        <li Class="PatchOperationConditional">
           <xpath>Defs/GeneDef[defName="AG_InsanityBlast"]</xpath>
-          <value>
-            <exclusionTags>
-              <li>RC_Ability_InsanityBlast</li>
-            </exclusionTags>
-          </value>
+          <match Class="PatchOperationConditional">
+            <xpath>Defs/GeneDef[defName="AG_InsanityBlast"]/exclusionTags</xpath>
+            <match Class="PatchOperationAdd">
+              <xpath>Defs/GeneDef[defName="AG_InsanityBlast"]/exclusionTags</xpath>
+              <value>
+                <li>RC_Ability_InsanityBlast</li>
+              </value>
+            </match>
+            <nomatch Class="PatchOperationAdd">
+              <xpath>Defs/GeneDef[defName="AG_InsanityBlast"]</xpath>
+              <value>
+                <exclusionTags>
+                  <li>RC_Ability_InsanityBlast</li>
+                </exclusionTags>
+              </value>
+            </nomatch>
+          </match>
         </li>
         <li Class="PatchOperationConditional">
           <xpath>Defs/GeneDef[defName="AG_Invisibility"]</xpath>
-          <match Class="PatchOperationAdd">
-            <xpath>Defs/GeneDef[defName="AG_Invisibility"]</xpath>
-            <value>
-              <exclusionTags>
+          <match Class="PatchOperationConditional">
+            <xpath>Defs/GeneDef[defName="AG_Invisibility"]/exclusionTags</xpath>
+            <match Class="PatchOperationAdd">
+              <xpath>Defs/GeneDef[defName="AG_Invisibility"]/exclusionTags</xpath>
+              <value>
                 <li>RC_Ability_Invisibility</li>
-              </exclusionTags>
-            </value>
+              </value>
+            </match>
+            <nomatch Class="PatchOperationAdd">
+              <xpath>Defs/GeneDef[defName="AG_Invisibility"]</xpath>
+              <value>
+                <exclusionTags>
+                  <li>RC_Ability_Invisibility</li>
+                </exclusionTags>
+              </value>
+            </nomatch>
           </match>
         </li>
       </operations>
@@ -215,13 +284,25 @@
             <iconPath>UI/Icons/Genes/Gene_Photosynthesis</iconPath>
           </value>
         </li>
-        <li Class="PatchOperationAdd">
+        <li Class="PatchOperationConditional">
           <xpath>Defs/GeneDef[defName="VRE_Photosynthesis"]</xpath>
-          <value>
-            <exclusionTags>
-              <li>RC_SolarMetabolism</li>
-            </exclusionTags>
-          </value>
+          <match Class="PatchOperationConditional">
+            <xpath>Defs/GeneDef[defName="VRE_Photosynthesis"]/exclusionTags</xpath>
+            <match Class="PatchOperationAdd">
+              <xpath>Defs/GeneDef[defName="VRE_Photosynthesis"]/exclusionTags</xpath>
+              <value>
+                <li>RC_SolarMetabolism</li>
+              </value>
+            </match>
+            <nomatch Class="PatchOperationAdd">
+              <xpath>Defs/GeneDef[defName="VRE_Photosynthesis"]</xpath>
+              <value>
+                <exclusionTags>
+                  <li>RC_SolarMetabolism</li>
+                </exclusionTags>
+              </value>
+            </nomatch>
+          </match>
         </li>
       </operations>
     </match>

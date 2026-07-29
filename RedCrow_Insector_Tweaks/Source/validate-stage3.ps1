@@ -281,6 +281,39 @@ foreach ($forbidden in @(
 }
 
 $compatText = $compatXml.OuterXml
+$unsafeExclusionAdds = $compatXml.SelectNodes(
+    "//li[@Class='PatchOperationAdd']/value/exclusionTags"
+)
+Assert-True ($unsafeExclusionAdds.Count -eq 0) (
+    "Stage-3 compatibility must not add a second exclusionTags container"
+)
+foreach ($patch in @(
+    @("AG_VFEI_PheromoneSecretor", "RC_PheromoneSecretor"),
+    @("AG_TetraCoils", "RC_TeslaOrgan"),
+    @("VREH_Unconstrained", "RC_ApparelMovePenaltyImmunity")
+)) {
+    $defName = $patch[0]
+    $tag = $patch[1]
+    $defXPath = "Defs/GeneDef[defName=`"$defName`"]"
+    $listXPath = "$defXPath/exclusionTags"
+    $conditional = $compatXml.SelectSingleNode(
+        "//li[@Class='PatchOperationConditional']" +
+        "[xpath='$defXPath']/match" +
+        "[@Class='PatchOperationConditional']" +
+        "[xpath='$listXPath']"
+    )
+    Assert-True ($null -ne $conditional) (
+        "Stage-3 compatibility is missing safe exclusion handling for $defName"
+    )
+    Assert-True ($null -ne $conditional.SelectSingleNode(
+        "./match[@Class='PatchOperationAdd']" +
+        "[xpath='$listXPath']/value/li[text()='$tag']"
+    )) "Stage-3 compatibility does not append $tag for $defName"
+    Assert-True ($null -ne $conditional.SelectSingleNode(
+        "./nomatch[@Class='PatchOperationAdd']" +
+        "[xpath='$defXPath']/value/exclusionTags/li[text()='$tag']"
+    )) "Stage-3 compatibility has no missing-list fallback for $defName"
+}
 foreach ($modName in @(
     "Alpha Genes",
     "VRE Hussar (HSK/CE Patched)"

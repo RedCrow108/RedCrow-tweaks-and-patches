@@ -416,6 +416,43 @@ $foreignIcons = @(
     "Gene_Photosynthesis"
 )
 $compatText = $compatXml.OuterXml
+$unsafeExclusionAdds = $compatXml.SelectNodes(
+    "//li[@Class='PatchOperationAdd']/value/exclusionTags"
+)
+Assert-True ($unsafeExclusionAdds.Count -eq 0) (
+    "Stage-2 compatibility must not add a second exclusionTags container"
+)
+foreach ($patch in @(
+    @("AG_LightStriding", "RC_LightDependence"),
+    @("AG_NightStriding", "RC_LightDependence"),
+    @("AG_UVPowered_Major", "RC_SolarMetabolism"),
+    @("AG_BansheeScream", "RC_Ability_BansheeScream"),
+    @("AG_InsanityBlast", "RC_Ability_InsanityBlast"),
+    @("AG_Invisibility", "RC_Ability_Invisibility"),
+    @("VRE_Photosynthesis", "RC_SolarMetabolism")
+)) {
+    $defName = $patch[0]
+    $tag = $patch[1]
+    $defXPath = "Defs/GeneDef[defName=`"$defName`"]"
+    $listXPath = "$defXPath/exclusionTags"
+    $conditional = $compatXml.SelectSingleNode(
+        "//li[@Class='PatchOperationConditional']" +
+        "[xpath='$defXPath']/match" +
+        "[@Class='PatchOperationConditional']" +
+        "[xpath='$listXPath']"
+    )
+    Assert-True ($null -ne $conditional) (
+        "Stage-2 compatibility is missing safe exclusion handling for $defName"
+    )
+    Assert-True ($null -ne $conditional.SelectSingleNode(
+        "./match[@Class='PatchOperationAdd']" +
+        "[xpath='$listXPath']/value/li[text()='$tag']"
+    )) "Stage-2 compatibility does not append $tag for $defName"
+    Assert-True ($null -ne $conditional.SelectSingleNode(
+        "./nomatch[@Class='PatchOperationAdd']" +
+        "[xpath='$defXPath']/value/exclusionTags/li[text()='$tag']"
+    )) "Stage-2 compatibility has no missing-list fallback for $defName"
+}
 foreach ($icon in $foreignIcons) {
     Assert-True ($compatText.Contains($icon)) (
         "Conditional compatibility is missing source icon $icon"

@@ -70,21 +70,45 @@
           </value>
         </li>
 
-        <li Class="PatchOperationAdd">
+        <li Class="PatchOperationConditional">
           <xpath>Defs/GeneDef[defName="AG_VFEI_PheromoneSecretor"]</xpath>
-          <value>
-            <exclusionTags>
-              <li>RC_PheromoneSecretor</li>
-            </exclusionTags>
-          </value>
+          <match Class="PatchOperationConditional">
+            <xpath>Defs/GeneDef[defName="AG_VFEI_PheromoneSecretor"]/exclusionTags</xpath>
+            <match Class="PatchOperationAdd">
+              <xpath>Defs/GeneDef[defName="AG_VFEI_PheromoneSecretor"]/exclusionTags</xpath>
+              <value>
+                <li>RC_PheromoneSecretor</li>
+              </value>
+            </match>
+            <nomatch Class="PatchOperationAdd">
+              <xpath>Defs/GeneDef[defName="AG_VFEI_PheromoneSecretor"]</xpath>
+              <value>
+                <exclusionTags>
+                  <li>RC_PheromoneSecretor</li>
+                </exclusionTags>
+              </value>
+            </nomatch>
+          </match>
         </li>
-        <li Class="PatchOperationAdd">
+        <li Class="PatchOperationConditional">
           <xpath>Defs/GeneDef[defName="AG_TetraCoils"]</xpath>
-          <value>
-            <exclusionTags>
-              <li>RC_TeslaOrgan</li>
-            </exclusionTags>
-          </value>
+          <match Class="PatchOperationConditional">
+            <xpath>Defs/GeneDef[defName="AG_TetraCoils"]/exclusionTags</xpath>
+            <match Class="PatchOperationAdd">
+              <xpath>Defs/GeneDef[defName="AG_TetraCoils"]/exclusionTags</xpath>
+              <value>
+                <li>RC_TeslaOrgan</li>
+              </value>
+            </match>
+            <nomatch Class="PatchOperationAdd">
+              <xpath>Defs/GeneDef[defName="AG_TetraCoils"]</xpath>
+              <value>
+                <exclusionTags>
+                  <li>RC_TeslaOrgan</li>
+                </exclusionTags>
+              </value>
+            </nomatch>
+          </match>
         </li>
       </operations>
     </match>
@@ -103,13 +127,25 @@
             <iconPath>UI/GeneIcons/Gene_Unconstrained</iconPath>
           </value>
         </li>
-        <li Class="PatchOperationAdd">
+        <li Class="PatchOperationConditional">
           <xpath>Defs/GeneDef[defName="VREH_Unconstrained"]</xpath>
-          <value>
-            <exclusionTags>
-              <li>RC_ApparelMovePenaltyImmunity</li>
-            </exclusionTags>
-          </value>
+          <match Class="PatchOperationConditional">
+            <xpath>Defs/GeneDef[defName="VREH_Unconstrained"]/exclusionTags</xpath>
+            <match Class="PatchOperationAdd">
+              <xpath>Defs/GeneDef[defName="VREH_Unconstrained"]/exclusionTags</xpath>
+              <value>
+                <li>RC_ApparelMovePenaltyImmunity</li>
+              </value>
+            </match>
+            <nomatch Class="PatchOperationAdd">
+              <xpath>Defs/GeneDef[defName="VREH_Unconstrained"]</xpath>
+              <value>
+                <exclusionTags>
+                  <li>RC_ApparelMovePenaltyImmunity</li>
+                </exclusionTags>
+              </value>
+            </nomatch>
+          </match>
         </li>
       </operations>
     </match>

@@ -21,6 +21,8 @@ Release date: 2026-07-29
   with solar nutrition. Aligned combinations remain available.
 - Optional source-icon detection uses the installed mod names expected by
   RimWorld 1.5 `PatchOperationFindMod`.
+- Compatibility patches append exclusion tags to existing lists and create
+  the list only when absent, avoiding duplicate XML fields.
 
 ### Added
 
