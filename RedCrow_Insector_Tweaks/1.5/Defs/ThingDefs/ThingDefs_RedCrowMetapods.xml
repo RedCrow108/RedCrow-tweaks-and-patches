@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef Name="RC_MetapodBaseDef" Abstract="True">
+    <thingClass>RedCrow.InsectorTweaks.RC_MetapodBase</thingClass>
+    <category>Building</category>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <altitudeLayer>BuildingOnTop</altitudeLayer>
+    <tickerType>Normal</tickerType>
+    <passability>PassThroughOnly</passability>
+    <clearBuildingArea>false</clearBuildingArea>
+    <graphicData>
+      <texPath>Structure/InsectorMetapod</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2, 2)</drawSize>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>0</Flammability>
+    </statBases>
+    <fillPercent>0.5</fillPercent>
+    <selectable>true</selectable>
+    <building>
+      <isEdifice>false</isEdifice>
+    </building>
+    <comps>
+      <li Class="CompProperties_SpawnEffecterOnDestroy">
+        <effect>CocoonDestroyed</effect>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="RC_MetapodBaseDef">
+    <defName>RC_Metapod_Usurpation</defName>
+    <label>usurpation metapod</label>
+    <description>A sealed metapod carrying a victim through a complete usurpation of body and genotype.</description>
+    <modExtensions>
+      <li Class="RedCrow.InsectorTweaks.RC_MetapodExtension">
+        <mode>Usurpation</mode>
+        <baseDurationTicks>1800000</baseDurationTicks>
+        <fuelPerDay>25</fuelPerDay>
+      </li>
+    </modExtensions>
+    <comps Inherit="False">
+      <li Class="CompProperties_SpawnEffecterOnDestroy">
+        <effect>CocoonDestroyed</effect>
+      </li>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>25</fuelConsumptionRate>
+        <fuelCapacity>150</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>InsectJelly</li>
+          </thingDefs>
+        </fuelFilter>
+        <initialFuelPercent>0</initialFuelPercent>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="RC_MetapodBaseDef">
+    <defName>RC_Metapod_CorpseMemory</defName>
+    <label>hive-memory metapod</label>
+    <description>A metapod rebuilding a dead humanlike body around an implanted hive memory.</description>
+    <modExtensions>
+      <li Class="RedCrow.InsectorTweaks.RC_MetapodExtension">
+        <mode>CorpseMemory</mode>
+        <baseDurationTicks>3600000</baseDurationTicks>
+        <fuelPerDay>25</fuelPerDay>
+      </li>
+    </modExtensions>
+    <comps Inherit="False">
+      <li Class="CompProperties_SpawnEffecterOnDestroy">
+        <effect>CocoonDestroyed</effect>
+      </li>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>25</fuelConsumptionRate>
+        <fuelCapacity>300</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>InsectJelly</li>
+          </thingDefs>
+        </fuelFilter>
+        <initialFuelPercent>0</initialFuelPercent>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="RC_MetapodBaseDef">
+    <defName>RC_Metapod_LarvalRebirth</defName>
+    <label>larval-rebirth metapod</label>
+    <description>A metapod dissolving an adult body into a newborn larva while preserving its mind and identity.</description>
+    <modExtensions>
+      <li Class="RedCrow.InsectorTweaks.RC_MetapodExtension">
+        <mode>LarvalRebirth</mode>
+        <baseDurationTicks>1800000</baseDurationTicks>
+        <fuelPerDay>20</fuelPerDay>
+      </li>
+    </modExtensions>
+    <comps Inherit="False">
+      <li Class="CompProperties_SpawnEffecterOnDestroy">
+        <effect>CocoonDestroyed</effect>
+      </li>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>20</fuelConsumptionRate>
+        <fuelCapacity>120</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>InsectJelly</li>
+          </thingDefs>
+        </fuelFilter>
+        <initialFuelPercent>0</initialFuelPercent>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="RC_MetapodBaseDef">
+    <defName>RC_Metapod_PerfectImago</defName>
+    <label>perfect-imago metapod</label>
+    <description>A long-lived metapod rebuilding its occupant as a healthy young adult imago.</description>
+    <modExtensions>
+      <li Class="RedCrow.InsectorTweaks.RC_MetapodExtension">
+        <mode>PerfectImago</mode>
+        <baseDurationTicks>7200000</baseDurationTicks>
+        <fuelPerDay>50</fuelPerDay>
+      </li>
+    </modExtensions>
+    <comps Inherit="False">
+      <li Class="CompProperties_SpawnEffecterOnDestroy">
+        <effect>CocoonDestroyed</effect>
+      </li>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>50</fuelConsumptionRate>
+        <fuelCapacity>1200</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>InsectJelly</li>
+          </thingDefs>
+        </fuelFilter>
+        <initialFuelPercent>0</initialFuelPercent>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RC_Metapod_NoPawn>Пешка не выбрана.</RC_Metapod_NoPawn>
+  <RC_Metapod_Occupied>Метапод уже занят.</RC_Metapod_Occupied>
+  <RC_Metapod_AlreadyContained>Эта пешка уже находится в метаподе RedCrow.</RC_Metapod_AlreadyContained>
+  <RC_Metapod_PawnUnavailable>Пешка должна находиться на текущей карте и быть доступна.</RC_Metapod_PawnUnavailable>
+  <RC_Metapod_TransferFailed>Не удалось переместить пешку в метапод.</RC_Metapod_TransferFailed>
+  <RC_Metapod_TimeRemaining>До выхода {PAWN_nameDef}: {1}\nДобавьте желе насекомых, чтобы ускорить рост в пять раз.</RC_Metapod_TimeRemaining>
+</LanguageData>

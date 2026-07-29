@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RC_Metapod_NoPawn>No pawn was selected.</RC_Metapod_NoPawn>
+  <RC_Metapod_Occupied>The metapod is already occupied.</RC_Metapod_Occupied>
+  <RC_Metapod_AlreadyContained>This pawn is already inside a RedCrow metapod.</RC_Metapod_AlreadyContained>
+  <RC_Metapod_PawnUnavailable>The pawn must be spawned and available on the current map.</RC_Metapod_PawnUnavailable>
+  <RC_Metapod_TransferFailed>The pawn could not be moved into the metapod.</RC_Metapod_TransferFailed>
+  <RC_Metapod_TimeRemaining>Time until {PAWN_nameDef} emerges: {1}\nInsert insect jelly to accelerate growth fivefold.</RC_Metapod_TimeRemaining>
+</LanguageData>
