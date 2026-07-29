@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <HediffDef>
+    <defName>RC_HypertrophiedJellyAbdomen</defName>
+    <label>hypertrophied jelly abdomen</label>
+    <description>An enlarged abdominal organ periodically produces a large quantity of insect jelly.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <allowMothballIfLowPriorityWorldPawn>true</allowMothballIfLowPriorityWorldPawn>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <maxSeverity>1.0</maxSeverity>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="AnimalBehaviours.HediffCompProperties_Spawner">
+        <thingToSpawn>InsectJelly</thingToSpawn>
+        <spawnCount>50</spawnCount>
+        <spawnIntervalRange>60000~60000</spawnIntervalRange>
+        <spawnMaxAdjacent>30</spawnMaxAdjacent>
+        <spawnForbidden>false</spawnForbidden>
+        <showMessageIfOwned>false</showMessageIfOwned>
+      </li>
+    </comps>
+  </HediffDef>
+
+</Defs>

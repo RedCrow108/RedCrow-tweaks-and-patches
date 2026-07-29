@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RC_HungerFormulaLine>RedCrow hunger factor: {0} {1} = x{2}</RC_HungerFormulaLine>
+  <RC_BiologicalToolExplanation>{0}: x{1} biological tool (the strongest tool effect is used)</RC_BiologicalToolExplanation>
+</LanguageData>

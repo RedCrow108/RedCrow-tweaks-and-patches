@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      Name="RC_OrgansEvolutionBase"
+      ParentName="VRE_EvolutionGene"
+      Abstract="True">
+    <unlockable>false</unlockable>
+    <selectionWeight>0</selectionWeight>
+    <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
+    <modExtensions Inherit="False">
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      Name="RC_OrgansMutationBase"
+      ParentName="VRE_MutationGene"
+      Abstract="True">
+    <unlockable>false</unlockable>
+    <selectionWeight>0</selectionWeight>
+    <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
+    <modExtensions Inherit="False">
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_OrgansEvolutionBase">
+    <defName>RC_Evolution_EfficientHiveMetabolism</defName>
+    <label>efficient hive metabolism</label>
+    <description>A redesigned digestive cycle halves the carrier's food-need drain. RedCrow hunger modifiers are combined before other game and mod effects.</description>
+    <displayOrderInCategory>3501</displayOrderInCategory>
+    <evolution>4</evolution>
+    <customEffectDescriptions>
+      <li>Food need drain: x0.5.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>RC_Conflict_HiveMetabolism</li>
+    </exclusionTags>
+    <modExtensions Inherit="False">
+      <li Class="RedCrow.InsectorTweaks.RC_HungerGeneExtension">
+        <hungerMultiplier>0.5</hungerMultiplier>
+      </li>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_OrgansEvolutionBase"
+      MayRequire="VanillaExpanded.VPsycastsE">
+    <defName>RC_Evolution_HivePsyfocusRecycling</defName>
+    <label>hive psyfocus recycling</label>
+    <description>Specialized neural loops reclaim half of the psyfocus normally lost when casting psycasts.</description>
+    <displayOrderInCategory>3502</displayOrderInCategory>
+    <evolution>4</evolution>
+    <statFactors>
+      <VPE_PsyfocusCostFactor>0.5</VPE_PsyfocusCostFactor>
+    </statFactors>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_OrgansMutationBase">
+    <defName>RC_Mutation_SmallThoracicArms</defName>
+    <label>small thoracic arms</label>
+    <description>A short secondary pair of chest arms assists ordinary manipulation without functioning as a weapon.</description>
+    <displayOrderInCategory>3511</displayOrderInCategory>
+    <mutation>2</mutation>
+    <statOffsets>
+      <WorkSpeedGlobal>0.10</WorkSpeedGlobal>
+    </statOffsets>
+    <customEffectDescriptions>
+      <li>Food need drain: +0.2 to the combined RedCrow factor.</li>
+    </customEffectDescriptions>
+    <renderNodeProperties>
+      <li>
+        <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+        <texPath>Things/Pawn/Humanlike/BodyAttachments/RC_SmallThoracicArms</texPath>
+        <overrideMeshSize>0.82</overrideMeshSize>
+        <parentTagDef>Body</parentTagDef>
+        <shaderTypeDef>CutoutComplex</shaderTypeDef>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <drawData>
+          <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+          <defaultData>
+            <layer>20</layer>
+            <offset>(0, 0, -0.08)</offset>
+          </defaultData>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+    <modExtensions Inherit="False">
+      <li Class="RedCrow.InsectorTweaks.RC_HungerGeneExtension">
+        <hungerAdditive>0.2</hungerAdditive>
+      </li>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_OrgansMutationBase">
+    <defName>RC_Mutation_DorsalManipulators</defName>
+    <label>dorsal manipulators</label>
+    <description>Long articulated limbs extend from the back and assist complex work without replacing the carrier's hands.</description>
+    <displayOrderInCategory>3521</displayOrderInCategory>
+    <mutation>3</mutation>
+    <statOffsets>
+      <WorkSpeedGlobal>0.20</WorkSpeedGlobal>
+    </statOffsets>
+    <customEffectDescriptions>
+      <li>Food need drain: +0.4 to the combined RedCrow factor.</li>
+    </customEffectDescriptions>
+    <renderNodeProperties>
+      <li>
+        <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+        <texPath>Things/Pawn/Humanlike/BodyAttachments/RC_DorsalManipulators</texPath>
+        <overrideMeshSize>1.05</overrideMeshSize>
+        <parentTagDef>Body</parentTagDef>
+        <shaderTypeDef>CutoutComplex</shaderTypeDef>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <drawData>
+          <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+          <defaultData>
+            <layer>-4</layer>
+            <offset>(0, 0, 0.15)</offset>
+          </defaultData>
+          <dataNorth>
+            <layer>85</layer>
+          </dataNorth>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+    <modExtensions Inherit="False">
+      <li Class="RedCrow.InsectorTweaks.RC_HungerGeneExtension">
+        <hungerAdditive>0.4</hungerAdditive>
+      </li>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_OrgansMutationBase">
+    <defName>RC_Mutation_PelvicWalkingLimbs</defName>
+    <label>pelvic walking limbs</label>
+    <description>An additional load-bearing pair of pelvic limbs improves movement and supports physical work.</description>
+    <displayOrderInCategory>3531</displayOrderInCategory>
+    <mutation>4</mutation>
+    <statOffsets>
+      <WorkSpeedGlobal>0.20</WorkSpeedGlobal>
+      <MoveSpeed>0.5</MoveSpeed>
+    </statOffsets>
+    <customEffectDescriptions>
+      <li>Food need drain: +0.6 to the combined RedCrow factor.</li>
+    </customEffectDescriptions>
+    <renderNodeProperties>
+      <li>
+        <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+        <texPath>Things/Pawn/Humanlike/BodyAttachments/RC_PelvicWalkingLimbs</texPath>
+        <overrideMeshSize>0.95</overrideMeshSize>
+        <parentTagDef>Body</parentTagDef>
+        <shaderTypeDef>CutoutComplex</shaderTypeDef>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <drawData>
+          <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+          <defaultData>
+            <layer>-2</layer>
+            <offset>(0, 0, -0.28)</offset>
+          </defaultData>
+          <dataNorth>
+            <layer>82</layer>
+          </dataNorth>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+    <modExtensions Inherit="False">
+      <li Class="RedCrow.InsectorTweaks.RC_HungerGeneExtension">
+        <hungerAdditive>0.6</hungerAdditive>
+      </li>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_OrgansMutationBase">
+    <defName>RC_Mutation_HypertrophiedJellyAbdomen</defName>
+    <label>hypertrophied jelly abdomen</label>
+    <description>An enlarged abdominal organ produces fifty units of insect jelly per day. It is independent of the original jelly sacks and both organs can function together.</description>
+    <displayOrderInCategory>3541</displayOrderInCategory>
+    <mutation>5</mutation>
+    <statOffsets>
+      <MoveSpeed>-1</MoveSpeed>
+    </statOffsets>
+    <customEffectDescriptions>
+      <li>Produces 50 insect jelly every 60000 ticks.</li>
+      <li>Food need drain: x1.5 in the combined RedCrow formula.</li>
+    </customEffectDescriptions>
+    <renderNodeProperties>
+      <li>
+        <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+        <texPath>Things/Pawn/Humanlike/BodyAttachments/JellySacks</texPath>
+        <colorType>Skin</colorType>
+        <overrideMeshSize>1.75</overrideMeshSize>
+        <parentTagDef>Body</parentTagDef>
+        <shaderTypeDef>CutoutComplex</shaderTypeDef>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <drawData>
+          <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+          <defaultData>
+            <layer>-3</layer>
+          </defaultData>
+          <dataNorth>
+            <offset>(0, 0, -0.35)</offset>
+            <layer>90</layer>
+          </dataNorth>
+          <dataSouth>
+            <offset>(0, 0, -0.15)</offset>
+          </dataSouth>
+          <dataEast>
+            <offset>(-0.5, 0, -0.15)</offset>
+          </dataEast>
+          <dataWest>
+            <offset>(0.5, 0, -0.15)</offset>
+          </dataWest>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+    <modExtensions Inherit="False">
+      <li Class="RedCrow.InsectorTweaks.RC_HungerGeneExtension">
+        <hungerMultiplier>1.5</hungerMultiplier>
+      </li>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+        <hediffToWholeBody>RC_HypertrophiedJellyAbdomen</hediffToWholeBody>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_OrgansMutationBase">
+    <defName>RC_Mutation_BiologicalSickle</defName>
+    <label>biological sickle</label>
+    <description>Blunt harvesting plates act as a permanent biological sickle. They are not a weapon and cannot be dropped.</description>
+    <displayOrderInCategory>3551</displayOrderInCategory>
+    <mutation>2</mutation>
+    <customEffectDescriptions>
+      <li>Plant work speed: +30%, or the strongest equipped-tool effect.</li>
+      <li>Food need drain: +0.2 to the combined RedCrow factor.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>RC_BiologicalTool</li>
+    </exclusionTags>
+    <modExtensions Inherit="False">
+      <li Class="RedCrow.InsectorTweaks.RC_HungerGeneExtension">
+        <hungerAdditive>0.2</hungerAdditive>
+      </li>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_OrgansMutationBase">
+    <defName>RC_Mutation_BiologicalDiggingTools</defName>
+    <label>biological digging tools</label>
+    <description>Reinforced non-combat digging plates function as a permanent biological earthworking tool.</description>
+    <displayOrderInCategory>3552</displayOrderInCategory>
+    <mutation>3</mutation>
+    <customEffectDescriptions>
+      <li>Plant work and mining speed: +30%, or the strongest equipped-tool effect.</li>
+      <li>Food need drain: +0.2 to the combined RedCrow factor.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>RC_BiologicalTool</li>
+    </exclusionTags>
+    <modExtensions Inherit="False">
+      <li Class="RedCrow.InsectorTweaks.RC_HungerGeneExtension">
+        <hungerAdditive>0.2</hungerAdditive>
+      </li>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_OrgansMutationBase">
+    <defName>RC_Mutation_BiologicalHandaxe</defName>
+    <label>biological handaxe</label>
+    <description>Dense chitinous edges function as a biological handaxe for plant work and pruning, but not as a weapon.</description>
+    <displayOrderInCategory>3553</displayOrderInCategory>
+    <mutation>2</mutation>
+    <customEffectDescriptions>
+      <li>Plant work speed: +30%, or the strongest equipped-tool effect.</li>
+      <li MayRequire="Ludeon.RimWorld.Ideology">Pruning speed: +30%, or the strongest equipped-tool effect.</li>
+      <li>Food need drain: +0.2 to the combined RedCrow factor.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>RC_BiologicalTool</li>
+    </exclusionTags>
+    <modExtensions Inherit="False">
+      <li Class="RedCrow.InsectorTweaks.RC_HungerGeneExtension">
+        <hungerAdditive>0.2</hungerAdditive>
+      </li>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_OrgansMutationBase">
+    <defName>RC_Mutation_BiologicalHammer</defName>
+    <label>biological hammer</label>
+    <description>Heavy chitin impact plates serve as a permanent biological construction and smithing tool without becoming a weapon.</description>
+    <displayOrderInCategory>3554</displayOrderInCategory>
+    <mutation>3</mutation>
+    <customEffectDescriptions>
+      <li>Construction speed: +35%, or the strongest equipped-tool effect.</li>
+      <li>Smithing speed: +30%, or the strongest equipped-tool effect.</li>
+      <li>Food need drain: +0.2 to the combined RedCrow factor.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>RC_BiologicalTool</li>
+    </exclusionTags>
+    <modExtensions Inherit="False">
+      <li Class="RedCrow.InsectorTweaks.RC_HungerGeneExtension">
+        <hungerAdditive>0.2</hungerAdditive>
+      </li>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_OrgansMutationBase">
+    <defName>RC_Mutation_DuplicateCerebellum</defName>
+    <label>duplicate cerebellum</label>
+    <description>A redundant cerebellar structure improves overall neural coordination at a modest metabolic cost.</description>
+    <displayOrderInCategory>3561</displayOrderInCategory>
+    <mutation>5</mutation>
+    <capMods>
+      <li>
+        <capacity>Consciousness</capacity>
+        <offset>0.25</offset>
+      </li>
+    </capMods>
+    <customEffectDescriptions>
+      <li>Food need drain: +0.2 to the combined RedCrow factor.</li>
+    </customEffectDescriptions>
+    <modExtensions Inherit="False">
+      <li Class="RedCrow.InsectorTweaks.RC_HungerGeneExtension">
+        <hungerAdditive>0.2</hungerAdditive>
+      </li>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+</Defs>
