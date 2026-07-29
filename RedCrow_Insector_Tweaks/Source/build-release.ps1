@@ -25,14 +25,49 @@ foreach ($reference in @("Assembly-CSharp.dll", "0Harmony.dll")) {
     }
 }
 
-& $msbuild $project `
-    /t:Rebuild `
-    /p:Configuration=Release `
-    /p:Platform=AnyCPU `
-    /p:GameReferencesPath="$resolvedReferencesPath" `
-    /p:TargetFrameworkRootPath="$resolvedFrameworkRoot\" `
-    /p:FrameworkPathOverride="$frameworkReferencePath"
+$previousGameReferencesPath =
+    [Environment]::GetEnvironmentVariable("GameReferencesPath", "Process")
+$previousTargetFrameworkRootPath =
+    [Environment]::GetEnvironmentVariable("TargetFrameworkRootPath", "Process")
+$previousFrameworkPathOverride =
+    [Environment]::GetEnvironmentVariable("FrameworkPathOverride", "Process")
 
-if ($LASTEXITCODE -ne 0) {
-    throw "Release build failed with exit code $LASTEXITCODE"
+try {
+    # MSBuild 4.8 receives /p values containing spaces as separate arguments
+    # under Windows PowerShell 5.1. Process-scoped properties avoid that split.
+    [Environment]::SetEnvironmentVariable(
+        "GameReferencesPath",
+        $resolvedReferencesPath,
+        "Process")
+    [Environment]::SetEnvironmentVariable(
+        "TargetFrameworkRootPath",
+        $resolvedFrameworkRoot,
+        "Process")
+    [Environment]::SetEnvironmentVariable(
+        "FrameworkPathOverride",
+        $frameworkReferencePath,
+        "Process")
+
+    & $msbuild $project `
+        /t:Rebuild `
+        /p:Configuration=Release `
+        /p:Platform=AnyCPU
+
+    if ($LASTEXITCODE -ne 0) {
+        throw "Release build failed with exit code $LASTEXITCODE"
+    }
+}
+finally {
+    [Environment]::SetEnvironmentVariable(
+        "GameReferencesPath",
+        $previousGameReferencesPath,
+        "Process")
+    [Environment]::SetEnvironmentVariable(
+        "TargetFrameworkRootPath",
+        $previousTargetFrameworkRootPath,
+        "Process")
+    [Environment]::SetEnvironmentVariable(
+        "FrameworkPathOverride",
+        $previousFrameworkPathOverride,
+        "Process")
 }

@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Shared stage-1 presentation. Every autonomous gene starts with a local icon. -->
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      Name="RC_Stage1EvolutionBase"
+      ParentName="VRE_EvolutionGene"
+      Abstract="True">
+    <unlockable>false</unlockable>
+    <selectionWeight>0</selectionWeight>
+    <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
+    <modExtensions>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      Name="RC_Stage1MutationBase"
+      ParentName="VRE_MutationGene"
+      Abstract="True">
+    <unlockable>false</unlockable>
+    <selectionWeight>0</selectionWeight>
+    <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
+    <modExtensions>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <!-- Tier 1 -->
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_Stage1EvolutionBase"
+      MayRequire="skyarkhangel.HSK">
+    <defName>RC_Evolution_HivePsiResonator</defName>
+    <label>пси-резонатор улья</label>
+    <description>Нервные узлы носителя настраиваются на слабые колебания коллективного разума. Психическая чувствительность повышается на 10%, эффективность медитации и восстановление энтропии — на 5%.</description>
+    <iconPath>UI/Icons/Genes/Gene_ImprovedPsychicAbility</iconPath>
+    <displayOrderInCategory>3101</displayOrderInCategory>
+    <evolution>1</evolution>
+    <statOffsets>
+      <PsychicSensitivity>0.1</PsychicSensitivity>
+      <MeditationFocusGain>0.05</MeditationFocusGain>
+      <PsychicEntropyRecoveryRate>0.05</PsychicEntropyRecoveryRate>
+    </statOffsets>
+    <exclusionTags>
+      <li>PsychicAbility</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage1MutationBase">
+    <defName>RC_Mutation_HeavyCasteStride</defName>
+    <label>тяжёлая поступь касты</label>
+    <description>Утолщённый панцирь и массивные опорные сегменты делают носителя устойчивее, но снижают скорость передвижения на 0,2 клетки в секунду.</description>
+    <iconPath>UI/Icons/Genes/Gene_SlowMovespeed</iconPath>
+    <displayOrderInCategory>2401</displayOrderInCategory>
+    <mutation>1</mutation>
+    <statOffsets>
+      <MoveSpeed>-0.2</MoveSpeed>
+    </statOffsets>
+    <exclusionTags>
+      <li>MoveSpeed</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage1EvolutionBase">
+    <defName>RC_Evolution_ScoutStride</defName>
+    <label>бег дозорного</label>
+    <description>Облегчённые суставы и быстрые мышечные волокна приспосабливают носителя к роли дозорного. Скорость передвижения повышается на 0,2 клетки в секунду.</description>
+    <iconPath>UI/Icons/Genes/Gene_QuickMovespeed</iconPath>
+    <displayOrderInCategory>3102</displayOrderInCategory>
+    <evolution>1</evolution>
+    <statOffsets>
+      <MoveSpeed>0.2</MoveSpeed>
+    </statOffsets>
+    <exclusionTags>
+      <li>MoveSpeed</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_Stage1EvolutionBase"
+      MayRequire="skyarkhangel.HSK">
+    <defName>RC_Evolution_CaffeineRejection</defName>
+    <label>отторжение кофеина</label>
+    <description>Обмен веществ носителя расщепляет кофеин до того, как успевает сформироваться зависимость. Шанс получить зависимость от кофеина равен нулю.</description>
+    <displayOrderInCategory>3103</displayOrderInCategory>
+    <evolution>1</evolution>
+    <chemical>Caffeine</chemical>
+    <addictionChanceFactor>0</addictionChanceFactor>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_Stage1EvolutionBase"
+      MayRequire="HSK.WatcherContent">
+    <defName>RC_Evolution_ChipfirRejection</defName>
+    <label>отторжение чифира</label>
+    <description>Ферменты выводка нейтрализуют вызывающие привыкание компоненты чифира. Шанс получить зависимость от чифира равен нулю.</description>
+    <displayOrderInCategory>3104</displayOrderInCategory>
+    <evolution>1</evolution>
+    <chemical>Chipfir</chemical>
+    <addictionChanceFactor>0</addictionChanceFactor>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_Stage1EvolutionBase"
+      MayRequire="CarbineAction.HSK.VFE.Insectoid2">
+    <defName>RC_Evolution_RoyalJellyRejection</defName>
+    <label>отторжение чужого желе</label>
+    <description>Организм распознаёт чужое королевское желе как нестабильный субстрат и не позволяет ему закрепить зависимость. Шанс получить зависимость от королевского желе равен нулю.</description>
+    <displayOrderInCategory>3105</displayOrderInCategory>
+    <evolution>1</evolution>
+    <chemical>VFEI2_RoyalJellyChemical</chemical>
+    <addictionChanceFactor>0</addictionChanceFactor>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <!-- Tier 2 -->
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage1EvolutionBase">
+    <defName>RC_Evolution_ForagerInstinct</defName>
+    <label>инстинкт добытчика</label>
+    <description>Коллективная память направляет носителя к самым питательным находкам. Количество пищи, добываемой в пути, умножается на 1,75.</description>
+    <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
+    <displayOrderInCategory>3111</displayOrderInCategory>
+    <evolution>2</evolution>
+    <statFactors>
+      <ForagedNutritionPerDay>1.75</ForagedNutritionPerDay>
+    </statFactors>
+    <exclusionTags>
+      <li>AG_SurvivalInstinct</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage1MutationBase">
+    <defName>RC_Mutation_ExternalNoiseCutoff</defName>
+    <label>отсечение внешнего гула</label>
+    <description>Слуховые каналы носителя полностью зарастают, отсекая внешний мир ради безмолвного сигнала улья. Носитель полностью лишается слуха.</description>
+    <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
+    <displayOrderInCategory>2411</displayOrderInCategory>
+    <mutation>2</mutation>
+    <modExtensions Inherit="False">
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+        <hediffsToBodyParts>
+          <li>
+            <hediff>RC_ExternalNoiseCutoff</hediff>
+            <bodyparts>
+              <li>Ear</li>
+              <li>Ear</li>
+            </bodyparts>
+          </li>
+        </hediffsToBodyParts>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage1EvolutionBase">
+    <defName>RC_Evolution_CollectiveSensitivity</defName>
+    <label>чуткость коллективного разума</label>
+    <description>Сознание носителя глубже входит в психический хор улья. Психическая чувствительность повышается на 20%, эффективность медитации и восстановление энтропии — на 10%.</description>
+    <iconPath>UI/Icons/Genes/Gene_EnhancedPsychicAbility</iconPath>
+    <displayOrderInCategory>3112</displayOrderInCategory>
+    <evolution>2</evolution>
+    <statOffsets>
+      <PsychicSensitivity>0.2</PsychicSensitivity>
+      <MeditationFocusGain>0.1</MeditationFocusGain>
+      <PsychicEntropyRecoveryRate>0.1</PsychicEntropyRecoveryRate>
+    </statOffsets>
+    <exclusionTags>
+      <li>PsychicAbility</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage1EvolutionBase">
+    <defName>RC_Evolution_MineralMandibles</defName>
+    <label>минеральные жвалы</label>
+    <description>Усиленные жвалы и точное чувство жил помогают носителю извлекать больше полезного материала. Выход ресурсов при добыче умножается на 1,2.</description>
+    <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
+    <displayOrderInCategory>3113</displayOrderInCategory>
+    <evolution>2</evolution>
+    <statFactors>
+      <MiningYield>1.2</MiningYield>
+    </statFactors>
+    <exclusionTags>
+      <li>AG_MiningYield</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage1EvolutionBase">
+    <defName>RC_Evolution_CarryingFolds</defName>
+    <label>складки переносчика</label>
+    <description>Эластичные складки панциря образуют естественные карманы для грузов улья. Переносимый объём и грузоподъёмность увеличиваются на 20.</description>
+    <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
+    <displayOrderInCategory>3114</displayOrderInCategory>
+    <evolution>2</evolution>
+    <statOffsets>
+      <CarryBulk>20</CarryBulk>
+      <CarryingCapacity>20</CarryingCapacity>
+    </statOffsets>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <!-- Tier 3 -->
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage1EvolutionBase">
+    <defName>RC_Evolution_CargoCarapace</defName>
+    <label>грузовой панцирь</label>
+    <description>Силовой каркас панциря распределяет груз между всеми сегментами тела. Грузоподъёмность, предельная переносимая масса VEF и переносимый вес CE умножаются на 1,5.</description>
+    <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
+    <displayOrderInCategory>3121</displayOrderInCategory>
+    <evolution>3</evolution>
+    <statFactors>
+      <CarryingCapacity>1.5</CarryingCapacity>
+      <VEF_MassCarryCapacity>1.5</VEF_MassCarryCapacity>
+      <CarryWeight>1.5</CarryWeight>
+    </statFactors>
+    <exclusionTags>
+      <li>AG_CarryingCapacity</li>
+      <li>CarryingCapacity</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage1EvolutionBase">
+    <defName>RC_Evolution_DeepHiveResonance</defName>
+    <label>глубокий резонанс улья</label>
+    <description>Психика носителя становится мощным резонатором коллективного разума. Психическая чувствительность повышается на 40%, эффективность медитации и восстановление энтропии — на 20%.</description>
+    <iconPath>UI/Icons/Genes/Gene_ExtremePsychicAbility</iconPath>
+    <displayOrderInCategory>3122</displayOrderInCategory>
+    <evolution>3</evolution>
+    <statOffsets>
+      <PsychicSensitivity>0.4</PsychicSensitivity>
+      <MeditationFocusGain>0.2</MeditationFocusGain>
+      <PsychicEntropyRecoveryRate>0.2</PsychicEntropyRecoveryRate>
+    </statOffsets>
+    <exclusionTags>
+      <li>PsychicAbility</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage1EvolutionBase">
+    <defName>RC_Evolution_SwarmRunningImpulse</defName>
+    <label>беговой импульс роя</label>
+    <description>Короткие импульсы коллективного сигнала синхронизируют каждое движение ног. Скорость передвижения повышается на 0,4 клетки в секунду.</description>
+    <iconPath>UI/Icons/Genes/Gene_VeryQuickMovespeed</iconPath>
+    <displayOrderInCategory>3123</displayOrderInCategory>
+    <evolution>3</evolution>
+    <statOffsets>
+      <MoveSpeed>0.4</MoveSpeed>
+    </statOffsets>
+    <exclusionTags>
+      <li>MoveSpeed</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage1MutationBase">
+    <defName>RC_Mutation_ExposedNociceptors</defName>
+    <label>открытые ноцицепторы</label>
+    <description>Болевые рецепторы носителя разрастаются и передают каждый повреждающий сигнал без фильтрации. Носитель приобретает черту «Слабак» и ощущает усиленную боль.</description>
+    <iconPath>UI/Icons/Genes/Gene_ExtraPain</iconPath>
+    <displayOrderInCategory>2421</displayOrderInCategory>
+    <mutation>3</mutation>
+    <forcedTraits>
+      <li>
+        <def>Wimp</def>
+      </li>
+    </forcedTraits>
+    <exclusionTags>
+      <li>Pain</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage1EvolutionBase">
+    <defName>RC_Evolution_DulledPain</defName>
+    <label>притупление боли</label>
+    <description>Коллективный сигнал подавляет часть импульсов от повреждённых тканей. Носитель ощущает вдвое меньше боли.</description>
+    <iconPath>UI/Icons/Genes/Gene_PainReduced</iconPath>
+    <displayOrderInCategory>3124</displayOrderInCategory>
+    <evolution>3</evolution>
+    <painFactor>0.5</painFactor>
+    <exclusionTags>
+      <li>Pain</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <!-- Tier 4 -->
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage1EvolutionBase">
+    <defName>RC_Evolution_BroodHyperregeneration</defName>
+    <label>гиперрегенерация выводка</label>
+    <description>Ткани носителя непрерывно перестраиваются по живому шаблону улья. Обычные раны заживают в четыре раза быстрее.</description>
+    <iconPath>UI/Icons/Genes/Gene_WoundHealingRateSuperfast</iconPath>
+    <displayOrderInCategory>3131</displayOrderInCategory>
+    <evolution>4</evolution>
+    <statFactors>
+      <InjuryHealingFactor>4</InjuryHealingFactor>
+    </statFactors>
+    <exclusionTags>
+      <li>WoundHealingRate</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_Stage1EvolutionBase"
+      MayRequire="skyarkhangel.HSK">
+    <defName>RC_Evolution_HunterBurst</defName>
+    <label>рывок охотника</label>
+    <description>Мышечные узлы накапливают энергию для стремительного броска к добыче. Скорость передвижения повышается на 1 клетку в секунду.</description>
+    <iconPath>UI/Icons/Genes/Gene_ExtremelyQuickMovespeed</iconPath>
+    <displayOrderInCategory>3132</displayOrderInCategory>
+    <evolution>4</evolution>
+    <statOffsets>
+      <MoveSpeed>1</MoveSpeed>
+    </statOffsets>
+    <exclusionTags>
+      <li>MoveSpeed</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage1EvolutionBase">
+    <defName>RC_Evolution_UnityEuphoria</defName>
+    <label>эйфория единства</label>
+    <description>Постоянное ощущение присутствия улья наполняет носителя спокойной радостью. Настроение повышается на 10.</description>
+    <iconPath>UI/Icons/Genes/Gene_Sanguine</iconPath>
+    <displayOrderInCategory>3133</displayOrderInCategory>
+    <evolution>4</evolution>
+    <exclusionTags>
+      <li>Mood</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage1EvolutionBase">
+    <defName>RC_Evolution_CompressedRestCycle</defName>
+    <label>сжатый цикл покоя</label>
+    <description>Отдельные нервные узлы отдыхают по очереди, пока остальной организм продолжает работу. Скорость падения потребности во сне умножается на 0,4.</description>
+    <iconPath>UI/Icons/Genes/Gene_QuickSleeper</iconPath>
+    <displayOrderInCategory>3134</displayOrderInCategory>
+    <evolution>4</evolution>
+    <statFactors>
+      <RestFallRateFactor>0.4</RestFallRateFactor>
+    </statFactors>
+    <exclusionTags>
+      <li>Sleep</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage1EvolutionBase">
+    <defName>RC_Evolution_PainCutoff</defName>
+    <label>отсечение боли</label>
+    <description>Нервная система полностью отделяет повреждающие сигналы от сознания носителя. Боль не ощущается.</description>
+    <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
+    <displayOrderInCategory>3135</displayOrderInCategory>
+    <evolution>4</evolution>
+    <painFactor>0</painFactor>
+    <exclusionTags>
+      <li>Pain</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <!-- Tier 5 -->
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage1EvolutionBase">
+    <defName>RC_Evolution_EmotionalSilence</defName>
+    <label>эмоциональная тишина</label>
+    <description>Личные эмоции полностью растворяются в коллективном разуме. Потребность в настроении отключается.</description>
+    <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
+    <displayOrderInCategory>3141</displayOrderInCategory>
+    <evolution>5</evolution>
+    <disablesNeeds>
+      <li>Mood</li>
+    </disablesNeeds>
+    <exclusionTags>
+      <li>Mood</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage1EvolutionBase">
+    <defName>RC_Evolution_ArchiteNutrition</defName>
+    <label>архитное питание улья</label>
+    <description>Архиты поддерживают обмен веществ носителя почти без внешней пищи. Скорость голода уменьшается практически до нуля, но не отключается полностью ради совместимости.</description>
+    <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
+    <displayOrderInCategory>3142</displayOrderInCategory>
+    <evolution>5</evolution>
+    <customEffectDescriptions>
+      <li>Снижает скорость голода почти до нуля (−0,9999), не отключая потребность в пище.</li>
+    </customEffectDescriptions>
+    <modExtensions Inherit="False">
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes>
+        <hediffToWholeBody>RC_ArchiteNutrition</hediffToWholeBody>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage1EvolutionBase">
+    <defName>RC_Evolution_ContinuousWakefulness</defName>
+    <label>непрерывное бодрствование</label>
+    <description>Нервные центры спят попеременно, не прерывая деятельность организма. Потребность во сне полностью отключается.</description>
+    <iconPath>UI/Icons/Genes/Gene_Neversleep</iconPath>
+    <displayOrderInCategory>3143</displayOrderInCategory>
+    <evolution>5</evolution>
+    <disablesNeeds>
+      <li>Rest</li>
+    </disablesNeeds>
+    <exclusionTags>
+      <li>Sleep</li>
+    </exclusionTags>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+</Defs>

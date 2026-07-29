@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Autonomous genes keep the local fallback unless the source textures exist. -->
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Alpha Genes</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Evolution_ForagerInstinct"]/iconPath</xpath>
+          <value>
+            <iconPath>UI/Icons/Genes/AG_SurvivalInstinct_High</iconPath>
+          </value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Mutation_ExternalNoiseCutoff"]/iconPath</xpath>
+          <value>
+            <iconPath>UI/Icons/Genes/AG_Deaf</iconPath>
+          </value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Evolution_MineralMandibles"]/iconPath</xpath>
+          <value>
+            <iconPath>UI/Icons/Genes/AG_MiningYield</iconPath>
+          </value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Evolution_CargoCarapace"]/iconPath</xpath>
+          <value>
+            <iconPath>UI/Icons/Genes/AG_PackMule</iconPath>
+          </value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Evolution_PainCutoff"]/iconPath</xpath>
+          <value>
+            <iconPath>UI/Icons/Genes/AG_Painless</iconPath>
+          </value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Evolution_EmotionalSilence"]/iconPath</xpath>
+          <value>
+            <iconPath>UI/Icons/Genes/AG_MoodUnfeeling</iconPath>
+          </value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Evolution_ArchiteNutrition"]/iconPath</xpath>
+          <value>
+            <iconPath>UI/Icons/Genes/AG_NoDigestion</iconPath>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>HSK more content</li>
+    </mods>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Evolution_CarryingFolds"]/iconPath</xpath>
+      <value>
+        <iconPath>UI/Icons/Genes/Gene_Natural_Pockets</iconPath>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>
