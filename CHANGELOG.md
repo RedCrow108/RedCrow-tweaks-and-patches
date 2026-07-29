@@ -1,26 +1,37 @@
 # Changelog
 
-## Unreleased
+## 0.8.0
 
-- Documentation cleanup after v0.7.4 validation.
+Release date: 2026-07-29
 
 ### Fixed
 
+- Gene overrides and trait suppression are recalculated after Geneline
+  changes and save loading, preventing dangling `Gene_*` references without
+  deleting existing traits or active genes.
+- Ability grants are restored safely when another active gene still provides
+  the same ability.
+- Segment restoration now creates a controlled injury directly under
+  HSK/Combat Extended instead of applying combat damage that could destroy
+  the restored part again.
 - Segment restoration now treats the vanilla `Spine` body part as a valid
   structural segment, allowing crushed-spine injuries to heal.
+- Contradictory light combinations are blocked: UV sensitivity conflicts
+  with light stride and solar nutrition, while twilight stride conflicts
+  with solar nutrition. Aligned combinations remain available.
+- Optional source-icon detection uses the installed mod names expected by
+  RimWorld 1.5 `PatchOperationFindMod`.
 
 ### Added
 
+- Added 24 stage-1 Geneline mutations and evolutions covering stats, needs,
+  traits, and dependency effects.
 - Added 28 stage-2 Geneline mutations and evolutions covering sunlight,
   lighting, aging, curiosity, and conditional Alpha Genes abilities.
 - Added 12 mutually exclusive curiosity instincts with skill-specific
   recreation and skill-loss protection.
 - Added autonomous sunlight, antenna, light-striding, and photosynthesis
   effects with conditional source icons.
-- Added safe restoration of an ability still granted by another active gene
-  after a Geneline element is removed.
-- Corrected optional source-icon detection to use the installed mod names
-  expected by RimWorld 1.5 PatchOperationFindMod.
 - Added eight autonomous stage-3 Geneline effects: alien hive visage,
   pheromone unity, unconstrained carapace, hive electro-organ, two raid
   presence tiers, matriarch calm aura, and segment restoration.
@@ -30,12 +41,10 @@
 - Reused Alpha Genes and VRE Hussar art only through conditional
   compatibility patches; all stage-3 mechanics remain available without
   those source mods.
-- Fixed segment restoration under HSK/Combat Extended by creating the
-  controlled bleeding injury directly instead of applying combat damage
-  that could destroy the restored part again.
-- Added selective light-geneline conflicts: UV sensitivity now conflicts
-  with light stride and solar nutrition, while twilight stride conflicts
-  with solar nutrition. Aligned combinations remain available.
+- Added a local fallback gene icon and conditionally reused compatible source
+  icons only when their parent mods are loaded.
+- Guarded optional definitions and foreign resources with `MayRequire` and
+  `PatchOperationFindMod`, so optional parent mods are not hard dependencies.
 - Added the open Natural Symbiosis evolution, which grants the HMC Touch of Nature trait when HSK More Content is active.
 - Natural Symbiosis does not yet participate in the VFE Insectoids 2 core-based evolution unlock system.
 - Added the open Strong Back evolution.

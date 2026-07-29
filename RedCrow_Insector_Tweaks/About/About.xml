@@ -11,10 +11,11 @@
   <description>
 Personal balance and compatibility changes for VRE Insector (HSK/CE Patched).
 
-Quality patch v0.7.4:
-- Crafting specialization: +1 product quality tier.
-- Construction specialization: +1 construction quality tier.
-- Artistic specialization: guaranteed Legendary artistic products.
+RedCrow Insector Tweaks v0.8.0:
+- Quality specialization fixes for crafting, construction, and art.
+- 60 Geneline mutation and evolution effects across stages 1–3.
+- Safe gene-reference cleanup and recovery across save/load cycles.
+- Segment restoration and exclusions for contradictory light effects.
   </description>
 
   <modDependencies>

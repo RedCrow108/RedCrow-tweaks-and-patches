@@ -1,11 +1,15 @@
-# Geneline Effects Validation
+# Geneline Effects Validation — 0.8.0
 
 ## Status
 
 Implementation of Geneline stages 1–3 is complete. Runtime validation is
 partial because the remaining exhaustive tests were explicitly deferred.
 
-The implementation baseline described here includes commit `0eef0bf`.
+Release version: `0.8.0`
+
+Release commit: the commit containing this document (PR #8 final head).
+
+The implementation baseline through the final code fix is commit `0eef0bf`.
 
 ## Implemented scope
 
@@ -32,15 +36,15 @@ The following checks passed on 2026-07-29:
 - Release build with zero compiler warnings and errors
 - .NET metadata and IL decompilation inspection
 
-The current development assembly has:
+The release assembly has:
 
 ```text
 File: RedCrow_Insector_Tweaks/1.5/Assemblies/RedCrow.InsectorTweaks.dll
-Assembly version: 0.7.4.0
+Assembly version: 0.8.0.0
 Configuration: Release / AnyCPU
 Target framework: .NET Framework 4.7.2
-Size: 29184 bytes
-SHA-256: 44c23d2f987346e7dcdb02a3603165bbcc9701d8fe9504762a92ef02169faa13
+Size: 29696 bytes
+SHA-256: e2a959a4b0de9082bbaafa71b48bff8f1bc98165b748f4966643d3755662f77d
 ```
 
 `0Harmony.dll` and `Assembly-CSharp.dll` are compile-time references with

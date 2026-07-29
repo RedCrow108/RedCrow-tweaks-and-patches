@@ -1,4 +1,4 @@
-RedCrow — Insector Tweaks v0.6 XML
+RedCrow — Insector Tweaks v0.8.0
 
 SKILL SPECIALIZATION GROUPS
 
