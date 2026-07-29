@@ -30,8 +30,6 @@
 - Reused Alpha Genes and VRE Hussar art only through conditional
   compatibility patches; all stage-3 mechanics remain available without
   those source mods.
-- Runtime verification that curiosity prevents skill decay remains pending;
-  the recreation gain from Crafting curiosity was confirmed in game.
 - Fixed segment restoration under HSK/Combat Extended by creating the
   controlled bleeding injury directly instead of applying combat damage
   that could destroy the restored part again.
@@ -47,6 +45,17 @@
 - Added melee and ranged combat enhancement mutations.
 - Melee and ranged combat enhancement mutations are mutually exclusive.
 - New mutations and evolutions do not yet use the VFE Insectoids 2 core-based unlock system.
+
+### Validation status
+
+- Implementation and static validation are complete for Geneline stages 1–3.
+- In-game smoke testing confirmed save/load stability, Crafting curiosity
+  recreation gain, leg-scar healing, and the tested light interactions.
+- Runtime verification of curiosity skill-decay protection remains pending.
+- Healing of `Spine` injuries was implemented after the final smoke test and
+  is intentionally not verified in game.
+- The exhaustive per-element and optional-mod startup matrices were not run.
+- See [GENELINE_VALIDATION.md](GENELINE_VALIDATION.md) for the exact scope.
 
 ## 0.7.4
 
