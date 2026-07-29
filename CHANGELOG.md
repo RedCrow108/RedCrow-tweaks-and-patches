@@ -4,6 +4,11 @@
 
 - Documentation cleanup after v0.7.4 validation.
 
+### Fixed
+
+- Segment restoration now treats the vanilla `Spine` body part as a valid
+  structural segment, allowing crushed-spine injuries to heal.
+
 ### Added
 
 - Added 28 stage-2 Geneline mutations and evolutions covering sunlight,

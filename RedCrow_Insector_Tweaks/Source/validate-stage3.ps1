@@ -258,8 +258,10 @@ foreach ($requiredText in @(
     "55000",
     "65000",
     "PartIsMissing",
+    '"Spine"',
     "HediffMaker.MakeHediff",
     "HediffDefOf.Cut",
+    "Healed segment injury",
     "Restored segment",
     "Priority.Last"
 )) {

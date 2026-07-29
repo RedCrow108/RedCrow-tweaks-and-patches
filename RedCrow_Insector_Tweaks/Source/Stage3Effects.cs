@@ -439,6 +439,7 @@ namespace RedCrow.InsectorTweaks
                 "Head",
                 "Nose",
                 "Neck",
+                "Spine",
                 "Leg",
                 "Foot",
                 "Tongue"
@@ -488,7 +489,18 @@ namespace RedCrow.InsectorTweaks
                 {
                     Hediff_Injury injury =
                         injuries.RandomElement();
+                    float previousSeverity = injury.Severity;
+                    string partDefName = injury.Part.def.defName;
+                    string injuryDefName = injury.def.defName;
                     injury.Severity -= Props.healAmount;
+                    Log.Message(
+                        "[RedCrow Stage 3] Healed segment injury: pawn=" +
+                        pawn.LabelShort + "; part=" +
+                        partDefName + "; injury=" +
+                        injuryDefName + "; severity=" +
+                        previousSeverity.ToString("0.###") + " -> " +
+                        Math.Max(0f, injury.Severity)
+                            .ToString("0.###") + ".");
                 }
                 else
                 {
