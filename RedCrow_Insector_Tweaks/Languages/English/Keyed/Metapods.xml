@@ -5,5 +5,19 @@
   <RC_Metapod_AlreadyContained>This pawn is already inside a RedCrow metapod.</RC_Metapod_AlreadyContained>
   <RC_Metapod_PawnUnavailable>The pawn must be spawned and available on the current map.</RC_Metapod_PawnUnavailable>
   <RC_Metapod_TransferFailed>The pawn could not be moved into the metapod.</RC_Metapod_TransferFailed>
+  <RC_Metapod_MissingDefinition>A required RedCrow metapod definition is unavailable.</RC_Metapod_MissingDefinition>
+  <RC_Metapod_InvalidTargetRace>The target race is unavailable or is not an organic humanlike race.</RC_Metapod_InvalidTargetRace>
+  <RC_Metapod_IncompatibleArtificialPart>An installed artificial part cannot be mapped safely to the destination body: {0}.</RC_Metapod_IncompatibleArtificialPart>
+  <RC_Metapod_AnnualCooldown>This ability is on cooldown for {0}.</RC_Metapod_AnnualCooldown>
+  <RC_Metapod_FullJellyRequired>A completely full personal insect-jelly reserve (100) is required.</RC_Metapod_FullJellyRequired>
+  <RC_Usurpation_InvalidTarget>The target must be another living organic humanlike pawn with a gene tracker.</RC_Usurpation_InvalidTarget>
+  <RC_Usurpation_AlreadyInfected>The target is already carrying an usurpation larva.</RC_Usurpation_AlreadyInfected>
+  <RC_Usurpation_TargetCanResist>A hostile target must be a prisoner, downed, unconscious, or otherwise unable to resist.</RC_Usurpation_TargetCanResist>
+  <RC_Usurpation_Implanted>{PAWN_nameDef} has been implanted with an usurpation larva.</RC_Usurpation_Implanted>
+  <RC_CorpseMemory_HMCRequired>HSK More Content with the CatInHead and Bipolar traits is required.</RC_CorpseMemory_HMCRequired>
+  <RC_CorpseMemory_InvalidCorpse>The target must be a fresh corpse of an organic humanlike pawn.</RC_CorpseMemory_InvalidCorpse>
+  <RC_CorpseMemory_BrainRequired>The corpse must still have its natural brain.</RC_CorpseMemory_BrainRequired>
+  <RC_CorpseMemory_Started>{PAWN_nameDef}'s neural pattern has entered a hive-memory metapod.</RC_CorpseMemory_Started>
+  <RC_SelfMetapod_Started>{PAWN_nameDef} has entered a RedCrow metapod.</RC_SelfMetapod_Started>
   <RC_Metapod_TimeRemaining>Time until {PAWN_nameDef} emerges: {1}\nInsert insect jelly to accelerate growth fivefold.</RC_Metapod_TimeRemaining>
 </LanguageData>

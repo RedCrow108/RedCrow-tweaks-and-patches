@@ -25,12 +25,38 @@ namespace RedCrow.InsectorTweaks
     public sealed class RC_ArtificialPartRecord : IExposable
     {
         public HediffDef hediffDef;
+        public BodyPartDef bodyPartDef;
         public string bodyPartPath;
+        public List<BodyPartGroupDef> groups =
+            new List<BodyPartGroupDef>();
 
         public void ExposeData()
         {
             Scribe_Defs.Look(ref hediffDef, "hediffDef");
+            Scribe_Defs.Look(ref bodyPartDef, "bodyPartDef");
             Scribe_Values.Look(ref bodyPartPath, "bodyPartPath");
+            Scribe_Collections.Look(
+                ref groups,
+                "groups",
+                LookMode.Def);
+
+            if (Scribe.mode == LoadSaveMode.PostLoadInit &&
+                groups == null)
+            {
+                groups = new List<BodyPartGroupDef>();
+            }
+        }
+    }
+
+    public sealed class RC_GeneSnapshot : IExposable
+    {
+        public GeneDef geneDef;
+        public bool xenogene;
+
+        public void ExposeData()
+        {
+            Scribe_Defs.Look(ref geneDef, "geneDef");
+            Scribe_Values.Look(ref xenogene, "xenogene");
         }
     }
 
@@ -47,10 +73,16 @@ namespace RedCrow.InsectorTweaks
         public bool costPaid;
         public bool transformationApplied;
         public ThingDef sourceRace;
+        public PawnKindDef sourceKind;
         public XenotypeDef sourceXenotype;
+        public string sourceXenotypeName;
+        public XenotypeIconDef sourceXenotypeIcon;
+        public bool sourceHybrid;
         public Faction sourceFaction;
         public Ideo sourceIdeo;
         public AbilityDef sourceAbility;
+        public List<RC_GeneSnapshot> ordinaryGenes =
+            new List<RC_GeneSnapshot>();
         public List<RC_ArtificialPartRecord> artificialParts =
             new List<RC_ArtificialPartRecord>();
 
@@ -99,10 +131,22 @@ namespace RedCrow.InsectorTweaks
                 ref transformationApplied,
                 "transformationApplied");
             Scribe_Defs.Look(ref sourceRace, "sourceRace");
+            Scribe_Defs.Look(ref sourceKind, "sourceKind");
             Scribe_Defs.Look(ref sourceXenotype, "sourceXenotype");
+            Scribe_Values.Look(
+                ref sourceXenotypeName,
+                "sourceXenotypeName");
+            Scribe_Defs.Look(
+                ref sourceXenotypeIcon,
+                "sourceXenotypeIcon");
+            Scribe_Values.Look(ref sourceHybrid, "sourceHybrid");
             Scribe_References.Look(ref sourceFaction, "sourceFaction");
             Scribe_References.Look(ref sourceIdeo, "sourceIdeo");
             Scribe_Defs.Look(ref sourceAbility, "sourceAbility");
+            Scribe_Collections.Look(
+                ref ordinaryGenes,
+                "ordinaryGenes",
+                LookMode.Deep);
             Scribe_Collections.Look(
                 ref artificialParts,
                 "artificialParts",
@@ -112,6 +156,12 @@ namespace RedCrow.InsectorTweaks
                 artificialParts == null)
             {
                 artificialParts = new List<RC_ArtificialPartRecord>();
+            }
+
+            if (Scribe.mode == LoadSaveMode.PostLoadInit &&
+                ordinaryGenes == null)
+            {
+                ordinaryGenes = new List<RC_GeneSnapshot>();
             }
         }
     }
@@ -280,8 +330,15 @@ namespace RedCrow.InsectorTweaks
                 records.Add(new RC_ArtificialPartRecord
                 {
                     hediffDef = hediff.def,
+                    bodyPartDef = hediff.Part != null
+                        ? hediff.Part.def
+                        : null,
                     bodyPartPath =
-                        RC_BodyPartPathUtility.GetPath(hediff.Part)
+                        RC_BodyPartPathUtility.GetPath(hediff.Part),
+                    groups = hediff.Part != null &&
+                        hediff.Part.groups != null
+                            ? hediff.Part.groups.ToList()
+                            : new List<BodyPartGroupDef>()
                 });
             }
 
@@ -302,9 +359,9 @@ namespace RedCrow.InsectorTweaks
             foreach (RC_ArtificialPartRecord part in parts)
             {
                 if (part == null ||
-                    RC_BodyPartPathUtility.Resolve(
+                    ResolveCompatiblePart(
                         targetBody,
-                        part.bodyPartPath) != null)
+                        part) != null)
                 {
                     continue;
                 }
@@ -314,6 +371,48 @@ namespace RedCrow.InsectorTweaks
             }
 
             return true;
+        }
+
+        public static BodyPartRecord ResolveCompatiblePart(
+            BodyDef body,
+            RC_ArtificialPartRecord record)
+        {
+            if (body == null || record == null)
+            {
+                return null;
+            }
+
+            BodyPartRecord exact =
+                RC_BodyPartPathUtility.Resolve(
+                    body,
+                    record.bodyPartPath);
+            if (exact != null &&
+                (record.bodyPartDef == null ||
+                    exact.def == record.bodyPartDef))
+            {
+                return exact;
+            }
+
+            List<BodyPartRecord> candidates =
+                body.AllParts.Where(
+                    part =>
+                        record.bodyPartDef != null &&
+                        part.def == record.bodyPartDef)
+                    .ToList();
+            if (record.groups != null &&
+                record.groups.Count > 0)
+            {
+                candidates = candidates.Where(
+                    part =>
+                        part.groups != null &&
+                        part.groups.Any(
+                            group => record.groups.Contains(group)))
+                    .ToList();
+            }
+
+            return candidates.Count == 1
+                ? candidates[0]
+                : null;
         }
 
         public static void CleanForTransformation(Pawn pawn)
@@ -327,6 +426,17 @@ namespace RedCrow.InsectorTweaks
             foreach (Hediff hediff in
                 pawn.health.hediffSet.hediffs.ToList())
             {
+                Hediff_MissingPart missingPart =
+                    hediff as Hediff_MissingPart;
+                if (missingPart != null &&
+                    missingPart.Part != null &&
+                    pawn.health.hediffSet
+                        .PartOrAnyAncestorHasDirectlyAddedParts(
+                            missingPart.Part))
+                {
+                    continue;
+                }
+
                 if (ShouldRemove(hediff))
                 {
                     toRemove.Add(hediff);
@@ -360,38 +470,30 @@ namespace RedCrow.InsectorTweaks
                     StringComparison.OrdinalIgnoreCase) >= 0 ||
                 typeName.IndexOf(
                     "Withdrawal",
+                    StringComparison.OrdinalIgnoreCase) >= 0 ||
+                typeName.IndexOf(
+                    "Disease",
+                    StringComparison.OrdinalIgnoreCase) >= 0 ||
+                typeName.IndexOf(
+                    "Infection",
+                    StringComparison.OrdinalIgnoreCase) >= 0 ||
+                typeName.IndexOf(
+                    "Parasite",
                     StringComparison.OrdinalIgnoreCase) >= 0)
             {
                 return true;
             }
 
-            return hediff.def.isBad;
+            return hediff.def.chronic ||
+                (hediff.def.isBad &&
+                    (hediff.def.tendable ||
+                        hediff.TryGetComp<
+                            HediffComp_Immunizable>() != null));
         }
 
         private static bool IsArtificialPart(Hediff hediff)
         {
-            return hediff is Hediff_AddedPart;
-        }
-    }
-
-    public static class RC_PawnTransformationUtility
-    {
-        public static Pawn ApplyTransformation(
-            Pawn pawn,
-            RC_MetapodTransformationData data)
-        {
-            if (pawn == null || data == null)
-            {
-                return pawn;
-            }
-
-            if (!data.transformationApplied)
-            {
-                RC_MetapodHealthUtility.CleanForTransformation(pawn);
-                data.transformationApplied = true;
-            }
-
-            return pawn;
+            return hediff is Hediff_Implant;
         }
     }
 
@@ -448,6 +550,21 @@ namespace RedCrow.InsectorTweaks
                 return Math.Max(
                     0,
                     (int)Math.Ceiling(DurationTicks - progressTicks));
+            }
+        }
+
+        public int EstimatedTicksRemaining
+        {
+            get
+            {
+                float rate =
+                    refuelable != null && refuelable.HasFuel
+                        ? 5f
+                        : 1f;
+                return Math.Max(
+                    0,
+                    (int)Math.Ceiling(
+                        TicksRemaining / rate));
             }
         }
 
@@ -511,7 +628,8 @@ namespace RedCrow.InsectorTweaks
         public bool TryAcceptPawn(
             Pawn pawn,
             RC_MetapodTransformationData data,
-            out string reason)
+            out string reason,
+            bool allowUnspawned = false)
         {
             reason = null;
             if (pawn == null)
@@ -532,7 +650,7 @@ namespace RedCrow.InsectorTweaks
                 return false;
             }
 
-            if (!pawn.Spawned)
+            if (!pawn.Spawned && !allowUnspawned)
             {
                 reason = "RC_Metapod_PawnUnavailable".Translate();
                 return false;
@@ -540,10 +658,16 @@ namespace RedCrow.InsectorTweaks
 
             transformationData =
                 data ?? RC_MetapodTransformationData.FromDef(def);
-            transformationData.mode =
-                def.GetModExtension<RC_MetapodExtension>() != null
-                    ? def.GetModExtension<RC_MetapodExtension>().mode
-                    : transformationData.mode;
+            RC_MetapodExtension extension =
+                def.GetModExtension<RC_MetapodExtension>();
+            if (extension != null)
+            {
+                transformationData.mode = extension.mode;
+                transformationData.baseDurationTicks =
+                    extension.baseDurationTicks;
+                transformationData.fuelPerDay =
+                    extension.fuelPerDay;
+            }
             if (transformationData.sourceRace == null)
             {
                 transformationData.sourceRace = pawn.def;
@@ -572,10 +696,16 @@ namespace RedCrow.InsectorTweaks
             }
 
             SetFaction(pawn.Faction);
-            pawn.DeSpawn(DestroyMode.Vanish);
+            if (pawn.Spawned)
+            {
+                pawn.DeSpawn(DestroyMode.Vanish);
+            }
             if (!innerContainer.TryAddOrTransfer(pawn, false))
             {
-                GenSpawn.Spawn(pawn, Position, Map);
+                if (!pawn.Spawned)
+                {
+                    GenSpawn.Spawn(pawn, Position, Map);
+                }
                 reason = "RC_Metapod_TransferFailed".Translate();
                 return false;
             }
@@ -668,7 +798,7 @@ namespace RedCrow.InsectorTweaks
             text += "RC_Metapod_TimeRemaining".Translate(
                 pawn.Named("PAWN"),
                 GenDate.ToStringTicksToPeriod(
-                    TicksRemaining,
+                    EstimatedTicksRemaining,
                     true,
                     false,
                     true,

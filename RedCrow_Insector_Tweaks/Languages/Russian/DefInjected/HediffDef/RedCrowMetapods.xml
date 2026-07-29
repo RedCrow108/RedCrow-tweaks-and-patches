@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RC_UsurpationLarva.label>личинка узурпации</RC_UsurpationLarva.label>
+  <RC_UsurpationLarva.description>Паразитическая личинка роя проникает в нервную систему и постепенно захватывает управление телом хозяина.</RC_UsurpationLarva.description>
+  <RC_UsurpationComa.label>кома узурпации</RC_UsurpationComa.label>
+  <RC_UsurpationComa.description>Личинка захватила нервную систему. Через сутки тело автоматически попадёт в метапод узурпации.</RC_UsurpationComa.description>
+  <RC_SolarStuporCondition.label>постоянный солнечный ступор</RC_SolarStuporCondition.label>
+  <RC_SolarStuporCondition.description>Прямой солнечный свет подавляет нервную активность и ограничивает сознание значением 10%. Ночью и под крышей состояние не действует и сохраняется при оздоровлении в метаподах RedCrow.</RC_SolarStuporCondition.description>
+</LanguageData>

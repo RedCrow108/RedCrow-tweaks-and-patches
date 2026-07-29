@@ -5,5 +5,19 @@
   <RC_Metapod_AlreadyContained>Эта пешка уже находится в метаподе RedCrow.</RC_Metapod_AlreadyContained>
   <RC_Metapod_PawnUnavailable>Пешка должна находиться на текущей карте и быть доступна.</RC_Metapod_PawnUnavailable>
   <RC_Metapod_TransferFailed>Не удалось переместить пешку в метапод.</RC_Metapod_TransferFailed>
+  <RC_Metapod_MissingDefinition>Не найдено обязательное определение метапода RedCrow.</RC_Metapod_MissingDefinition>
+  <RC_Metapod_InvalidTargetRace>Итоговая раса недоступна или не является органической разумной расой.</RC_Metapod_InvalidTargetRace>
+  <RC_Metapod_IncompatibleArtificialPart>Искусственную часть нельзя безопасно сопоставить с итоговым телом: {0}.</RC_Metapod_IncompatibleArtificialPart>
+  <RC_Metapod_AnnualCooldown>Способность будет доступна через {0}.</RC_Metapod_AnnualCooldown>
+  <RC_Metapod_FullJellyRequired>Требуется полностью заполненная личная шкала инсекторного желе (100).</RC_Metapod_FullJellyRequired>
+  <RC_Usurpation_InvalidTarget>Целью должна быть другая живая органическая разумная пешка с системой генов.</RC_Usurpation_InvalidTarget>
+  <RC_Usurpation_AlreadyInfected>Цель уже заражена личинкой узурпации.</RC_Usurpation_AlreadyInfected>
+  <RC_Usurpation_TargetCanResist>Враждебная цель должна быть пленником, лежать без сознания или иным образом не иметь возможности сопротивляться.</RC_Usurpation_TargetCanResist>
+  <RC_Usurpation_Implanted>В тело {PAWN_nameDef} внедрена личинка узурпации.</RC_Usurpation_Implanted>
+  <RC_CorpseMemory_HMCRequired>Требуется HSK More Content с чертами CatInHead и Bipolar.</RC_CorpseMemory_HMCRequired>
+  <RC_CorpseMemory_InvalidCorpse>Целью должен быть свежий труп органической разумной пешки.</RC_CorpseMemory_InvalidCorpse>
+  <RC_CorpseMemory_BrainRequired>В трупе должен сохраниться естественный мозг.</RC_CorpseMemory_BrainRequired>
+  <RC_CorpseMemory_Started>Нервный рисунок {PAWN_nameDef} помещён в метапод памяти роя.</RC_CorpseMemory_Started>
+  <RC_SelfMetapod_Started>{PAWN_nameDef} помещён в метапод RedCrow.</RC_SelfMetapod_Started>
   <RC_Metapod_TimeRemaining>До выхода {PAWN_nameDef}: {1}\nДобавьте желе насекомых, чтобы ускорить рост в пять раз.</RC_Metapod_TimeRemaining>
 </LanguageData>
