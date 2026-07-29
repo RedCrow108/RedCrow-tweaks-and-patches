@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <AbilityDef ParentName="AbilityTouchBase">
+    <defName>RC_CoagulatingSecretion</defName>
+    <label>коагулирующий секрет</label>
+    <description>Обработать все доступные для перевязки раны дружественной цели с кровью насекомого. Каждая рана получает качество перевязки от 40% до 80%. Расходует 20 единиц инсекторного желе только при успешной обработке хотя бы одной раны.</description>
+    <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
+    <hostile>false</hostile>
+    <aiCanUse>false</aiCanUse>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbilityTouch</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <range>-1</range>
+      <warmupTime>1</warmupTime>
+      <targetParams>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetAnimals>true</canTargetAnimals>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetMechs>false</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="RedCrow.InsectorTweaks.CompProperties_AbilityCoagulatingSecretion">
+        <resourceCost>0.2</resourceCost>
+        <tendQualityRange>0.4~0.8</tendQualityRange>
+      </li>
+    </comps>
+  </AbilityDef>
+
+</Defs>

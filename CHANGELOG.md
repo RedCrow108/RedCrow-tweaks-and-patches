@@ -1,5 +1,31 @@
 # Changelog
 
+## Unreleased
+
+### Added
+
+- Added the tier-4 Coagulating Secretion evolution: a custom touch ability
+  that tends all eligible insect-blood wounds for 20 displayed insect-jelly
+  points, without direct healing or a cooldown.
+- Added the tier-3 Hive Synaptic Node evolution with psychic sensitivity,
+  research speed, trade-price, and flat Brain maximum-health effects.
+- Added the tier-1 Cold Hive Logic mutation, which source-safely grants
+  Core_SK's Pragmatist trait from age zero.
+
+### Safety
+
+- Damaged brains retain temporary structural support after Synaptic Node
+  removal only while existing injuries require it; injury severity is not
+  reduced.
+- Coagulating Secretion resolves actual gene- or race-provided blood
+  definitions and deducts its resource only after tending at least one wound.
+
+### Validation status
+
+- Static validation and assembly checks are recorded in
+  [GENELINE_STAGE4_VALIDATION.md](GENELINE_STAGE4_VALIDATION.md).
+- All in-game scenarios for these three elements remain pending.
+
 ## 0.8.0
 
 Release date: 2026-07-29
