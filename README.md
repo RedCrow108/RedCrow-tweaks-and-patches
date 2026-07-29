@@ -7,3 +7,4 @@ Current mod release: **0.8.0** for RimWorld 1.5 and .NET Framework 4.7.2.
 - [Changelog](CHANGELOG.md)
 - [Geneline validation status](GENELINE_VALIDATION.md)
 - [Validation status for the three post-0.8.0 elements](GENELINE_STAGE4_VALIDATION.md)
+- [Validation status for Geneline organs and RedCrow metapods](GENELINE_ORGANS_METAPODS_VALIDATION.md)

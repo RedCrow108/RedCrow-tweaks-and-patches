@@ -16,6 +16,7 @@ RedCrow Insector Tweaks v0.8.0:
 - 60 Geneline mutation and evolution effects across stages 1–3.
 - Safe gene-reference cleanup and recovery across save/load cycles.
 - Segment restoration and exclusions for contradictory light effects.
+- Experimental organ mutations, RedCrow metapods, and hive-insect filth compatibility.
   </description>
 
   <modDependencies>

@@ -42,6 +42,7 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="GenelineOrganEffects.cs" />
     <Compile Include="GeneReferenceCleanup.cs" />
+    <Compile Include="HiveInsectFilthPatch.cs" />
     <Compile Include="MetapodInfrastructure.cs" />
     <Compile Include="MetapodTransformations.cs" />
     <Compile Include="QualityPatch.cs" />
