@@ -44,6 +44,7 @@
     <Compile Include="QualityPatch.cs" />
     <Compile Include="Stage2Effects.cs" />
     <Compile Include="Stage3Effects.cs" />
+    <Compile Include="Stage4Effects.cs" />
   </ItemGroup>
 
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

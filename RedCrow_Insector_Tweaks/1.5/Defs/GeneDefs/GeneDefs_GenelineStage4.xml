@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Autonomous follow-up elements. All use the local fallback icon. -->
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      Name="RC_Stage4EvolutionBase"
+      ParentName="VRE_EvolutionGene"
+      Abstract="True">
+    <unlockable>false</unlockable>
+    <selectionWeight>0</selectionWeight>
+    <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
+    <modExtensions>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      Name="RC_Stage4MutationBase"
+      ParentName="VRE_MutationGene"
+      Abstract="True">
+    <unlockable>false</unlockable>
+    <selectionWeight>0</selectionWeight>
+    <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
+    <modExtensions>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <!-- Tier 1 -->
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_Stage4MutationBase">
+    <defName>RC_Mutation_ColdHiveLogic</defName>
+    <label>холодная логика улья</label>
+    <description>Разум носителя отбрасывает эмоциональные допущения и оценивает мир с холодной практичностью. Носитель приобретает черту «Прагматик».</description>
+    <displayOrderInCategory>2661</displayOrderInCategory>
+    <mutation>1</mutation>
+    <minAgeActive>0</minAgeActive>
+    <forcedTraits>
+      <li>
+        <def>Pragmatist</def>
+        <degree>0</degree>
+      </li>
+    </forcedTraits>
+    <customEffectDescriptions>
+      <li>Принудительная черта: Прагматик.</li>
+      <li>Естественная черта Прагматик сохраняется после удаления мутации.</li>
+    </customEffectDescriptions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <!-- Tier 3 -->
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_Stage4EvolutionBase">
+    <defName>RC_Evolution_HiveSynapticNode</defName>
+    <label>синаптический узел улья</label>
+    <description>Дополнительный нервный узел связывает носителя с коллективной обработкой информации. Психическая чувствительность повышается на 0,5, скорость исследований — на 33%, торговая выгода снижается на 10%, а максимальное здоровье мозга увеличивается на 10.</description>
+    <displayOrderInCategory>3361</displayOrderInCategory>
+    <evolution>3</evolution>
+    <statOffsets>
+      <PsychicSensitivity>0.5</PsychicSensitivity>
+      <ResearchSpeed>0.33</ResearchSpeed>
+      <TradePriceImprovement>-0.1</TradePriceImprovement>
+    </statOffsets>
+    <customEffectDescriptions>
+      <li>Психическая чувствительность: +0,5.</li>
+      <li>Скорость исследований: +33%.</li>
+      <li>Улучшение торговых цен: −10%.</li>
+      <li>Максимальное здоровье мозга: +10.</li>
+    </customEffectDescriptions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <!-- Tier 4 -->
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_Stage4EvolutionBase">
+    <defName>RC_Evolution_CoagulatingSecretion</defName>
+    <label>коагулирующий секрет</label>
+    <description>Носитель выделяет коагулирующий секрет и прикосновением обрабатывает все доступные для перевязки раны дружественной цели с кровью насекомого. Применение расходует 20 единиц запаса инсекторного желе и не восстанавливает здоровье напрямую.</description>
+    <displayOrderInCategory>3381</displayOrderInCategory>
+    <evolution>4</evolution>
+    <abilities>
+      <li>RC_CoagulatingSecretion</li>
+    </abilities>
+    <customEffectDescriptions>
+      <li>Перевязывает все доступные раны цели с качеством 40–80%.</li>
+      <li>Стоимость: 20 единиц инсекторного желе.</li>
+      <li>Не лечит здоровье напрямую, не имеет перезарядки и не действует на самого носителя.</li>
+    </customEffectDescriptions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+</Defs>
