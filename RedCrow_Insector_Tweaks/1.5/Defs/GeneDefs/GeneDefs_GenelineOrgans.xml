@@ -217,7 +217,7 @@
         <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
         <texPath>Things/Pawn/Humanlike/BodyAttachments/JellySacks</texPath>
         <colorType>Skin</colorType>
-        <overrideMeshSize>1.75</overrideMeshSize>
+        <overrideMeshSize>1.5</overrideMeshSize>
         <parentTagDef>Body</parentTagDef>
         <shaderTypeDef>CutoutComplex</shaderTypeDef>
         <rotDrawMode>Fresh, Rotting</rotDrawMode>

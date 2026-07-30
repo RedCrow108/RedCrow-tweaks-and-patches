@@ -44,7 +44,8 @@ namespace RedCrow.InsectorTweaks
                 original,
                 postfix: postfixPatch);
             Log.Message(
-                "[RedCrow Hive Filth] FilthRate override " +
+                "[RedCrow Hive Filth] Regular animal filth/slime " +
+                "FilthRate override " +
                 "installed for " +
                 RC_HiveInsectFilthUtility.TargetCount +
                 " explicit PawnKindDef names.");

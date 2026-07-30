@@ -127,4 +127,36 @@
     </stages>
   </HediffDef>
 
+  <HediffDef>
+    <defName>RC_SwarmConsumed</defName>
+    <label>consumed by the hive</label>
+    <description>The pawn's individual mind has dissolved into the hive. Human attachments and ordinary moods no longer guide it; the body exists as a hungry node of the collective.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <everCurableByItem>false</everCurableByItem>
+    <keepOnBodyPartRestoration>true</keepOnBodyPartRestoration>
+    <isBad>false</isBad>
+    <disablesNeeds>
+      <li>Mood</li>
+      <li>Beauty</li>
+      <li>Outdoors</li>
+    </disablesNeeds>
+    <aptitudes>
+      <Animals>-12</Animals>
+      <Social>-12</Social>
+      <Artistic>-12</Artistic>
+    </aptitudes>
+    <stages>
+      <li>
+        <painOffset>-0.5</painOffset>
+        <opinionOfOthersFactor>0</opinionOfOthersFactor>
+        <statFactors>
+          <SuppressionSusceptibility>0.5</SuppressionSusceptibility>
+        </statFactors>
+        <statOffsets>
+          <ComfyTemperatureMin>-16</ComfyTemperatureMin>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
 </Defs>

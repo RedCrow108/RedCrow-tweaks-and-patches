@@ -4,11 +4,13 @@
   <AbilityDef ParentName="AbilityTouchBase">
     <defName>RC_Ability_ImplantUsurpationLarva</defName>
     <label>implant usurpation larva</label>
-    <description>Implant a parasitic larva into a living organic humanlike victim. The larva spends five days subverting the host, induces a one-day coma, and then encloses the victim in an usurpation metapod. Requires a completely full personal insect-jelly reserve and has a one-year cooldown after success.</description>
+    <description>Implant a parasitic larva into a living organic humanlike victim. The larva spends five days subverting the host, induces a one-day coma, and then encloses the victim in an usurpation metapod. Successful implantation costs 80 personal insect jelly, wounds the victim like an endogene stinger, and starts a one-year cooldown.</description>
     <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
     <hostile>true</hostile>
     <aiCanUse>false</aiCanUse>
     <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <warmupEffecter>Implant_Xenogerm</warmupEffecter>
+    <warmupStartSound>ReimplantXenogerm_Cast</warmupStartSound>
     <verbProperties>
       <verbClass>Verb_CastAbilityTouch</verbClass>
       <drawAimPie>false</drawAimPie>
@@ -34,11 +36,13 @@
   <AbilityDef ParentName="AbilityTouchBase">
     <defName>RC_Ability_ImplantCorpseEgg</defName>
     <label>implant hive-memory egg</label>
-    <description>Consume a fresh organic humanlike corpse with an intact brain and rebuild its identity as an insector. Requires HSK More Content, a completely full personal insect-jelly reserve, and has a one-year cooldown after success.</description>
+    <description>Consume a fresh organic humanlike corpse with an intact brain and rebuild its identity as an insector. Requires HSK More Content. Successful implantation costs 80 personal insect jelly, wounds the restored body like an endogene stinger, and starts a one-year cooldown.</description>
     <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
     <hostile>false</hostile>
     <aiCanUse>false</aiCanUse>
     <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <warmupEffecter>Implant_Xenogerm</warmupEffecter>
+    <warmupStartSound>ReimplantXenogerm_Cast</warmupStartSound>
     <verbProperties>
       <verbClass>Verb_CastAbilityTouch</verbClass>
       <drawAimPie>false</drawAimPie>
@@ -61,7 +65,6 @@
         <resultRace>Human</resultRace>
         <resultXenotype>VRE_Insector</resultXenotype>
         <requiredTraitA>CatInHead</requiredTraitA>
-        <requiredTraitB>Bipolar</requiredTraitB>
         <canTargetBaby>true</canTargetBaby>
       </li>
     </comps>

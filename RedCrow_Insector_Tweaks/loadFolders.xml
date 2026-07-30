@@ -4,5 +4,6 @@
     <li>/</li>
     <li>1.5</li>
     <li>1.5/Compat/VFEInsectoids</li>
+    <li IfModActive="vanillaracesexpanded.phytokin">1.5/Compat/VREPhytokin</li>
   </v1.5>
 </loadFolders>

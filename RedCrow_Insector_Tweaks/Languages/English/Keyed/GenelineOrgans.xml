@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <RC_HungerFormulaLine>RedCrow hunger factor: {0} {1} = x{2}</RC_HungerFormulaLine>
-  <RC_BiologicalToolExplanation>{0}: x{1} biological tool (the strongest tool effect is used)</RC_BiologicalToolExplanation>
+  <RC_HungerSourceMultiplier>{0}: food consumption {1}</RC_HungerSourceMultiplier>
+  <RC_HungerSourceAdditive>{0}: RedCrow food factor {1}</RC_HungerSourceAdditive>
+  <RC_BiologicalToolExplanation>{0}: biological tool {1} (the strongest tool effect is used)</RC_BiologicalToolExplanation>
+  <RC_HiveAnimaNaturalFocus>hive-anima resonance</RC_HiveAnimaNaturalFocus>
+  <RC_HiveAnimaRitualOutcome>Hive-anima resonance carriers</RC_HiveAnimaRitualOutcome>
 </LanguageData>

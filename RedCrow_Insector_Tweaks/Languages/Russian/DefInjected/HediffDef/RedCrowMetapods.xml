@@ -6,4 +6,6 @@
   <RC_UsurpationComa.description>Личинка захватила нервную систему. Через сутки тело автоматически попадёт в метапод узурпации.</RC_UsurpationComa.description>
   <RC_SolarStuporCondition.label>постоянный солнечный ступор</RC_SolarStuporCondition.label>
   <RC_SolarStuporCondition.description>Прямой солнечный свет подавляет нервную активность и ограничивает сознание значением 10%. Ночью и под крышей состояние не действует и сохраняется при оздоровлении в метаподах RedCrow.</RC_SolarStuporCondition.description>
+  <RC_SwarmConsumed.label>поглощён роем</RC_SwarmConsumed.label>
+  <RC_SwarmConsumed.description>Индивидуальный разум пешки растворён в коллективном сознании. Обычные человеческие привязанности и настроение больше не управляют телом, которое стало голодным узлом роя.</RC_SwarmConsumed.description>
 </LanguageData>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="VFEI2_TendrilmossVines"]/plant/harvestYield</xpath>
+    <value>
+      <harvestYield>10</harvestYield>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="VFEI2_TendrilmossVines"]/plant</xpath>
+    <value>
+      <growMinGlow>0</growMinGlow>
+    </value>
+  </Operation>
+</Patch>

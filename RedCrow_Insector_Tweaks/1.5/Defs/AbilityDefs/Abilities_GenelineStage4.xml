@@ -6,6 +6,13 @@
     <label>коагулирующий секрет</label>
     <description>Обработать все доступные для перевязки раны дружественной цели с кровью насекомого. Каждая рана получает качество перевязки от 40% до 80%. Расходует 20 единиц инсекторного желе только при успешной обработке хотя бы одной раны.</description>
     <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
+    <stunTargetWhileCasting>true</stunTargetWhileCasting>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <warmupMote>Mote_CoagulateStencil</warmupMote>
+    <warmupEffecter>Coagulate</warmupEffecter>
+    <warmupStartSound>Coagulate_Cast</warmupStartSound>
+    <jobDef>CastAbilityOnThingMelee</jobDef>
     <hostile>false</hostile>
     <aiCanUse>false</aiCanUse>
     <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
@@ -26,6 +33,9 @@
       <li Class="RedCrow.InsectorTweaks.CompProperties_AbilityCoagulatingSecretion">
         <resourceCost>0.2</resourceCost>
         <tendQualityRange>0.4~0.8</tendQualityRange>
+      </li>
+      <li Class="CompProperties_AbilityRequiresCapacity">
+        <capacity>Manipulation</capacity>
       </li>
     </comps>
   </AbilityDef>

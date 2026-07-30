@@ -48,14 +48,20 @@ $organXml = Read-ModXml `
     "1.5\Defs\GeneDefs\GeneDefs_GenelineOrgans.xml"
 $metapodGeneXml = Read-ModXml `
     "1.5\Defs\GeneDefs\GeneDefs_RedCrowMetapods.xml"
+$consumptionGeneXml = Read-ModXml `
+    "1.5\Defs\GeneDefs\GeneDefs_RedCrowConsumptionAndAffinity.xml"
 $abilityXml = Read-ModXml `
     "1.5\Defs\AbilityDefs\Abilities_RedCrowMetapods.xml"
+$stage4AbilityXml = Read-ModXml `
+    "1.5\Defs\AbilityDefs\Abilities_GenelineStage4.xml"
 $hediffXml = Read-ModXml `
     "1.5\Defs\HediffDefs\Hediffs_RedCrowMetapods.xml"
 $organHediffXml = Read-ModXml `
     "1.5\Defs\HediffDefs\Hediffs_GenelineOrgans.xml"
 $metapodThingXml = Read-ModXml `
     "1.5\Defs\ThingDefs\ThingDefs_RedCrowMetapods.xml"
+$tendrilPatchXml = Read-ModXml `
+    "1.5\Compat\VFEInsectoids\Patches\TendrilmossBalance.xml"
 
 $expectedGenes = [ordered]@{
     RC_Evolution_EfficientHiveMetabolism = "evolution:4"
@@ -73,6 +79,16 @@ $expectedGenes = [ordered]@{
     RC_Evolution_HiveMemoryEgg = "evolution:5"
     RC_Evolution_LarvalRebirth = "evolution:4"
     RC_Evolution_PerfectImago = "evolution:5"
+    RC_Mutation_RavenousCrop = "mutation:3"
+    RC_Mutation_DevouringCrop = "mutation:6"
+    RC_Mutation_PorousJellyReservoir = "mutation:3"
+    RC_Mutation_LeakingJellyReservoir = "mutation:6"
+    RC_Evolution_EfficientCrop = "evolution:3"
+    RC_Evolution_ClosedDigestiveCycle = "evolution:6"
+    RC_Evolution_JellyConservation = "evolution:3"
+    RC_Evolution_SealedJellyReservoir = "evolution:6"
+    RC_Evolution_HiveAnimaResonance = "evolution:3"
+    RC_Evolution_HiveRegeneratorCells = "evolution:4"
 }
 
 $geneNodes = @(
@@ -83,9 +99,13 @@ $geneNodes = @(
     $metapodGeneXml.SelectNodes(
         "/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName]"
     )
+) + @(
+    $consumptionGeneXml.SelectNodes(
+        "/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName]"
+    )
 )
-Assert-True ($geneNodes.Count -eq 15) (
-    "Expected 15 feature genes, got $($geneNodes.Count)"
+Assert-True ($geneNodes.Count -eq 25) (
+    "Expected 25 feature genes, got $($geneNodes.Count)"
 )
 
 foreach ($entry in $expectedGenes.GetEnumerator()) {
@@ -130,6 +150,77 @@ Assert-True (
 ) "Hive psyfocus recycling must be conditional on VPE"
 Assert-NodeValue $psyfocus "./statFactors/VPE_PsyfocusCostFactor" `
     "0.5" "RC_Evolution_HivePsyfocusRecycling"
+
+$consumptionPairs = [ordered]@{
+    RC_Mutation_RavenousCrop = "hungerAdditive:0.1"
+    RC_Mutation_DevouringCrop = "hungerAdditive:0.2"
+    RC_Mutation_PorousJellyReservoir = "jellyAdditive:0.1"
+    RC_Mutation_LeakingJellyReservoir = "jellyAdditive:0.2"
+    RC_Evolution_EfficientCrop = "hungerAdditive:-0.1"
+    RC_Evolution_ClosedDigestiveCycle = "hungerAdditive:-0.2"
+    RC_Evolution_JellyConservation = "jellyAdditive:-0.1"
+    RC_Evolution_SealedJellyReservoir = "jellyAdditive:-0.2"
+}
+foreach ($entry in $consumptionPairs.GetEnumerator()) {
+    $node = $geneNodes |
+        Where-Object { $_.defName -eq $entry.Key } |
+        Select-Object -First 1
+    $parts = $entry.Value.Split(":")
+    Assert-NodeValue $node (
+        "./modExtensions/li[@Class=" +
+        "'RedCrow.InsectorTweaks.RC_HungerGeneExtension']/" +
+        $parts[0]
+    ) $parts[1] $entry.Key
+}
+
+$foodPositiveTags = @(
+    $consumptionGeneXml.SelectNodes(
+        "/Defs/*[starts-with(defName,'RC_Mutation_')]" +
+        "[modExtensions/li/hungerAdditive]/exclusionTags/li"
+    ) | ForEach-Object { $_.InnerText }
+)
+$foodNegativeTags = @(
+    $consumptionGeneXml.SelectNodes(
+        "/Defs/*[starts-with(defName,'RC_Evolution_')]" +
+        "[modExtensions/li/hungerAdditive]/exclusionTags/li"
+    ) | ForEach-Object { $_.InnerText }
+)
+Assert-True (
+    @($foodPositiveTags | Where-Object { $foodNegativeTags -contains $_ }).Count -eq 4
+) "Every positive food gene must conflict with every negative food gene"
+
+$jellyPositiveTags = @(
+    $consumptionGeneXml.SelectNodes(
+        "/Defs/*[starts-with(defName,'RC_Mutation_')]" +
+        "[modExtensions/li/jellyAdditive]/exclusionTags/li"
+    ) | ForEach-Object { $_.InnerText }
+)
+$jellyNegativeTags = @(
+    $consumptionGeneXml.SelectNodes(
+        "/Defs/*[starts-with(defName,'RC_Evolution_')]" +
+        "[modExtensions/li/jellyAdditive]/exclusionTags/li"
+    ) | ForEach-Object { $_.InnerText }
+)
+Assert-True (
+    @($jellyPositiveTags | Where-Object { $jellyNegativeTags -contains $_ }).Count -eq 4
+) "Every positive jelly gene must conflict with every negative jelly gene"
+
+$anima = $geneNodes |
+    Where-Object { $_.defName -eq "RC_Evolution_HiveAnimaResonance" } |
+    Select-Object -First 1
+Assert-NodeValue $anima "./statOffsets/MeditationPlantGrowthOffset" `
+    "0.15" "RC_Evolution_HiveAnimaResonance"
+Assert-True ($null -eq $anima.SelectSingleNode("./abilities")) (
+    "Hive-anima resonance must not grant Anima song"
+)
+
+$regenerator = $geneNodes |
+    Where-Object { $_.defName -eq "RC_Evolution_HiveRegeneratorCells" } |
+    Select-Object -First 1
+Assert-NodeValue $regenerator "./geneClass" "Gene_Healing" `
+    "RC_Evolution_HiveRegeneratorCells"
+Assert-NodeValue $regenerator "./preventPermanentWounds" "true" `
+    "RC_Evolution_HiveRegeneratorCells"
 
 $limbGenes = @(
     "RC_Mutation_SmallThoracicArms",
@@ -194,12 +285,50 @@ foreach ($name in $expectedAbilities) {
 foreach ($name in @(
     "RC_UsurpationLarva",
     "RC_UsurpationComa",
-    "RC_SolarStuporCondition"
+    "RC_SolarStuporCondition",
+    "RC_SwarmConsumed"
 )) {
     Assert-True ($null -ne $hediffXml.SelectSingleNode(
         "/Defs/HediffDef[defName='$name']"
     )) "Missing HediffDef: $name"
 }
+
+$swarmConsumed = $hediffXml.SelectSingleNode(
+    "/Defs/HediffDef[defName='RC_SwarmConsumed']"
+)
+Assert-NodeValue $swarmConsumed "./hediffClass" "HediffWithComps" `
+    "RC_SwarmConsumed"
+Assert-NodeValue $swarmConsumed "./disablesNeeds/li[.='Mood']" "Mood" `
+    "RC_SwarmConsumed"
+Assert-NodeValue $swarmConsumed `
+    "./stages/li/statFactors/SuppressionSusceptibility" "0.5" `
+    "RC_SwarmConsumed"
+
+$coagulate = $stage4AbilityXml.SelectSingleNode(
+    "/Defs/AbilityDef[defName='RC_CoagulatingSecretion']"
+)
+Assert-NodeValue $coagulate "./warmupStartSound" "Coagulate_Cast" `
+    "RC_CoagulatingSecretion"
+Assert-NodeValue $coagulate "./warmupEffecter" "Coagulate" `
+    "RC_CoagulatingSecretion"
+Assert-NodeValue $coagulate "./jobDef" "CastAbilityOnThingMelee" `
+    "RC_CoagulatingSecretion"
+Assert-NodeValue $coagulate `
+    "./comps/li[@Class='CompProperties_AbilityRequiresCapacity']/capacity" `
+    "Manipulation" "RC_CoagulatingSecretion"
+
+Assert-True (
+    $tendrilPatchXml.OuterXml.Contains(
+        'VFEI2_TendrilmossVines')
+) "Tendrilmoss patch must target VFEI2_TendrilmossVines"
+Assert-True (
+    $tendrilPatchXml.OuterXml.Contains(
+        '<harvestYield>10</harvestYield>')
+) "Tendrilmoss harvest yield must be 10"
+Assert-True (
+    $tendrilPatchXml.OuterXml.Contains(
+        '<growMinGlow>0</growMinGlow>')
+) "Tendrilmoss minimum light must be 0"
 
 $metapodBalance = [ordered]@{
     RC_Metapod_Usurpation = "1800000:25:150"
@@ -233,6 +362,7 @@ $metapodSourcePath = Join-Path $ModRoot "Source\MetapodTransformations.cs"
 $infrastructurePath = Join-Path $ModRoot "Source\MetapodInfrastructure.cs"
 $filthSourcePath = Join-Path $ModRoot "Source\HiveInsectFilthPatch.cs"
 $stage4SourcePath = Join-Path $ModRoot "Source\Stage4Effects.cs"
+$followupSourcePath = Join-Path $ModRoot "Source\GenelineFollowupEffects.cs"
 $projectPath = Join-Path $ModRoot "Source\RedCrow.InsectorTweaks.csproj"
 
 $organSource = Get-Content -LiteralPath $organSourcePath `
@@ -244,6 +374,8 @@ $infrastructure = Get-Content -LiteralPath $infrastructurePath `
 $filthSource = Get-Content -LiteralPath $filthSourcePath `
     -Raw -Encoding UTF8
 $stage4Source = Get-Content -LiteralPath $stage4SourcePath `
+    -Raw -Encoding UTF8
+$followupSource = Get-Content -LiteralPath $followupSourcePath `
     -Raw -Encoding UTF8
 $projectText = Get-Content -LiteralPath $projectPath `
     -Raw -Encoding UTF8
@@ -263,13 +395,16 @@ foreach ($requiredText in @(
 
 foreach ($requiredText in @(
     "Stage4Effects.FindJellyResource",
-    "resource.Value -= Math.Min(1f, resource.Value)",
+    "AnnualJellyCost = 0.8f",
+    "RC_StingerWoundUtility.DamageAndBleed",
+    "HealthUtility.DamageUntilDowned",
     "GenDate.TicksPerYear",
     "RotStage.Fresh",
     "GetBrain()",
     "CatInHead",
-    "Bipolar",
+    "RC_SwarmConsumed",
     "RC_SolarStuporCondition",
+    "CompTipStringExtra",
     "AgeBiologicalTicks",
     "RemovePawnDirectly",
     "SetXenotypeDirect",
@@ -282,6 +417,17 @@ foreach ($requiredText in @(
 Assert-True ($stage4Source.Contains("VRE_InsectJellyDependency")) (
     "The exact personal insect-jelly resource Def is not resolved"
 )
+foreach ($requiredText in @(
+    "jellyAdditive",
+    "RC_SwarmConsumed",
+    "MeditationFocusDefOf.Natural",
+    "RC_Evolution_HiveAnimaResonance",
+    "Priority.Last"
+)) {
+    Assert-True ($followupSource.Contains($requiredText)) (
+        "GenelineFollowupEffects.cs is missing: $requiredText"
+    )
+}
 
 foreach ($requiredText in @(
     "ThingOwner",
@@ -366,7 +512,8 @@ foreach ($sourceFile in @(
     "GenelineOrganEffects.cs",
     "MetapodInfrastructure.cs",
     "MetapodTransformations.cs",
-    "HiveInsectFilthPatch.cs"
+    "HiveInsectFilthPatch.cs",
+    "GenelineFollowupEffects.cs"
 )) {
     Assert-True ($projectText.Contains(
         '<Compile Include="' + $sourceFile + '" />'
@@ -394,6 +541,14 @@ foreach ($baseName in @(
         Assert-True (Test-Path -LiteralPath $texture) (
             "Missing local render texture: $baseName`_$direction.png"
         )
+        $header = [System.IO.File]::ReadAllBytes($texture)
+        Assert-True (
+            $header.Length -gt 24 -and
+            $header[16] -eq 0 -and $header[17] -eq 0 -and
+            $header[18] -eq 1 -and $header[19] -eq 0 -and
+            $header[20] -eq 0 -and $header[21] -eq 0 -and
+            $header[22] -eq 1 -and $header[23] -eq 0
+        ) "Render texture must be 256x256: $baseName`_$direction.png"
     }
 }
 
@@ -444,7 +599,7 @@ Assert-True (
 ) "Assemblies must contain only RedCrow.InsectorTweaks.dll"
 
 Write-Output (
-    "Organs/metapods validation passed: 15 genes, 4 abilities, " +
-    "3 hediffs, 4 metapods, 26 explicit hive-insect PawnKindDefs, " +
+    "Organs/metapods validation passed: 25 genes, 4 metapod abilities, " +
+    "4 metapod hediffs, 4 metapods, 26 explicit hive-insect PawnKindDefs, " +
     "local art, unique defs, and no absolute XML/C# paths."
 )

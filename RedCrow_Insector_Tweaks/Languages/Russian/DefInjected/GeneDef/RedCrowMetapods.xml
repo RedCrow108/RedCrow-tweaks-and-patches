@@ -3,7 +3,7 @@
   <RC_Evolution_UsurpationLarva.label>личинка узурпации</RC_Evolution_UsurpationLarva.label>
   <RC_Evolution_UsurpationLarva.description>Носитель внедряет в беспомощную органическую разумную жертву паразитическую личинку. После пяти дней нарастающих симптомов и суток комы жертва попадает в метапод и перестраивается по сохранённому снимку расы и обычного генотипа носителя, но без Geneline.</RC_Evolution_UsurpationLarva.description>
   <RC_Evolution_HiveMemoryEgg.label>яйцо памяти роя</RC_Evolution_HiveMemoryEgg.label>
-  <RC_Evolution_HiveMemoryEgg.description>Носитель поглощает свежий труп разумного существа с сохранившимся мозгом и восстанавливает его личность в теле инсектора. Результат не имеет Geneline, постоянно страдает солнечным ступором и получает обязательные черты «Мяуржимый» и «Биполярность».</RC_Evolution_HiveMemoryEgg.description>
+  <RC_Evolution_HiveMemoryEgg.description>Носитель поглощает свежий труп разумного существа с сохранившимся мозгом и восстанавливает его личность в теле инсектора. Результат не имеет Geneline, получает черту «Мяуржимый», постоянный солнечный ступор и состояние «Поглощён роем».</RC_Evolution_HiveMemoryEgg.description>
   <RC_Evolution_LarvalRebirth.label>личиночное перерождение</RC_Evolution_LarvalRebirth.label>
   <RC_Evolution_LarvalRebirth.description>Носитель растворяет взрослое тело внутри метапода и выходит той же пешкой с биологическим возрастом 0. Хронологический возраст, генотип, текущая Geneline, личность, импланты, экипировка, навыки, черты, отношения, воспоминания, идеология и фракция сохраняются.</RC_Evolution_LarvalRebirth.description>
   <RC_Evolution_PerfectImago.label>совершенное имаго</RC_Evolution_PerfectImago.label>

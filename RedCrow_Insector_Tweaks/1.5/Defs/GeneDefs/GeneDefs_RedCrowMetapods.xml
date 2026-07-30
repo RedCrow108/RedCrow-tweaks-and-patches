@@ -27,7 +27,8 @@
       <li>RC_Ability_ImplantUsurpationLarva</li>
     </abilities>
     <customEffectDescriptions>
-      <li>Successful implantation costs a full personal insect-jelly reserve.</li>
+      <li>Successful implantation costs 80 personal insect jelly.</li>
+      <li>The implanted victim is wounded as severely as by the endogene stinger.</li>
       <li>Successful implantation starts a one-year cooldown.</li>
       <li>The victim retains identity, age, skills, traits, relations, memories, implants, and gear.</li>
     </customEffectDescriptions>
@@ -37,15 +38,16 @@
       ParentName="RC_MetapodEvolutionBase">
     <defName>RC_Evolution_HiveMemoryEgg</defName>
     <label>hive-memory egg</label>
-    <description>The carrier can consume a fresh humanlike corpse with an intact brain and rebuild its preserved identity as an insector. The result has no Geneline, carries permanent solar stupor, and gains the required CatInHead and Bipolar traits.</description>
+    <description>The carrier can consume a fresh humanlike corpse with an intact brain and rebuild its preserved identity as an insector. The result has no Geneline, carries permanent solar stupor, gains CatInHead, and is permanently consumed by the hive.</description>
     <displayOrderInCategory>3602</displayOrderInCategory>
     <evolution>5</evolution>
     <abilities>
       <li>RC_Ability_ImplantCorpseEgg</li>
     </abilities>
     <customEffectDescriptions>
-      <li>Requires HSK More Content for CatInHead and Bipolar.</li>
-      <li>Successful use costs a full personal insect-jelly reserve and starts a one-year cooldown.</li>
+      <li>Requires HSK More Content for CatInHead.</li>
+      <li>Consumed by the hive removes mood and doubles base food and personal-jelly consumption.</li>
+      <li>Successful use costs 80 personal insect jelly, wounds the restored body, and starts a one-year cooldown.</li>
       <li>The corpse's identity, ages, skills, traits, relations, memories, implants, and gear are preserved.</li>
     </customEffectDescriptions>
   </VanillaRacesExpandedInsector.GenelineGeneDef>

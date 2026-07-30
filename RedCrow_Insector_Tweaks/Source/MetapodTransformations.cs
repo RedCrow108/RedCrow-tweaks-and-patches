@@ -20,6 +20,7 @@ namespace RedCrow.InsectorTweaks
     public static class RC_MetapodUtility
     {
         private const string LogPrefix = "[RedCrow Metapods]";
+        public const float AnnualJellyCost = 0.8f;
 
         public static bool TryCreateForPawn(
             Pawn pawn,
@@ -83,7 +84,7 @@ namespace RedCrow.InsectorTweaks
             resource = Stage4Effects.FindJellyResource(pawn);
             return resource != null &&
                 resource.Max > 0f &&
-                resource.Value >= resource.Max - 0.0001f;
+                resource.Value >= AnnualJellyCost - 0.0001f;
         }
     }
 
@@ -304,10 +305,19 @@ namespace RedCrow.InsectorTweaks
                 pawn.health.AddHediff(solarCondition);
             }
 
+            HediffDef swarmConsumed =
+                DefDatabase<HediffDef>.GetNamedSilentFail(
+                    "RC_SwarmConsumed");
             if (!EnsureRequiredTrait(pawn, "CatInHead") ||
-                !EnsureRequiredTrait(pawn, "Bipolar"))
+                swarmConsumed == null)
             {
                 return false;
+            }
+            if (!pawn.health.hediffSet.HasHediff(
+                swarmConsumed,
+                false))
+            {
+                pawn.health.AddHediff(swarmConsumed);
             }
 
             FinalizePawnAfterTransformation(pawn);
@@ -670,10 +680,14 @@ namespace RedCrow.InsectorTweaks
             }
 
             infectionTicks++;
-            parent.Severity = Math.Min(
-                1f,
-                (float)infectionTicks /
-                Math.Max(1, Props.incubationTicks));
+            if (infectionTicks == 1 ||
+                pawn.IsHashIntervalTick(60))
+            {
+                parent.Severity = Math.Min(
+                    1f,
+                    (float)infectionTicks /
+                    Math.Max(1, Props.incubationTicks));
+            }
 
             if (!comaStarted &&
                 infectionTicks >= Props.incubationTicks)
@@ -687,6 +701,30 @@ namespace RedCrow.InsectorTweaks
                 Find.TickManager.TicksGame >= nextPodRetryTick)
             {
                 TryEnterMetapod(pawn);
+            }
+        }
+
+        public override string CompTipStringExtra
+        {
+            get
+            {
+                int totalTicks =
+                    Math.Max(
+                        1,
+                        Props.incubationTicks +
+                        Props.comaTicks);
+                int elapsed = Math.Min(infectionTicks, totalTicks);
+                float progress =
+                    (float)elapsed / totalTicks;
+                int remaining = Math.Max(0, totalTicks - elapsed);
+                string stage = comaStarted
+                    ? "RC_UsurpationStageComa".Translate()
+                    : "RC_UsurpationStageInfiltration".Translate();
+                return
+                    "RC_UsurpationProgress".Translate(
+                        stage,
+                        progress.ToStringPercent(),
+                        remaining.ToStringTicksToPeriod());
             }
         }
 
@@ -873,7 +911,9 @@ namespace RedCrow.InsectorTweaks
             Gene_Resource resource,
             RC_MetapodTransformationData data)
         {
-            resource.Value -= Math.Min(1f, resource.Value);
+            resource.Value -= Math.Min(
+                RC_MetapodUtility.AnnualJellyCost,
+                resource.Value);
             nextUseTick =
                 Find.TickManager.TicksGame + GenDate.TicksPerYear;
             if (data != null)
@@ -1021,6 +1061,10 @@ namespace RedCrow.InsectorTweaks
             }
 
             comp.transformationData = data;
+            RC_StingerWoundUtility.DamageAndBleed(
+                victim,
+                victim.Position,
+                victim.Map);
             base.Apply(target, dest);
             CommitAnnualUse(resource, data);
 
@@ -1040,7 +1084,6 @@ namespace RedCrow.InsectorTweaks
         public ThingDef resultRace;
         public XenotypeDef resultXenotype;
         public string requiredTraitA = "CatInHead";
-        public string requiredTraitB = "Bipolar";
 
         public CompProperties_AbilityCorpseMemory()
         {
@@ -1184,6 +1227,11 @@ namespace RedCrow.InsectorTweaks
                 return;
             }
 
+            RC_StingerWoundUtility.DamageAndBleed(
+                pawn,
+                position,
+                map);
+
             string reason;
             if (!pod.TryAcceptPawn(
                 pawn,
@@ -1220,10 +1268,10 @@ namespace RedCrow.InsectorTweaks
                 Props.resultXenotype != null &&
                 DefDatabase<TraitDef>.GetNamedSilentFail(
                     Props.requiredTraitA) != null &&
-                DefDatabase<TraitDef>.GetNamedSilentFail(
-                    Props.requiredTraitB) != null &&
                 DefDatabase<HediffDef>.GetNamedSilentFail(
-                    "RC_SolarStuporCondition") != null;
+                    "RC_SolarStuporCondition") != null &&
+                DefDatabase<HediffDef>.GetNamedSilentFail(
+                    "RC_SwarmConsumed") != null;
         }
     }
 
@@ -1269,8 +1317,7 @@ namespace RedCrow.InsectorTweaks
 
             Pawn pawn = parent.pawn;
             if (pawn == null ||
-                !pawn.Spawned ||
-                pawn.ParentHolder != null)
+                !pawn.Spawned)
             {
                 reason =
                     "RC_Metapod_PawnUnavailable".Translate();
@@ -1300,7 +1347,6 @@ namespace RedCrow.InsectorTweaks
             if (pawn == null ||
                 !CanCast ||
                 !pawn.Spawned ||
-                pawn.ParentHolder != null ||
                 !RC_PawnTransformationUtility.CanChangeRace(
                     pawn,
                     pawn.def,
@@ -1342,6 +1388,49 @@ namespace RedCrow.InsectorTweaks
                 pod,
                 MessageTypeDefOf.PositiveEvent,
                 false);
+        }
+    }
+
+    public static class RC_StingerWoundUtility
+    {
+        public static void DamageAndBleed(
+            Pawn pawn,
+            IntVec3 position,
+            Map map)
+        {
+            if (pawn == null)
+            {
+                return;
+            }
+
+            HealthUtility.DamageUntilDowned(
+                pawn,
+                true,
+                null,
+                null,
+                null);
+
+            if (map == null || !position.IsValid)
+            {
+                return;
+            }
+
+            for (int index = 0; index < 20; index++)
+            {
+                IntVec3 cell =
+                    CellFinder.RandomClosewalkCellNear(
+                        position,
+                        map,
+                        2,
+                        null);
+                FilthMaker.TryMakeFilth(
+                    cell,
+                    map,
+                    ThingDefOf.Filth_Blood,
+                    1,
+                    FilthSourceFlags.None,
+                    true);
+            }
         }
     }
 }
