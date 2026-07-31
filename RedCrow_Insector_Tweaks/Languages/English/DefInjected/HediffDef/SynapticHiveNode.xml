@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RC_SynapticNetworkState.label>organic synaptic network</RC_SynapticNetworkState.label>
+  <RC_SynapticNetworkState.description>The pawn's nervous system is being sustained by an organic synaptic node on the current map.</RC_SynapticNetworkState.description>
+  <RC_DeferredSynapticShock.label>deferred synaptic shock</RC_DeferredSynapticShock.label>
+  <RC_DeferredSynapticShock.description>The swarm's severed neural echo will force this pawn into a berserk rage as soon as it can act.</RC_DeferredSynapticShock.description>
+</LanguageData>

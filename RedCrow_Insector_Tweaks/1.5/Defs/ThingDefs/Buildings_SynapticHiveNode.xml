@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef ParentName="VFEI2_BuildingInsectoidBase">
+    <defName>RC_SynapticHiveNode</defName>
+    <label>organic synaptic node</label>
+    <description>A vast cordyceps-like organic relay that stores insect jelly and sustains every pawn consumed by the swarm on its map.</description>
+    <thingClass>Building</thingClass>
+    <graphicData>
+      <texPath>Things/Building/GlowPodLarge</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3, 3)</drawSize>
+      <shadowData>
+        <volume>(2.2, 1.3, 2.2)</volume>
+        <offset>(0, 0, -0.2)</offset>
+      </shadowData>
+      <damageData>
+        <rect>(0.15, 0.15, 2.7, 2.7)</rect>
+      </damageData>
+    </graphicData>
+    <minifiedDef Inherit="False" />
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <selectable>true</selectable>
+    <fillPercent>0.45</fillPercent>
+    <rotatable>false</rotatable>
+    <tickerType>Rare</tickerType>
+    <size>(3, 3)</size>
+    <statBases>
+      <MaxHitPoints>500</MaxHitPoints>
+      <Mass>100</Mass>
+      <Flammability>1.0</Flammability>
+      <MarketValue>500</MarketValue>
+      <WorkToBuild>9000</WorkToBuild>
+    </statBases>
+    <placeWorkers>
+      <li>RedCrow.InsectorTweaks.PlaceWorker_OnlyOneSynapticHiveNode</li>
+    </placeWorkers>
+    <comps>
+      <li Class="CompProperties_SelfhealHitpoints">
+        <ticksPerHeal>6000</ticksPerHeal>
+      </li>
+      <li Class="CompProperties_Maintainable">
+        <compClass>VFEInsectoids.CompMaintenableHive</compClass>
+        <ticksHealthy>30000</ticksHealthy>
+        <ticksNeedsMaintenance>30000</ticksNeedsMaintenance>
+        <damagePerTickRare>10</damagePerTickRare>
+      </li>
+      <li Class="RedCrow.InsectorTweaks.CompProperties_SynapticReservoir">
+        <linkedPawnHediff>RC_SwarmConsumed</linkedPawnHediff>
+        <networkHediff>RC_SynapticNetworkState</networkHediff>
+        <deferredShockHediff>RC_DeferredSynapticShock</deferredShockHediff>
+      </li>
+    </comps>
+    <costList>
+      <InsectJelly>500</InsectJelly>
+    </costList>
+    <designationCategory>VFEI2_Insectoids</designationCategory>
+    <researchPrerequisites>
+      <li>VFEI2_BasicHivetech</li>
+    </researchPrerequisites>
+    <terrainAffordanceNeeded>VFEI2_Creep</terrainAffordanceNeeded>
+  </ThingDef>
+
+</Defs>

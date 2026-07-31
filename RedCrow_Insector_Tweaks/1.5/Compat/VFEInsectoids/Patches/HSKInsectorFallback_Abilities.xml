@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/AbilityDef[defName="VRE_RoyalJellyInjector"]</xpath>
+    <nomatch>
+      <li Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+          <AbilityDef ParentName="VRE_InsectAbilityBase">
+            <defName>VRE_RoyalJellyInjector</defName>
+            <label>royal jelly injection</label>
+            <description>Inject royal jelly into a target, boosting their immunity gain and mood for 6 hours at the cost of a small wound.</description>
+            <iconPath>UI/Icons/Abilities/RoyalJellyInjector</iconPath>
+            <cooldownTicksRange>15000</cooldownTicksRange>
+            <verbProperties>
+              <range>1.42</range>
+              <targetParams>
+                <canTargetPawns>true</canTargetPawns>
+              </targetParams>
+              <defaultProjectile>Bullet_ChargeBlasterHeavy</defaultProjectile>
+            </verbProperties>
+            <comps>
+              <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>VRE_RoyalJellyInjected</hediffDef>
+                <applyToTarget>true</applyToTarget>
+                <onlyApplyToSelf>false</onlyApplyToSelf>
+              </li>
+              <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>VRE_RoyalJellyInjectionWound</hediffDef>
+                <applyToTarget>true</applyToTarget>
+                <onlyApplyToSelf>false</onlyApplyToSelf>
+              </li>
+            </comps>
+          </AbilityDef>
+          <AbilityDef ParentName="VRE_InsectAbilityBase">
+            <defName>VFEI2_FlameSpew</defName>
+            <label>flame spew</label>
+            <description>Spew a ball of combustible fluid from the mouth, igniting the target area.</description>
+            <iconPath>UI/Icons/Abilities/FlameSpew</iconPath>
+            <cooldownTicksRange>3000</cooldownTicksRange>
+            <verbProperties>
+              <range>20</range>
+              <requireLineOfSight>true</requireLineOfSight>
+              <targetParams>
+                <canTargetLocations>true</canTargetLocations>
+              </targetParams>
+              <defaultProjectile>VFEI2_InsectFlameSpew</defaultProjectile>
+            </verbProperties>
+          </AbilityDef>
+          <AbilityDef ParentName="VRE_InsectAbilityBase">
+            <defName>VFEI2_InsectAcidSpew</defName>
+            <label>acid spew</label>
+            <description>Spew a glob of corrosive acid at a target area.</description>
+            <iconPath>UI/Icons/Abilities/AcidSpew</iconPath>
+            <cooldownTicksRange>3000</cooldownTicksRange>
+            <verbProperties>
+              <range>20</range>
+              <requireLineOfSight>true</requireLineOfSight>
+              <targetParams>
+                <canTargetLocations>true</canTargetLocations>
+              </targetParams>
+              <defaultProjectile>VFEI2_InsectAcidSpew</defaultProjectile>
+            </verbProperties>
+          </AbilityDef>
+          <AbilityDef ParentName="VRE_InsectAbilityBase">
+            <defName>VFEI2_BreacherCharge_Colonists</defName>
+            <label>breacher charge</label>
+            <description>Charge through a line, damaging targets and obstacles in the path.</description>
+            <iconPath>UI/Icons/Abilities/BreacherCharge</iconPath>
+            <cooldownTicksRange>3000</cooldownTicksRange>
+            <verbProperties>
+              <range>20</range>
+              <requireLineOfSight>true</requireLineOfSight>
+              <targetParams>
+                <canTargetLocations>true</canTargetLocations>
+              </targetParams>
+            </verbProperties>
+          </AbilityDef>
+        </value>
+      </li>
+    </nomatch>
+  </Operation>
+</Patch>

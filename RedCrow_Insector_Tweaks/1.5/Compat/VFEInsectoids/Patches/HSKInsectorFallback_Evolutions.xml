@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_SwarmSynapse"]</xpath>
+    <nomatch>
+      <li Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+          <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_EvolutionGene">
+            <defName>VRE_SwarmSynapse</defName>
+            <label>swarm synapse</label>
+            <description>Carriers of this gene form a synaptic swarm, allowing their minds to link and accelerate learning when together. Like a hive of insects, their collective intelligence and speed of knowledge absorption increase with each additional member.</description>
+            <unlockable>false</unlockable>
+            <selectionWeight>0</selectionWeight>
+            <iconPath>UI/Icons/Genes/Gene_SwarmSynapse</iconPath>
+            <displayOrderInCategory>1000</displayOrderInCategory>
+            <customEffectDescriptions>
+              <li>Provides a stacking +5% Global Work Speed boost for each pawn in the colony with Swarm Synapse gene.</li>
+              <li>The amount of colonists having the gene refreshes every 4 ingame hours.</li>
+            </customEffectDescriptions>
+            <modExtensions>
+              <li Class="VanillaGenesExpanded.GeneExtension">
+                <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
+                <backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes>
+              </li>
+            </modExtensions>
+          </VanillaRacesExpandedInsector.GenelineGeneDef>
+          <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_EvolutionGene">
+            <defName>VRE_RoyalJellyInjector</defName>
+            <label>royal jelly injector</label>
+            <description>Carriers of this gene develop a specialized injector mouth, enabling them to administer royal jelly to others. This injection provides the recipient with an immunity boost and improved mood, though it leaves a tiny wound and can only be performed every six hours.</description>
+            <selectionWeight>0</selectionWeight>
+            <unlockable>false</unlockable>
+            <iconPath>UI/Icons/Genes/Gene_RoyalJellyInjector</iconPath>
+            <displayOrderInCategory>1001</displayOrderInCategory>
+            <abilities>
+              <li>VRE_RoyalJellyInjector</li>
+            </abilities>
+            <exclusionTags>
+              <li>InsectorMouth</li>
+            </exclusionTags>
+            <renderNodeProperties>
+              <li>
+                <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+                <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+                <parentTagDef>Head</parentTagDef>
+                <texPath>Things/Pawn/Humanlike/HeadAttachments/InsectInjector</texPath>
+                <colorType>Skin</colorType>
+                <useRottenColor>true</useRottenColor>
+                <useSkinShader>true</useSkinShader>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <visibleFacing>
+                  <li>East</li>
+                  <li>South</li>
+                  <li>West</li>
+                </visibleFacing>
+                <drawData>
+                  <defaultData>
+                    <layer>69</layer>
+                  </defaultData>
+                </drawData>
+              </li>
+            </renderNodeProperties>
+            <modExtensions>
+              <li Class="VanillaGenesExpanded.GeneExtension">
+                <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
+                <backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes>
+              </li>
+            </modExtensions>
+          </VanillaRacesExpandedInsector.GenelineGeneDef>
+          <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_EvolutionGene">
+            <defName>VRE_PyroResistantChitin</defName>
+            <label>pyro-resistant chitin</label>
+            <description>Carriers of this gene develop pyro-resistant chitin, drastically reducing their flammability and flame damage taken. They remain composed in fiery situations, never succumbing to panic when on fire.</description>
+            <unlockable>false</unlockable>
+            <selectionWeight>0</selectionWeight>
+            <iconPath>UI/Icons/Genes/Gene_PyroresistantChitin</iconPath>
+            <displayOrderInCategory>1002</displayOrderInCategory>
+            <damageFactors>
+              <Flame>0.25</Flame>
+            </damageFactors>
+            <statFactors>
+              <Flammability>0.1</Flammability>
+            </statFactors>
+            <customEffectDescriptions>
+              <li>Won't run in panic when set on fire.</li>
+            </customEffectDescriptions>
+            <exclusionTags>
+              <li>Tail</li>
+              <li>InsectorFire</li>
+            </exclusionTags>
+            <symbolPack>
+              <prefixSymbols>
+                <li>
+                  <symbol>fuel</symbol>
+                </li>
+                <li>
+                  <symbol>chem</symbol>
+                </li>
+                <li>
+                  <symbol>petrol</symbol>
+                </li>
+              </prefixSymbols>
+            </symbolPack>
+            <modExtensions>
+              <li Class="VanillaGenesExpanded.GeneExtension">
+                <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
+                <backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes>
+              </li>
+            </modExtensions>
+          </VanillaRacesExpandedInsector.GenelineGeneDef>
+          <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_EvolutionGene">
+            <defName>VRE_FlameGlands</defName>
+            <label>flame glands</label>
+            <description>Carriers of this gene possess flame glands, granting them the ability to spew combustible fluid from their mouths. This fluid ignites on contact, setting targets or surfaces ablaze, thanks to a special gland and sac that produce and store the fiery substance.</description>
+            <unlockable>false</unlockable>
+            <iconPath>UI/Icons/Genes/Gene_FlameGlands</iconPath>
+            <selectionWeight>0</selectionWeight>
+            <displayOrderInCategory>1003</displayOrderInCategory>
+            <abilities>
+              <li>VFEI2_FlameSpew</li>
+            </abilities>
+            <renderNodeProperties>
+              <li>
+                <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+                <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+                <parentTagDef>Head</parentTagDef>
+                <texPath>Things/Pawn/Humanlike/HeadAttachments/InsectFlameGlands</texPath>
+                <colorType>Skin</colorType>
+                <useRottenColor>true</useRottenColor>
+                <useSkinShader>true</useSkinShader>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <visibleFacing>
+                  <li>East</li>
+                  <li>South</li>
+                  <li>West</li>
+                </visibleFacing>
+                <drawData>
+                  <defaultData>
+                    <layer>69</layer>
+                  </defaultData>
+                </drawData>
+              </li>
+            </renderNodeProperties>
+            <exclusionTags>
+²È="24€€€€€€€€€€€€€ð½Ù¥Í¥‰±•…¥¹œø(€€€€€€€€€€€€€€€€ñ‘É…Ý…Ñ„ø(€€€€€€€€€€€€€€€€€€ñ‘•™…Õ±Ñ…Ñ„ø(€€€€€€€€€€€€€€€€€€€€ñ±…å•ÈøØäð½±…å•Èø(€€€€€€€€€€€€€€€€€€ð½‘•™…Õ±Ñ…Ñ„ø(€€€€€€€€€€€€€€€€ð½‘É…Ý…Ñ„ø(€€€€€€€€€€€€€€ð½±¤ø(€€€€€€€€€€€€ð½É•¹‘•É9½‘•AÉ½Á•ÉÑ¥•Ìø(€€€€€€€€€€€€ñÍ•±•Ñ¥½¹]•¥¡ÐøÀð½Í•±•Ñ¥½¹]•¥¡Ðø(€€€€€€€€€€€€ñÍåµ‰½±A…¬ø(€€€€€€€€€€€€€€ñÁÉ•™¥áMåµ‰½±Ìø(€€€€€€€€€€€€€€€€ñ±¤ø(€€€€€€€€€€€€€€€€€€ñÍåµ‰½°ù¥¹Í•Ðð½Íåµ‰½°ø(€€€€€€€€€€€€€€€€ð½±¤ø(€€€€€€€€€€€€€€€€ñ±¤ø(€€€€€€€€€€€€€€€€€€ñÍåµ‰½°ùµ…¹‘¥‰±”ð½Íåµ‰½°ø(€€€€€€€€€€€€€€€€ð½±¤ø(€€€€€€€€€€€€€€ð½ÁÉ•™¥áMåµ‰½±Ìø(€€€€€€€€€€€€ð½Íåµ‰½±A…¬ø(€€€€€€€€€€€€ñµ½‘áÑ•¹Í¥½¹Ìø(€€€€€€€€€€€€€€ñ±¤±…ÍÌô‰Y…¹¥±±…•¹•ÍáÁ…¹‘•¹•¹•áÑ•¹Í¥½¸ˆø(€€€€€€€€€€€€€€€€ñ‰…­É½Õ¹‘A…Ñ¡¹‘½•¹•ÌùU$½%½¹Ì½•¹•Ì½YI}Ù½±ÕÑ¥½¹	ð½‰…­É½Õ¹‘A…Ñ¡¹‘½•¹•Ìø(€€€€€€€€€€€€€€€€ñ‰…­É½Õ¹‘A…Ñ¡a•¹½•¹•ÌùU$½%½¹Ì½•¹•Ì½YI}Ù½±ÕÑ¥½¹	ð½‰…­É½Õ¹‘A…Ñ¡a•¹½•¹•Ìø(€€€€€€€€€€€€€€€€ñ¡•‘¥™™ÍQ½	½‘åA…ÉÑÌø(€€€€€€€€€€€€€€€€€€ñ±¤ø(€€€€€€€€€€€€€€€€€€€€ñ¡•‘¥™˜ùYI}%¹Í•ÑI½ÍÑÉÕ´ð½¡•‘¥™˜ø(€€€€€€€€€€€€€€€€€€€€ñ‰½‘åÁ…ÉÑÌø(€€€€€€€€€€€€€€€€€€€€€€ñ±¤ù)…Üð½±¤ø(€€€€€€€€€€€€€€€€€€€€ð½‰½‘åÁ…ÉÑÌø(€€€€€€€€€€€€€€€€€€ð½±¤ø(€€€€€€€€€€€€€€€€ð½¡•‘¥™™ÍQ½	½‘åA…ÉÑÌø(€€€€€€€€€€€€€€ð½±¤ø(€€€€€€€€€€€€ð½µ½‘áÑ•¹Í¥½¹Ìø(€€€€€€€€€€ð½Y…¹¥±±…I…•ÍáÁ…¹‘•‘%¹Í•Ñ½È¹•¹•±¥¹••¹••˜ø(€€€€€€€€€€ñY…¹¥±±…I…•ÍáÁ…¹‘•‘%¹Í•Ñ½È¹•¹•±¥¹••¹••˜A…É•¹Ñ9…µ”ô‰YI}Ù½±ÕÑ¥½¹•¹”ˆø(€€€€€€€€€€€€ñ‘•™9…µ”ùYI}¥‘±…¹‘Ìð½‘•™9…µ”ø(€€€€€€€€€€€€ñ±…‰•°ù…¥±…¹‘Ìð½±…‰•°ø(€€€€€€€€€€€€ñ‘•ÍÉ¥ÁÑ¥½¸ù…ÉÉ¥•ÉÌ½˜Ñ¡¥Ì•¹”‘•Ù•±½À…¥±…¹‘Ì°•¹…‰±¥¹œÑ¡•´Ñ¼ÍÁ•Ü…¥™É½´Ñ¡•¥È¹•¬°‘…µ…¥¹œ‰Õ¥±‘¥¹Ì°Á•½Á±”…¹¥Ñ•µÌ¥¸„Ñ…É•Ñ•…É•„¸ð½‘•ÍÉ¥ÁÑ¥½¸ø(€€€€€€€€€€€€ñÕ¹±½­…‰±”ù™…±Í”ð½Õ¹±½­…‰±”ø(€€€€€€€€€€€€ñ¥½¹A…Ñ ùU$½%½¹Ì½•¹•Ì½•¹•}¥‘±…¹‘Ìð½¥½¹A…Ñ ø(€€€€€€€€€€€€ñ‘¥ÍÁ±…å=É‘•É%¹…Ñ•½ÉäøÄÀÀØð½‘¥ÍÁ±…å=É‘•É%¹…Ñ•½Éäø(€€€€€€€€€€€€ñ…‰¥±¥Ñ¥•Ìø(€€€€€€€€€€€€€€ñ±¤ùY$É}%¹Í•Ñ¥‘MÁ•Üð½±¤ø(€€€€€€€€€€€€ð½…‰¥±¥Ñ¥•Ìø(€€€€€€€€€€€€ñÍ•±•Ñ¥½¹]•¥¡ÐøÀð½Í•±•Ñ¥½¹]•¥¡Ðø(€€€€€€€€€€€€ñ•á±ÕÍ¥½¹Q…Ìø(€€€€€€€€€€€€€€ñ±¤ù%¹Í•Ñ½É±…¹‘Ìð½±¤ø(€€€€€€€€€€€€€€ñ±¤ù%¹Í•Ñ½É5½ÕÑ ð½±¤ø(€€€€€€€€€€€€ð½•á±ÕÍ¥½¹Q…Ìø(€€€€€€€€€€€€ñÍåµ‰½±A…¬ø(€€€€€€€€€€€€€€ñÁÉ•™¥áMåµ‰½±Ìø(€€€€€€€€€€€€€€€€ñ±¤ø(€€€€€€€€€€€€€€€€€€ñÍåµ‰½°ù…¥ð½Íåµ‰½°ø(€€€€€€€€€€€€€€€€ð½±¤ø(€€€€€€€€€€€€€€€€ñ±¤ø(€€€€€€€€€€€€€€€€€€ñÍåµ‰½°ùÙ•¹¼ð½Íåµ‰½°ø(€€€€€€€€€€€€€€€€ð½±¤ø(€€€€€€€€€€€€€€ð½ÁÉ•™¥áMåµ‰½±Ìø(€€€€€€€€€€€€ð½Íåµ‰½±A…¬ø(€€€€€€€€€€€€ñµ½‘áÑ•¹Í¥½¹Ìø(€€€€€€€€€€€€€€ñ±¤±…ÍÌô‰Y…¹¥±±…•¹•ÍáÁ…¹‘•¹•¹•áÑ•¹Í¥½¸ˆø(€€€€€€€€€€€€€€€€ñ‰…­É½Õ¹‘A…Ñ¡¹‘½•¹•ÌùU$½%½¹Ì½•¹•Ì½YI}Ù½±ÕÑ¥½¹	ð½‰…­É½Õ¹‘A…Ñ¡¹‘½•¹•Ìø(€€€€€€€€€€€€€€€€ñ‰…­É½Õ¹‘A…Ñ¡a•¹½•¹•ÌùU$½%½¹Ì½•¹•Ì½YI}Ù½±ÕÑ¥½¹	ð½‰…­É½Õ¹‘A…Ñ¡a•¹½•¹•Ìø(€€€€€€€€€€€€€€ð½±¤ø(€€€€€€€€€€€€ð½µ½‘áÑ•¹Í¥½¹Ìø(€€€€€€€€€€ð½Y…¹¥±±…I…•ÍáÁ…¹‘•‘%¹Í•Ñ½È¹•¹•±¥¹••¹••˜ø(€€€€€€€€€€ñY…¹¥±±…I…•ÍáÁ…¹‘•‘%¹Í•Ñ½È¹•¹•±¥¹••¹••˜A…É•¹Ñ9…µ”ô‰YI}Ù½±ÕÑ¥½¹•¹”ˆø(€€€€€€€€€€€€ñ‘•™9…µ”ùYI}%¹™É…É•‘M•¹Í½ÉÌð½‘•™9…µ”ø(€€€€€€€€€€€€ñ±…‰•°ù¥¹™É…É•Í•¹Í½ÉÌð½±…‰•°ø(€€€€€€€€€€€€ñ‘•ÍÉ¥ÁÑ¥½¸ù…ÉÉ¥•ÉÌ½˜Ñ¡¥Ì•¹”Á½ÍÍ•ÍÌ¥¹™É…É•Í•¹Í½ÉÌ°…±±½Ý¥¹œÑ¡•´Ñ¼Í•”±•…É±ä¥¸Ñ¡”‘…É¬¸Q¡•äÍÕ™™•È¹¼Á•¹…±Ñ¥•ÌÑ¼Ý½É¬ÍÁ••½Èµ½Ù•µ•¹Ð¥¸‘…É­¹•ÍÌ°…¹…¥¸¥µÁÉ½Ù•…ÕÉ…ä½Ù•È±½¹œÉ…¹”¸ð½‘•ÍÉ¥ÁÑ¥½¸ø(€€€€€€€€€€€€ñÍ•±•Ñ¥½¹]•¥¡ÐøÀð½Í•±•Ñ¥½¹]•¥¡Ðø(€€€€€€€€€€€€ñÕ¹±½­…‰±”ù™…±Í”ð½Õ¹±½­…‰±”ø(€€€€€€€€€€€€ñ¥½¹A…Ñ ùU$½%½¹Ì½•¹•Ì½•¹•}%¹™É…É•‘M•¹Í½ÉÌð½¥½¹A…Ñ ø(€€€€€€€€€€€€ñ‘¥ÍÁ±…å=É‘•É%¹…Ñ•½ÉäøÄÀÀÜð½‘¥ÍÁ±…å=É‘•É%¹…Ñ•½Éäø(€€€€€€€€€€€€ñÍÑ…Ñ…Ñ½ÉÌø(€€€€€€€€€€€€€€ñM¡½½Ñ¥¹ÕÉ…å…Ñ½É}5•‘¥Õ´øÄ¸Äð½M¡½½Ñ¥¹ÕÉ…å…Ñ½É}5•‘¥Õ´ø(€€€€€€€€€€€€€€ñM¡½½Ñ¥¹ÕÉ…å…Ñ½É}1½¹œøÄ¸ÀÔð½M¡½½Ñ¥¹ÕÉ…å…Ñ½É}1½¹œø(€€€€€€€€€€€€ð½ÍÑ…Ñ…Ñ½ÉÌø(€€€€€€€€€€€€ñ¥¹½É•…É­¹•ÍÌ¹ÑÉÕ”ð½¥¹½É•…É­¹•ÍÌø(€€€€€€€€€€€€ñµ½‘áÑ•¹Í¥½¹Ìø(€€€€€€€€€€€€€€ñ±¤±…ÍÌô‰Y…¹¥±±…•¹•ÍáÁ…¹‘•¹•¹•áÑ•¹Í¥½¸ˆø(€€€€€€€€€€€€€€€€ñ‰…­É½Õ¹‘A…Ñ¡¹‘½•¹•ÌùU$½%½¹Ì½•¹•Ì½YI}Ù½±ÕÑ¥½¹	ð½‰…­É½Õ¹‘A…Ñ¡¹‘½•¹•Ìø(€€€€€€€€€€€€€€€€ñ‰…­É½Õ¹‘A…Ñ¡a•¹½•¹•ÌùU$½%½¹Ì½•¹•Ì½YI}Ù½±ÕÑ¥½¹	ð½‰…­É½Õ¹‘A…Ñ¡a•¹½•¹•Ìø(€€€€€€€€€€€€€€ð½±¤ø(€€€€€€€€€€€€ð½µ½‘áÑ•¹Í¥½¹Ìø(€€€€€€€€€€ð½Y…¹¥±±…I…•ÍáÁ…¹‘•‘%¹Í•Ñ½È¹•¹•±¥¹••¹••˜ø(€€€€€€€€€€ñY…¹¥±±…I…•ÍáÁ…¹‘•‘%¹Í•Ñ½È¹•¹•±¥¹••¹••˜A…É•¹Ñ9…µ”ô‰YI}Ù½±ÕÑ¥½¹•¹”ˆø(€€€€€€€€€€€€ñ‘•™9…µ”ùYI}5¥¹•É…±I¥¡%¹Í•ÑÍ­¥¸ð½‘•™9…µ”ø(€€€€€€€€€€€€ñ±…‰•°ùµ¥¹•É…°µÉ¥ ¥¹Í•ÑÍ­¥¸ð½±…‰•°ø(€€€€€€€€€€€€ñ‘•ÍÉ¥ÁÑ¥½¸ù…ÉÉ¥•ÉÌ½˜Ñ¡¥Ì•¹”‘•Ù•±½Àµ¥¹•É…°µÉ¥ ¥¹Í•ÑÍ­¥¸°™½Éµ¥¹œÑ¡¥¬°ÁÉ½Ñ•Ñ¥Ù”Á±…Ñ¥¹œ½¸Ñ¡•¥ÈÍ­¥¸¸Q¡¥Ì¹…ÑÕÉ…°…Éµ½ÈÁÉ½Ù¥‘•ÌÍ¥¹¥™¥…¹ÐÁÉ½Ñ•Ñ¥½¸Õ¹Ñ¥°•¹½Õ ‘…µ…”¥ÌÍÕÍÑ…¥¹•Ñ¼‰É•…¬¥Ð¸ð½‘•ÍÉ¥ÁÑ¥½¸ø(€€€€€€€€€€€€ñÕ¹±½­…‰±”ù™…±Í”ð½Õ¹±½­…‰±”ø(€€€€€€€€€€€€ñ¥½¹A…Ñ ùU$½%½¹Ì½•¹•Ì½•¹•}5¥¹•É…±É¥¡%¹Í•ÑÍ­¥¸ð½¥½¹A…Ñ ø(€€€€€€€€€€€€ñ‘¥ÍÁ±…å=É‘•É%¹…Ñ•½ÉäøÄÀÀàð½‘¥ÍÁ±…å=É‘•É%¹…Ñ•½Éäø(€€€€€€€€€€€€ñ•á±ÕÍ¥½¹Q…Ìø(€€€€€€€€€€€€€€ñ±¤ù}	½‘¥•Ìð½±¤ø(€€€€€€€€€€€€€€ñ±¤ù	½‘¥•Ìð½±¤ø(€€€€€€€€€€€€€€ñ±¤ù	½‘äð½±¤ø(€€€€€€€€€€€€€€ñ±¤ùÕÈð½±¤ø(€€€€€€€€€€€€€€ñ±¤ù}Éµ½ÕÈð½±¤ø(€€€€€€€€€€€€€€ñ±¤ùÉµ½ÕÈð½±¤ø(€€€€€€€€€€€€€€ñ±¤ùÉµ½Èð½±¤ø(€€€€€€€€€€€€ð½•á±ÕÍ¥½¹Q…Ìø(€€€€€€€€€€€€ñ™ÕÈùYI}5¥¹•É…±I¥¡%¹Í•ÑÍ­¥¸ð½™ÕÈø(€€€€€€€€€€€€ñÍ­¥¹%Í!…¥É½±½Èù™…±Í”ð½Í­¥¹%Í!…¥É½±½Èø(€€€€€€€€€€€€ñÑ…ÑÑ½½ÍY¥Í¥‰±”ù™…±Í”ð½Ñ…ÑÑ½½ÍY¥Í¥‰±”ø(€€€€€€€€€€€€ñÉ•¹‘•É9½‘•AÉ½Á•ÉÑ¥•Ìø(€€€€€€€€€€€€€€ñ±¤ø(€€€€€€€€€€€€€€€€ñ¹½‘•±…ÍÌùA…Ý¹I•¹‘•É9½‘•}ÕÈð½¹½‘•±…ÍÌø(€€€€€€€€€€€€€€€€ñÝ½É­•É±…ÍÌùA…Ý¹I•¹‘•É9½‘•]½É­•É}ÕÈð½Ý½É­•É±…ÍÌø(€€€€€€€€€€€€€€€€ñ‰…Í•1…å•ÈøÔð½‰…Í•1…å•Èø(€€€€€€€€€€€€€€€€ñÉ½ÑÉ…Ý5½‘”ùÉ•Í °I½ÑÑ¥¹œð½É½ÑÉ…Ý5½‘”ø(€€€€€€€€€€€€€€€€ñ½±½ÉQåÁ”ùM­¥¸ð½½±½ÉQåÁ”ø(€€€€€€€€€€€€€€€€ñÁ…É•¹ÑQ…•˜ù	½‘äð½Á…É•¹ÑQ…•˜ø(€€€€€€€€€€€€€€ð½±¤ø(€€€€€€€€€€€€ð½É•¹‘•É9½‘•AÉ½Á•ÉÑ¥•Ìø(€€€€€€€€€€€€ñÍ•±•Ñ¥½¹]•¥¡ÐøÀð½Í•±•Ñ¥½¹]•¥¡Ðø(€€€€€€€€€€€€ñµ½‘áÑ•¹Í¥½¹Ìø(€€€€€€€€€€€€€€ñ±¤±…ÍÌô‰Y…¹¥±±…•¹•ÍáÁ…¹‘•¹•¹•áÑ•¹Í¥½¸ˆø(€€€€€€€€€€€€€€€€ñ‰…­É½Õ¹‘A…Ñ¡¹‘½•¹•ÌùU$½%½¹Ì½•¹•Ì½YI}Ù½±ÕÑ¥½¹	ð½‰…­É½Õ¹‘A…Ñ¡¹‘½•¹•Ìø(€€€€€€€€€€€€€€€€ñ‰…­É½Õ¹‘A…Ñ¡a•¹½•¹•ÌùU$½%½¹Ì½•¹•Ì½YI}Ù½±ÕÑ¥½¹	ð½‰…­É½Õ¹‘A…Ñ¡a•¹½•¹•Ìø(€€€€€€€€€€€€€€€€ñ¡•‘¥™™Q½]¡½±•	½‘äùYI}5¥¹•É…±I¥¡%¹Í•ÑÍ­¥¸ð½¡•‘¥™™Q½]¡½±•	½‘äø(€€€€€€€€€€€€€€ð½±¤ø(€€€€€€€€€€€€ð½µ½‘áÑ•¹Í¥½¹Ìø(€€€€€€€€€€ð½Y…¹¥±±…I…•ÍáÁ…¹‘•‘%¹Í•Ñ½È¹•¹•±¥¹••¹••˜ø(€€€€€€€€€€ñY…¹¥±±…I…•ÍáÁ…¹‘•‘%¹Í•Ñ½È¹•¹•±¥¹••¹••˜A…É•¹Ñ9…µ”ô‰YI}Ù½±ÕÑ¥½¹•¹”ˆø(€€€€€€€€€€€€ñ‘•™9…µ”ùYI}¡…É•É±…ÝÌð½‘•™9…µ”ø(€€€€€€€€€€€€ñ±…‰•°ù¡…É•È±…ÝÌð½±…‰•°ø(€€€€€€€€€€€€ñÕ¹±½­…‰±”ù™…±Í”ð½Õ¹±½­…‰±”ø(€€€€€€€€€€€€ñ‘•ÍÉ¥ÁÑ¥½¸ù…ÉÉ¥•ÉÌ½˜Ñ¡¥Ì•¹”‘•Ù•±½À±…É”¡…É•È±…ÝÌ°É…¹Ñ¥¹œÑ¡•´Ñ¡”…‰¥±¥ÑäÑ¼Á•É™½É´„¡…É”Ñ½Ý…É‘Ì„Ñ…É•Ð°‘•…±¥¹œÍ¥¹¥™¥…¹Ð‘…µ…”Ñ¼…¹åÑ¡¥¹œ¥¸Ñ¡•¥ÈÁ…Ñ …¹•…Í¥±ä‘•ÍÑÉ½å¥¹œ‘•™•¹Í•Ì°Ý¥Ñ Ñ¡”…‰¥±¥ÑäÑ¼Á•É™½É´Ñ¡¥Ì…Ñ¥½¸Á•É¥½‘¥…±±ä…¹½Ù•È„½¹Í¥‘•É…‰±”‘¥ÍÑ…¹”¸ð½‘•ÍÉ¥ÁÑ¥½¸ø(€€€€€€€€€€€€ñÍ•±•Ñ¥½¹]•¥¡ÐøÀð½Í•±•Ñ¥½¹]•¥¡Ðø(€€€€€€€€€€€€ñ¥½¹A…Ñ ùU$½%½¹Ì½•¹•Ì½•¹•}¡…É•É±…ÝÌð½¥½¹A…Ñ ø(€€€€€€€€€€€€ñÍÑ…Ñ=™™Í•ÑÌø(€€€€€€€€€€€€€€ñ]½É­MÁ••‘±½‰…°ø´À¸Ðð½]½É­MÁ••‘±½‰…°ø(€€€€€€€€€€€€ð½ÍÑ…Ñ=™™Í•ÑÌø(€€€€€€€€€€€€ñ‘¥ÍÁ±…å=É‘•É%¹…Ñ•½ÉäøÄÀÀäð½‘¥ÍÁ±…å=É‘•É%¹…Ñ•½Éäø(€€€€€€€€€€€€ñ•á±ÕÍ¥½¹Q…Ìø(€€€€€€€€€€€€€€ñ±¤ù!…¹‘Ìð½±¤ø(€€€€€€€€€€€€ð½•á±ÕÍ¥½¹Q…Ìø(€€€€€€€€€€€€ñ…‰¥±¥Ñ¥•Ìø(€€€€€€€€€€€€€€ñ±¤ùY$É}	É•…¡•É¡…É•}½±½¹¥ÍÑÌð½±¤ø(€€€€€€€€€€€€ð½…‰¥±¥Ñ¥•Ìø(€€€€€€€€€€€€ñµ½‘áÑ•¹Í¥½¹Ìø(€€€€€€€€€€€€€€ñ±¤±…ÍÌô‰Y…¹¥±±…•¹•ÍáÁ…¹‘•¹•¹•áÑ•¹Í¥½¸ˆø(€€€€€€€€€€€€€€€€ñ‰…­É½Õ¹‘A…Ñ¡¹‘½•¹•ÌùU$½%½¹Ì½•¹•Ì½YI}Ù½±ÕÑ¥½¹	ð½‰…­É½Õ¹‘A…Ñ¡¹‘½•¹•Ìø(€€€€€€€€€€€€€€€€ñ‰…­É½Õ¹‘A…Ñ¡a•¹½•¹•ÌùU$½%½¹Ì½•¹•Ì½YI}Ù½±ÕÑ¥½¹	ð½‰…­É½Õ¹‘A…Ñ¡a•¹½•¹•Ìø(€€€€€€€€€€€€€€ð½±¤ø(€€€€€€€€€€€€ð½µ½‘áÑ•¹Í¥½¹Ìø(€€€€€€€€€€ð½Y…¹¥±±…I…•ÍáÁ…¹‘•‘%¹Í•Ñ½È¹•¹•±¥¹••¹••˜ø(€€€€€€€€ð½Ù…±Õ”ø(€€€€€€ð½±¤ø(€€€€ð½¹½µ…Ñ ø(€€ð½=Á•É…Ñ¥½¸ø(ð½A…Ñ ø

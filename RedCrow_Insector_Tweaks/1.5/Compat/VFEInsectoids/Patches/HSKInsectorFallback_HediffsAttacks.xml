@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/HediffDef[defName="VRE_InsectRostrum"]</xpath>
+    <nomatch>
+      <li Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+          <HediffDef>
+            <defName>VRE_InsectRostrum</defName>
+            <label>insect rostrum</label>
+            <hediffClass>HediffWithComps</hediffClass>
+            <isBad>false</isBad>
+            <stages>
+              <li>
+                <tools>
+                  <li>
+                    <label>insect rostrum</label>
+                    <capacities>
+                      <li>Manipulation</li>
+                    </capacities>
+                    <power>12</power>
+                    <cooldownTime>1.5</cooldownTime>
+                    <linkedBodyPartsGroup>Mouth</linkedBodyPartsGroup>
+                    <damageDef>Cut</damageDef>
+                  </li>
+                </tools>
+              </li>
+            </stages>
+          </HediffDef>
+        </value>
+      </li>
+    </nomatch>
+  </Operation>
+</Patch>

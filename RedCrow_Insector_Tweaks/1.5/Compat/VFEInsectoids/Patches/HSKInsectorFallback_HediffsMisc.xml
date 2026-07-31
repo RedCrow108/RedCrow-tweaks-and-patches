@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/HediffDef[defName="VRE_Microsized"]</xpath>
+    <nomatch>
+      <li Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+          <HediffDef>
+            <defName>VRE_Microsized</defName>
+            <label>microsized</label>
+            <hediffClass>HediffWithComps</hediffClass>
+            <isBad>false</isBad>
+          </HediffDef>
+          <HediffDef>
+            <defName>VRE_Colossal</defName>
+            <label>colossal</label>
+            <hediffClass>HediffWithComps</hediffClass>
+            <isBad>false</isBad>
+          </HediffDef>
+          <HediffDef>
+            <defName>VRE_ChemfuelSacks</defName>
+            <label>chemfuel sacks</label>
+            <hediffClass>HediffWithComps</hediffClass>
+            <isBad>false</isBad>
+          </HediffDef>
+          <HediffDef>
+            <defName>VRE_AcidBurstSack</defName>
+            <label>acid burstsack</label>
+            <hediffClass>HediffWithComps</hediffClass>
+            <isBad>false</isBad>
+          </HediffDef>
+          <HediffDef>
+            <defName>VRE_MineralRichInsectskin</defName>
+            <label>mineral-rich insectskin</label>
+            <hediffClass>HediffWithComps</hediffClass>
+            <isBad>false</isBad>
+          </HediffDef>
+          <HediffDef>
+            <defName>VRE_HardLockedJoints</defName>
+            <label>hard-locked joints</label>
+            <hediffClass>HediffWithComps</hediffClass>
+            <isBad>false</isBad>
+          </HediffDef>
+        </value>
+      </li>
+    </nomatch>
+  </Operation>
+</Patch>
