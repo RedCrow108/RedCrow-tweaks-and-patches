@@ -46,10 +46,12 @@
     <Compile Include="HiveInsectFilthPatch.cs" />
     <Compile Include="MetapodInfrastructure.cs" />
     <Compile Include="MetapodTransformations.cs" />
+    <Compile Include="PherocoreBalanceIntegration.cs" />
     <Compile Include="QualityPatch.cs" />
     <Compile Include="Stage2Effects.cs" />
     <Compile Include="Stage3Effects.cs" />
     <Compile Include="Stage4Effects.cs" />
+    <Compile Include="SynapticHiveNode.cs" />
   </ItemGroup>
 
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
