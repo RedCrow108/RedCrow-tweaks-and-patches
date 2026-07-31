@@ -40,7 +40,12 @@
 
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="GenelineOrganEffects.cs" />
+    <Compile Include="GenelineFollowupEffects.cs" />
     <Compile Include="GeneReferenceCleanup.cs" />
+    <Compile Include="HiveInsectFilthPatch.cs" />
+    <Compile Include="MetapodInfrastructure.cs" />
+    <Compile Include="MetapodTransformations.cs" />
     <Compile Include="QualityPatch.cs" />
     <Compile Include="Stage2Effects.cs" />
     <Compile Include="Stage3Effects.cs" />

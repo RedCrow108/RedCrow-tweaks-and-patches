@@ -143,6 +143,17 @@ Assert-NodeValue $ability `
 Assert-True (
     $null -eq $ability.SelectSingleNode("./cooldownTicksRange")
 ) "Coagulating secretion must not have a cooldown"
+Assert-NodeValue $ability "./warmupMote" "Mote_CoagulateStencil" `
+    "RC_CoagulatingSecretion"
+Assert-NodeValue $ability "./warmupEffecter" "Coagulate" `
+    "RC_CoagulatingSecretion"
+Assert-NodeValue $ability "./warmupStartSound" "Coagulate_Cast" `
+    "RC_CoagulatingSecretion"
+Assert-NodeValue $ability "./jobDef" "CastAbilityOnThingMelee" `
+    "RC_CoagulatingSecretion"
+Assert-NodeValue $ability `
+    "./comps/li[@Class='CompProperties_AbilityRequiresCapacity']/capacity" `
+    "Manipulation" "RC_CoagulatingSecretion"
 
 $abilityComp = $ability.SelectSingleNode(
     "./comps/li[@Class='RedCrow.InsectorTweaks.CompProperties_AbilityCoagulatingSecretion']"
@@ -243,8 +254,7 @@ foreach ($forbiddenXml in @(
     "MayRequire",
     "AlphaGenes",
     "AG_InsectBlood",
-    "VFEI2_RoyalInsectJelly",
-    ">Coagulate<"
+    "VFEI2_RoyalInsectJelly"
 )) {
     Assert-True (-not $allNewXml.Contains($forbiddenXml)) (
         "Follow-up XML has a forbidden dependency or source def: " +

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RC_Ability_ImplantUsurpationLarva.label>внедрить личинку узурпации</RC_Ability_ImplantUsurpationLarva.label>
+  <RC_Ability_ImplantUsurpationLarva.description>Внедрить паразитическую личинку в живую органическую разумную жертву. Личинка пять дней захватывает тело, вызывает суточную кому, а затем автоматически заключает жертву в метапод узурпации. Успешное внедрение расходует 80 единиц личного инсекторного желе, ранит цель как жало-вживитель эндогенов и запускает годовую перезарядку.</RC_Ability_ImplantUsurpationLarva.description>
+  <RC_Ability_ImplantCorpseEgg.label>внедрить яйцо памяти роя</RC_Ability_ImplantCorpseEgg.label>
+  <RC_Ability_ImplantCorpseEgg.description>Поглотить свежий труп органического разумного существа с сохранившимся мозгом и восстановить его личность в теле инсектора. Требует HSK More Content. Успешное внедрение расходует 80 единиц личного инсекторного желе, ранит восстановленное тело как жало-вживитель эндогенов и запускает годовую перезарядку.</RC_Ability_ImplantCorpseEgg.description>
+  <RC_Ability_LarvalRebirth.label>личиночное перерождение</RC_Ability_LarvalRebirth.label>
+  <RC_Ability_LarvalRebirth.description>Войти в метапод и перестроить ту же пешку до биологического возраста 0, сохранив личность, хронологический возраст, генотип, Geneline, импланты, экипировку, навыки, черты, отношения, воспоминания, идеологию и фракцию.</RC_Ability_LarvalRebirth.description>
+  <RC_Ability_PerfectImago.label>совершенное имаго</RC_Ability_PerfectImago.label>
+  <RC_Ability_PerfectImago.description>Войти в метапод долгого цикла и перестроить ту же пешку в здоровое двадцатилетнее имаго, сохранив личность, хронологический возраст, генотип, Geneline, импланты, экипировку, навыки, черты, отношения, воспоминания, идеологию и фракцию.</RC_Ability_PerfectImago.description>
+</LanguageData>

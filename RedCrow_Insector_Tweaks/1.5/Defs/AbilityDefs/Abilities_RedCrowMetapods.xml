@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <AbilityDef ParentName="AbilityTouchBase">
+    <defName>RC_Ability_ImplantUsurpationLarva</defName>
+    <label>implant usurpation larva</label>
+    <description>Implant a parasitic larva into a living organic humanlike victim. The larva spends five days subverting the host, induces a one-day coma, and then encloses the victim in an usurpation metapod. Successful implantation costs 80 personal insect jelly, wounds the victim like an endogene stinger, and starts a one-year cooldown.</description>
+    <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
+    <hostile>true</hostile>
+    <aiCanUse>false</aiCanUse>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <warmupEffecter>Implant_Xenogerm</warmupEffecter>
+    <warmupStartSound>ReimplantXenogerm_Cast</warmupStartSound>
+    <verbProperties>
+      <verbClass>Verb_CastAbilityTouch</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <range>-1</range>
+      <warmupTime>1</warmupTime>
+      <targetParams>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetHumans>true</canTargetHumans>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetMechs>false</canTargetMechs>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetBuildings>false</canTargetBuildings>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="RedCrow.InsectorTweaks.CompProperties_AbilityUsurpation">
+        <infectionDef>RC_UsurpationLarva</infectionDef>
+        <resultRace>Human</resultRace>
+        <resultXenotype>VRE_Insector</resultXenotype>
+        <requiredTraitA>CatInHead</requiredTraitA>
+        <canTargetBaby>true</canTargetBaby>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <AbilityDef ParentName="AbilityTouchBase">
+    <defName>RC_Ability_ImplantCorpseEgg</defName>
+    <label>implant hive-memory egg</label>
+    <description>Consume a fresh organic humanlike corpse with an intact brain and rebuild its identity as an insector. Requires HSK More Content. Successful implantation costs 80 personal insect jelly, wounds the restored body like an endogene stinger, and starts a one-year cooldown.</description>
+    <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
+    <hostile>false</hostile>
+    <aiCanUse>false</aiCanUse>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <warmupEffecter>Implant_Xenogerm</warmupEffecter>
+    <warmupStartSound>ReimplantXenogerm_Cast</warmupStartSound>
+    <verbProperties>
+      <verbClass>Verb_CastAbilityTouch</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <range>-1</range>
+      <warmupTime>1</warmupTime>
+      <targetParams>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetCorpses>true</canTargetCorpses>
+        <canTargetHumans>true</canTargetHumans>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetMechs>false</canTargetMechs>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetItems>false</canTargetItems>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="RedCrow.InsectorTweaks.CompProperties_AbilityCorpseMemory">
+        <metapodDef>RC_Metapod_CorpseMemory</metapodDef>
+        <resultRace>Human</resultRace>
+        <resultXenotype>VRE_Insector</resultXenotype>
+        <requiredTraitA>CatInHead</requiredTraitA>
+        <canTargetBaby>true</canTargetBaby>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <AbilityDef ParentName="AbilityTouchBase">
+    <defName>RC_Ability_LarvalRebirth</defName>
+    <label>larval rebirth</label>
+    <description>Enter a metapod and rebuild the same pawn at biological age zero. Identity, chronological age, genotype, Geneline, implants, gear, skills, traits, relations, memories, ideology, and faction are preserved.</description>
+    <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
+    <hostile>false</hostile>
+    <aiCanUse>false</aiCanUse>
+    <targetRequired>false</targetRequired>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <range>-1</range>
+      <warmupTime>1</warmupTime>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetMechs>false</canTargetMechs>
+        <canTargetBuildings>false</canTargetBuildings>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="RedCrow.InsectorTweaks.CompProperties_AbilitySelfMetapod">
+        <metapodDef>RC_Metapod_LarvalRebirth</metapodDef>
+        <mode>LarvalRebirth</mode>
+        <canTargetBaby>true</canTargetBaby>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <AbilityDef ParentName="AbilityTouchBase">
+    <defName>RC_Ability_PerfectImago</defName>
+    <label>perfect imago</label>
+    <description>Enter a long-cycle metapod and rebuild the same pawn as a healthy biological twenty-year-old. Identity, chronological age, genotype, Geneline, implants, gear, skills, traits, relations, memories, ideology, and faction are preserved.</description>
+    <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
+    <hostile>false</hostile>
+    <aiCanUse>false</aiCanUse>
+    <targetRequired>false</targetRequired>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <range>-1</range>
+      <warmupTime>1</warmupTime>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetMechs>false</canTargetMechs>
+        <canTargetBuildings>false</canTargetBuildings>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="RedCrow.InsectorTweaks.CompProperties_AbilitySelfMetapod">
+        <metapodDef>RC_Metapod_PerfectImago</metapodDef>
+        <mode>PerfectImago</mode>
+        <canTargetBaby>true</canTargetBaby>
+      </li>
+    </comps>
+  </AbilityDef>
+
+</Defs>

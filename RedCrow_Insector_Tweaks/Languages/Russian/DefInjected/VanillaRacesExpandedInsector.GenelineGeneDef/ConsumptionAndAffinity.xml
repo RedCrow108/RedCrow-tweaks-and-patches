@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RC_Mutation_RavenousCrop.label>ненасытный зоб</RC_Mutation_RavenousCrop.label>
+  <RC_Mutation_RavenousCrop.description>Увеличенный пищеварительный зоб постоянно требует дополнительной пищи для поддержания тканей.</RC_Mutation_RavenousCrop.description>
+  <RC_Mutation_DevouringCrop.label>пожирающий зоб</RC_Mutation_DevouringCrop.label>
+  <RC_Mutation_DevouringCrop.description>Переросший зоб сжигает огромные запасы питательных веществ ради поддержки быстро меняющегося тела.</RC_Mutation_DevouringCrop.description>
+  <RC_Mutation_PorousJellyReservoir.label>пористый резервуар желе</RC_Mutation_PorousJellyReservoir.label>
+  <RC_Mutation_PorousJellyReservoir.description>Мелкие утечки в личном резервуаре заставляют организм чаще восполнять инсекторное желе.</RC_Mutation_PorousJellyReservoir.description>
+  <RC_Mutation_LeakingJellyReservoir.label>протекающий резервуар желе</RC_Mutation_LeakingJellyReservoir.label>
+  <RC_Mutation_LeakingJellyReservoir.description>Нестабильный резервуар постоянно теряет инсекторное желе через раздутые сосудистые стенки.</RC_Mutation_LeakingJellyReservoir.description>
+  <RC_Evolution_EfficientCrop.label>эффективный зоб</RC_Evolution_EfficientCrop.label>
+  <RC_Evolution_EfficientCrop.description>Компактный пищеварительный зоб извлекает больше полезного питания из каждой порции.</RC_Evolution_EfficientCrop.description>
+  <RC_Evolution_ClosedDigestiveCycle.label>замкнутый пищеварительный цикл</RC_Evolution_ClosedDigestiveCycle.label>
+  <RC_Evolution_ClosedDigestiveCycle.description>Рой возвращает почти все продукты обмена в замкнутый пищеварительный контур.</RC_Evolution_ClosedDigestiveCycle.description>
+  <RC_Evolution_JellyConservation.label>сбережение желе</RC_Evolution_JellyConservation.label>
+  <RC_Evolution_JellyConservation.description>Сформированные роем клапаны замедляют естественную потерю личного инсекторного желе.</RC_Evolution_JellyConservation.description>
+  <RC_Evolution_SealedJellyReservoir.label>герметичный резервуар желе</RC_Evolution_SealedJellyReservoir.label>
+  <RC_Evolution_SealedJellyReservoir.description>Многослойная хитиновая оболочка герметизирует резервуар и резко снижает расход личного желе.</RC_Evolution_SealedJellyReservoir.description>
+  <RC_Evolution_HiveAnimaResonance.label>резонанс улья с анимой</RC_Evolution_HiveAnimaResonance.label>
+  <RC_Evolution_HiveAnimaResonance.description>Усики носителя синхронизируются с сетью анимы, позволяя разуму улья поддерживать естественный тип медитации.</RC_Evolution_HiveAnimaResonance.description>
+  <RC_Evolution_HiveRegeneratorCells.label>регенераторные клетки улья</RC_Evolution_HiveRegeneratorCells.label>
+  <RC_Evolution_HiveRegeneratorCells.description>Спящие ремонтные касты циркулируют в теле носителя и время от времени поглощают шрамы, старые раны и хронические заболевания.</RC_Evolution_HiveRegeneratorCells.description>
+</LanguageData>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      Name="RC_MetapodEvolutionBase"
+      ParentName="VRE_EvolutionGene"
+      Abstract="True">
+    <unlockable>false</unlockable>
+    <selectionWeight>0</selectionWeight>
+    <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
+    <modExtensions Inherit="False">
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_MetapodEvolutionBase">
+    <defName>RC_Evolution_UsurpationLarva</defName>
+    <label>usurpation larva</label>
+    <description>The carrier can implant a parasitic larva into a helpless organic humanlike victim. After five days of progressive symptoms and a one-day coma, the victim enters a metapod and emerges with the same hive-consumed result as a hive-memory egg.</description>
+    <displayOrderInCategory>3601</displayOrderInCategory>
+    <evolution>5</evolution>
+    <abilities>
+      <li>RC_Ability_ImplantUsurpationLarva</li>
+    </abilities>
+    <customEffectDescriptions>
+      <li>Successful implantation costs 80 personal insect jelly.</li>
+      <li>The implanted victim is wounded as severely as by the endogene stinger.</li>
+      <li>Successful implantation starts a one-year cooldown.</li>
+      <li>The victim retains identity, age, skills, traits, relations, memories, implants, and gear.</li>
+    </customEffectDescriptions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_MetapodEvolutionBase">
+    <defName>RC_Evolution_HiveMemoryEgg</defName>
+    <label>hive-memory egg</label>
+    <description>The carrier can consume a fresh humanlike corpse with an intact brain and rebuild its preserved identity as an insector. The result has no Geneline, carries permanent solar stupor, gains CatInHead, and is permanently consumed by the hive.</description>
+    <displayOrderInCategory>3602</displayOrderInCategory>
+    <evolution>5</evolution>
+    <abilities>
+      <li>RC_Ability_ImplantCorpseEgg</li>
+    </abilities>
+    <customEffectDescriptions>
+      <li>Requires HSK More Content for CatInHead.</li>
+      <li>Consumed by the hive removes mood and doubles base food and personal-jelly consumption.</li>
+      <li>Successful use costs 80 personal insect jelly, wounds the restored body, and starts a one-year cooldown.</li>
+      <li>The corpse's identity, ages, skills, traits, relations, memories, implants, and gear are preserved.</li>
+    </customEffectDescriptions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_MetapodEvolutionBase">
+    <defName>RC_Evolution_LarvalRebirth</defName>
+    <label>larval rebirth</label>
+    <description>The carrier dissolves its adult body inside a metapod and emerges as the same pawn at biological age zero. Chronological age, genotype, current Geneline, identity, implants, equipment, skills, traits, relations, memories, ideology, and faction remain unchanged.</description>
+    <displayOrderInCategory>3603</displayOrderInCategory>
+    <evolution>4</evolution>
+    <abilities>
+      <li>RC_Ability_LarvalRebirth</li>
+    </abilities>
+    <customEffectDescriptions>
+      <li>Base duration: 30 days; fivefold speed while fueled.</li>
+      <li>Fuel rate: 20 insect jelly per day; a fully accelerated cycle costs about 120.</li>
+      <li>No personal-jelly cost and no annual cooldown.</li>
+    </customEffectDescriptions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_MetapodEvolutionBase">
+    <defName>RC_Evolution_PerfectImago</defName>
+    <label>perfect imago</label>
+    <description>The carrier enters a long-cycle metapod and emerges as the same pawn at biological age twenty, cleansed of disease, addiction, injury, scars, chronic age conditions, and missing natural parts while preserving artificial parts and identity.</description>
+    <displayOrderInCategory>3604</displayOrderInCategory>
+    <evolution>5</evolution>
+    <abilities>
+      <li>RC_Ability_PerfectImago</li>
+    </abilities>
+    <customEffectDescriptions>
+      <li>Base duration: 120 days; fivefold speed while fueled.</li>
+      <li>Fuel rate: 50 insect jelly per day; a fully accelerated cycle costs about 1200.</li>
+      <li>No personal-jelly cost and no annual cooldown.</li>
+    </customEffectDescriptions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+</Defs>

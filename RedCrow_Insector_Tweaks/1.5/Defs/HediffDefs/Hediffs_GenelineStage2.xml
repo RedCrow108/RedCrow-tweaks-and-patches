@@ -68,10 +68,7 @@
     <maxSeverity>1.0</maxSeverity>
     <isBad>false</isBad>
     <comps>
-      <li Class="AnimalBehaviours.HediffCompProperties_StageBySunlight">
-        <sunlightStageIndex>1</sunlightStageIndex>
-        <sunlessStageIndex>0.1</sunlessStageIndex>
-      </li>
+      <li Class="RedCrow.InsectorTweaks.HediffCompProperties_SolarStuporCondition" />
     </comps>
     <stages>
       <li>

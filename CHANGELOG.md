@@ -4,6 +4,13 @@
 
 ### Added
 
+- Added 11 ordinary Geneline organ, limb, metabolism, biological-tool, and
+  neural effects with a unified hunger formula.
+- Added four special Geneline evolutions backed by dedicated RedCrow
+  metapods: Usurpation Larva, Hive-Memory Egg, Larval Rebirth, and Perfect
+  Imago.
+- Added targeted animal-filth suppression for 26 explicit hive-insect
+  PawnKinds from VFE Insectoids 2 and its conditional Black Hive crossover.
 - Added the tier-4 Coagulating Secretion evolution: a custom touch ability
   that tends all eligible insect-blood wounds for 20 displayed insect-jelly
   points, without direct healing or a cooldown.
@@ -14,6 +21,13 @@
 
 ### Safety
 
+- RedCrow metapods preserve pawn identity, equipment, implants, prostheses,
+  bionics, and compatible part-bound health states while removing only the
+  health conditions defined by their renewal rules.
+- Cross-race transformations preflight artificial-part compatibility and
+  rebuild race-specific pawn components after safe body-part remapping.
+- The hive-insect compatibility patch changes only `FilthRate`; carried
+  terrain filth, blood, death effects, and hatch effects remain intact.
 - Damaged brains retain temporary structural support after Synaptic Node
   removal only while existing injuries require it; injury severity is not
   reduced.
@@ -24,7 +38,12 @@
 
 - Static validation and assembly checks are recorded in
   [GENELINE_STAGE4_VALIDATION.md](GENELINE_STAGE4_VALIDATION.md).
+- Static validation for the organ, metapod, and hive-filth feature is
+  recorded in
+  [GENELINE_ORGANS_METAPODS_VALIDATION.md](GENELINE_ORGANS_METAPODS_VALIDATION.md).
 - All in-game scenarios for these three elements remain pending.
+- All in-game organ, metapod, transformation, and hive-filth scenarios
+  remain pending.
 
 ## 0.8.0
 

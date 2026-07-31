@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_OrgansMutationBase">
+    <defName>RC_Mutation_RavenousCrop</defName>
+    <label>ravenous crop</label>
+    <description>An enlarged foregut keeps demanding fresh nutrients even after the rest of the body is satisfied.</description>
+    <displayOrderInCategory>3571</displayOrderInCategory>
+    <mutation>3</mutation>
+    <customEffectDescriptions>
+      <li>Food need drain: +0.1 to the combined RedCrow factor.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>RC_FoodP01_N01</li>
+      <li>RC_FoodP01_N02</li>
+    </exclusionTags>
+    <modExtensions Inherit="False">
+      <li Class="RedCrow.InsectorTweaks.RC_HungerGeneExtension">
+        <hungerAdditive>0.1</hungerAdditive>
+      </li>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_OrgansMutationBase">
+    <defName>RC_Mutation_DevouringCrop</defName>
+    <label>devouring crop</label>
+    <description>A massively overgrown digestive crop burns through food to feed accelerated insectoid tissue.</description>
+    <displayOrderInCategory>3572</displayOrderInCategory>
+    <mutation>6</mutation>
+    <customEffectDescriptions>
+      <li>Food need drain: +0.2 to the combined RedCrow factor.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>RC_FoodP02_N01</li>
+      <li>RC_FoodP02_N02</li>
+    </exclusionTags>
+    <modExtensions Inherit="False">
+      <li Class="RedCrow.InsectorTweaks.RC_HungerGeneExtension">
+        <hungerAdditive>0.2</hungerAdditive>
+      </li>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_OrgansMutationBase">
+    <defName>RC_Mutation_PorousJellyReservoir</defName>
+    <label>porous jelly reservoir</label>
+    <description>Fine leaks in the personal jelly reservoir force the body to replenish it more often.</description>
+    <displayOrderInCategory>3573</displayOrderInCategory>
+    <mutation>3</mutation>
+    <customEffectDescriptions>
+      <li>Personal insect-jelly consumption: +10% of base.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>RC_JellyP01_N01</li>
+      <li>RC_JellyP01_N02</li>
+    </exclusionTags>
+    <modExtensions Inherit="False">
+      <li Class="RedCrow.InsectorTweaks.RC_HungerGeneExtension">
+        <jellyAdditive>0.1</jellyAdditive>
+      </li>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_OrgansMutationBase">
+    <defName>RC_Mutation_LeakingJellyReservoir</defName>
+    <label>leaking jelly reservoir</label>
+    <description>An unstable reservoir continuously wastes insect jelly through its swollen vascular walls.</description>
+    <displayOrderInCategory>3574</displayOrderInCategory>
+    <mutation>6</mutation>
+    <customEffectDescriptions>
+      <li>Personal insect-jelly consumption: +20% of base.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>RC_JellyP02_N01</li>
+      <li>RC_JellyP02_N02</li>
+    </exclusionTags>
+    <modExtensions Inherit="False">
+      <li Class="RedCrow.InsectorTweaks.RC_HungerGeneExtension">
+        <jellyAdditive>0.2</jellyAdditive>
+      </li>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_OrgansEvolutionBase">
+    <defName>RC_Evolution_EfficientCrop</defName>
+    <label>efficient crop</label>
+    <description>A compact digestive crop extracts more usable nutrition from every meal.</description>
+    <displayOrderInCategory>3581</displayOrderInCategory>
+    <evolution>3</evolution>
+    <customEffectDescriptions>
+      <li>Food need drain: -0.1 from the combined RedCrow factor.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>RC_FoodP01_N01</li>
+      <li>RC_FoodP02_N01</li>
+    </exclusionTags>
+    <modExtensions Inherit="False">
+      <li Class="RedCrow.InsectorTweaks.RC_HungerGeneExtension">
+        <hungerAdditive>-0.1</hungerAdditive>
+      </li>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_OrgansEvolutionBase">
+    <defName>RC_Evolution_ClosedDigestiveCycle</defName>
+    <label>closed digestive cycle</label>
+    <description>The hive recycles nearly every metabolic by-product through a closed digestive loop.</description>
+    <displayOrderInCategory>3582</displayOrderInCategory>
+    <evolution>6</evolution>
+    <customEffectDescriptions>
+      <li>Food need drain: -0.2 from the combined RedCrow factor.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>RC_FoodP01_N02</li>
+      <li>RC_FoodP02_N02</li>
+    </exclusionTags>
+    <modExtensions Inherit="False">
+      <li Class="RedCrow.InsectorTweaks.RC_HungerGeneExtension">
+        <hungerAdditive>-0.2</hungerAdditive>
+      </li>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_OrgansEvolutionBase">
+    <defName>RC_Evolution_JellyConservation</defName>
+    <label>jelly conservation</label>
+    <description>Valves shaped by the hive slow the natural loss of personal insect jelly.</description>
+    <displayOrderInCategory>3583</displayOrderInCategory>
+    <evolution>3</evolution>
+    <customEffectDescriptions>
+      <li>Personal insect-jelly consumption: -10% of base.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>RC_JellyP01_N01</li>
+      <li>RC_JellyP02_N01</li>
+    </exclusionTags>
+    <modExtensions Inherit="False">
+      <li Class="RedCrow.InsectorTweaks.RC_HungerGeneExtension">
+        <jellyAdditive>-0.1</jellyAdditive>
+      </li>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_OrgansEvolutionBase">
+    <defName>RC_Evolution_SealedJellyReservoir</defName>
+    <label>sealed jelly reservoir</label>
+    <description>A layered chitin membrane seals the reservoir and sharply reduces personal jelly loss.</description>
+    <displayOrderInCategory>3584</displayOrderInCategory>
+    <evolution>6</evolution>
+    <customEffectDescriptions>
+      <li>Personal insect-jelly consumption: -20% of base.</li>
+    </customEffectDescriptions>
+    <exclusionTags>
+      <li>RC_JellyP01_N02</li>
+      <li>RC_JellyP02_N02</li>
+    </exclusionTags>
+    <modExtensions Inherit="False">
+      <li Class="RedCrow.InsectorTweaks.RC_HungerGeneExtension">
+        <jellyAdditive>-0.2</jellyAdditive>
+      </li>
+      <li Class="VanillaGenesExpanded.GeneExtension">
+        <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
+        <backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes>
+      </li>
+    </modExtensions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef
+      ParentName="RC_OrgansEvolutionBase"
+      MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>RC_Evolution_HiveAnimaResonance</defName>
+    <label>hive-anima resonance</label>
+    <description>The carrier's antennae synchronize with the anima network, allowing the hive mind to maintain a natural meditation focus.</description>
+    <displayOrderInCategory>3591</displayOrderInCategory>
+    <evolution>3</evolution>
+    <customEffectDescriptions>
+      <li>Guarantees Natural Meditation focus on the pawn.</li>
+    </customEffectDescriptions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_OrgansEvolutionBase">
+    <defName>RC_Evolution_HiveRegeneratorCells</defName>
+    <label>hive regenerator cells</label>
+    <description>Dormant repair-castes circulate through the carrier and periodically consume scars, old wounds, and chronic illness.</description>
+    <displayOrderInCategory>3592</displayOrderInCategory>
+    <evolution>4</evolution>
+    <geneClass>Gene_Healing</geneClass>
+    <preventPermanentWounds>true</preventPermanentWounds>
+    <customEffectDescriptions>
+      <li>Every 15-30 days, one old wound or chronic illness is healed.</li>
+    </customEffectDescriptions>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+
+</Defs>

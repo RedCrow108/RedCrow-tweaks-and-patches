@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Evolution_ArchiteNutrition"]</xpath>
+    <value>
+      <exclusionTags>
+        <li>RC_Conflict_HiveMetabolism</li>
+      </exclusionTags>
+    </value>
+  </Operation>
+
+</Patch>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RC_Metapod_Usurpation.label>метапод узурпации</RC_Metapod_Usurpation.label>
+  <RC_Metapod_Usurpation.description>Запечатанный метапод, перестраивающий жертву в инсектора, поглощённого роем.</RC_Metapod_Usurpation.description>
+  <RC_Metapod_CorpseMemory.label>метапод памяти роя</RC_Metapod_CorpseMemory.label>
+  <RC_Metapod_CorpseMemory.description>Метапод восстанавливает мёртвое тело разумного существа вокруг внедрённой памяти роя.</RC_Metapod_CorpseMemory.description>
+  <RC_Metapod_LarvalRebirth.label>метапод личиночного перерождения</RC_Metapod_LarvalRebirth.label>
+  <RC_Metapod_LarvalRebirth.description>Метапод растворяет взрослое тело и выращивает новорождённую личинку, сохраняя разум и личность.</RC_Metapod_LarvalRebirth.description>
+  <RC_Metapod_PerfectImago.label>метапод совершенного имаго</RC_Metapod_PerfectImago.label>
+  <RC_Metapod_PerfectImago.description>Долгий цикл метапода перестраивает носителя в здоровое молодое взрослое имаго.</RC_Metapod_PerfectImago.description>
+</LanguageData>

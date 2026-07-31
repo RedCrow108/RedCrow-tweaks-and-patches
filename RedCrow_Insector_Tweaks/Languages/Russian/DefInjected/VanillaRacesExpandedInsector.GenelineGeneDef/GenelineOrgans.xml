@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RC_Evolution_EfficientHiveMetabolism.label>эффективный метаболизм улья</RC_Evolution_EfficientHiveMetabolism.label>
+  <RC_Evolution_EfficientHiveMetabolism.description>Перестроенный пищеварительный цикл вдвое снижает скорость расходования потребности в пище. Модификаторы голода RedCrow объединяются до применения остальных эффектов игры и модов.</RC_Evolution_EfficientHiveMetabolism.description>
+  <RC_Evolution_HivePsyfocusRecycling.label>рециркуляция псифокуса улья</RC_Evolution_HivePsyfocusRecycling.label>
+  <RC_Evolution_HivePsyfocusRecycling.description>Специализированные нейронные петли возвращают половину псифокуса, который обычно тратится при применении пси-способностей.</RC_Evolution_HivePsyfocusRecycling.description>
+  <RC_Mutation_SmallThoracicArms.label>малые грудные руки</RC_Mutation_SmallThoracicArms.label>
+  <RC_Mutation_SmallThoracicArms.description>Короткая дополнительная пара грудных рук помогает при обычной работе, но не является оружием.</RC_Mutation_SmallThoracicArms.description>
+  <RC_Mutation_DorsalManipulators.label>спинные манипуляторы</RC_Mutation_DorsalManipulators.label>
+  <RC_Mutation_DorsalManipulators.description>Длинные сочленённые конечности растут из спины и помогают при сложной работе, не заменяя рук носителя.</RC_Mutation_DorsalManipulators.description>
+  <RC_Mutation_PelvicWalkingLimbs.label>тазовые ходильные конечности</RC_Mutation_PelvicWalkingLimbs.label>
+  <RC_Mutation_PelvicWalkingLimbs.description>Дополнительная опорная пара тазовых конечностей ускоряет движение и помогает при физической работе.</RC_Mutation_PelvicWalkingLimbs.description>
+  <RC_Mutation_HypertrophiedJellyAbdomen.label>гипертрофированное желейное брюшко</RC_Mutation_HypertrophiedJellyAbdomen.label>
+  <RC_Mutation_HypertrophiedJellyAbdomen.description>Увеличенный брюшной орган производит пятьдесят единиц желе насекомых в день. Он не зависит от исходных желейных мешков, поэтому оба органа могут работать одновременно.</RC_Mutation_HypertrophiedJellyAbdomen.description>
+  <RC_Mutation_BiologicalSickle.label>биологический серп</RC_Mutation_BiologicalSickle.label>
+  <RC_Mutation_BiologicalSickle.description>Тупые уборочные пластины служат постоянным биологическим серпом. Они не являются оружием и не могут быть выброшены.</RC_Mutation_BiologicalSickle.description>
+  <RC_Mutation_BiologicalDiggingTools.label>биологические землеройные инструменты</RC_Mutation_BiologicalDiggingTools.label>
+  <RC_Mutation_BiologicalDiggingTools.description>Укреплённые небоевые копательные пластины служат постоянным биологическим землеройным инструментом.</RC_Mutation_BiologicalDiggingTools.description>
+  <RC_Mutation_BiologicalHandaxe.label>биологический ручной топор</RC_Mutation_BiologicalHandaxe.label>
+  <RC_Mutation_BiologicalHandaxe.description>Плотные хитиновые кромки служат биологическим ручным топором для работы с растениями и обрезки, но не являются оружием.</RC_Mutation_BiologicalHandaxe.description>
+  <RC_Mutation_BiologicalHammer.label>биологический молот</RC_Mutation_BiologicalHammer.label>
+  <RC_Mutation_BiologicalHammer.description>Тяжёлые ударные пластины служат постоянным биологическим инструментом для строительства и кузнечного дела, не становясь оружием.</RC_Mutation_BiologicalHammer.description>
+  <RC_Mutation_DuplicateCerebellum.label>дублированный мозжечок</RC_Mutation_DuplicateCerebellum.label>
+  <RC_Mutation_DuplicateCerebellum.description>Резервная структура мозжечка улучшает общую нервную координацию ценой небольшого увеличения обмена веществ.</RC_Mutation_DuplicateCerebellum.description>
+</LanguageData>
