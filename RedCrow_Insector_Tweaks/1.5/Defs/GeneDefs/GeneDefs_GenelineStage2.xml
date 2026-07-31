@@ -40,6 +40,7 @@
     <description>Фасеточные глаза носителя болезненно реагируют на прямой солнечный свет. Под солнцем зрение снижается на 10%, а настроение — на 3.</description>
     <displayOrderInCategory>2501</displayOrderInCategory>
     <mutation>1</mutation>
+    <unlockable>false</unlockable>
     <dislikesSunlight>true</dislikesSunlight>
     <customEffectDescriptions>
       <li>Прямой солнечный свет: зрение −10%, настроение −3.</li>
@@ -64,7 +65,8 @@
     <description>Светочувствительные ткани носителя болезненно реагируют на прямые солнечные лучи. Под солнцем скорость передвижения умножается на 0,9, а настроение снижается на 6.</description>
     <iconPath>UI/Icons/Genes/Gene_MildUVSensitivity</iconPath>
     <displayOrderInCategory>2502</displayOrderInCategory>
-    <mutation>1</mutation>
+    <mutation>2</mutation>
+    <unlockable>true</unlockable>
     <dislikesSunlight>true</dislikesSunlight>
     <conditionalStatAffecters>
       <li Class="ConditionalStatAffecter_InSunlight">
@@ -91,6 +93,7 @@
     <description>Два подвижных усика дополняют зрение носителя и заглушают негативную мысль о темноте. Каждый сохранившийся усик добавляет 0,00675 боли и снижает красоту на 1; боевые штрафы темноты не отменяются.</description>
     <displayOrderInCategory>2511</displayOrderInCategory>
     <mutation>2</mutation>
+    <unlockable>true</unlockable>
     <customEffectDescriptions>
       <li>Добавляет по одному сенсорному усику на каждое ухо.</li>
       <li>Каждый усик: боль +0,00675, красота −1.</li>
@@ -123,7 +126,8 @@
     <label>долгий цикл имаго</label>
     <description>Жизненный цикл носителя растянут во много раз. Ожидаемая продолжительность жизни умножается на 8; до 13 лет биологическое взросление идёт в пять раз медленнее и постепенно возвращается к обычной скорости к 18 годам.</description>
     <displayOrderInCategory>3201</displayOrderInCategory>
-    <evolution>2</evolution>
+    <evolution>3</evolution>
+    <unlockable>true</unlockable>
     <statFactors>
       <LifespanFactor>8</LifespanFactor>
     </statFactors>
@@ -147,7 +151,8 @@
     <label>инстинкт стрелка</label>
     <description>Положительный опыт стрельбы приносит досуг в размере опыта ×0,001 и не позволяет опыту стрельбы снижаться. Другие навыки не затрагиваются.</description>
     <displayOrderInCategory>3202</displayOrderInCategory>
-    <evolution>2</evolution>
+    <evolution>1</evolution>
+    <unlockable>true</unlockable>
     <exclusionTags>
       <li>VRE_Curiosity</li>
       <li>Curiosity</li>
@@ -159,7 +164,8 @@
     <label>инстинкт жвала</label>
     <description>Положительный опыт ближнего боя приносит досуг в размере опыта ×0,001 и не позволяет опыту ближнего боя снижаться. Другие навыки не затрагиваются.</description>
     <displayOrderInCategory>3203</displayOrderInCategory>
-    <evolution>2</evolution>
+    <evolution>1</evolution>
+    <unlockable>true</unlockable>
     <exclusionTags>
       <li>VRE_Curiosity</li>
       <li>Curiosity</li>
@@ -172,6 +178,7 @@
     <description>Положительный опыт строительства приносит досуг в размере опыта ×0,001 и не позволяет опыту строительства снижаться. Другие навыки не затрагиваются.</description>
     <displayOrderInCategory>3204</displayOrderInCategory>
     <evolution>2</evolution>
+    <unlockable>true</unlockable>
     <exclusionTags>
       <li>VRE_Curiosity</li>
       <li>Curiosity</li>
@@ -184,6 +191,7 @@
     <description>Положительный опыт горного дела приносит досуг в размере опыта ×0,001 и не позволяет опыту горного дела снижаться. Другие навыки не затрагиваются.</description>
     <displayOrderInCategory>3205</displayOrderInCategory>
     <evolution>2</evolution>
+    <unlockable>true</unlockable>
     <exclusionTags>
       <li>VRE_Curiosity</li>
       <li>Curiosity</li>
@@ -196,6 +204,7 @@
     <description>Положительный опыт готовки приносит досуг в размере опыта ×0,001 и не позволяет опыту готовки снижаться. Другие навыки не затрагиваются.</description>
     <displayOrderInCategory>3206</displayOrderInCategory>
     <evolution>2</evolution>
+    <unlockable>true</unlockable>
     <exclusionTags>
       <li>VRE_Curiosity</li>
       <li>Curiosity</li>
@@ -208,6 +217,7 @@
     <description>Положительный опыт растениеводства приносит досуг в размере опыта ×0,001 и не позволяет опыту растениеводства снижаться. Другие навыки не затрагиваются.</description>
     <displayOrderInCategory>3207</displayOrderInCategory>
     <evolution>2</evolution>
+    <unlockable>true</unlockable>
     <exclusionTags>
       <li>VRE_Curiosity</li>
       <li>Curiosity</li>
@@ -220,6 +230,7 @@
     <description>Положительный опыт обращения с животными приносит досуг в размере опыта ×0,001 и не позволяет этому опыту снижаться. Другие навыки не затрагиваются.</description>
     <displayOrderInCategory>3208</displayOrderInCategory>
     <evolution>2</evolution>
+    <unlockable>true</unlockable>
     <exclusionTags>
       <li>VRE_Curiosity</li>
       <li>Curiosity</li>
@@ -232,6 +243,7 @@
     <description>Положительный опыт ремесла приносит досуг в размере опыта ×0,001 и не позволяет опыту ремесла снижаться. Другие навыки не затрагиваются.</description>
     <displayOrderInCategory>3209</displayOrderInCategory>
     <evolution>2</evolution>
+    <unlockable>true</unlockable>
     <exclusionTags>
       <li>VRE_Curiosity</li>
       <li>Curiosity</li>
@@ -244,6 +256,7 @@
     <description>Положительный опыт искусства приносит досуг в размере опыта ×0,001 и не позволяет опыту искусства снижаться. Другие навыки не затрагиваются.</description>
     <displayOrderInCategory>3210</displayOrderInCategory>
     <evolution>2</evolution>
+    <unlockable>true</unlockable>
     <exclusionTags>
       <li>VRE_Curiosity</li>
       <li>Curiosity</li>
@@ -255,7 +268,8 @@
     <label>инстинкт целителя</label>
     <description>Положительный опыт медицины приносит досуг в размере опыта ×0,001 и не позволяет опыту медицины снижаться. Другие навыки не затрагиваются.</description>
     <displayOrderInCategory>3211</displayOrderInCategory>
-    <evolution>2</evolution>
+    <evolution>1</evolution>
+    <unlockable>true</unlockable>
     <exclusionTags>
       <li>VRE_Curiosity</li>
       <li>Curiosity</li>
@@ -267,7 +281,8 @@
     <label>инстинкт связного</label>
     <description>Положительный опыт общения приносит досуг в размере опыта ×0,001 и не позволяет опыту общения снижаться. Другие навыки не затрагиваются.</description>
     <displayOrderInCategory>3212</displayOrderInCategory>
-    <evolution>2</evolution>
+    <evolution>1</evolution>
+    <unlockable>true</unlockable>
     <exclusionTags>
       <li>VRE_Curiosity</li>
       <li>Curiosity</li>
@@ -279,7 +294,8 @@
     <label>инстинкт мыслителя</label>
     <description>Положительный опыт исследований приносит досуг в размере опыта ×0,001 и не позволяет интеллектуальному опыту снижаться. Другие навыки не затрагиваются.</description>
     <displayOrderInCategory>3213</displayOrderInCategory>
-    <evolution>2</evolution>
+    <evolution>1</evolution>
+    <unlockable>true</unlockable>
     <exclusionTags>
       <li>VRE_Curiosity</li>
       <li>Curiosity</li>
@@ -292,7 +308,8 @@
     <description>Прямой солнечный свет перегружает чувствительные ткани носителя. Под солнцем скорость передвижения умножается на 0,8, а настроение снижается на 12.</description>
     <iconPath>UI/Icons/Genes/Gene_IntenseUVSensitivity</iconPath>
     <displayOrderInCategory>2512</displayOrderInCategory>
-    <mutation>2</mutation>
+    <mutation>3</mutation>
+    <unlockable>true</unlockable>
     <dislikesSunlight>true</dislikesSunlight>
     <conditionalStatAffecters>
       <li Class="ConditionalStatAffecter_InSunlight">
@@ -322,6 +339,7 @@
     <iconPath>UI/Icons/Genes/Gene_EarlyMaturity</iconPath>
     <displayOrderInCategory>3221</displayOrderInCategory>
     <evolution>3</evolution>
+    <unlockable>true</unlockable>
     <modExtensions Inherit="False">
       <li Class="VanillaGenesExpanded.GeneExtension">
         <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
@@ -361,6 +379,7 @@
     <iconPath>UI/Icons/Genes/Gene_Ageless</iconPath>
     <displayOrderInCategory>3222</displayOrderInCategory>
     <evolution>3</evolution>
+    <unlockable>true</unlockable>
     <biologicalAgeTickFactorFromAgeCurve>
       <points>
         <li>(13, 1)</li>

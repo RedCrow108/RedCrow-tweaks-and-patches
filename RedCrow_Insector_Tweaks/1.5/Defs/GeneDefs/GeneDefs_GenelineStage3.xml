@@ -203,6 +203,7 @@
     <description>Регенеративные ткани медленно восстанавливают внешние части тела. Раз в 55000–65000 тиков случайная подходящая рана теряет 1 тяжести; если таких ран нет, восстанавливается крупнейшая допустимая утраченная часть с 2 единицами здоровья.</description>
     <displayOrderInCategory>3341</displayOrderInCategory>
     <evolution>5</evolution>
+    <unlockable>true</unlockable>
     <marketValueFactor>1.25</marketValueFactor>
     <customEffectDescriptions>
       <li>Раз в 55000–65000 тиков лечит 1 тяжести случайной раны на внешней части тела или позвоночнике.</li>

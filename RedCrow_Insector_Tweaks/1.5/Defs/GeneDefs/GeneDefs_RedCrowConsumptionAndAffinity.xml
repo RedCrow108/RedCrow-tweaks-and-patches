@@ -7,6 +7,7 @@
     <description>An enlarged foregut keeps demanding fresh nutrients even after the rest of the body is satisfied.</description>
     <displayOrderInCategory>3571</displayOrderInCategory>
     <mutation>3</mutation>
+    <unlockable>false</unlockable>
     <customEffectDescriptions>
       <li>Food need drain: +0.1 to the combined RedCrow factor.</li>
     </customEffectDescriptions>
@@ -31,6 +32,7 @@
     <description>A massively overgrown digestive crop burns through food to feed accelerated insectoid tissue.</description>
     <displayOrderInCategory>3572</displayOrderInCategory>
     <mutation>6</mutation>
+    <unlockable>true</unlockable>
     <customEffectDescriptions>
       <li>Food need drain: +0.2 to the combined RedCrow factor.</li>
     </customEffectDescriptions>
@@ -55,6 +57,7 @@
     <description>Fine leaks in the personal jelly reservoir force the body to replenish it more often.</description>
     <displayOrderInCategory>3573</displayOrderInCategory>
     <mutation>3</mutation>
+    <unlockable>false</unlockable>
     <customEffectDescriptions>
       <li>Personal insect-jelly consumption: +10% of base.</li>
     </customEffectDescriptions>
@@ -79,6 +82,7 @@
     <description>An unstable reservoir continuously wastes insect jelly through its swollen vascular walls.</description>
     <displayOrderInCategory>3574</displayOrderInCategory>
     <mutation>6</mutation>
+    <unlockable>true</unlockable>
     <customEffectDescriptions>
       <li>Personal insect-jelly consumption: +20% of base.</li>
     </customEffectDescriptions>
@@ -103,6 +107,7 @@
     <description>A compact digestive crop extracts more usable nutrition from every meal.</description>
     <displayOrderInCategory>3581</displayOrderInCategory>
     <evolution>3</evolution>
+    <unlockable>false</unlockable>
     <customEffectDescriptions>
       <li>Food need drain: -0.1 from the combined RedCrow factor.</li>
     </customEffectDescriptions>
@@ -127,6 +132,7 @@
     <description>The hive recycles nearly every metabolic by-product through a closed digestive loop.</description>
     <displayOrderInCategory>3582</displayOrderInCategory>
     <evolution>6</evolution>
+    <unlockable>true</unlockable>
     <customEffectDescriptions>
       <li>Food need drain: -0.2 from the combined RedCrow factor.</li>
     </customEffectDescriptions>
@@ -151,6 +157,7 @@
     <description>Valves shaped by the hive slow the natural loss of personal insect jelly.</description>
     <displayOrderInCategory>3583</displayOrderInCategory>
     <evolution>3</evolution>
+    <unlockable>false</unlockable>
     <customEffectDescriptions>
       <li>Personal insect-jelly consumption: -10% of base.</li>
     </customEffectDescriptions>
@@ -175,6 +182,7 @@
     <description>A layered chitin membrane seals the reservoir and sharply reduces personal jelly loss.</description>
     <displayOrderInCategory>3584</displayOrderInCategory>
     <evolution>6</evolution>
+    <unlockable>true</unlockable>
     <customEffectDescriptions>
       <li>Personal insect-jelly consumption: -20% of base.</li>
     </customEffectDescriptions>
@@ -200,7 +208,8 @@
     <label>hive-anima resonance</label>
     <description>The carrier's antennae synchronize with the anima network, allowing the hive mind to maintain a natural meditation focus.</description>
     <displayOrderInCategory>3591</displayOrderInCategory>
-    <evolution>3</evolution>
+    <evolution>1</evolution>
+    <unlockable>false</unlockable>
     <customEffectDescriptions>
       <li>Guarantees Natural Meditation focus on the pawn.</li>
     </customEffectDescriptions>
@@ -212,6 +221,7 @@
     <description>Dormant repair-castes circulate through the carrier and periodically consume scars, old wounds, and chronic illness.</description>
     <displayOrderInCategory>3592</displayOrderInCategory>
     <evolution>4</evolution>
+    <unlockable>true</unlockable>
     <geneClass>Gene_Healing</geneClass>
     <preventPermanentWounds>true</preventPermanentWounds>
     <customEffectDescriptions>

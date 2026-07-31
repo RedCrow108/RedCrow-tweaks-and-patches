@@ -198,7 +198,7 @@ namespace RedCrow.InsectorTweaks
         {
             try
             {
-                ApplyBalanceAndUnlockability();
+                ValidateBalanceAndUnlockability();
                 InstallPatches();
             }
             catch (Exception exception)
@@ -209,7 +209,7 @@ namespace RedCrow.InsectorTweaks
             }
         }
 
-        private static void ApplyBalanceAndUnlockability()
+        private static void ValidateBalanceAndUnlockability()
         {
             Type genelineType = AccessTools.TypeByName(
                 GenelineGeneDefTypeName);
@@ -236,8 +236,9 @@ namespace RedCrow.InsectorTweaks
                 return;
             }
 
-            int applied = 0;
+            int validated = 0;
             List<string> missing = new List<string>();
+            List<string> mismatches = new List<string>();
 
             for (int index = 0;
                 index < BalanceEntries.Length;
@@ -253,21 +254,40 @@ namespace RedCrow.InsectorTweaks
                     continue;
                 }
 
-                mutationField.SetValue(
-                    gene,
-                    entry.IsMutation ? entry.Points : 0);
-                evolutionField.SetValue(
-                    gene,
-                    entry.IsMutation ? 0 : entry.Points);
-                unlockableField.SetValue(
-                    gene,
-                    entry.Tier > 0);
-                applied++;
+                int actualMutation =
+                    (int)mutationField.GetValue(gene);
+                int actualEvolution =
+                    (int)evolutionField.GetValue(gene);
+                bool actualUnlockable =
+                    (bool)unlockableField.GetValue(gene);
+
+                int expectedMutation =
+                    entry.IsMutation ? entry.Points : 0;
+                int expectedEvolution =
+                    entry.IsMutation ? 0 : entry.Points;
+                bool expectedUnlockable = entry.Tier > 0;
+
+                if (actualMutation != expectedMutation ||
+                    actualEvolution != expectedEvolution ||
+                    actualUnlockable != expectedUnlockable)
+                {
+                    mismatches.Add(
+                        entry.DefName +
+                        " expected M=" + expectedMutation +
+                        ", E=" + expectedEvolution +
+                        ", unlockable=" + expectedUnlockable +
+                        "; actual M=" + actualMutation +
+                        ", E=" + actualEvolution +
+                        ", unlockable=" + actualUnlockable);
+                    continue;
+                }
+
+                validated++;
             }
 
             Log.Message(
-                LogPrefix + " Applied points and unlockability to " +
-                applied + " Geneline defs. Tier 0 remains available by " +
+                LogPrefix + " Validated points and unlockability for " +
+                validated + " Geneline defs. Tier 0 is available by " +
                 "default; tiers 1-5 require pherocores.");
 
             if (missing.Count > 0)
@@ -275,6 +295,13 @@ namespace RedCrow.InsectorTweaks
                 Log.Warning(
                     LogPrefix + " Optional or missing defs skipped: " +
                     string.Join(", ", missing.ToArray()));
+            }
+
+            if (mismatches.Count > 0)
+            {
+                Log.Error(
+                    LogPrefix + " XML balance validation failed:\n" +
+                    string.Join("\n", mismatches.ToArray()));
             }
         }
 

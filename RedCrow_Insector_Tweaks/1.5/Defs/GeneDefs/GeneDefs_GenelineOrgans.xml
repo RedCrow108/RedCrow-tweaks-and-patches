@@ -38,6 +38,7 @@
     <description>A redesigned digestive cycle halves the carrier's food-need drain. RedCrow hunger modifiers are combined before other game and mod effects.</description>
     <displayOrderInCategory>3501</displayOrderInCategory>
     <evolution>4</evolution>
+    <unlockable>true</unlockable>
     <customEffectDescriptions>
       <li>Food need drain: x0.5.</li>
     </customEffectDescriptions>
@@ -63,6 +64,7 @@
     <description>Specialized neural loops reclaim half of the psyfocus normally lost when casting psycasts.</description>
     <displayOrderInCategory>3502</displayOrderInCategory>
     <evolution>4</evolution>
+    <unlockable>true</unlockable>
     <statFactors>
       <VPE_PsyfocusCostFactor>0.5</VPE_PsyfocusCostFactor>
     </statFactors>
@@ -75,6 +77,7 @@
     <description>A short secondary pair of chest arms assists ordinary manipulation without functioning as a weapon.</description>
     <displayOrderInCategory>3511</displayOrderInCategory>
     <mutation>2</mutation>
+    <unlockable>true</unlockable>
     <statOffsets>
       <WorkSpeedGlobal>0.10</WorkSpeedGlobal>
     </statOffsets>
@@ -116,6 +119,7 @@
     <description>Long articulated limbs extend from the back and assist complex work without replacing the carrier's hands.</description>
     <displayOrderInCategory>3521</displayOrderInCategory>
     <mutation>3</mutation>
+    <unlockable>true</unlockable>
     <statOffsets>
       <WorkSpeedGlobal>0.20</WorkSpeedGlobal>
     </statOffsets>
@@ -159,7 +163,8 @@
     <label>pelvic walking limbs</label>
     <description>An additional load-bearing pair of pelvic limbs improves movement and supports physical work.</description>
     <displayOrderInCategory>3531</displayOrderInCategory>
-    <mutation>4</mutation>
+    <mutation>1</mutation>
+    <unlockable>true</unlockable>
     <statOffsets>
       <WorkSpeedGlobal>0.20</WorkSpeedGlobal>
       <MoveSpeed>0.5</MoveSpeed>
@@ -204,7 +209,8 @@
     <label>hypertrophied jelly abdomen</label>
     <description>An enlarged abdominal organ produces fifty units of insect jelly per day. It is independent of the original jelly sacks and both organs can function together.</description>
     <displayOrderInCategory>3541</displayOrderInCategory>
-    <mutation>5</mutation>
+    <mutation>0</mutation>
+    <unlockable>true</unlockable>
     <statOffsets>
       <MoveSpeed>-1</MoveSpeed>
     </statOffsets>
@@ -260,7 +266,8 @@
     <label>biological sickle</label>
     <description>Blunt harvesting plates act as a permanent biological sickle. They are not a weapon and cannot be dropped.</description>
     <displayOrderInCategory>3551</displayOrderInCategory>
-    <mutation>2</mutation>
+    <mutation>1</mutation>
+    <unlockable>false</unlockable>
     <customEffectDescriptions>
       <li>Plant work speed: +30%, or the strongest equipped-tool effect.</li>
       <li>Food need drain: +0.2 to the combined RedCrow factor.</li>
@@ -285,7 +292,8 @@
     <label>biological digging tools</label>
     <description>Reinforced non-combat digging plates function as a permanent biological earthworking tool.</description>
     <displayOrderInCategory>3552</displayOrderInCategory>
-    <mutation>3</mutation>
+    <mutation>1</mutation>
+    <unlockable>false</unlockable>
     <customEffectDescriptions>
       <li>Plant work and mining speed: +30%, or the strongest equipped-tool effect.</li>
       <li>Food need drain: +0.2 to the combined RedCrow factor.</li>
@@ -310,7 +318,8 @@
     <label>biological handaxe</label>
     <description>Dense chitinous edges function as a biological handaxe for plant work and pruning, but not as a weapon.</description>
     <displayOrderInCategory>3553</displayOrderInCategory>
-    <mutation>2</mutation>
+    <mutation>1</mutation>
+    <unlockable>false</unlockable>
     <customEffectDescriptions>
       <li>Plant work speed: +30%, or the strongest equipped-tool effect.</li>
       <li MayRequire="Ludeon.RimWorld.Ideology">Pruning speed: +30%, or the strongest equipped-tool effect.</li>
@@ -336,7 +345,8 @@
     <label>biological hammer</label>
     <description>Heavy chitin impact plates serve as a permanent biological construction and smithing tool without becoming a weapon.</description>
     <displayOrderInCategory>3554</displayOrderInCategory>
-    <mutation>3</mutation>
+    <mutation>1</mutation>
+    <unlockable>false</unlockable>
     <customEffectDescriptions>
       <li>Construction speed: +35%, or the strongest equipped-tool effect.</li>
       <li>Smithing speed: +30%, or the strongest equipped-tool effect.</li>
@@ -362,7 +372,8 @@
     <label>duplicate cerebellum</label>
     <description>A redundant cerebellar structure improves overall neural coordination at a modest metabolic cost.</description>
     <displayOrderInCategory>3561</displayOrderInCategory>
-    <mutation>5</mutation>
+    <mutation>1</mutation>
+    <unlockable>true</unlockable>
     <capMods>
       <li>
         <capacity>Consciousness</capacity>
