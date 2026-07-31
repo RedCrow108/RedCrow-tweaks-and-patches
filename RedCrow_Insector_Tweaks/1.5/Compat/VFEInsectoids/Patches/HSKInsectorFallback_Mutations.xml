@@ -1,153 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Patch>
-  <Operation Class="PatchOperationConditional">
-    <xpath>/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_Microsized"]</xpath>
-    <nomatch>
-      <li Class="PatchOperationAdd">
-        <xpath>/Defs</xpath>
-        <value>
-          <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene">
-            <defName>VRE_Microsized</defName>
-            <label>microsized</label>
-            <description>Carriers of this gene exhibit a microsized stature, significantly smaller than their counterparts. Their reduced size results in increased stagger duration, lower meat and leather yield, and a smaller yet more efficient hunger requirement.</description>
-            <iconPath>UI/Icons/Genes/Gene_Microsized</iconPath>
-            <unlockable>false</unlockable>
-            <selectionWeight>0</selectionWeight>
-            <displayOrderInCategory>1000</displayOrderInCategory>
-            <statOffsets>
-              <VEF_BodySize_Offset>-0.45</VEF_BodySize_Offset>
-            </statOffsets>
-            <statFactors>
-              <StaggerDurationFactor>2</StaggerDurationFactor>
-              <MeatAmount>0.5</MeatAmount>
-              <LeatherAmount>0.5</LeatherAmount>
-              <VEF_FoodCapacityMultiplier>0.75</VEF_FoodCapacityMultiplier>
-            </statFactors>
-            <exclusionTags>
-              <li>InsectorSize</li>
-            </exclusionTags>
-            <symbolPack>
-              <prefixSymbols>
-                <li>
-                  <symbol>small</symbol>
-                </li>
-                <li>
-                  <symbol>tiny</symbol>
-                </li>
-                <li>
-                  <symbol>mini</symbol>
-                </li>
-              </prefixSymbols>
-            </symbolPack>
-            <modExtensions>
-              <li Class="VanillaGenesExpanded.GeneExtension">
-                <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
-                <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
-                <hediffToWholeBody>VRE_Microsized</hediffToWholeBody>
-              </li>
-            </modExtensions>
-          </VanillaRacesExpandedInsector.GenelineGeneDef>
-          <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene">
-            <defName>VRE_Colossal</defName>
-            <label>colossal</label>
-            <description>Carriers of this gene grow to colossal proportions, towering over their peers. Their immense size increases meat and leather yield and hunger needs, while reducing movement speed and melee dodge chance. If equipped with the right enhancements, they can carry the heaviest of weapons and warcasket armaments.</description>
-            <selectionWeight>0</selectionWeight>
-            <iconPath>UI/Icons/Genes/Gene_Colossal</iconPath>
-            <unlockable>false</unlockable>
-            <displayOrderInCategory>1001</displayOrderInCategory>
-            <statOffsets>
-              <MoveSpeed>-1.6</MoveSpeed>
-              <VEF_BodySize_Offset>0.65</VEF_BodySize_Offset>
-            </statOffsets>
-            <statFactors>
-              <StaggerDurationFactor>0.2</StaggerDurationFactor>
-              <MeatAmount>2</MeatAmount>
-              <LeatherAmount>2</LeatherAmount>
-              <VEF_FoodCapacityMultiplier>2</VEF_Fom‘apacityMultiplier>
-              <MeleeDodgeChance>0.25</MeleeDodgeChance>
-            </statFactors>
-            <exclusionTags>
-              <li>InsectorSize</li>
-            </exclusionTags>
-            <symbolPack>
-              <prefixSymbols>
-                <li>
-                  <symbol>large</symbol>
-                </li>
-                <li>
-                  <symbol>big</symbol>
-                </li>
-                <li>
-                  <symbol>magni</symbol>
-                </li>
-              </prefixSymbols>
-            </symbolPack>
-            <modExtensions>
-              <li Class="VanillaGenesExpanded.GeneExtension">
-                <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
-                <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
-                <hediffToWholeBody>VRE_Colossal</hediffToWholeBody>
-              </li>
-            </modExtensions>
-          </VanillaRacesExpandedInsector.GenelineGeneDef>
-          <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene">
-            <defName>VRE_ChemfuelSacks</defName>
-            <label>chemfuel sacks</label>
-            <description>Carriers of this gene develop chemfuel sacks resembling a tail, drastically increasing their susceptibility to flame damage. If engulfed in large enough flames or upon death, they erupt in a fiery explosion. Additionally, they can be "milked" periodically to yield chemfuel.</description>
-            <iconPath>UI/Icons/Genes/Gene_ChemfuelSacks</iconPath>
-            <unlockable>false</unlockable>
-            <selectionWeight>0</selectionWeight>
-            <displayOrderInCategory>1002</displayOrderInCategory>
-            <damageFactors>
-              <Flame>2</Flame>
-            </damageFactors>
-            <customEffectDescriptions>
-              <li>Time running in panic when set on fire doubled.</li>
-              <li>Produces 30 chemfuel every 10 days.</li>
-              <li>If set on fire, and the fire is at least 35 in size, they explode in a fire explosion. Upon fire explosion, they will not explode again for 24 hours.</li>
-            </customEffectDescriptions>
-            <exclusionTags>
-              <li>Tail</li>
-              <li>InsectorFire</li>
-            </exclusionTags>
-            <symbolPack>
-              <prefixSymbols>
-                <li>
-                  <symbol>fuel</symbol>
-                </li>
-                <li>
-                  <symbol>chem</symbol>
-                </li>
-                <li>
-                  <symbol>petrol</symbol>
-                </li>
-              </prefixSymbols>
-            </symbolPack>
-            <modExtensions>
-              <li Class="VanillaGenesExpanded.GeneExtension">
-                <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
-                <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
-                <hediffToWholeBody>VRE_ChemfuelSacks</hediffToWholeBody>
-              </li>
-            </modExtensions>
-          </VanillaRacesExpandedInsector.GenelineGeneDef>
-          <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene">
-            <defName>VRE_Pyrophiliac</defName>
-            <label>pyrophilic</label>
-            <description>Carriers of this gene possess a pyrophilic nature, exhibiting a fascination and love for fire. They are drawn to flames and find comfort and joy in their presence.</description>
-            <iconPath>UI/Icons/Genes/Gene_Pyrophiliac</iconPath>
-            <unlockable>false</unlockable>
-            <selectionWeight>0</selectionWeight>
-            <displayOrderInCategory>1003</displayOrderInCategory>
-            <statOffsets>
-              <ComfyTemperatureMin>6</ComfyTemperatureMin>
-            </statOffsets>
-            <forcedTraits>
-              <li>
-                <def>Pyromaniac</def>
-              </li>
-            </forcedTraits>
-            <exclusionTags>
-              <li>MinTemperature</li>
-            </exclusionTags>
-            <²È="25½Ù•É‘É¥Ù”°É•…Ñ¥¹œ„½¹ÍÑ…¹Ð¹••™½È­¥±°Í…Ñ¥•Ñä¸AÉ½±½¹•Á•É¥½‘ÌÝ¥Ñ¡½ÕÐµ•±•”­¥±±Ì¥¹™±¥Ð¥¹É•…Í¥¹œµ½½Á•¹…±Ñ¥•Ì°‘É¥Ù¥¹œÑ¡•´Ñ½Ý…É‘ÌÙ¥½±•¹Ð½¹™É½¹Ñ…Ñ¥½¹ÌÑ¼µ…¥¹Ñ…¥¸Ñ¡•¥Èµ•¹Ñ…°‰…±…¹”¸ð½‘•ÍÉ¥ÁÑ¥½¸ø(€€€€€€€€€€€€ñ¥½¹A…Ñ ùU$½%½¹Ì½•¹•Ì½•¹•}‘åÍ½¹•=Ù•É‘É¥Ù”ð½¥½¹A…Ñ ø(€€€€€€€€€€€€ñÕ¹±½­…‰±”ù™…±Í”ð½Õ¹±½­…‰±”ø(€€€€€€€€€€€€ñ‘¥ÍÁ±…å=É‘•É%¹…Ñ•½ÉäøÄÀÀÔð½‘¥ÍÁ±…å=É‘•É%¹…Ñ•½Éäø(€€€€€€€€€€€€ñ…ÕÍ•Í9••ù-¥±±Q¡¥ÉÍÐð½…ÕÍ•Í9••ø(€€€€€€€€€€€€ñÍ•±•Ñ¥½¹]•¥¡ÐøÀð½Í•±•Ñ¥½¹]•¥¡Ðø(€€€€€€€€€€€€ñ•á±ÕÍ¥½¹Q…Ìø(€€€€€€€€€€€€€€ñ±¤ù-¥±±Q¡¥ÉÍÐð½±¤ø(€€€€€€€€€€€€ð½•á±ÕÍ¥½¹Q…Ìø(€€€€€€€€€€€€ñÍåµ‰½±A…¬ø(€€€€€€€€€€€€€€ñÁÉ•™¥áMåµ‰½±Ìø(€€€€€€€€€€€€€€€€ñ±¤ø(€€€€€€€€€€€€€€€€€€ñÍåµ‰½°ù…É¼ð½Íåµ‰½°ø(€€€€€€€€€€€€€€€€ð½±¤ø(€€€€€€€€€€€€€€€€ñ±¤ø(€€€€€€€€€€€€€€€€€€ñÍåµ‰½°ù­¥±±•Èð½Íåµ‰½°ø(€€€€€€€€€€€€€€€€ð½±¤ø(€€€€€€€€€€€€€€ð½ÁÉ•™¥áMåµ‰½±Ìø(€€€€€€€€€€€€ð½Íåµ‰½±A…¬ø(€€€€€€€€€€€€ñµ½‘áÑ•¹Í¥½¹Ìø(€€€€€€€€€€€€€€ñ±¤±…ÍÌô‰Y…¹¥±±…•¹•ÍáÁ…¹‘•¹•¹•áÑ•¹Í¥½¸ˆø(€€€€€€€€€€€€€€€€ñ‰…­É½Õ¹‘A…Ñ¡¹‘½•¹•ÌùU$½%½¹Ì½•¹•Ì½YI}5ÕÑ…Ñ¥½¹	ð½‰…­É½Õ¹‘A…Ñ¡¹‘½•¹•Ìø(€€€€€€€€€€€€€€€€ñ‰…­É½Õ¹‘A…Ñ¡a•¹½•¹•ÌùU$½%½¹Ì½•¹•Ì½YI}5ÕÑ…Ñ¥½¹	ð½‰…­É½Õ¹‘A…Ñ¡a•¹½•¹•Ìø(€€€€€€€€€€€€€€ð½±¤ø(€€€€€€€€€€€€ð½µ½‘áÑ•¹Í¥½¹Ìø(€€€€€€€€€€ð½Y…¹¥±±…I…•ÍáÁ…¹‘•‘%¹Í•Ñ½È¹•¹•±¥¹••¹••˜ø(€€€€€€€€€€ñY…¹¥±±…I…•ÍáÁ…¹‘•‘%¹Í•Ñ½È¹•¹•±¥¹••¹••˜A…É•¹Ñ9…µ”ô‰YI}5ÕÑ…Ñ¥½¹•¹”ˆø(€€€€€€€€€€€€ñ‘•™9…µ”ùYI}¥‘	ÕÉÍÑM…¬ð½‘•™9…µ”ø(€€€€€€€€€€€€ñ±…‰•°ù…¥‰ÕÉÍÑÍ…¬ð½±…‰•°ø(€€€€€€€€€€€€ñ‘•ÍÉ¥ÁÑ¥½¸ù…ÉÉ¥•ÉÌ½˜Ñ¡¥Ì•¹”Á½ÍÍ•ÍÌ…¸…¥‰ÕÉÍÑÍ…¬°Ý¡¥ ÑÉ¥•ÉÌ…¸•áÁ±½Í¥Ù”É•±•…Í”½˜½ÉÉ½Í¥Ù”…¥Ý¡•¸Ñ¡•äÑ…­”„Í•Ù•É”¡¥Ð¸Q¡¥Ì•áÁ±½Í¥½¸…™™•ÑÌ•Ù•ÉåÑ¡¥¹œÝ¥Ñ¡¥¸„Ý¥‘”É…‘¥ÕÌ°…ÕÍ¥¹œ½¹½¥¹œ‘…µ…”Ñ¼Ñ¡½Í”…Õ¡Ð¥¸Ñ¡”‰±…ÍÐ¸ð½‘•ÍÉ¥ÁÑ¥½¸ø(€€€€€€€€€€€€ñ¥½¹A…Ñ ùU$½%½¹Ì½•¹•Ì½•¹•}¥‘	ÕÉÍÑÍ…¬ð½¥½¹A…Ñ ø(€€€€€€€€€€€€ñÕ¹±½­…‰±”ù™…±Í”ð½Õ¹±½­…‰±”ø(€€€€€€€€€€€€ñ‘¥ÍÁ±…å=É‘•É%¹…Ñ•½ÉäøÄÀÀØð½‘¥ÍÁ±…å=É‘•É%¹…Ñ•½Éäø(€€€€€€€€€€€€ñÍ•±•Ñ¥½¹]•¥¡ÐøÀð½Í•±•Ñ¥½¹]•¥¡Ðø(€€€€€€€€€€€€ñ•á±ÕÍ¥½¹Q…Ìø(€€€€€€€€€€€€€€ñ±¤ùQ…¥°ð½±¤ø(€€€€€€€€€€€€ð½•á±ÕÍ¥½¹Q…Ìø(€€€€€€€€€€€€ñµ½‘áÑ•¹Í¥½¹Ìø(€€€€€€€€€€€€€€ñ±¤±…ÍÌô‰Y…¹¥±±…•¹•ÍáÁ…¹‘•¹•¹•áÑ•¹Í¥½¸ˆø(€€€€€€€€€€€€€€€€ñ‰…­É½Õ¹‘A…Ñ¡¹‘½•¹•ÌùU$½%½¹Ì½•¹•Ì½YI}5ÕÑ…Ñ¥½¹	ð½‰…­É½Õ¹‘A…Ñ¡¹‘½•¹•Ìø(€€€€€€€€€€€€€€€€ñ‰…­É½Õ¹‘A…Ñ¡a•¹½•¹•ÌùU$½%½¹Ì½•¹•Ì½YI}5ÕÑ…Ñ¥½¹	ð½‰…­É½Õ¹‘A…Ñ¡a•¹½•¹•Ìø(€€€€€€€€€€€€€€€€ñ¡•‘¥™™Q½]¡½±•	½‘äùYI}¥‘	ÕÉÍÑM…¬ð½¡•‘¥™™Q½]¡½±•	½‘äø(€€€€€€€€€€€€€€ð½±¤ø(€€€€€€€€€€€€ð½µ½‘áÑ•¹Í¥½¹Ìø(€€€€€€€€€€ð½Y…¹¥±±…I…•ÍáÁ…¹‘•‘%¹Í•Ñ½È¹•¹•±¥¹••¹••˜ø(€€€€€€€€€€ñY…¹¥±±…I…•ÍáÁ…¹‘•‘%¹Í•Ñ½È¹•¹•±¥¹••¹••˜A…É•¹Ñ9…µ”ô‰YI}5ÕÑ…Ñ¥½¹•¹”ˆø(€€€€€€€€€€€€ñ‘•™9…µ”ùYI}M½±¥‘É•å5…ÑÑ•Èð½‘•™9…µ”ø(€€€€€€€€€€€€ñ±…‰•°ùÍ½±¥É•äµ…ÑÑ•Èð½±…‰•°ø(€€€€€€€€€€€€ñ‘•ÍÉ¥ÁÑ¥½¸ù…ÉÉ¥•ÉÌ½˜Ñ¡¥Ì•¹”¡…Ù”Í½±¥‘¥™¥•É•äµ…ÑÑ•È°É•ÍÕ±Ñ¥¹œ¥¸„½µÁ±•Ñ”¥¹…‰¥±¥ÑäÑ¼±•…É¸¹•ÜÍ­¥±±Ì¸Q¡•ä•áÁ•É¥•¹”…•±•É…Ñ•Í­¥±°±½ÍÌ°Ý¡¥ …™™•ÑÌÑ¡•´•Ù•¸…Ð±½Ý•ÈÍ­¥±°±•Ù•±Ì¸ð½‘•ÍÉ¥ÁÑ¥½¸ø(€€€€€€€€€€€€ñ¥½¹A…Ñ ùU$½%½¹Ì½•¹•Ì½•¹•}M½±¥‘É•åµ…ÑÑ•Èð½¥½¹A…Ñ ø(€€€€€€€€€€€€ñÕ¹±½­…‰±”ù™…±Í”ð½Õ¹±½­…‰±”ø(€€€€€€€€€€€€ñÍ•±•Ñ¥½¹]•¥¡ÐøÀð½Í•±•Ñ¥½¹]•¥¡Ðø(€€€€€€€€€€€€ñ‘¥ÍÁ±…å=É‘•É%¹…Ñ•½ÉäøÄÀÀÜð½‘¥ÍÁ±…å=É‘•É%¹…Ñ•½Éäø(€€€€€€€€€€€€ñÍÑ…Ñ…Ñ½ÉÌø(€€€€€€€€€€€€€€ñ±½‰…±1•…É¹¥¹…Ñ½ÈøÀð½±½‰…±1•…É¹¥¹…Ñ½Èø(€€€€€€€€€€€€ð½ÍÑ…Ñ…Ñ½ÉÌø(€€€€€€€€€€€€ñ•á±ÕÍ¥½¹Q…Ìø(€€€€€€€€€€€€€€ñ±¤ù%¹Í•Ñ½É	É…¥¸ð½±¤ø(€€€€€€€€€€€€ð½•á±ÕÍ¥½¹Q…Ìø(€€€€€€€€€€€€ñÕÍÑ½µ™™•Ñ•ÍÉ¥ÁÑ¥½¹Ìø(€€€€€€€€€€€€€€ñ±¤ù±½‰…°Í­¥±°±½ÍÌµÕ±Ñ¥Á±¥•ÈèàÈ¸ð½±¤ø(€€€€€€€€€€€€€€ñ±¤ùM­¥±°±½ÍÌ…ÁÁ±¥•Ì•Ù•¸‰•±½Ü±•Ù•°€ÄÀ¸ð½±¤ø(€€€€€€€€€€€€ð½ÕÍÑ½µ™™•Ñ•ÍÉ¥ÁÑ¥½¹Ìø(€€€€€€€€€€€€ñÍåµ‰½±A…¬ø(€€€€€€€€€€€€€€ñÁÉ•™¥áMåµ‰½±Ìø(€€€€€€€€€€€€€€€€ñ±¤ø(€€€€€€€€€€€€€€€€€€ñÍåµ‰½°ùÑ¡…œð½Íåµ‰½°ø(€€€€€€€€€€€€€€€€ð½±¤ø(€€€€€€€€€€€€€€€€ñ±¤ø(€€€€€€€€€€€€€€€€€€ñÍåµ‰½°ùÉÕ¹Ðð½Íåµ‰½°ø(€€€€€€€€€€€€€€€€ð½±¤ø(€€€€€€€€€€€€€€€€ñ±¤ø(€€€€€€€€€€€€€€€€€€ñÍåµ‰½°ùÍÑÕÁ¥ð½Íåµ‰½°ø(€€€€€€€€€€€€€€€€ð½±¤ø(€€€€€€€€€€€€€€€€ñ±¤ø(€€€€€€€€€€€€€€€€€€ñÍåµ‰½°ù‘Õ±°ð½Íåµ‰½°ø(€€€€€€€€€€€€€€€€ð½±¤ø(€€€€€€€€€€€€€€€€ñ±¤ø(€€€€€€€€€€€€€€€€€€ñÍåµ‰½°ù‘Õµˆð½Íåµ‰½°ø(€€€€€€€€€€€€€€€€ð½±¤ø(€€€€€€€€€€€€€€ð½ÁÉ•™¥áMåµ‰½±Ìø(€€€€€€€€€€€€ð½Íåµ‰½±A…¬ø(€€€€€€€€€€€€ñµ½‘áÑ•¹Í¥½¹Ìø(€€€€€€€€€€€€€€ñ±¤±…ÍÌô‰Y…¹¥±±…•¹•ÍáÁ…¹‘•¹•¹•áÑ•¹Í¥½¸ˆø(€€€€€€€€€€€€€€€€ñ‰…­É½Õ¹‘A…Ñ¡¹‘½•¹•ÌùU$½%½¹Ì½•¹•Ì½YI}5ÕÑ…Ñ¥½¹	ð½‰…­É½Õ¹‘A…Ñ¡¹‘½•¹•Ìø(€€€€€€€€€€€€€€€€ñ‰…­É½Õ¹‘A…Ñ¡a•¹½•¹•ÌùU$½%½¹Ì½•¹•Ì½YI}5ÕÑ…Ñ¥½¹	ð½‰…­É½Õ¹‘A…Ñ¡a•¹½•¹•Ìø(€€€€€€€€€€€€€€€€ñ±½‰…±M­¥±±1½ÍÍ5Õ±Ñ¥Á±¥•ÈøÈð½±½‰…±M­¥±±1½ÍÍ5Õ±Ñ¥Á±¥•Èø(€€€€€€€€€€€€€€€€ñÍ­¥±±•É…‘…Ñ¥½¸ùÑÉÕ”ð½Í­¥±±•É…‘…Ñ¥½¸ø(€€€€€€€€€€€€€€ð½±¤ø(€€€€€€€€€€€€ð½µ½‘áÑ•¹Í¥½¹Ìø(€€€€€€€€€€ð½Y…¹¥±±…I…•ÍáÁ…¹‘•‘%¹Í•Ñ½È¹•¹•±¥¹••¹••˜ø(€€€€€€€€€€ñY…¹¥±±…I…•ÍáÁ…¹‘•‘%¹Í•Ñ½È¹•¹•±¥¹••¹••˜A…É•¹Ñ9…µ”ô‰YI}5ÕÑ…Ñ¥½¹•¹”ˆø(€€€€€€€€€€€€ñ‘•™9…µ”ùYI}!…É‘1½­•‘)½¥¹ÑÌð½‘•™9…µ”ø(€€€€€€€€€€€€ñ±…‰•°ù¡…Éµ±½­•©½¥¹ÑÌð½±…‰•°ø(€€€€€€€€€€€€ñ‘•ÍÉ¥ÁÑ¥½¸ù…ÉÉ¥•ÉÌ½˜Ñ¡¥Ì•¹”¡…Ù”¡…É‘±½­•©½¥¹ÑÌ°Í¥¹¥™¥…¹Ñ±äÍ±½Ý¥¹œÑ¡•¥Èµ½Ù•µ•¹ÑÌ¸Q¡•¥È¥¹™±•á¥‰±”©½¥¹ÑÌµ…­”‰•¹‘¥¹œ…¹ÍÝ¥™Ð…Ñ¥½¹Ì•áÑÉ•µ•±ä‘¥™™¥Õ±Ð¸ð½‘•ÍÉ¥ÁÑ¥½¸ø(€€€€€€€€€€€€ñÍ•±•Ñ¥½¹]•¥¡ÐøÀð½Í•±•Ñ¥½¹]•¥¡Ðø(€€€€€€€€€€€€ñ¥½¹A…Ñ ùU$½%½¹Ì½•¹•Ì½•¹•}%¹™±•á¥‰±•)½¥¹ÑÌð½¥½¹A…Ñ ø(€€€€€€€€€€€€ñÕ¹±½­…‰±”ù™…±Í”ð½Õ¹±½­…‰±”ø(€€€€€€€€€€€€ñ‘¥ÍÁ±…å=É‘•É%¹…Ñ•½ÉäøÄÀÀàð½‘¥ÍÁ±…å=É‘•É%¹…Ñ•½Éäø(€€€€€€€€€€€€ñÍÑ…Ñ=™™Í•ÑÌø(€€€€€€€€€€€€€€ñ5½Ù•MÁ••ø´À¸Ðð½5½Ù•MÁ••ø(€€€€€€€€€€€€ð½ÍÑ…Ñ=™™Í•ÑÌø(€€€€€€€€€€€€ñ•á±ÕÍ¥½¹Q…Ìø(€€€€€€€€€€€€€€ñ±¤ù%¹Í•Ñ½É5½Ù•µ•¹Ðð½±¤ø(€€€€€€€€€€€€ð½•á±ÕÍ¥½¹Q…Ìø(€€€€€€€€€€€€ñÍåµ‰½±A…¬ø(€€€€€€€€€€€€€€ñÁÉ•™¥áMåµ‰½±Ìø(€€€€€€€€€€€€€€€€ñ±¤ø(€€€€€€€€€€€€€€€€€€ñÍåµ‰½°ùÍ±½Üð½Íåµ‰½°ø(€€€€€€€€€€€€€€€€ð½±¤ø(€€€€€€€€€€€€€€€€ñ±¤ø(€€€€€€€€€€€€€€€€€€ñÍåµ‰½°ù±½¬ð½Íåµ‰½°ø(€€€€€€€€€€€€€€€€ð½±¤ø(€€€€€€€€€€€€€€ð½ÁÉ•™¥áMåµ‰½±Ìø(€€€€€€€€€€€€ð½Íåµ‰½±A…¬ø(€€€€€€€€€€€€ñµ½‘áÑ•¹Í¥½¹Ìø(€€€€€€€€€€€€€€ñ±¤±…ÍÌô‰Y…¹¥±±…•¹•ÍáÁ…¹‘•¹•¹•áÑ•¹Í¥½¸ˆø(€€€€€€€€€€€€€€€€ñ‰…­É½Õ¹‘A…Ñ¡¹‘½•¹•ÌùU$½%½¹Ì½•¹•Ì½YI}5ÕÑ…Ñ¥½¹	ð½‰…­É½Õ¹‘A…Ñ¡¹‘½•¹•Ìø(€€€€€€€€€€€€€€€€ñ‰…­É½Õ¹‘A…Ñ¡a•¹½•¹•ÌùU$½%½¹Ì½•¹•Ì½YI}5ÕÑ…Ñ¥½¹	ð½‰…­É½Õ¹‘A…Ñ¡a•¹½•¹•Ìø(€€€€€€€€€€€€€€ð½±¤ø(€€€€€€€€€€€€ð½µ½‘áÑ•¹Í¥½¹Ìø(€€€€€€€€€€ð½Y…¹¥±±…I…•ÍáÁ…¹‘•‘%¹Í•Ñ½È¹•¹•±¥¹••¹••˜ø(€€€€€€€€€€ñY…¹¥±±…I…•ÍáÁ…¹‘•‘%¹Í•Ñ½È¹•¹•±¥¹••¹••˜A…É•¹Ñ9…µ”ô‰YI}5ÕÑ…Ñ¥½¹•¹”ˆø(€€€€€€€€€€€€ñ‘•™9…µ”ùYI}A…ÍÍ¥Ù•%¹Í•Ðð½‘•™9…µ”ø(€€€€€€€€€€€€ñ±…‰•°ùÁ…ÍÍ¥Ù”ð½±…‰•°ø(€€€€€€€€€€€€ñ‘•ÍÉ¥ÁÑ¥½¸ù…ÉÉ¥•ÉÌ½˜Ñ¡¥Ì•¹”…É”¥¹¡•É•¹Ñ±äÁ…ÍÍ¥Ù”°Í¡½Ý¥¹œ¹¼¥¹Ñ•É•ÍÐ¥¸…¹‰•¥¹œÕ¹…‰±”Ñ¼Á…ÉÑ¥¥Á…Ñ”¥¸½µ‰…Ð¸Q¡•¥È¹…ÑÕÉ”½µÁ•±ÌÑ¡•´Ñ¼…Ù½¥Ù¥½±•¹Ð½¹™É½¹Ñ…Ñ¥½¹Ì•¹Ñ¥É•±ä¸ð½‘•ÍÉ¥ÁÑ¥½¸ø(€€€€€€€€€€€€ñ¥½¹A…Ñ ùU$½%½¹Ì½•¹•Ì½•¹•}A…ÍÍ¥Ù”ð½¥½¹A…Ñ ø(€€€€€€€€€€€€ñÕ¹±½­…‰±”ù™…±Í”ð½Õ¹±½­…‰±”ø(€€€€€€€€€€€€ñÍ•±•Ñ¥½¹]•¥¡ÐøÀð½Í•±•Ñ¥½¹]•¥¡Ðø(€€€€€€€€€€€€ñ‘¥ÍÁ±…å=É‘•É%¹…Ñ•½ÉäøÄÀÀäð½‘¥ÍÁ±…å=É‘•É%¹…Ñ•½Éäø(€€€€€€€€€€€€ñ‘¥Í…‰±•‘]½É­Q…Ìø(€€€€€€€€€€€€€€ñ±¤ùY¥½±•¹Ðð½±¤ø(€€€€€€€€€€€€€€ñ±¤ù!Õ¹Ñ¥¹œð½±¤ø(€€€€€€€€€€€€ð½‘¥Í…‰±•‘]½É­Q…Ìø(€€€€€€€€€€€€ñ•á±ÕÍ¥½¹Q…Ìø(€€€€€€€€€€€€€€ñ±¤ù%¹Í•Ñ½ÉÉ•ÍÍ¥½¸ð½±¤ø(€€€€€€€€€€€€€€ñ±¤ù5•±••…µ…”ð½±¤ø(€€€€€€€€€€€€€€ñ±¤ùM¡½½Ñ¥¹ÕÉ…äð½±¤ø(€€€€€€€€€€€€€€ñ±¤ùÉ•ÍÍ¥Ù”ð½±¤ø(€€€€€€€€€€€€€€ñ±¤ù-¥±±Q¡¥ÉÍÐð½±¤ø(€€€€€€€€€€€€ð½•á±ÕÍ¥½¹Q…Ìø(€€€€€€€€€€€€ñµ½‘áÑ•¹Í¥½¹Ìø(€€€€€€€€€€€€€€ñ±¤±…ÍÌô‰Y…¹¥±±…•¹•ÍáÁ…¹‘•¹•¹•áÑ•¹Í¥½¸ˆø(€€€€€€€€€€€€€€€€ñ‰…­É½Õ¹‘A…Ñ¡¹‘½•¹•ÌùU$½%½¹Ì½•¹•Ì½YI}5ÕÑ…Ñ¥½¹	ð½‰…­É½Õ¹‘A…Ñ¡¹‘½•¹•Ìø(€€€€€€€€€€€€€€€€ñ‰…­É½Õ¹‘A…Ñ¡a•¹½•¹•ÌùU$½%½¹Ì½•¹•Ì½YI}5ÕÑ…Ñ¥½¹	ð½‰…­É½Õ¹‘A…Ñ¡a•¹½•¹•Ìø(€€€€€€€€€€€€€€ð½±¤ø(€€€€€€€€€€€€ð½µ½‘áÑ•¹Í¥½¹Ìø(€€€€€€€€€€ð½Y…¹¥±±…I…•ÍáÁ…¹‘•‘%¹Í•Ñ½È¹•¹•±¥¹••¹••˜ø(€€€€€€€€ð½Ù…±Õ”ø(€€€€€€ð½±¤ø(€€€€ð½¹½µ…Ñ ø(€€ð½=Á•É…Ñ¥½¸ø(ð½A…Ñ 
+<Patch />

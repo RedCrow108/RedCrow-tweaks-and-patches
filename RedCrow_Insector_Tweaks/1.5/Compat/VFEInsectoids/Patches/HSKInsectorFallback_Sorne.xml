@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_SwarmSynapse"]</xpath>
+    <nomatch>
+      <li Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+          <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_EvolutionGene">
+            <defName>VRE_SwarmSynapse</defName>
+            <label>swarm synapse</label>
+            <description>Carriers of this gene form a synaptic swarm, allowing their minds to link and accelerate learning when together. Like a hive of insects, their collective intelligence and speed of knowledge absorption increase with each additional member.</description>
+            <unlockable>false</unlockable>
+            <selectionWeight>0</selectionWeight>
+            <iconPath>UI/Icons/Genes/Gene_SwarmSynapse</iconPath>
+            <displayOrderInCategory>1000</displayOrderInCategory>
+            <customEffectDescriptions>
+              <li>Provides a stacking +5% Global Work Speed boost for each pawn in the colony with Swarm Synapse gene.</li>
+              <li>The amount of colonists having the gene refreshes every 4 ingame hours.</li>
+            </customEffectDescriptions>
+            <modExtensions>
+              <li Class="VanillaGenesExpanded.GeneExtension">
+                <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
+                <backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes>
+              </li>
+            </modExtensions>
+          </VanillaRacesExpandedInsector.GenelineGeneDef>
+        </value>
+      </li>
+    </nomatch>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_RoyalJellyInjector"]</xpath>
+    <nomatch>
+      <li Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+          <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_EvolutionGene">
+            <defName>VRE_RoyalJellyInjector</defName>
+            <label>royal jelly injector</label>
+            <description>Carriers of this gene develop a specialized injector mouth, enabling them to administer royal jelly to others. This injection provides the recipient with an immunity boost and improved mood, though it leaves a tiny wound and can only be performed every six hours.</description>
+            <selectionWeight>0</selectionWeight>
+            <unlockable>false</unlockable>
+            <iconPath>UI/Icons/Genes/Gene_RoyalJellyInjector</iconPath>
+            <displayOrderInCategory>1001</displayOrderInCategory>
+            <abilities>
+              <li>VRE_RoyalJellyInjector</li>
+            </abilities>
+            <exclusionTags>
+              <li>InsectorMouth</li>
+            </exclusionTags>
+            <renderNodeProperties>
+              <li>
+                <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+                <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+                <parentTagDef>Head</parentTagDef>
+                <texPath>Things/Pawn/Humanlike/HeadAttachments/InsectInjector</texPath>
+                <colorType>Skin</colorType>
+                <useRottenColor>true</useRottenColor>
+                <useSkinShader>true</useSkinShader>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <visibleFacing>
+                  <li>East</li>
+                  <li>South</li>
+                  <li>West</li>
+                </visibleFacing>
+                <drawData>
+                  <defaultData>
+                    <layer>69</layer>
+                  </defaultData>
+                </drawData>
+              </li>
+            </renderNodeProperties>
+            <modExtensions>
+              <li Class="VanillaGenesExpanded.GeneExtension">
+                <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
+                <backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes>
+              </li>
+            </modExtensions>
+          </VanillaRacesExpandedInsector.GenelineGeneDef>
+        </value>
+      </li>
+    </nomatch>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_Microsized"]</xpath>
+    <nomatch>
+      <li Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+          <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene">
+            <defName>VRE_Microsized</defName>
+            <label>microsized</label>
+            <description>Carriers of this gene exhibit a microsized stature, significantly smaller than their counterparts. Their reduced size results in increased stagger duration, lower meat and leather yield, and a smaller yet more efficient hunger requirement.</description>
+            <iconPath>UI/Icons/Genes/Gene_Microsized</iconPath>
+            <unlockable>false</unlockable>
+            <selectionWeight>0</selectionWeight>
+            <displayOrderInCategory>1000</displayOrderInCategory>
+            <statOffsets>
+              <VEF_BodySize_Offset>-0.45</VEF_BodySize_Offset>
+            </statOffsets>
+            <statFactors>
+              <StaggerDurationFactor>2</StaggerDurationFactor>
+              <MeatAmount>0.5</MeatAmount>
+              <LeatherAmount>0.5</LeatherAmount>
+              <VEF_FoodCapacityMultiplier>0.75</VEF_FoodCapacityMultiplier>
+            </statFactors>
+            <exclusionTags>
+              <li>InsectorSize</li>
+            </exclusionTags>
+            <symbolPack>
+              <prefixSymbols>
+                <li><symbol>small</symbol></li>
+                <li><symbol>tiny</symbol></li>
+                <li><symbol>mini</symbol></li>
+              </prefixSymbols>
+            </symbolPack>
+            <modExtensions>
+              <li Class="VanillaGenesExpanded.GeneExtension">
+                <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+                <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+                <hediffToWholeBody>VRE_Microsized</hediffToWholeBody>
+              </li>
+            </modExtensions>
+          </VanillaRacesExpandedInsector.GenelineGeneDef>
+        </value>
+      </li>
+    </nomatch>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_Colossal"]</xpath>
+    <nomatch>
+      <li Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+          <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene">
+            <defName>VRE_Colossal</defName>
+            <label>colossal</label>
+            <description>Carriers of this gene grow to colossal proportions, towering over their peers. Their immense size increases meat and leather yield and hunger needs, while reducing movement speed and melee dodge chance. If equipped with the right enhancements, they can carry the heaviest of weapons and warcasket armaments.</description>
+            <selectionWeight>0</selectionWeight>
+            <iconPath>UI/Icons/Genes/Gene_Colossal</iconPath>
+            <unlockable>false</unlockable>
+            <displayOrderInCategory>1001</displayOrderInCategory>
+            <statOffsets>
+              <MoveSpeed>-1.6</MoveSpeed>
+              <VEF_BodySize_Offset>0.65</VEF_BodySize_Offset>
+            </statOffsets>
+            <statFactors>
+              <StaggerDurationFactor>0.2</StaggerDurationFactor>
+              <MeatAmount>2</MeatAmount>
+              <LeatherAmount>2</LeatherAmount>
+              <VEF_FoodCapacityMultiplier>2</VEF_FoodCapacityMultiplier>
+              <MeleeDodgeChance>0.25</MeleeDodgeChance>
+            </statFactors>
+            <exclusionTags>
+              <li>InsectorSize</li>
+            </exclusionTags>
+            <symbolPack>
+              <prefixSymbols>
+                <li><symbol>large</symbol></li>
+                <li><symbol>big</symbol></li>
+                <li><symbol>magni</symbol></li>
+              </prefixSymbols>
+            </symbolPack>
+            <modExtensions>
+              <li Class="VanillaGenesExpanded.GeneExtension">
+                <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+                <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+                <hediffToWholeBody>VRE_Colossal</hediffToWholeBody>
+              </li>
+            </modExtensions>
+          </VanillaRacesExpandedInsector.GenelineGeneDef>
+        </value>
+      </li>
+    </nomatch>
+  </Operation>
+</Patch>
