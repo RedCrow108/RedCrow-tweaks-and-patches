@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RC_SynapticHiveNode.label>органический синаптический узел</RC_SynapticHiveNode.label>
+  <RC_SynapticHiveNode.description>Огромный органический узел, похожий на кордицепс, хранит желе насекомых и поддерживает всех поглощённых роем пешек на своей карте. Ёмкость резервуара увеличивается на 1000 за каждую связанную пешку. Если узел уничтожить или разобрать, все связанные пешки испытают яростный нейронный шок.</RC_SynapticHiveNode.description>
+</LanguageData>
