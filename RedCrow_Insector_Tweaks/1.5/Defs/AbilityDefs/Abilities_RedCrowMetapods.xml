@@ -28,6 +28,9 @@
     <comps>
       <li Class="RedCrow.InsectorTweaks.CompProperties_AbilityUsurpation">
         <infectionDef>RC_UsurpationLarva</infectionDef>
+        <resultRace>Human</resultRace>
+        <resultXenotype>VRE_Insector</resultXenotype>
+        <requiredTraitA>CatInHead</requiredTraitA>
         <canTargetBaby>true</canTargetBaby>
       </li>
     </comps>

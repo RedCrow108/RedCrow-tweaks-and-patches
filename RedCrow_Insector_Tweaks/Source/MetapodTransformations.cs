@@ -255,32 +255,40 @@ namespace RedCrow.InsectorTweaks
             Pawn pawn,
             RC_MetapodTransformationData data)
         {
-            if (!PrepareRaceAndHealth(pawn, data))
-            {
-                return false;
-            }
-
-            ClearGeneline(pawn);
-            ReplaceGenesFromSnapshot(pawn, data);
-            ApplyFactionAndIdeo(pawn, data);
-            FinalizePawnAfterTransformation(pawn);
-            return true;
+            return ApplySwarmConversion(pawn, data);
         }
 
         private static bool ApplyCorpseMemory(
             Pawn pawn,
             RC_MetapodTransformationData data)
         {
-            if (!PrepareRaceAndHealth(pawn, data))
-            {
-                return false;
-            }
+            return ApplySwarmConversion(pawn, data);
+        }
 
+        private static bool ApplySwarmConversion(
+            Pawn pawn,
+            RC_MetapodTransformationData data)
+        {
             XenotypeDef insector =
                 data.sourceXenotype ??
                 DefDatabase<XenotypeDef>.GetNamedSilentFail(
                     "VRE_Insector");
-            if (pawn.genes == null || insector == null)
+            HediffDef solarCondition =
+                DefDatabase<HediffDef>.GetNamedSilentFail(
+                    "RC_SolarStuporCondition");
+            HediffDef swarmConsumed =
+                DefDatabase<HediffDef>.GetNamedSilentFail(
+                    "RC_SwarmConsumed");
+            TraitDef hiveMindTrait =
+                DefDatabase<TraitDef>.GetNamedSilentFail(
+                    "CatInHead");
+            if (pawn == null ||
+                pawn.genes == null ||
+                insector == null ||
+                solarCondition == null ||
+                swarmConsumed == null ||
+                hiveMindTrait == null ||
+                !PrepareRaceAndHealth(pawn, data))
             {
                 return false;
             }
@@ -290,14 +298,6 @@ namespace RedCrow.InsectorTweaks
             pawn.genes.SetXenotype(insector);
             ApplyFactionAndIdeo(pawn, data);
 
-            HediffDef solarCondition =
-                DefDatabase<HediffDef>.GetNamedSilentFail(
-                    "RC_SolarStuporCondition");
-            if (solarCondition == null)
-            {
-                return false;
-            }
-
             if (!pawn.health.hediffSet.HasHediff(
                 solarCondition,
                 false))
@@ -305,11 +305,7 @@ namespace RedCrow.InsectorTweaks
                 pawn.health.AddHediff(solarCondition);
             }
 
-            HediffDef swarmConsumed =
-                DefDatabase<HediffDef>.GetNamedSilentFail(
-                    "RC_SwarmConsumed");
-            if (!EnsureRequiredTrait(pawn, "CatInHead") ||
-                swarmConsumed == null)
+            if (!EnsureRequiredTrait(pawn, "CatInHead"))
             {
                 return false;
             }
@@ -321,6 +317,12 @@ namespace RedCrow.InsectorTweaks
             }
 
             FinalizePawnAfterTransformation(pawn);
+            Gene_Resource jellyResource =
+                Stage4Effects.FindJellyResource(pawn);
+            if (jellyResource != null)
+            {
+                jellyResource.Value = jellyResource.Max;
+            }
             return true;
         }
 
@@ -946,6 +948,9 @@ namespace RedCrow.InsectorTweaks
         CompProperties_AbilityEffect
     {
         public HediffDef infectionDef;
+        public ThingDef resultRace;
+        public XenotypeDef resultXenotype;
+        public string requiredTraitA;
 
         public CompProperties_AbilityUsurpation()
         {
@@ -957,6 +962,9 @@ namespace RedCrow.InsectorTweaks
     public class CompAbilityEffect_Usurpation :
         RC_AnnualMetapodAbilityEffect
     {
+        private const string HmcPackageId =
+            "arpomo6.hmc.project";
+
         private new CompProperties_AbilityUsurpation Props
         {
             get
@@ -964,6 +972,18 @@ namespace RedCrow.InsectorTweaks
                 return
                     (CompProperties_AbilityUsurpation)props;
             }
+        }
+
+        public override bool GizmoDisabled(out string reason)
+        {
+            if (!RequiredDefsLoaded())
+            {
+                reason =
+                    "RC_CorpseMemory_HMCRequired".Translate();
+                return true;
+            }
+
+            return base.GizmoDisabled(out reason);
         }
 
         public override bool Valid(
@@ -987,14 +1007,35 @@ namespace RedCrow.InsectorTweaks
                     throwMessages);
             }
 
-            if (Props.infectionDef == null ||
-                victim.health.hediffSet.HasHediff(
+            if (!RequiredDefsLoaded())
+            {
+                return Reject(
+                    victim,
+                    "RC_CorpseMemory_HMCRequired".Translate(),
+                    throwMessages);
+            }
+
+            if (victim.health.hediffSet.HasHediff(
                     Props.infectionDef,
                     false))
             {
                 return Reject(
                     victim,
                     "RC_Usurpation_AlreadyInfected".Translate(),
+                    throwMessages);
+            }
+
+            HediffDef swarmConsumed =
+                DefDatabase<HediffDef>.GetNamedSilentFail(
+                    "RC_SwarmConsumed");
+            if (swarmConsumed != null &&
+                victim.health.hediffSet.HasHediff(
+                    swarmConsumed,
+                    false))
+            {
+                return Reject(
+                    victim,
+                    "RC_Usurpation_AlreadyConsumed".Translate(),
                     throwMessages);
             }
 
@@ -1013,7 +1054,7 @@ namespace RedCrow.InsectorTweaks
             string reason;
             if (!RC_PawnTransformationUtility.CanChangeRace(
                 victim,
-                caster.def,
+                Props.resultRace,
                 out reason))
             {
                 return Reject(victim, reason, throwMessages);
@@ -1044,6 +1085,13 @@ namespace RedCrow.InsectorTweaks
                         parent.pawn,
                         RC_MetapodMode.Usurpation,
                         parent.def);
+            data.sourceRace = Props.resultRace;
+            data.sourceKind = null;
+            data.sourceXenotype = Props.resultXenotype;
+            data.sourceXenotypeName = null;
+            data.sourceXenotypeIcon = null;
+            data.sourceHybrid = false;
+            data.ordinaryGenes.Clear();
             data.artificialParts =
                 RC_MetapodHealthUtility
                     .CaptureArtificialParts(victim);
@@ -1074,6 +1122,20 @@ namespace RedCrow.InsectorTweaks
                 victim,
                 MessageTypeDefOf.NegativeEvent,
                 false);
+        }
+
+        private bool RequiredDefsLoaded()
+        {
+            return ModsConfig.IsActive(HmcPackageId) &&
+                Props.infectionDef != null &&
+                Props.resultRace != null &&
+                Props.resultXenotype != null &&
+                DefDatabase<TraitDef>.GetNamedSilentFail(
+                    Props.requiredTraitA) != null &&
+                DefDatabase<HediffDef>.GetNamedSilentFail(
+                    "RC_SolarStuporCondition") != null &&
+                DefDatabase<HediffDef>.GetNamedSilentFail(
+                    "RC_SwarmConsumed") != null;
         }
     }
 

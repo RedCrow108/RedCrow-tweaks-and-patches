@@ -33,7 +33,7 @@
   <ThingDef ParentName="RC_MetapodBaseDef">
     <defName>RC_Metapod_Usurpation</defName>
     <label>usurpation metapod</label>
-    <description>A sealed metapod carrying a victim through a complete usurpation of body and genotype.</description>
+    <description>A sealed metapod that rebuilds its victim as an insector consumed by the hive.</description>
     <modExtensions>
       <li Class="RedCrow.InsectorTweaks.RC_MetapodExtension">
         <mode>Usurpation</mode>

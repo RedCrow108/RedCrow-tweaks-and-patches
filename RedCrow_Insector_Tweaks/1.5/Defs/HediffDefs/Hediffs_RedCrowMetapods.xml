@@ -137,6 +137,7 @@
     <isBad>false</isBad>
     <disablesNeeds>
       <li>Mood</li>
+      <li>Joy</li>
       <li>Beauty</li>
       <li>Outdoors</li>
     </disablesNeeds>
@@ -150,7 +151,7 @@
         <painOffset>-0.5</painOffset>
         <opinionOfOthersFactor>0</opinionOfOthersFactor>
         <statFactors>
-          <SuppressionSusceptibility>0.5</SuppressionSusceptibility>
+          <Suppressability>0.5</Suppressability>
         </statFactors>
         <statOffsets>
           <ComfyTemperatureMin>-16</ComfyTemperatureMin>

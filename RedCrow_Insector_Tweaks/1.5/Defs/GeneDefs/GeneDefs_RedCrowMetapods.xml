@@ -20,7 +20,7 @@
       ParentName="RC_MetapodEvolutionBase">
     <defName>RC_Evolution_UsurpationLarva</defName>
     <label>usurpation larva</label>
-    <description>The carrier can implant a parasitic larva into a helpless organic humanlike victim. After five days of progressive symptoms and a one-day coma, the victim enters a metapod and is rebuilt with the carrier's snapshotted race and ordinary genotype, but without any Geneline.</description>
+    <description>The carrier can implant a parasitic larva into a helpless organic humanlike victim. After five days of progressive symptoms and a one-day coma, the victim enters a metapod and emerges with the same hive-consumed result as a hive-memory egg.</description>
     <displayOrderInCategory>3601</displayOrderInCategory>
     <evolution>5</evolution>
     <abilities>

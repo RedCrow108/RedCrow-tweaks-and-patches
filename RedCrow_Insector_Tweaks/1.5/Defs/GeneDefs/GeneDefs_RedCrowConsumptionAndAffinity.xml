@@ -198,20 +198,11 @@
       MayRequire="Ludeon.RimWorld.Royalty">
     <defName>RC_Evolution_HiveAnimaResonance</defName>
     <label>hive-anima resonance</label>
-    <description>The carrier's antennae synchronize with the anima network, letting the hive mind amplify natural meditation and the linking ritual without producing an anima song.</description>
+    <description>The carrier's antennae synchronize with the anima network, allowing the hive mind to maintain a natural meditation focus.</description>
     <displayOrderInCategory>3591</displayOrderInCategory>
     <evolution>3</evolution>
-    <biostatCpx>3</biostatCpx>
-    <biostatMet>-3</biostatMet>
-    <biostatArc>1</biostatArc>
-    <statOffsets>
-      <MeditationPlantGrowthOffset>0.15</MeditationPlantGrowthOffset>
-    </statOffsets>
     <customEffectDescriptions>
       <li>Guarantees Natural Meditation focus on the pawn.</li>
-      <li>Meditation plant growth speed: +15%.</li>
-      <li>With VRE Phytokin, each carrier in an anima linking ritual adds 10% success, stacking up to five carriers.</li>
-      <li>Does not grant Anima song.</li>
     </customEffectDescriptions>
   </VanillaRacesExpandedInsector.GenelineGeneDef>
 
@@ -221,8 +212,6 @@
     <description>Dormant repair-castes circulate through the carrier and periodically consume scars, old wounds, and chronic illness.</description>
     <displayOrderInCategory>3592</displayOrderInCategory>
     <evolution>4</evolution>
-    <biostatCpx>4</biostatCpx>
-    <biostatArc>1</biostatArc>
     <geneClass>Gene_Healing</geneClass>
     <preventPermanentWounds>true</preventPermanentWounds>
     <customEffectDescriptions>

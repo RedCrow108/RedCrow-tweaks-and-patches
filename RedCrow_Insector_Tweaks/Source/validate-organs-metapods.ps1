@@ -208,11 +208,26 @@ Assert-True (
 $anima = $geneNodes |
     Where-Object { $_.defName -eq "RC_Evolution_HiveAnimaResonance" } |
     Select-Object -First 1
-Assert-NodeValue $anima "./statOffsets/MeditationPlantGrowthOffset" `
-    "0.15" "RC_Evolution_HiveAnimaResonance"
+foreach ($removedNode in @(
+    "./biostatCpx",
+    "./biostatMet",
+    "./biostatArc",
+    "./statOffsets/MeditationPlantGrowthOffset"
+)) {
+    Assert-True ($null -eq $anima.SelectSingleNode($removedNode)) (
+        "Hive-anima resonance still contains removed node: $removedNode"
+    )
+}
 Assert-True ($null -eq $anima.SelectSingleNode("./abilities")) (
     "Hive-anima resonance must not grant Anima song"
 )
+Assert-True (
+    @($anima.SelectNodes("./customEffectDescriptions/li")).Count -eq 1
+) "Hive-anima resonance must expose only Natural Meditation focus"
+Assert-True (
+    $anima.customEffectDescriptions.li -eq
+        "Guarantees Natural Meditation focus on the pawn."
+) "Hive-anima resonance has an unexpected remaining effect"
 
 $regenerator = $geneNodes |
     Where-Object { $_.defName -eq "RC_Evolution_HiveRegeneratorCells" } |
@@ -221,6 +236,11 @@ Assert-NodeValue $regenerator "./geneClass" "Gene_Healing" `
     "RC_Evolution_HiveRegeneratorCells"
 Assert-NodeValue $regenerator "./preventPermanentWounds" "true" `
     "RC_Evolution_HiveRegeneratorCells"
+foreach ($removedNode in @("./biostatCpx", "./biostatArc")) {
+    Assert-True ($null -eq $regenerator.SelectSingleNode($removedNode)) (
+        "Hive regenerator still contains removed node: $removedNode"
+    )
+}
 
 $limbGenes = @(
     "RC_Mutation_SmallThoracicArms",
@@ -300,9 +320,27 @@ Assert-NodeValue $swarmConsumed "./hediffClass" "HediffWithComps" `
     "RC_SwarmConsumed"
 Assert-NodeValue $swarmConsumed "./disablesNeeds/li[.='Mood']" "Mood" `
     "RC_SwarmConsumed"
-Assert-NodeValue $swarmConsumed `
-    "./stages/li/statFactors/SuppressionSusceptibility" "0.5" `
+Assert-NodeValue $swarmConsumed "./disablesNeeds/li[.='Joy']" "Joy" `
     "RC_SwarmConsumed"
+Assert-NodeValue $swarmConsumed `
+    "./stages/li/statFactors/Suppressability" "0.5" `
+    "RC_SwarmConsumed"
+Assert-True ($null -eq $swarmConsumed.SelectSingleNode(
+    "./stages/li/statFactors/SuppressionSusceptibility"
+)) "RC_SwarmConsumed contains an unresolved StatDef name"
+
+$usurpationAbility = $abilityXml.SelectSingleNode(
+    "/Defs/AbilityDef[defName='RC_Ability_ImplantUsurpationLarva']"
+)
+Assert-NodeValue $usurpationAbility `
+    "./comps/li[@Class='RedCrow.InsectorTweaks.CompProperties_AbilityUsurpation']/resultRace" `
+    "Human" "RC_Ability_ImplantUsurpationLarva"
+Assert-NodeValue $usurpationAbility `
+    "./comps/li[@Class='RedCrow.InsectorTweaks.CompProperties_AbilityUsurpation']/resultXenotype" `
+    "VRE_Insector" "RC_Ability_ImplantUsurpationLarva"
+Assert-NodeValue $usurpationAbility `
+    "./comps/li[@Class='RedCrow.InsectorTweaks.CompProperties_AbilityUsurpation']/requiredTraitA" `
+    "CatInHead" "RC_Ability_ImplantUsurpationLarva"
 
 $coagulate = $stage4AbilityXml.SelectSingleNode(
     "/Defs/AbilityDef[defName='RC_CoagulatingSecretion']"
@@ -404,6 +442,9 @@ foreach ($requiredText in @(
     "CatInHead",
     "RC_SwarmConsumed",
     "RC_SolarStuporCondition",
+    "ApplySwarmConversion",
+    "RC_Usurpation_AlreadyConsumed",
+    "jellyResource.Value = jellyResource.Max",
     "CompTipStringExtra",
     "AgeBiologicalTicks",
     "RemovePawnDirectly",
