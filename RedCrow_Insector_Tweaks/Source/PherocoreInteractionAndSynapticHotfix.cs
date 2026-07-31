@@ -113,7 +113,7 @@ namespace RedCrow.InsectorTweaks
         [HarmonyPriority(Priority.Last)]
         public static void ComponentFinalizeInitPostfix(object __instance)
         {
-            EnsureSynapticNode(__instance, "component FinalizeInit");
+            EnsureSynapticEvolution(__instance, "component FinalizeInit");
         }
 
         [HarmonyPriority(Priority.Last)]
@@ -121,7 +121,7 @@ namespace RedCrow.InsectorTweaks
         {
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {
-                EnsureSynapticNode(
+                EnsureSynapticEvolution(
                     __instance,
                     "component ExposeData/PostLoadInit");
             }
@@ -130,7 +130,7 @@ namespace RedCrow.InsectorTweaks
         [HarmonyPriority(Priority.Last)]
         public static void GameFinalizeInitPostfix()
         {
-            EnsureSynapticNode(
+            EnsureSynapticEvolution(
                 GetComponentInstance(),
                 "Game.FinalizeInit");
         }
@@ -157,7 +157,7 @@ namespace RedCrow.InsectorTweaks
             return null;
         }
 
-        private static void EnsureSynapticNode(
+        private static void EnsureSynapticEvolution(
             object component,
             string source)
         {
@@ -237,7 +237,7 @@ namespace RedCrow.InsectorTweaks
                 {
                     successLogged = true;
                     Log.Message(
-                        LogPrefix + " Synaptic hive node synchronized " +
+                        LogPrefix + " Synaptic hive evolution synchronized " +
                         "with Kemian tier 4 from " + source +
                         "; added=" + added +
                         ", pool count=" + dictionary.Count + ".");
