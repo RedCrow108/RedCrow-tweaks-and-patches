@@ -47,17 +47,20 @@ namespace RedCrow.InsectorTweaks
             public readonly string DictionaryField;
             public readonly string CompleteField;
             public readonly string CoreName;
+            public readonly string[] OriginalGenes;
 
             public PoolBinding(
                 int tier,
                 string dictionaryField,
                 string completeField,
-                string coreName)
+                string coreName,
+                params string[] originalGenes)
             {
                 Tier = tier;
                 DictionaryField = dictionaryField;
                 CompleteField = completeField;
                 CoreName = coreName;
+                OriginalGenes = originalGenes ?? new string[0];
             }
         }
 
@@ -171,28 +174,50 @@ namespace RedCrow.InsectorTweaks
                 1,
                 "sorne_pherocore_genes",
                 "allSorneGenesUnlocked",
-                "Sorne"),
+                "Sorne",
+                "VRE_SwarmSynapse",
+                "VRE_RoyalJellyInjector",
+                "VRE_Microsized",
+                "VRE_Colossal"),
             new PoolBinding(
                 2,
                 "nuchadus_pherocore_genes",
                 "allNuchadusGenesUnlocked",
-                "Nuchadus"),
+                "Nuchadus",
+                "VRE_PyroResistantChitin",
+                "VRE_FlameGlands",
+                "VRE_ChemfuelSacks",
+                "VRE_Pyrophiliac"),
             new PoolBinding(
                 3,
                 "chelis_pherocore_genes",
                 "allChelisGenesUnlocked",
-                "Chelis"),
+                "Chelis",
+                "VRE_LocustWings",
+                "VRE_InsectRostrum",
+                "VRE_InsectVolatile",
+                "VRE_EcdysoneOverdrive"),
             new PoolBinding(
                 4,
                 "kemia_pherocore_genes",
                 "allKemiaGenesUnlocked",
-                "Kemian"),
+                "Kemian",
+                "VRE_AcidGlands",
+                "VRE_InfraredSensors",
+                "VRE_AcidBurstSack",
+                "VRE_SolidGreyMatter"),
             new PoolBinding(
                 5,
                 "xanides_pherocore_genes",
                 "allXanidesGenesUnlocked",
-                "Xanides")
+                "Xanides",
+                "VRE_MineralRichInsectskin",
+                "VRE_ChargerClaws",
+                "VRE_HardLockedJoints",
+                "VRE_PassiveInsect")
         };
+
+        private static bool successfulExtensionLogged;
 
         static PherocoreBalanceIntegration()
         {
@@ -312,31 +337,61 @@ namespace RedCrow.InsectorTweaks
 
             Type unlockedType = AccessTools.TypeByName(
                 UnlockedGenesTypeName);
-            MethodInfo finalizeInit = unlockedType == null
-                ? null
-                : AccessTools.Method(
-                    unlockedType,
-                    "FinalizeInit",
-                    new[] { typeof(bool) });
-            MethodInfo finalizePostfix = AccessTools.Method(
+            MethodInfo lifecyclePostfix = AccessTools.Method(
                 typeof(PherocoreBalanceIntegration),
                 "FinalizeInitPostfix");
+            MethodInfo exposePostfix = AccessTools.Method(
+                typeof(PherocoreBalanceIntegration),
+                "ExposeDataPostfix");
+            MethodInfo gamePostfix = AccessTools.Method(
+                typeof(PherocoreBalanceIntegration),
+                "GameFinalizeInitPostfix");
 
-            if (finalizeInit != null && finalizePostfix != null)
+            bool lifecyclePatched = false;
+            MethodInfo finalizeInit = FindInstanceMethod(
+                unlockedType,
+                "FinalizeInit");
+            if (finalizeInit != null && lifecyclePostfix != null)
             {
                 HarmonyMethod postfix =
-                    new HarmonyMethod(finalizePostfix);
+                    new HarmonyMethod(lifecyclePostfix);
                 postfix.priority = Priority.Last;
-                harmony.Patch(
-                    finalizeInit,
-                    postfix: postfix);
+                harmony.Patch(finalizeInit, postfix: postfix);
+                lifecyclePatched = true;
+                Log.Message(
+                    LogPrefix + " Patched " +
+                    MethodDescription(finalizeInit) + ".");
             }
-            else
+
+            MethodInfo exposeData = FindInstanceMethod(
+                unlockedType,
+                "ExposeData");
+            if (exposeData != null && exposePostfix != null)
             {
-                Log.Warning(
-                    LogPrefix + " WorldComponent_UnlockedGenes." +
-                    "FinalizeInit was not found; pherocore pools were not " +
-                    "extended.");
+                HarmonyMethod postfix =
+                    new HarmonyMethod(exposePostfix);
+                postfix.priority = Priority.Last;
+                harmony.Patch(exposeData, postfix: postfix);
+                lifecyclePatched = true;
+            }
+
+            MethodInfo gameFinalize = FindInstanceMethod(
+                typeof(Game),
+                "FinalizeInit");
+            if (gameFinalize != null && gamePostfix != null)
+            {
+                HarmonyMethod postfix =
+                    new HarmonyMethod(gamePostfix);
+                postfix.priority = Priority.Last;
+                harmony.Patch(gameFinalize, postfix: postfix);
+                lifecyclePatched = true;
+            }
+
+            if (!lifecyclePatched)
+            {
+                Log.Error(
+                    LogPrefix + " No compatible world/game lifecycle " +
+                    "method was found; pherocore pools cannot be extended.");
             }
 
             Type ingestType = AccessTools.TypeByName(
@@ -358,41 +413,179 @@ namespace RedCrow.InsectorTweaks
             }
         }
 
+        private static MethodInfo FindInstanceMethod(
+            Type type,
+            string name)
+        {
+            if (type == null)
+            {
+                return null;
+            }
+
+            MethodInfo best = null;
+            MethodInfo[] methods = type.GetMethods(
+                BindingFlags.Instance |
+                BindingFlags.Public |
+                BindingFlags.NonPublic);
+            for (int index = 0; index < methods.Length; index++)
+            {
+                MethodInfo method = methods[index];
+                if (method.Name != name)
+                {
+                    continue;
+                }
+
+                if (method.DeclaringType == type &&
+                    method.GetParameters().Length == 0)
+                {
+                    return method;
+                }
+
+                if (method.DeclaringType == type || best == null)
+                {
+                    best = method;
+                }
+            }
+
+            return best;
+        }
+
+        private static string MethodDescription(MethodInfo method)
+        {
+            ParameterInfo[] parameters = method.GetParameters();
+            string[] names = new string[parameters.Length];
+            for (int index = 0; index < parameters.Length; index++)
+            {
+                names[index] = parameters[index].ParameterType.Name;
+            }
+
+            return method.DeclaringType.FullName + "." +
+                method.Name + "(" + string.Join(", ", names) + ")";
+        }
+
         [HarmonyPriority(Priority.Last)]
         public static void FinalizeInitPostfix(object __instance)
         {
-            if (__instance == null)
+            ExtendPherocorePools(
+                __instance,
+                "WorldComponent_UnlockedGenes.FinalizeInit");
+        }
+
+        [HarmonyPriority(Priority.Last)]
+        public static void ExposeDataPostfix(object __instance)
+        {
+            if (Scribe.mode == LoadSaveMode.PostLoadInit)
+            {
+                ExtendPherocorePools(
+                    __instance,
+                    "WorldComponent_UnlockedGenes.ExposeData/PostLoadInit");
+            }
+        }
+
+        [HarmonyPriority(Priority.Last)]
+        public static void GameFinalizeInitPostfix()
+        {
+            Type unlockedType = AccessTools.TypeByName(
+                UnlockedGenesTypeName);
+            FieldInfo instanceField = unlockedType == null
+                ? null
+                : AccessTools.Field(unlockedType, "Instance");
+            object component = instanceField == null
+                ? null
+                : instanceField.GetValue(null);
+            ExtendPherocorePools(
+                component,
+                "Game.FinalizeInit");
+        }
+
+        private static void ExtendPherocorePools(
+            object component,
+            string source)
+        {
+            if (component == null)
             {
                 return;
             }
 
             try
             {
+                int correctedOriginals =
+                    EnsureOriginalPherocoreUnlockability();
                 int added = 0;
+                int total = 0;
                 for (int index = 0;
                     index < PoolBindings.Length;
                     index++)
                 {
-                    added += EnsurePool(
-                        __instance,
-                        PoolBindings[index]);
+                    PoolBinding binding = PoolBindings[index];
+                    added += EnsurePool(component, binding);
+                    total += PoolCount(component, binding);
                 }
 
                 ClearGeneListCache();
 
-                if (added > 0)
+                if (added > 0 ||
+                    correctedOriginals > 0 ||
+                    !successfulExtensionLogged)
                 {
+                    successfulExtensionLogged = true;
                     Log.Message(
-                        LogPrefix + " Added " + added +
-                        " missing RedCrow genes to saved pherocore pools.");
+                        LogPrefix + " Pherocore pools synchronized from " +
+                        source + ": added=" + added +
+                        ", original unlockability corrected=" +
+                        correctedOriginals + ", total entries=" + total +
+                        ". Existing unlocked states were preserved.");
                 }
             }
             catch (Exception exception)
             {
                 Log.Error(
-                    LogPrefix + " Failed to extend pherocore pools:\n" +
-                    exception);
+                    LogPrefix + " Failed to extend pherocore pools from " +
+                    source + ":\n" + exception);
             }
+        }
+
+        private static int EnsureOriginalPherocoreUnlockability()
+        {
+            Type genelineType = AccessTools.TypeByName(
+                GenelineGeneDefTypeName);
+            FieldInfo unlockableField = genelineType == null
+                ? null
+                : AccessTools.Field(genelineType, "unlockable");
+            if (unlockableField == null)
+            {
+                return 0;
+            }
+
+            int corrected = 0;
+            for (int poolIndex = 0;
+                poolIndex < PoolBindings.Length;
+                poolIndex++)
+            {
+                string[] originalGenes =
+                    PoolBindings[poolIndex].OriginalGenes;
+                for (int geneIndex = 0;
+                    geneIndex < originalGenes.Length;
+                    geneIndex++)
+                {
+                    GeneDef gene =
+                        DefDatabase<GeneDef>.GetNamedSilentFail(
+                            originalGenes[geneIndex]);
+                    if (gene == null ||
+                        !genelineType.IsInstanceOfType(gene))
+                    {
+                        continue;
+                    }
+
+                    if (!(bool)unlockableField.GetValue(gene))
+                    {
+                        unlockableField.SetValue(gene, true);
+                        corrected++;
+                    }
+                }
+            }
+
+            return corrected;
         }
 
         private static int EnsurePool(
@@ -432,6 +625,15 @@ namespace RedCrow.InsectorTweaks
 
             int added = 0;
             for (int index = 0;
+                index < binding.OriginalGenes.Length;
+                index++)
+            {
+                added += AddGeneIfMissing(
+                    dictionary,
+                    binding.OriginalGenes[index]);
+            }
+
+            for (int index = 0;
                 index < BalanceEntries.Length;
                 index++)
             {
@@ -441,21 +643,15 @@ namespace RedCrow.InsectorTweaks
                     continue;
                 }
 
-                GeneDef gene = DefDatabase<GeneDef>.GetNamedSilentFail(
+                added += AddGeneIfMissing(
+                    dictionary,
                     entry.DefName);
-                if (gene == null || dictionary.Contains(gene))
-                {
-                    continue;
-                }
-
-                dictionary.Add(gene, false);
-                added++;
             }
 
-            bool allUnlocked = true;
+            bool allUnlocked = dictionary.Count > 0;
             foreach (DictionaryEntry pair in dictionary)
             {
-                if (pair.Value is bool &&
+                if (!(pair.Value is bool) ||
                     !(bool)pair.Value)
                 {
                     allUnlocked = false;
@@ -465,6 +661,34 @@ namespace RedCrow.InsectorTweaks
 
             completeField.SetValue(component, allUnlocked);
             return added;
+        }
+
+        private static int AddGeneIfMissing(
+            IDictionary dictionary,
+            string defName)
+        {
+            GeneDef gene = DefDatabase<GeneDef>.GetNamedSilentFail(
+                defName);
+            if (gene == null || dictionary.Contains(gene))
+            {
+                return 0;
+            }
+
+            dictionary.Add(gene, false);
+            return 1;
+        }
+
+        private static int PoolCount(
+            object component,
+            PoolBinding binding)
+        {
+            FieldInfo dictionaryField = AccessTools.Field(
+                component.GetType(),
+                binding.DictionaryField);
+            IDictionary dictionary = dictionaryField == null
+                ? null
+                : dictionaryField.GetValue(component) as IDictionary;
+            return dictionary == null ? 0 : dictionary.Count;
         }
 
         private static void ClearGeneListCache()
