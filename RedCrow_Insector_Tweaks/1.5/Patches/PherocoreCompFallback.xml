@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <!--
+    Insector 1.5 exposes pherocore interaction through this ThingComp.
+    Some HSK package layouts do not load the upstream compatibility patch.
+    Add only the missing comp to the original abstract pherocore base.
+    No ThingDef or gene is copied, and the conditional prevents duplicates.
+  -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[@Name="VFEI2_PherocoreBase"]/comps/li[compClass="VanillaRacesExpandedInsector.CompIngestPherocore"]</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[@Name="VFEI2_PherocoreBase"]/comps</xpath>
+      <value>
+        <li>
+          <compClass>VanillaRacesExpandedInsector.CompIngestPherocore</compClass>
+        </li>
+      </value>
+    </nomatch>
+  </Operation>
+
+</Patch>
