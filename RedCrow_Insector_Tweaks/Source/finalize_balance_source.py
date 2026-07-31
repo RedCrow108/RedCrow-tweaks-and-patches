@@ -7,6 +7,7 @@ import sys
 from pathlib import Path
 
 SOURCE = Path(__file__).with_name("PherocoreBalanceIntegration.cs")
+MOD_ROOT = Path(__file__).resolve().parents[1]
 
 VALIDATION_METHOD = r'''        private static void ValidateBalanceAndUnlockability()
         {
@@ -106,6 +107,68 @@ VALIDATION_METHOD = r'''        private static void ValidateBalanceAndUnlockabil
 
 '''
 
+DUPLICATED_UPSTREAM_PATHS = (
+    "1.5/Compat/VFEInsectoids/Defs/GeneDefs/GeneDefs_Evolutions_VFEInsectoids.xml",
+    "1.5/Compat/VFEInsectoids/Defs/GeneDefs/GeneDefs_Mutations_VFEInsectoids.xml",
+    "1.5/Compat/VFEInsectoids/Defs/AbilityDefs/Abilities_VFEInsectoids.xml",
+    "1.5/Compat/VFEInsectoids/Defs/JobDefs/Jobs_VFEInsectoids.xml",
+    "1.5/Compat/VFEInsectoids/Defs/FurDefs/FurDefs_VFEInsectoids.xml",
+    "1.5/Compat/VFEInsectoids/Defs/HediffDefs/Hediffs_Hunger_VFEInsectoids.xml",
+    "1.5/Compat/VFEInsectoids/Defs/HediffDefs/Hediffs_Attacks_VFEInsectoids.xml",
+    "1.5/Compat/VFEInsectoids/Defs/HediffDefs/Hediffs_Misc_VFEInsectoids.xml",
+    "1.5/Compat/VFEInsectoids/Patches/PherocorePatch.xml",
+    "1.5/Compat/VFEInsectoids/Patches/GlobalWorkSpeedStatPart.xml",
+    "1.5/Compat/VFEInsectoids/Patches/DarknessPatch.xml",
+    "1.5/Compat/VFEInsectoids/Patches/HeavyWeaponsPatches.xml",
+)
+
+
+def validate_narrow_runtime_correction(final: str) -> None:
+    forbidden = (
+        "mutationField.SetValue",
+        "evolutionField.SetValue",
+    )
+    present = [token for token in forbidden if token in final]
+    if present:
+        raise RuntimeError("C# still overrides XML balance: " + ", ".join(present))
+
+    unlock_write = "unlockableField.SetValue"
+    if final.count(unlock_write) != 1:
+        raise RuntimeError(
+            "Expected exactly one runtime unlockability correction for "
+            "the original Insectoids 2 genes"
+        )
+
+    method_start = final.find(
+        "        private static int EnsureOriginalPherocoreUnlockability()"
+    )
+    method_end = final.find(
+        "        private static int EnsurePool(",
+        method_start,
+    )
+    write_index = final.find(unlock_write)
+    if (
+        method_start < 0
+        or method_end < 0
+        or not method_start <= write_index < method_end
+    ):
+        raise RuntimeError(
+            "Runtime unlockability write escaped the original-gene repair method"
+        )
+
+
+def validate_no_upstream_duplicates() -> None:
+    duplicates = [
+        relative
+        for relative in DUPLICATED_UPSTREAM_PATHS
+        if (MOD_ROOT / relative).exists()
+    ]
+    if duplicates:
+        raise RuntimeError(
+            "Duplicated HSK Insector compatibility files remain: "
+            + ", ".join(duplicates)
+        )
+
 
 def main() -> int:
     text = SOURCE.read_text(encoding="utf-8")
@@ -125,18 +188,16 @@ def main() -> int:
         raise RuntimeError("Balance initialization method was not recognized")
 
     final = SOURCE.read_text(encoding="utf-8")
-    forbidden = (
-        "mutationField.SetValue",
-        "evolutionField.SetValue",
-        "unlockableField.SetValue",
-    )
-    present = [token for token in forbidden if token in final]
-    if present:
-        raise RuntimeError("C# still overrides XML balance: " + ", ".join(present))
+    validate_narrow_runtime_correction(final)
+    validate_no_upstream_duplicates()
+
     if final.count("new BalanceEntry") != 100:
         raise RuntimeError("Balance entry count changed unexpectedly")
 
-    print("Pherocore C# now validates XML balance without overriding it.")
+    print(
+        "Pherocore C# validates XML balance, repairs only original "
+        "Insectoids 2 unlockability, and contains no duplicated upstream files."
+    )
     return 0
 
 
