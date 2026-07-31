@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RC_SynapticNode_GizmoTitle>Organic synaptic node</RC_SynapticNode_GizmoTitle>
+  <RC_SynapticNode_GizmoDetails>Jelly: {0} / {1} ({2})
+Target: {3} | Daily use: {4}
+Network: {5} | Linked pawns: {6}</RC_SynapticNode_GizmoDetails>
+  <RC_SynapticNode_State_Offline>offline</RC_SynapticNode_State_Offline>
+  <RC_SynapticNode_State_Unconscious>signal collapse</RC_SynapticNode_State_Unconscious>
+  <RC_SynapticNode_State_Critical>critical</RC_SynapticNode_State_Critical>
+  <RC_SynapticNode_State_Stable>stable</RC_SynapticNode_State_Stable>
+  <RC_SynapticNode_State_Enhanced>enhanced</RC_SynapticNode_State_Enhanced>
+  <RC_SynapticNode_State_Saturated>saturated</RC_SynapticNode_State_Saturated>
+  <RC_SynapticNode_AbilityRequired>A completed and maintained organic synaptic node belonging to the caster's faction is required on the current map.</RC_SynapticNode_AbilityRequired>
+  <RC_SynapticNode_OnlyOne>Only one organic synaptic node can be built on a map.</RC_SynapticNode_OnlyOne>
+  <RC_SynapticNode_Destroyed>The organic synaptic node has been lost. Every pawn consumed by the swarm on this map suffers a violent neural shock.</RC_SynapticNode_Destroyed>
+</LanguageData>
