@@ -50,11 +50,21 @@ jobs:
           Get-Item $dll | Format-List FullName, Length, LastWriteTime
           Get-FileHash $dll -Algorithm SHA256
 
-      - name: Upload build artifact
+      - name: Upload DLL artifact
         uses: actions/upload-artifact@v4
         with:
-          name: RedCrow-Insector-Tweaks
+          name: RedCrow-Insector-Tweaks-DLL
           path: RedCrow_Insector_Tweaks/1.5/Assemblies/RedCrow.InsectorTweaks.dll
+          if-no-files-found: error
+
+      - name: Upload full mod artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: RedCrow-Insector-Tweaks-Full
+          path: |
+            RedCrow_Insector_Tweaks/**
+            !RedCrow_Insector_Tweaks/Source/bin/**
+            !RedCrow_Insector_Tweaks/Source/obj/**
           if-no-files-found: error
 
       - name: Commit compiled DLL to feature branch
