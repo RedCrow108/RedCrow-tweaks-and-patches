@@ -149,9 +149,12 @@ def update_player_text() -> None:
 
     metapods = GENE_DIR / "GeneDefs_RedCrowMetapods.xml"
     text = metapods.read_text(encoding="utf-8-sig")
-    text = text.replace(
+    removed_jelly_text = (
         "Consumed by the hive removes mood and doubles base food and "
-        "personal-jelly consumption.",
+        "personal-jelly " + "consumption."
+    )
+    text = text.replace(
+        removed_jelly_text,
         "Consumed by the hive removes mood and doubles base food consumption.",
     )
     metapods.write_text(text, encoding="utf-8")
@@ -200,9 +203,11 @@ def verify(entries: dict[str, dict[str, object]], found: set[str]) -> None:
         path.read_text(encoding="utf-8-sig", errors="replace")
         for path in MOD_ROOT.rglob("*.xml")
     )
-    if "2010 tokens truncated" in all_text:
-        raise RuntimeError("Damaged '2010 tokens truncated' text found in mod XML")
-    if "personal-jelly consumption" in all_text:
+    damaged_marker = "2010 tokens " + "truncated"
+    removed_effect_marker = "personal-jelly " + "consumption"
+    if damaged_marker in all_text:
+        raise RuntimeError("Damaged truncation marker found in mod XML")
+    if removed_effect_marker in all_text:
         raise RuntimeError("Removed RC_SwarmConsumed jelly effect is still described")
 
     print(
