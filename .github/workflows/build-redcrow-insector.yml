@@ -35,6 +35,9 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Make XML the balance source of truth
+        run: python RedCrow_Insector_Tweaks/Source/finalize_balance_source.py
+
       - name: Synchronize and validate XML balance
         run: python RedCrow_Insector_Tweaks/Source/sync_balance.py
 
@@ -76,19 +79,20 @@ jobs:
             !RedCrow_Insector_Tweaks/Source/obj/**
           if-no-files-found: error
 
-      - name: Commit generated XML and compiled DLL
+      - name: Commit synchronized sources, XML and DLL
         if: github.event_name == 'push' && github.actor != 'github-actions[bot]'
         shell: pwsh
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add RedCrow_Insector_Tweaks/Source/PherocoreBalanceIntegration.cs
           git add RedCrow_Insector_Tweaks/1.5/Defs/GeneDefs/*.xml
           git add RedCrow_Insector_Tweaks/Languages/Russian/DefInjected/VanillaRacesExpandedInsector.GenelineGeneDef/ConsumptionAndAffinity.xml
           git add RedCrow_Insector_Tweaks/1.5/Assemblies/RedCrow.InsectorTweaks.dll
           git diff --cached --quiet
           if ($LASTEXITCODE -ne 0) {
-            git commit -m 'build: synchronize balance XML and DLL'
+            git commit -m 'build: synchronize balance sources and DLL'
             git push origin "HEAD:$env:GITHUB_REF_NAME"
           } else {
-            Write-Host 'Generated XML and compiled DLL are unchanged.'
+            Write-Host 'Synchronized sources, XML and DLL are unchanged.'
           }
