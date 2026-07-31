@@ -1,0 +1,73 @@
+name: Build RedCrow Insector Tweaks
+
+on:
+  push:
+    branches:
+      - feature/balance-tiers-and-localization
+    paths:
+      - 'RedCrow_Insector_Tweaks/Source/**'
+      - '.github/workflows/build-redcrow-insector.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'RedCrow_Insector_Tweaks/Source/**'
+      - 'RedCrow_Insector_Tweaks/1.5/Patches/**'
+      - '.github/workflows/build-redcrow-insector.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore
+        run: dotnet restore RedCrow_Insector_Tweaks/Source/RedCrow.InsectorTweaks.CI.csproj
+
+      - name: Build
+        run: dotnet build RedCrow_Insector_Tweaks/Source/RedCrow.InsectorTweaks.CI.csproj --configuration Release --no-restore
+
+      - name: Verify output
+        shell: pwsh
+        run: |
+          $dll = 'RedCrow_Insector_Tweaks/1.5/Assemblies/RedCrow.InsectorTweaks.dll'
+          if (-not (Test-Path $dll)) {
+            throw "Build output not found: $dll"
+          }
+          Get-Item $dll | Format-List FullName, Length, LastWriteTime
+          Get-FileHash $dll -Algorithm SHA256
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: RedCrow-Insector-Tweaks
+          path: RedCrow_Insector_Tweaks/1.5/Assemblies/RedCrow.InsectorTweaks.dll
+          if-no-files-found: error
+
+      - name: Commit compiled DLL to feature branch
+        if: github.event_name == 'push' && github.actor != 'github-actions[bot]'
+        shell: pwsh
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add RedCrow_Insector_Tweaks/1.5/Assemblies/RedCrow.InsectorTweaks.dll
+          git diff --cached --quiet
+          if ($LASTEXITCODE -ne 0) {
+            git commit -m 'build: update RedCrow.InsectorTweaks.dll'
+            git push origin "HEAD:$env:GITHUB_REF_NAME"
+          } else {
+            Write-Host 'Compiled DLL is unchanged.'
+          }
