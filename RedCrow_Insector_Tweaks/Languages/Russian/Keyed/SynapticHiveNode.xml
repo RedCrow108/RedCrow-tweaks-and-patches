@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RC_SynapticNode_GizmoTitle>Органический синаптический узел</RC_SynapticNode_GizmoTitle>
+  <RC_SynapticNode_GizmoDetails>Желе: {0} / {1} ({2})
+Цель: {3} | Расход в сутки: {4}
+Сеть: {5} | Связанных пешек: {6}</RC_SynapticNode_GizmoDetails>
+  <RC_SynapticNode_State_Offline>неактивна</RC_SynapticNode_State_Offline>
+  <RC_SynapticNode_State_Unconscious>коллапс сигнала</RC_SynapticNode_State_Unconscious>
+  <RC_SynapticNode_State_Critical>критическая</RC_SynapticNode_State_Critical>
+  <RC_SynapticNode_State_Stable>стабильная</RC_SynapticNode_State_Stable>
+  <RC_SynapticNode_State_Enhanced>усиленная</RC_SynapticNode_State_Enhanced>
+  <RC_SynapticNode_State_Saturated>насыщенная</RC_SynapticNode_State_Saturated>
+  <RC_SynapticNode_AbilityRequired>На текущей карте требуется завершённый и обслуженный органический синаптический узел, принадлежащий фракции применяющего.</RC_SynapticNode_AbilityRequired>
+  <RC_SynapticNode_OnlyOne>На одной карте можно построить только один органический синаптический узел.</RC_SynapticNode_OnlyOne>
+  <RC_SynapticNode_Destroyed>Органический синаптический узел потерян. Всех поглощённых роем пешек на этой карте охватывает яростный нейронный шок.</RC_SynapticNode_Destroyed>
+</LanguageData>
