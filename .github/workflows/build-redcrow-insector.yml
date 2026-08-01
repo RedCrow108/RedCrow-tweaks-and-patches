@@ -3,9 +3,12 @@ name: Build RedCrow Insector Tweaks
 on:
   push:
     branches:
+      - main
       - feature/balance-tiers-and-localization
     paths:
       - 'RedCrow_Insector_Tweaks/Source/**'
+      - 'RedCrow_Insector_Tweaks/1.5/**'
+      - 'RedCrow_Insector_Tweaks/Languages/**'
       - '.github/workflows/build-redcrow-insector.yml'
   pull_request:
     branches:
