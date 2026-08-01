@@ -38,6 +38,9 @@ jobs:
       - name: Apply Hotfix 7 corrections
         run: python RedCrow_Insector_Tweaks/Source/apply_hotfix7.py
 
+      - name: Consolidate biological tool mutations
+        run: python RedCrow_Insector_Tweaks/Source/apply_hotfix7_biological_tools.py
+
       - name: Make XML the balance source of truth
         run: python RedCrow_Insector_Tweaks/Source/finalize_balance_source.py
 
