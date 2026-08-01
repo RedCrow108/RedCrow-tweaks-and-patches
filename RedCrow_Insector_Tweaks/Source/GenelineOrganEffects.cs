@@ -30,29 +30,9 @@ namespace RedCrow.InsectorTweaks
                         "RC_Mutation_BiologicalSickle",
                         new Dictionary<string, float>
                         {
-                            { "PlantWorkSpeed", 1.30f }
-                        }
-                    },
-                    {
-                        "RC_Mutation_BiologicalDiggingTools",
-                        new Dictionary<string, float>
-                        {
                             { "PlantWorkSpeed", 1.30f },
-                            { "MiningSpeed", 1.30f }
-                        }
-                    },
-                    {
-                        "RC_Mutation_BiologicalHandaxe",
-                        new Dictionary<string, float>
-                        {
-                            { "PlantWorkSpeed", 1.30f },
-                            { "PruningSpeed", 1.30f }
-                        }
-                    },
-                    {
-                        "RC_Mutation_BiologicalHammer",
-                        new Dictionary<string, float>
-                        {
+                            { "MiningSpeed", 1.30f },
+                            { "PruningSpeed", 1.30f },
                             { "ConstructionSpeed", 1.35f },
                             { "SmithingSpeed", 1.30f }
                         }

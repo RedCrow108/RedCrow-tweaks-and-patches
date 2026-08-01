@@ -48,8 +48,8 @@ def read_entries() -> dict[str, dict[str, object]]:
             "points": int(points),
             "tier": int(tier),
         }
-    if len(entries) != 118:
-        raise RuntimeError(f"Expected 118 balance entries, found {len(entries)}")
+    if len(entries) != 115:
+        raise RuntimeError(f"Expected 115 balance entries, found {len(entries)}")
     return entries
 
 
@@ -193,8 +193,8 @@ def verify(entries: dict[str, dict[str, object]], found: set[str]) -> None:
                 raise RuntimeError(f"Balance verification failed for {def_name}")
             verified += 1
 
-    if verified != 106:
-        raise RuntimeError(f"Expected 106 local Defs, verified {verified}")
+    if verified != 103:
+        raise RuntimeError(f"Expected 103 local Defs, verified {verified}")
 
     for xml_path in MOD_ROOT.rglob("*.xml"):
         ET.parse(xml_path)

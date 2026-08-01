@@ -191,7 +191,7 @@ def main() -> int:
     validate_narrow_runtime_correction(final)
     validate_no_upstream_duplicates()
 
-    if final.count("new BalanceEntry") != 118:
+    if final.count("new BalanceEntry") != 115:
         raise RuntimeError("Balance entry count changed unexpectedly")
 
     print(
