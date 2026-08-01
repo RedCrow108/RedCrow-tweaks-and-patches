@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <VRE_SwarmSynapse.label>синапс роя</VRE_SwarmSynapse.label>
+  <VRE_SwarmSynapse.description>Нервные системы носителей соединяются в общий синаптический рой. Каждый колонист с этим геном усиливает скорость работы остальных носителей, а состав сети периодически пересчитывается.</VRE_SwarmSynapse.description>
+  <VRE_RoyalJellyInjector.label>инъектор королевского желе</VRE_RoyalJellyInjector.label>
+  <VRE_RoyalJellyInjector.description>Специализированный ротовой инъектор позволяет вводить королевское желе другому существу. Процедура оставляет небольшую рану, но временно улучшает настроение и иммунитет цели; повторное применение требует восстановления органа.</VRE_RoyalJellyInjector.description>
+  <VRE_Microsized.label>микроразмер</VRE_Microsized.label>
+  <VRE_Microsized.description>Тело носителя становится значительно меньше. Снижаются выход мяса и кожи и вместимость желудка, зато уменьшается потребность в пище; небольшая масса увеличивает длительность ошеломления.</VRE_Microsized.description>
+  <VRE_Colossal.label>колоссальный размер</VRE_Colossal.label>
+  <VRE_Colossal.description>Тело носителя вырастает до колоссальных размеров. Увеличиваются выход мяса и кожи, вместимость желудка и способность использовать тяжёлое вооружение, но возрастают потребности в пище и снижаются скорость движения и уклонение в ближнем бою.</VRE_Colossal.description>
+  <VRE_PyroResistantChitin.label>огнестойкий хитин</VRE_PyroResistantChitin.label>
+  <VRE_PyroResistantChitin.description>Панцирь становится устойчивым к огню: носитель значительно хуже воспламеняется, получает меньше урона пламенем и не впадает в панику, оказавшись в огне.</VRE_PyroResistantChitin.description>
+  <VRE_FlameGlands.label>огненные железы</VRE_FlameGlands.label>
+  <VRE_FlameGlands.description>Особые железы и резервуар производят горючую жидкость. Носитель может выплёвывать её, поджигая цели и поверхность в месте попадания.</VRE_FlameGlands.description>
+  <VRE_ChemfuelSacks.label>мешки химтоплива</VRE_ChemfuelSacks.label>
+  <VRE_ChemfuelSacks.description>Хвостовые мешки накапливают химтопливо и периодически позволяют его извлекать. Они резко повышают уязвимость к огню и могут вызвать огненный взрыв при сильном возгорании или смерти носителя.</VRE_ChemfuelSacks.description>
+  <VRE_Pyrophiliac.label>пирофилия</VRE_Pyrophiliac.label>
+  <VRE_Pyrophiliac.description>Носитель испытывает болезненную тягу к огню и приобретает черту пиромана. Его комфортный температурный диапазон смещается в сторону более высокой температуры.</VRE_Pyrophiliac.description>
+  <VRE_LocustWings.label>крылья саранчи</VRE_LocustWings.label>
+  <VRE_LocustWings.description>Крупные крылья саранчи позволяют носителю совершать дальний прыжок, перелетая через препятствия к незакрытой крышей точке.</VRE_LocustWings.description>
+  <VRE_InsectRostrum.label>насекомый хоботок</VRE_InsectRostrum.label>
+  <VRE_InsectRostrum.description>Большой острый хоботок многократно ускоряет приём пищи и служит мощным колющим оружием ближнего боя с коротким временем восстановления.</VRE_InsectRostrum.description>
+  <VRE_InsectVolatile.label>взрывной нрав</VRE_InsectVolatile.label>
+  <VRE_InsectVolatile.description>Носитель становится крайне вспыльчивым: чаще начинает социальные драки, склонен к агрессивным нервным срывам и побегам из заключения и использует оружие в социальных драках.</VRE_InsectVolatile.description>
+  <VRE_EcdysoneOverdrive.label>экдизоновый разгон</VRE_EcdysoneOverdrive.label>
+  <VRE_EcdysoneOverdrive.description>Переизбыток экдизона создаёт постоянную потребность в насыщении убийством. Долгое отсутствие побед в ближнем бою вызывает всё более тяжёлые штрафы настроения.</VRE_EcdysoneOverdrive.description>
+  <VRE_AcidGlands.label>кислотные железы</VRE_AcidGlands.label>
+  <VRE_AcidGlands.description>Развитые кислотные железы позволяют выплёвывать едкую жидкость, поражающую существ, предметы и постройки в выбранной области.</VRE_AcidGlands.description>
+  <VRE_InfraredSensors.label>инфракрасные сенсоры</VRE_InfraredSensors.label>
+  <VRE_InfraredSensors.description>Инфракрасные сенсоры позволяют видеть в темноте без обычных штрафов к работе и движению и немного повышают точность стрельбы на средней и дальней дистанции.</VRE_InfraredSensors.description>
+  <VRE_AcidBurstSack.label>кислотный взрывной мешок</VRE_AcidBurstSack.label>
+  <VRE_AcidBurstSack.description>При получении сильного удара мешок выбрасывает вокруг носителя облако едкой кислоты, покрывая область коррозионной жидкостью и нанося продолжительный урон всем попавшим в выброс.</VRE_AcidBurstSack.description>
+  <VRE_SolidGreyMatter.label>затвердевшее серое вещество</VRE_SolidGreyMatter.label>
+  <VRE_SolidGreyMatter.description>Затвердевшая ткань мозга полностью лишает носителя способности обучаться и ускоряет потерю навыков, причём деградация затрагивает даже навыки ниже десятого уровня.</VRE_SolidGreyMatter.description>
+  <VRE_MineralRichInsectskin.label>минерализованная кожа насекомого</VRE_MineralRichInsectskin.label>
+  <VRE_MineralRichInsectskin.description>Минеральные отложения формируют толстую естественную броню. Панцирь хорошо защищает от тупого и острого урона, пока накопленные повреждения не ослабят его.</VRE_MineralRichInsectskin.description>
+  <VRE_ChargerClaws.label>штурмовые клешни</VRE_ChargerClaws.label>
+  <VRE_ChargerClaws.description>Массивные клешни позволяют совершать разрушительный рывок к цели, сметая существ и оборонительные сооружения на пути, но мешают тонкой работе.</VRE_ChargerClaws.description>
+  <VRE_HardLockedJoints.label>заклинившие суставы</VRE_HardLockedJoints.label>
+  <VRE_HardLockedJoints.description>Жёстко зафиксированные суставы сильно ограничивают сгибание конечностей и быстрые движения, заметно снижая скорость передвижения.</VRE_HardLockedJoints.description>
+  <VRE_PassiveInsect.label>пассивность</VRE_PassiveInsect.label>
+  <VRE_PassiveInsect.description>Носитель полностью утрачивает интерес к насилию и не способен выполнять боевую работу или охотиться.</VRE_PassiveInsect.description>
+  <RC_Mutation_BiologicalSickle.label>биологические рабочие инструменты</RC_Mutation_BiologicalSickle.label>
+  <RC_Mutation_BiologicalSickle.description>Комплекс хитиновых серпов, лопат, топоров и ударных пластин превращает тело носителя в универсальный рабочий инструмент улья. Скорость работы с растениями, добычи и обрезки повышается на 30%, строительства — на 35%, кузнечного дела — на 30%. Постоянное питание органов увеличивает скорость голода на 0,2.</RC_Mutation_BiologicalSickle.description>
+</LanguageData>
