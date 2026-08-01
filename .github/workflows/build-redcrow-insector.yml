@@ -41,6 +41,9 @@ jobs:
       - name: Consolidate biological tool mutations
         run: python RedCrow_Insector_Tweaks/Source/apply_hotfix7_biological_tools.py
 
+      - name: Apply Hotfix 8 localization and presentation fixes
+        run: python RedCrow_Insector_Tweaks/Source/apply_hotfix8_localization.py
+
       - name: Make XML the balance source of truth
         run: python RedCrow_Insector_Tweaks/Source/finalize_balance_source.py
 
@@ -98,7 +101,7 @@ jobs:
           git add RedCrow_Insector_Tweaks/1.5/Assemblies/RedCrow.InsectorTweaks.dll
           git diff --cached --quiet
           if ($LASTEXITCODE -ne 0) {
-            git commit -m 'build: synchronize hotfix 7 sources and DLL'
+            git commit -m 'build: synchronize hotfix 8 sources and DLL'
             git push origin "HEAD:$env:GITHUB_REF_NAME"
           } else {
             Write-Host 'Synchronized sources, XML and DLL are unchanged.'
