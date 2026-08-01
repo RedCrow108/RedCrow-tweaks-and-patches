@@ -43,6 +43,7 @@
     <iconPath>UI/Icons/Genes/Gene_ImprovedPsychicAbility</iconPath>
     <displayOrderInCategory>3101</displayOrderInCategory>
     <evolution>1</evolution>
+    <unlockable>true</unlockable>
     <statOffsets>
       <PsychicSensitivity>0.1</PsychicSensitivity>
       <MeditationFocusGain>0.05</MeditationFocusGain>
@@ -55,11 +56,12 @@
 
   <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage1MutationBase">
     <defName>RC_Mutation_HeavyCasteStride</defName>
-    <label>тяжёлая поступь касты</label>
+    <label>наросты на панцирях</label>
     <description>Утолщённый панцирь и массивные опорные сегменты делают носителя устойчивее, но снижают скорость передвижения на 0,2 клетки в секунду.</description>
     <iconPath>UI/Icons/Genes/Gene_SlowMovespeed</iconPath>
     <displayOrderInCategory>2401</displayOrderInCategory>
     <mutation>1</mutation>
+    <unlockable>false</unlockable>
     <statOffsets>
       <MoveSpeed>-0.2</MoveSpeed>
     </statOffsets>
@@ -75,6 +77,7 @@
     <iconPath>UI/Icons/Genes/Gene_QuickMovespeed</iconPath>
     <displayOrderInCategory>3102</displayOrderInCategory>
     <evolution>1</evolution>
+    <unlockable>false</unlockable>
     <statOffsets>
       <MoveSpeed>0.2</MoveSpeed>
     </statOffsets>
@@ -91,6 +94,7 @@
     <description>Обмен веществ носителя расщепляет кофеин до того, как успевает сформироваться зависимость. Шанс получить зависимость от кофеина равен нулю.</description>
     <displayOrderInCategory>3103</displayOrderInCategory>
     <evolution>1</evolution>
+    <unlockable>true</unlockable>
     <chemical>Caffeine</chemical>
     <addictionChanceFactor>0</addictionChanceFactor>
   </VanillaRacesExpandedInsector.GenelineGeneDef>
@@ -103,6 +107,7 @@
     <description>Ферменты выводка нейтрализуют вызывающие привыкание компоненты чифира. Шанс получить зависимость от чифира равен нулю.</description>
     <displayOrderInCategory>3104</displayOrderInCategory>
     <evolution>1</evolution>
+    <unlockable>true</unlockable>
     <chemical>Chipfir</chemical>
     <addictionChanceFactor>0</addictionChanceFactor>
   </VanillaRacesExpandedInsector.GenelineGeneDef>
@@ -115,6 +120,7 @@
     <description>Организм распознаёт чужое королевское желе как нестабильный субстрат и не позволяет ему закрепить зависимость. Шанс получить зависимость от королевского желе равен нулю.</description>
     <displayOrderInCategory>3105</displayOrderInCategory>
     <evolution>1</evolution>
+    <unlockable>true</unlockable>
     <chemical>VFEI2_RoyalJellyChemical</chemical>
     <addictionChanceFactor>0</addictionChanceFactor>
   </VanillaRacesExpandedInsector.GenelineGeneDef>
@@ -127,7 +133,8 @@
     <description>Коллективная память направляет носителя к самым питательным находкам. Количество пищи, добываемой в пути, умножается на 1,75.</description>
     <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
     <displayOrderInCategory>3111</displayOrderInCategory>
-    <evolution>2</evolution>
+    <evolution>1</evolution>
+    <unlockable>true</unlockable>
     <statFactors>
       <ForagedNutritionPerDay>1.75</ForagedNutritionPerDay>
     </statFactors>
@@ -142,7 +149,8 @@
     <description>Слуховые каналы носителя полностью зарастают, отсекая внешний мир ради безмолвного сигнала улья. Носитель полностью лишается слуха.</description>
     <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
     <displayOrderInCategory>2411</displayOrderInCategory>
-    <mutation>2</mutation>
+    <mutation>5</mutation>
+    <unlockable>true</unlockable>
     <modExtensions Inherit="False">
       <li Class="VanillaGenesExpanded.GeneExtension">
         <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
@@ -167,6 +175,7 @@
     <iconPath>UI/Icons/Genes/Gene_EnhancedPsychicAbility</iconPath>
     <displayOrderInCategory>3112</displayOrderInCategory>
     <evolution>2</evolution>
+    <unlockable>true</unlockable>
     <statOffsets>
       <PsychicSensitivity>0.2</PsychicSensitivity>
       <MeditationFocusGain>0.1</MeditationFocusGain>
@@ -184,6 +193,7 @@
     <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
     <displayOrderInCategory>3113</displayOrderInCategory>
     <evolution>2</evolution>
+    <unlockable>true</unlockable>
     <statFactors>
       <MiningYield>1.2</MiningYield>
     </statFactors>
@@ -198,7 +208,8 @@
     <description>Эластичные складки панциря образуют естественные карманы для грузов улья. Переносимый объём и грузоподъёмность увеличиваются на 20.</description>
     <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
     <displayOrderInCategory>3114</displayOrderInCategory>
-    <evolution>2</evolution>
+    <evolution>1</evolution>
+    <unlockable>true</unlockable>
     <statOffsets>
       <CarryBulk>20</CarryBulk>
       <CarryingCapacity>20</CarryingCapacity>
@@ -214,6 +225,7 @@
     <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
     <displayOrderInCategory>3121</displayOrderInCategory>
     <evolution>3</evolution>
+    <unlockable>true</unlockable>
     <statFactors>
       <CarryingCapacity>1.5</CarryingCapacity>
       <VEF_MassCarryCapacity>1.5</VEF_MassCarryCapacity>
@@ -232,6 +244,7 @@
     <iconPath>UI/Icons/Genes/Gene_ExtremePsychicAbility</iconPath>
     <displayOrderInCategory>3122</displayOrderInCategory>
     <evolution>3</evolution>
+    <unlockable>true</unlockable>
     <statOffsets>
       <PsychicSensitivity>0.4</PsychicSensitivity>
       <MeditationFocusGain>0.2</MeditationFocusGain>
@@ -249,6 +262,7 @@
     <iconPath>UI/Icons/Genes/Gene_VeryQuickMovespeed</iconPath>
     <displayOrderInCategory>3123</displayOrderInCategory>
     <evolution>3</evolution>
+    <unlockable>true</unlockable>
     <statOffsets>
       <MoveSpeed>0.4</MoveSpeed>
     </statOffsets>
@@ -263,7 +277,8 @@
     <description>Болевые рецепторы носителя разрастаются и передают каждый повреждающий сигнал без фильтрации. Носитель приобретает черту «Слабак» и ощущает усиленную боль.</description>
     <iconPath>UI/Icons/Genes/Gene_ExtraPain</iconPath>
     <displayOrderInCategory>2421</displayOrderInCategory>
-    <mutation>3</mutation>
+    <mutation>10</mutation>
+    <unlockable>true</unlockable>
     <forcedTraits>
       <li>
         <def>Wimp</def>
@@ -281,6 +296,7 @@
     <iconPath>UI/Icons/Genes/Gene_PainReduced</iconPath>
     <displayOrderInCategory>3124</displayOrderInCategory>
     <evolution>3</evolution>
+    <unlockable>true</unlockable>
     <painFactor>0.5</painFactor>
     <exclusionTags>
       <li>Pain</li>
@@ -296,6 +312,7 @@
     <iconPath>UI/Icons/Genes/Gene_WoundHealingRateSuperfast</iconPath>
     <displayOrderInCategory>3131</displayOrderInCategory>
     <evolution>4</evolution>
+    <unlockable>true</unlockable>
     <statFactors>
       <InjuryHealingFactor>4</InjuryHealingFactor>
     </statFactors>
@@ -313,6 +330,7 @@
     <iconPath>UI/Icons/Genes/Gene_ExtremelyQuickMovespeed</iconPath>
     <displayOrderInCategory>3132</displayOrderInCategory>
     <evolution>4</evolution>
+    <unlockable>true</unlockable>
     <statOffsets>
       <MoveSpeed>1</MoveSpeed>
     </statOffsets>
@@ -328,6 +346,7 @@
     <iconPath>UI/Icons/Genes/Gene_Sanguine</iconPath>
     <displayOrderInCategory>3133</displayOrderInCategory>
     <evolution>4</evolution>
+    <unlockable>true</unlockable>
     <exclusionTags>
       <li>Mood</li>
     </exclusionTags>
@@ -340,6 +359,7 @@
     <iconPath>UI/Icons/Genes/Gene_QuickSleeper</iconPath>
     <displayOrderInCategory>3134</displayOrderInCategory>
     <evolution>4</evolution>
+    <unlockable>true</unlockable>
     <statFactors>
       <RestFallRateFactor>0.4</RestFallRateFactor>
     </statFactors>
@@ -355,6 +375,7 @@
     <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
     <displayOrderInCategory>3135</displayOrderInCategory>
     <evolution>4</evolution>
+    <unlockable>true</unlockable>
     <painFactor>0</painFactor>
     <exclusionTags>
       <li>Pain</li>
@@ -369,7 +390,8 @@
     <description>Личные эмоции полностью растворяются в коллективном разуме. Потребность в настроении отключается.</description>
     <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
     <displayOrderInCategory>3141</displayOrderInCategory>
-    <evolution>5</evolution>
+    <evolution>10</evolution>
+    <unlockable>true</unlockable>
     <disablesNeeds>
       <li>Mood</li>
     </disablesNeeds>
@@ -384,7 +406,8 @@
     <description>Архиты поддерживают обмен веществ носителя почти без внешней пищи. Скорость голода уменьшается практически до нуля, но не отключается полностью ради совместимости.</description>
     <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
     <displayOrderInCategory>3142</displayOrderInCategory>
-    <evolution>5</evolution>
+    <evolution>10</evolution>
+    <unlockable>true</unlockable>
     <customEffectDescriptions>
       <li>Снижает скорость голода почти до нуля (−0,9999), не отключая потребность в пище.</li>
     </customEffectDescriptions>
@@ -403,7 +426,8 @@
     <description>Нервные центры спят попеременно, не прерывая деятельность организма. Потребность во сне полностью отключается.</description>
     <iconPath>UI/Icons/Genes/Gene_Neversleep</iconPath>
     <displayOrderInCategory>3143</displayOrderInCategory>
-    <evolution>5</evolution>
+    <evolution>10</evolution>
+    <unlockable>true</unlockable>
     <disablesNeeds>
       <li>Rest</li>
     </disablesNeeds>

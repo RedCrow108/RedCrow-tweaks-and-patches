@@ -1,0 +1,213 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Patch>
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_PyroResistantChitin"]</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs</xpath>
+      <value>
+        <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_EvolutionGene">
+          <defName>VRE_PyroResistantChitin</defName>
+          <label>pyro-resistant chitin</label>
+          <description>Carriers of this gene develop pyro-resistant chitin, drastically reducing their flammability and flame damage taken. They remain composed in fiery situations, never succumbing to panic when on fire.</description>
+          <unlockable>false</unlockable>
+          <selectionWeight>0</selectionWeight>
+          <iconPath>UI/Icons/Genes/Gene_PyroresistantChitin</iconPath>
+          <displayOrderInCategory>1002</displayOrderInCategory>
+          <damageFactors>
+            <Flame>0.25</Flame>
+          </damageFactors>
+          <statFactors>
+            <Flammability>0.1</Flammability>
+          </statFactors>
+          <customEffectDescriptions>
+            <li>Won't run in panic when set on fire.</li>
+          </customEffectDescriptions>
+          <exclusionTags>
+            <li>Tail</li>
+            <li>InsectorFire</li>
+          </exclusionTags>
+          <symbolPack>
+            <prefixSymbols>
+              <li>
+                <symbol>fuel</symbol>
+              </li>
+              <li>
+                <symbol>chem</symbol>
+              </li>
+              <li>
+                <symbol>petrol</symbol>
+              </li>
+            </prefixSymbols>
+          </symbolPack>
+          <modExtensions>
+            <li Class="VanillaGenesExpanded.GeneExtension">
+              <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
+              <backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes>
+            </li>
+          </modExtensions>
+        </VanillaRacesExpandedInsector.GenelineGeneDef>
+      </value>
+    </nomatch>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_FlameGlands"]</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs</xpath>
+      <value>
+        <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_EvolutionGene">
+          <defName>VRE_FlameGlands</defName>
+          <label>flame glands</label>
+          <description>Carriers of this gene possess flame glands, granting them the ability to spew combustible fluid from their mouths. This fluid ignites on contact, setting targets or surfaces ablaze, thanks to a special gland and sac that produce and store the fiery substance.</description>
+          <unlockable>false</unlockable>
+          <iconPath>UI/Icons/Genes/Gene_FlameGlands</iconPath>
+          <selectionWeight>0</selectionWeight>
+          <displayOrderInCategory>1003</displayOrderInCategory>
+          <abilities>
+            <li>VFEI2_FlameSpew</li>
+          </abilities>
+          <renderNodeProperties>
+            <li>
+              <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+              <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+              <parentTagDef>Head</parentTagDef>
+              <texPath>Things/Pawn/Humanlike/HeadAttachments/InsectFlameGlands</texPath>
+              <colorType>Skin</colorType>
+              <useRottenColor>true</useRottenColor>
+              <useSkinShader>true</useSkinShader>
+              <rotDrawMode>Fresh, Rotting</rotDrawMode>
+              <visibleFacing>
+                <li>East</li>
+                <li>South</li>
+                <li>West</li>
+              </visibleFacing>
+              <drawData>
+                <defaultData>
+                  <layer>69</layer>
+                </defaultData>
+              </drawData>
+            </li>
+          </renderNodeProperties>
+          <exclusionTags>
+            <li>InsectorGlands</li>
+            <li>InsectorMouth</li>
+          </exclusionTags>
+          <symbolPack>
+            <prefixSymbols>
+              <li>
+                <symbol>fire</symbol>
+              </li>
+              <li>
+                <symbol>flame</symbol>
+              </li>
+              <li>
+                <symbol>burn</symbol>
+              </li>
+            </prefixSymbols>
+          </symbolPack>
+          <modExtensions>
+            <li Class="VanillaGenesExpanded.GeneExtension">
+              <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
+              <backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes>
+            </li>
+          </modExtensions>
+        </VanillaRacesExpandedInsector.GenelineGeneDef>
+      </value>
+    </nomatch>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_ChemfuelSacks"]</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs</xpath>
+      <value>
+        <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene">
+          <defName>VRE_ChemfuelSacks</defName>
+          <label>chemfuel sacks</label>
+          <description>Carriers of this gene develop chemfuel sacks resembling a tail, drastically increasing their susceptibility to flame damage. If engulfed in large enough flames or upon death, they erupt in a fiery explosion. Additionally, they can be milked periodically to yield chemfuel.</description>
+          <iconPath>UI/Icons/Genes/Gene_ChemfuelSacks</iconPath>
+          <unlockable>false</unlockable>
+          <selectionWeight>0</selectionWeight>
+          <displayOrderInCategory>1002</displayOrderInCategory>
+          <damageFactors>
+            <Flame>2</Flame>
+          </damageFactors>
+          <customEffectDescriptions>
+            <li>Time running in panic when set on fire doubled.</li>
+            <li>Produces 30 chemfuel every 10 days.</li>
+            <li>If set on fire, and the fire is at least 35 in size, they explode in a fire explosion. Upon fire explosion, they will not explode again for 24 hours.</li>
+          </customEffectDescriptions>
+          <exclusionTags>
+            <li>Tail</li>
+            <li>InsectorFire</li>
+          </exclusionTags>
+          <symbolPack>
+            <prefixSymbols>
+              <li>
+                <symbol>fuel</symbol>
+              </li>
+              <li>
+                <symbol>chem</symbol>
+              </li>
+              <li>
+                <symbol>petrol</symbol>
+              </li>
+            </prefixSymbols>
+          </symbolPack>
+          <modExtensions>
+            <li Class="VanillaGenesExpanded.GeneExtension">
+              <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+              <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+              <hediffToWholeBody>VRE_ChemfuelSacks</hediffToWholeBody>
+            </li>
+          </modExtensions>
+        </VanillaRacesExpandedInsector.GenelineGeneDef>
+      </value>
+    </nomatch>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_Pyrophiliac"]</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs</xpath>
+      <value>
+        <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene">
+          <defName>VRE_Pyrophiliac</defName>
+          <label>pyrophilic</label>
+          <description>Carriers of this gene possess a pyrophilic nature, exhibiting a fascination and love for fire. They are drawn to flames and find comfort and joy in their presence.</description>
+          <iconPath>UI/Icons/Genes/Gene_Pyrophiliac</iconPath>
+          <unlockable>false</unlockable>
+          <selectionWeight>0</selectionWeight>
+          <displayOrderInCategory>1003</displayOrderInCategory>
+          <statOffsets>
+            <ComfyTemperatureMin>6</ComfyTemperatureMin>
+          </statOffsets>
+          <forcedTraits>
+            <li>
+              <def>Pyromaniac</def>
+            </li>
+          </forcedTraits>
+          <exclusionTags>
+            <li>MinTemperature</li>
+          </exclusionTags>
+          <symbolPack>
+            <prefixSymbols>
+              <li>
+                <symbol>fire</symbol>
+              </li>
+              <li>
+                <symbol>flame</symbol>
+              </li>
+              <li>
+                <symbol>pyro</symbol>
+              </li>
+            </prefixSymbols>
+          </symbolPack>
+          <modExtensions>
+            <li Class="VanillaGenesExpanded.GeneExtension">
+              <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+              <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+            </li>
+          </modExtensions>
+        </VanillaRacesExpandedInsector.GenelineGeneDef>
+      </value>
+    </nomatch>
+  </Operation>
+</Patch>

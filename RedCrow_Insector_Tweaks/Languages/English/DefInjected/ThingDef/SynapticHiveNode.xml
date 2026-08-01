@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RC_SynapticHiveNode.label>organic synaptic node</RC_SynapticHiveNode.label>
+  <RC_SynapticHiveNode.description>A vast cordyceps-like organic relay that stores insect jelly and sustains every pawn consumed by the swarm on its map. Reservoir capacity increases by 1000 for each linked pawn. Destroying or deconstructing the node inflicts a violent neural shock on every linked pawn.</RC_SynapticHiveNode.description>
+</LanguageData>

@@ -1,0 +1,108 @@
+name: Build RedCrow Insector Tweaks
+
+on:
+  push:
+    branches:
+      - feature/balance-tiers-and-localization
+    paths:
+      - 'RedCrow_Insector_Tweaks/Source/**'
+      - '.github/workflows/build-redcrow-insector.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'RedCrow_Insector_Tweaks/Source/**'
+      - 'RedCrow_Insector_Tweaks/1.5/**'
+      - 'RedCrow_Insector_Tweaks/Languages/**'
+      - '.github/workflows/build-redcrow-insector.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Apply Hotfix 7 corrections
+        run: python RedCrow_Insector_Tweaks/Source/run_hotfix7_idempotent.py
+
+      - name: Consolidate biological tool mutations
+        run: python RedCrow_Insector_Tweaks/Source/apply_hotfix7_biological_tools.py
+
+      - name: Apply Hotfix 8 localization and presentation fixes
+        run: python RedCrow_Insector_Tweaks/Source/apply_hotfix8_localization.py
+
+      - name: Make XML the balance source of truth
+        run: python RedCrow_Insector_Tweaks/Source/finalize_balance_source.py
+
+      - name: Synchronize and validate XML balance
+        run: python RedCrow_Insector_Tweaks/Source/sync_balance.py
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore
+        run: dotnet restore RedCrow_Insector_Tweaks/Source/RedCrow.InsectorTweaks.CI.csproj
+
+      - name: Build
+        run: dotnet build RedCrow_Insector_Tweaks/Source/RedCrow.InsectorTweaks.CI.csproj --configuration Release --no-restore
+
+      - name: Verify output
+        shell: pwsh
+        run: |
+          $dll = 'RedCrow_Insector_Tweaks/1.5/Assemblies/RedCrow.InsectorTweaks.dll'
+          if (-not (Test-Path $dll)) {
+            throw "Build output not found: $dll"
+          }
+          Get-Item $dll | Format-List FullName, Length, LastWriteTime
+          Get-FileHash $dll -Algorithm SHA256
+
+      - name: Upload DLL artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: RedCrow-Insector-Tweaks-DLL
+          path: RedCrow_Insector_Tweaks/1.5/Assemblies/RedCrow.InsectorTweaks.dll
+          if-no-files-found: error
+
+      - name: Upload full mod artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: RedCrow-Insector-Tweaks-Full
+          path: |
+            RedCrow_Insector_Tweaks/**
+            !RedCrow_Insector_Tweaks/Source/bin/**
+            !RedCrow_Insector_Tweaks/Source/obj/**
+          if-no-files-found: error
+
+      - name: Commit synchronized sources, XML and DLL
+        if: github.event_name == 'push'
+        shell: pwsh
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A RedCrow_Insector_Tweaks/Source
+          git add -A RedCrow_Insector_Tweaks/1.5/Defs/GeneDefs
+          git add -A RedCrow_Insector_Tweaks/1.5/Patches
+          git add -A RedCrow_Insector_Tweaks/Languages
+          git add RedCrow_Insector_Tweaks/1.5/Assemblies/RedCrow.InsectorTweaks.dll
+          git diff --cached --quiet
+          if ($LASTEXITCODE -ne 0) {
+            git commit -m 'build: synchronize hotfix 8 sources and DLL'
+            git push origin "HEAD:$env:GITHUB_REF_NAME"
+          } else {
+            Write-Host 'Synchronized sources, XML and DLL are unchanged.'
+          }

@@ -23,6 +23,7 @@
     <description>The carrier can implant a parasitic larva into a helpless organic humanlike victim. After five days of progressive symptoms and a one-day coma, the victim enters a metapod and emerges with the same hive-consumed result as a hive-memory egg.</description>
     <displayOrderInCategory>3601</displayOrderInCategory>
     <evolution>5</evolution>
+    <unlockable>true</unlockable>
     <abilities>
       <li>RC_Ability_ImplantUsurpationLarva</li>
     </abilities>
@@ -41,12 +42,13 @@
     <description>The carrier can consume a fresh humanlike corpse with an intact brain and rebuild its preserved identity as an insector. The result has no Geneline, carries permanent solar stupor, gains CatInHead, and is permanently consumed by the hive.</description>
     <displayOrderInCategory>3602</displayOrderInCategory>
     <evolution>5</evolution>
+    <unlockable>true</unlockable>
     <abilities>
       <li>RC_Ability_ImplantCorpseEgg</li>
     </abilities>
     <customEffectDescriptions>
       <li>Requires HSK More Content for CatInHead.</li>
-      <li>Consumed by the hive removes mood and doubles base food and personal-jelly consumption.</li>
+      <li>Consumed by the hive removes mood and doubles base food consumption.</li>
       <li>Successful use costs 80 personal insect jelly, wounds the restored body, and starts a one-year cooldown.</li>
       <li>The corpse's identity, ages, skills, traits, relations, memories, implants, and gear are preserved.</li>
     </customEffectDescriptions>
@@ -59,6 +61,7 @@
     <description>The carrier dissolves its adult body inside a metapod and emerges as the same pawn at biological age zero. Chronological age, genotype, current Geneline, identity, implants, equipment, skills, traits, relations, memories, ideology, and faction remain unchanged.</description>
     <displayOrderInCategory>3603</displayOrderInCategory>
     <evolution>4</evolution>
+    <unlockable>true</unlockable>
     <abilities>
       <li>RC_Ability_LarvalRebirth</li>
     </abilities>
@@ -76,6 +79,7 @@
     <description>The carrier enters a long-cycle metapod and emerges as the same pawn at biological age twenty, cleansed of disease, addiction, injury, scars, chronic age conditions, and missing natural parts while preserving artificial parts and identity.</description>
     <displayOrderInCategory>3604</displayOrderInCategory>
     <evolution>5</evolution>
+    <unlockable>true</unlockable>
     <abilities>
       <li>RC_Ability_PerfectImago</li>
     </abilities>

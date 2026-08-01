@@ -14,8 +14,6 @@ namespace RedCrow.InsectorTweaks
             "VanillaRacesExpandedInsector.Gene_Resource_InsectJelly";
         private const string HiveAnimaGeneDef =
             "RC_Evolution_HiveAnimaResonance";
-        private const string SwarmConsumedHediffDef =
-            "RC_SwarmConsumed";
 
         static GenelineFollowupEffects()
         {
@@ -137,17 +135,6 @@ namespace RedCrow.InsectorTweaks
                         factor += extension.jellyAdditive;
                     }
                 }
-            }
-
-            HediffDef swarmDef =
-                DefDatabase<HediffDef>.GetNamedSilentFail(
-                    SwarmConsumedHediffDef);
-            if (swarmDef != null &&
-                pawn != null &&
-                pawn.health != null &&
-                pawn.health.hediffSet.HasHediff(swarmDef, false))
-            {
-                factor += 1f;
             }
 
             return Math.Max(0f, factor);

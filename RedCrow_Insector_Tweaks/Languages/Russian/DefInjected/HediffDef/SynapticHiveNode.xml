@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RC_SynapticNetworkState.label>органическая синаптическая сеть</RC_SynapticNetworkState.label>
+  <RC_SynapticNetworkState.description>Нервную систему пешки поддерживает органический синаптический узел на текущей карте.</RC_SynapticNetworkState.description>
+  <RC_DeferredSynapticShock.label>отложенный синаптический шок</RC_DeferredSynapticShock.label>
+  <RC_DeferredSynapticShock.description>Оборванное нейронное эхо роя заставит пешку впасть в ярость, как только она сможет действовать.</RC_DeferredSynapticShock.description>
+</LanguageData>

@@ -5,12 +5,13 @@
       ParentName="VRE_MutationGene"
       MayRequire="arpomo6.hmc.project">
     <defName>RC_Mutation_Cleaner</defName>
+    <mutation>0</mutation>
     <label>уборщик</label>
     <description>Организм носителя адаптируется к постоянному обслуживанию улья. Повышенная подвижность, выносливость и навязчивая тяга к порядку делают его идеальным уборщиком. Носитель приобретает черту «Уборщик».</description>
 
     <iconPath>UI/Icons/Genes/Gene_AntimicrobialPeptides</iconPath>
 
-    <unlockable>false</unlockable>
+    <unlockable>true</unlockable>
     <selectionWeight>0</selectionWeight>
     <displayOrderInCategory>2301</displayOrderInCategory>
 
@@ -36,12 +37,13 @@
       ParentName="VRE_MutationGene"
       MayRequire="arpomo6.hmc.project">
     <defName>RC_Mutation_JackOfAllTrades</defName>
+    <mutation>0</mutation>
     <label>мастер на все руки</label>
     <description>Нервная система носителя приобретает исключительную пластичность, позволяя быстро осваивать самые разные занятия. Он не становится узким специалистом, но способен эффективно выполнять почти любую работу. Носитель приобретает черту «Мастер на все руки».</description>
 
     <iconPath>UI/Icons/Genes/Gene_HighGreyMatter</iconPath>
 
-    <unlockable>false</unlockable>
+    <unlockable>true</unlockable>
     <selectionWeight>0</selectionWeight>
     <displayOrderInCategory>2302</displayOrderInCategory>
 
@@ -67,12 +69,13 @@
       ParentName="VRE_MutationGene"
       MayRequire="arpomo6.hmc.project">
     <defName>RC_Mutation_MeleeEnhancement</defName>
+    <mutation>3</mutation>
     <label>усиление ближнего боя</label>
     <description>Тело носителя перестраивается для затяжных схваток на ближней дистанции. Усиливаются болевой порог, сопротивляемость повреждениям, агрессивные реакции и эффективность рукопашных атак.</description>
 
     <iconPath>UI/Icons/Genes/Gene_RipperBlades</iconPath>
 
-    <unlockable>false</unlockable>
+    <unlockable>true</unlockable>
     <selectionWeight>0</selectionWeight>
     <displayOrderInCategory>2303</displayOrderInCategory>
 
@@ -108,12 +111,13 @@
       ParentName="VRE_MutationGene"
       MayRequire="arpomo6.hmc.project">
     <defName>RC_Mutation_RangedEnhancement</defName>
+    <mutation>3</mutation>
     <label>усиление дальнего боя</label>
     <description>Сенсорная система и моторные центры носителя перестраиваются для ведения боя на дистанции. Он становится устойчивее, быстрее реагирует на угрозы и точнее использует стрелковое и артиллерийское вооружение.</description>
 
     <iconPath>UI/Icons/Genes/Gene_CompoundEye</iconPath>
 
-    <unlockable>false</unlockable>
+    <unlockable>true</unlockable>
     <selectionWeight>0</selectionWeight>
     <displayOrderInCategory>2304</displayOrderInCategory>
 

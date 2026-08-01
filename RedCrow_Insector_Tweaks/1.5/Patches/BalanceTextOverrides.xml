@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/*[defName="RC_Mutation_MeleeAptitude"]/label</xpath>
+    <value><label>Боец улья</label></value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/*[defName="RC_Mutation_ShootingAptitude"]/label</xpath>
+    <value><label>Стрелок улья</label></value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/*[defName="RC_Mutation_ArtisticAptitude"]/label</xpath>
+    <value><label>Творец улья</label></value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/*[defName="RC_Mutation_MedicineAptitude"]/label</xpath>
+    <value><label>Лекарь улья</label></value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/*[defName="RC_Mutation_SocialAptitude"]/label</xpath>
+    <value><label>Говорящий улья</label></value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/*[defName="RC_Mutation_IntellectualAptitude"]/label</xpath>
+    <value><label>Учёный улья</label></value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/*[defName="RC_Mutation_MiningAptitude"]/label</xpath>
+    <value><label>Копатель улья</label></value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/*[defName="RC_Mutation_AnimalsAptitude"]/label</xpath>
+    <value><label>Пастырь улья</label></value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/*[defName="RC_Mutation_CookingAptitude"]/label</xpath>
+    <value><label>Кормилец улья</label></value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/*[defName="RC_Mutation_PlantsAptitude"]/label</xpath>
+    <value><label>Фермер улья</label></value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/*[defName="RC_Mutation_CraftingAptitude"]/label</xpath>
+    <value><label>Мастер улья</label></value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/*[defName="RC_Mutation_ConstructionAptitude"]/label</xpath>
+    <value><label>Строитель улья</label></value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/*[defName="RC_Mutation_MildPhotophobia"]/description</xpath>
+    <value>
+      <description>Светочувствительные ткани носителя болезненно реагируют на прямой солнечный свет. Под солнцем зрение снижается на 10%, а настроение — на 3.</description>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/*[defName="RC_Mutation_HeavyCasteStride"]/description</xpath>
+    <value>
+      <description>Панцирь носителя покрывается наростами, сковывающими движения и снижающими скорость передвижения на 0,2 клетки в секунду.</description>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/*[defName="RC_MildPhotophobia"]/description</xpath>
+    <value>
+      <description>Светочувствительные ткани носителя болезненно реагируют на прямой солнечный свет.</description>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/*[defName="RC_Evolution_HiveRegeneratorCells"]/description</xpath>
+    <value>
+      <description>Спящие регенеративные личинки время от времени поглощают шрамы, старые раны и хронические заболевания.</description>
+    </value>
+  </Operation>
+
+</Patch>

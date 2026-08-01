@@ -5,12 +5,13 @@
       ParentName="VRE_EvolutionGene"
       MayRequire="arpomo6.hmc.project">
     <defName>RC_Evolution_NaturalSymbiosis</defName>
+    <evolution>1</evolution>
     <label>природный симбиоз</label>
     <description>Нервная система носителя перестраивается для глубокой связи с живой средой. Инстинкты позволяют ему лучше понимать растения и животных, но отдаляют от сложных общественных отношений и светской жизни. Носитель приобретает черту «Близость к природе».</description>
 
     <iconPath>UI/Icons/Genes/Gene_Natural_Pockets</iconPath>
 
-    <unlockable>false</unlockable>
+    <unlockable>true</unlockable>
     <selectionWeight>0</selectionWeight>
     <displayOrderInCategory>3000</displayOrderInCategory>
 
@@ -32,12 +33,13 @@
       ParentName="VRE_EvolutionGene"
       MayRequire="arpomo6.hmc.project">
     <defName>RC_Evolution_StrongBack</defName>
+    <evolution>1</evolution>
     <label>тяжеловоз</label>
     <description>Носитель развивает усиленный скелет, мощную мускулатуру и устойчивую систему распределения нагрузки. Он способен переносить значительно больше груза, чем обычный представитель своего вида. Носитель приобретает черту «Тяжеловоз».</description>
 
     <iconPath>UI/Icons/Genes/Gene_MegaspiderHorns</iconPath>
 
-    <unlockable>false</unlockable>
+    <unlockable>true</unlockable>
     <selectionWeight>0</selectionWeight>
     <displayOrderInCategory>3001</displayOrderInCategory>
 
@@ -59,12 +61,13 @@
       ParentName="VRE_EvolutionGene"
       MayRequire="arpomo6.hmc.project">
     <defName>RC_Evolution_Ambidexterity</defName>
+    <evolution>1</evolution>
     <label>амбидекстрия</label>
     <description>Моторные центры мозга носителя перестраиваются так, чтобы обе стороны тела обладали одинаковой точностью и координацией. Носитель приобретает черту «Амбидекстрия».</description>
 
     <iconPath>UI/Icons/Genes/Gene_Hiveglands</iconPath>
 
-    <unlockable>false</unlockable>
+    <unlockable>true</unlockable>
     <selectionWeight>0</selectionWeight>
     <displayOrderInCategory>3002</displayOrderInCategory>
 

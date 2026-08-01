@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/JobDef[defName="VRE_IngestPherocore"]</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs</xpath>
+      <value>
+        <JobDef>
+          <defName>VRE_IngestPherocore</defName>
+          <driverClass>VanillaRacesExpandedInsector.JobDriver_IngestPherocore</driverClass>
+          <reportString>ingesting pherocore.</reportString>
+          <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+        </JobDef>
+      </value>
+    </nomatch>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/JobDef[defName="VRE_ArmedSocialFightInsectors"]</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs</xpath>
+      <value>
+        <JobDef>
+          <defName>VRE_ArmedSocialFightInsectors</defName>
+          <driverClass>JobDriver_AttackMelee</driverClass>
+          <reportString>fighting with TargetA.</reportString>
+          <alwaysShowWeapon>true</alwaysShowWeapon>
+          <casualInterruptible>false</casualInterruptible>
+          <collideWithPawns>true</collideWithPawns>
+        </JobDef>
+      </value>
+    </nomatch>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/JobDef[defName="RC_RefillSynapticHiveNode"]</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs</xpath>
+      <value>
+        <JobDef>
+          <defName>RC_RefillSynapticHiveNode</defName>
+          <driverClass>RedCrow.InsectorTweaks.JobDriver_RefillSynapticHiveNode</driverClass>
+          <reportString>refilling synaptic hive node.</reportString>
+          <casualInterruptible>false</casualInterruptible>
+        </JobDef>
+      </value>
+    </nomatch>
+  </Operation>
+
+</Patch>

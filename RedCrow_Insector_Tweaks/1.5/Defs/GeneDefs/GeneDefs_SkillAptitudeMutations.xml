@@ -10,7 +10,8 @@
     <iconPath>UI/Icons/Genes/Gene_CompoundEye</iconPath>
     <displayOrderInCategory>2001</displayOrderInCategory>
     <selectionWeight>0</selectionWeight>
-    <mutation>1</mutation>
+    <mutation>3</mutation>
+    <unlockable>true</unlockable>
     <aptitudes>
       <Shooting>5</Shooting>
     </aptitudes>
@@ -60,7 +61,8 @@
     <iconPath>UI/Icons/Genes/Gene_RipperBlades</iconPath>
     <displayOrderInCategory>2002</displayOrderInCategory>
     <selectionWeight>0</selectionWeight>
-    <mutation>1</mutation>
+    <mutation>3</mutation>
+    <unlockable>true</unlockable>
     <aptitudes>
       <Melee>5</Melee>
     </aptitudes>
@@ -107,7 +109,8 @@
     <iconPath>UI/Icons/Genes/Gene_RobustMidgut</iconPath>
     <displayOrderInCategory>2101</displayOrderInCategory>
     <selectionWeight>0</selectionWeight>
-    <mutation>1</mutation>
+    <mutation>2</mutation>
+    <unlockable>true</unlockable>
     <aptitudes>
       <Cooking>5</Cooking>
     </aptitudes>
@@ -152,7 +155,8 @@
     <iconPath>UI/Icons/Genes/Gene_MegaspiderHorns</iconPath>
     <displayOrderInCategory>2102</displayOrderInCategory>
     <selectionWeight>0</selectionWeight>
-    <mutation>1</mutation>
+    <mutation>2</mutation>
+    <unlockable>true</unlockable>
     <aptitudes>
       <Mining>5</Mining>
     </aptitudes>
@@ -196,7 +200,8 @@
     <iconPath>UI/Icons/Genes/Gene_VocalGlands</iconPath>
     <displayOrderInCategory>2103</displayOrderInCategory>
     <selectionWeight>0</selectionWeight>
-    <mutation>1</mutation>
+    <mutation>2</mutation>
+    <unlockable>true</unlockable>
     <aptitudes>
       <Animals>5</Animals>
     </aptitudes>
@@ -241,7 +246,8 @@
     <iconPath>UI/Icons/Genes/Gene_Hiveglands</iconPath>
     <displayOrderInCategory>2104</displayOrderInCategory>
     <selectionWeight>0</selectionWeight>
-    <mutation>1</mutation>
+    <mutation>2</mutation>
+    <unlockable>true</unlockable>
     <aptitudes>
       <Plants>5</Plants>
     </aptitudes>
@@ -285,7 +291,8 @@
     <iconPath>UI/Icons/Genes/Gene_Hiveglands</iconPath>
     <displayOrderInCategory>2105</displayOrderInCategory>
     <selectionWeight>0</selectionWeight>
-    <mutation>1</mutation>
+    <mutation>2</mutation>
+    <unlockable>true</unlockable>
     <aptitudes>
       <Crafting>5</Crafting>
     </aptitudes>
@@ -333,7 +340,8 @@
     <iconPath>UI/Icons/Genes/Gene_Hiveglands</iconPath>
     <displayOrderInCategory>2106</displayOrderInCategory>
     <selectionWeight>0</selectionWeight>
-    <mutation>1</mutation>
+    <mutation>2</mutation>
+    <unlockable>true</unlockable>
     <aptitudes>
       <Construction>5</Construction>
     </aptitudes>
@@ -378,7 +386,8 @@
     <iconPath>UI/Icons/Genes/Gene_Serotonin</iconPath>
     <displayOrderInCategory>2201</displayOrderInCategory>
     <selectionWeight>0</selectionWeight>
-    <mutation>1</mutation>
+    <mutation>2</mutation>
+    <unlockable>true</unlockable>
     <aptitudes>
       <Artistic>5</Artistic>
     </aptitudes>
@@ -405,7 +414,8 @@
     <iconPath>UI/Icons/Genes/Gene_VocalGlands</iconPath>
     <displayOrderInCategory>2202</displayOrderInCategory>
     <selectionWeight>0</selectionWeight>
-    <mutation>1</mutation>
+    <mutation>2</mutation>
+    <unlockable>true</unlockable>
     <aptitudes>
       <Social>5</Social>
     </aptitudes>
@@ -442,7 +452,8 @@
     <iconPath>UI/Icons/Genes/Gene_AntimicrobialPeptides</iconPath>
     <displayOrderInCategory>2203</displayOrderInCategory>
     <selectionWeight>0</selectionWeight>
-    <mutation>1</mutation>
+    <mutation>2</mutation>
+    <unlockable>true</unlockable>
     <aptitudes>
       <Medicine>5</Medicine>
     </aptitudes>
@@ -475,7 +486,8 @@
     <iconPath>UI/Icons/Genes/Gene_HighGreyMatter</iconPath>
     <displayOrderInCategory>2204</displayOrderInCategory>
     <selectionWeight>0</selectionWeight>
-    <mutation>1</mutation>
+    <mutation>2</mutation>
+    <unlockable>true</unlockable>
     <aptitudes>
       <Intellectual>5</Intellectual>
     </aptitudes>

@@ -40,16 +40,22 @@
 
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="BiologicalToolGeneMigration.cs" />
     <Compile Include="GenelineOrganEffects.cs" />
     <Compile Include="GenelineFollowupEffects.cs" />
     <Compile Include="GeneReferenceCleanup.cs" />
     <Compile Include="HiveInsectFilthPatch.cs" />
+    <Compile Include="Hotfix8GenePresentation.cs" />
     <Compile Include="MetapodInfrastructure.cs" />
     <Compile Include="MetapodTransformations.cs" />
+    <Compile Include="OriginalScoutStrideIntegration.cs" />
+    <Compile Include="PherocoreBalanceIntegration.cs" />
+    <Compile Include="UpstreamInsectorOwnershipEarlyFix.cs" />
     <Compile Include="QualityPatch.cs" />
     <Compile Include="Stage2Effects.cs" />
     <Compile Include="Stage3Effects.cs" />
     <Compile Include="Stage4Effects.cs" />
+    <Compile Include="SynapticHiveNode.cs" />
   </ItemGroup>
 
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

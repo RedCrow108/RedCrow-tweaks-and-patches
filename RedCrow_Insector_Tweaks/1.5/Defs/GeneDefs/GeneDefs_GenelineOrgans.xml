@@ -1,10 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <Defs>
-
-  <VanillaRacesExpandedInsector.GenelineGeneDef
-      Name="RC_OrgansEvolutionBase"
-      ParentName="VRE_EvolutionGene"
-      Abstract="True">
+  <VanillaRacesExpandedInsector.GenelineGeneDef Name="RC_OrgansEvolutionBase" ParentName="VRE_EvolutionGene" Abstract="True">
     <unlockable>false</unlockable>
     <selectionWeight>0</selectionWeight>
     <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
@@ -15,11 +11,7 @@
       </li>
     </modExtensions>
   </VanillaRacesExpandedInsector.GenelineGeneDef>
-
-  <VanillaRacesExpandedInsector.GenelineGeneDef
-      Name="RC_OrgansMutationBase"
-      ParentName="VRE_MutationGene"
-      Abstract="True">
+  <VanillaRacesExpandedInsector.GenelineGeneDef Name="RC_OrgansMutationBase" ParentName="VRE_MutationGene" Abstract="True">
     <unlockable>false</unlockable>
     <selectionWeight>0</selectionWeight>
     <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
@@ -30,14 +22,13 @@
       </li>
     </modExtensions>
   </VanillaRacesExpandedInsector.GenelineGeneDef>
-
-  <VanillaRacesExpandedInsector.GenelineGeneDef
-      ParentName="RC_OrgansEvolutionBase">
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_OrgansEvolutionBase">
     <defName>RC_Evolution_EfficientHiveMetabolism</defName>
     <label>efficient hive metabolism</label>
     <description>A redesigned digestive cycle halves the carrier's food-need drain. RedCrow hunger modifiers are combined before other game and mod effects.</description>
     <displayOrderInCategory>3501</displayOrderInCategory>
     <evolution>4</evolution>
+    <unlockable>true</unlockable>
     <customEffectDescriptions>
       <li>Food need drain: x0.5.</li>
     </customEffectDescriptions>
@@ -54,27 +45,24 @@
       </li>
     </modExtensions>
   </VanillaRacesExpandedInsector.GenelineGeneDef>
-
-  <VanillaRacesExpandedInsector.GenelineGeneDef
-      ParentName="RC_OrgansEvolutionBase"
-      MayRequire="VanillaExpanded.VPsycastsE">
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_OrgansEvolutionBase" MayRequire="VanillaExpanded.VPsycastsE">
     <defName>RC_Evolution_HivePsyfocusRecycling</defName>
     <label>hive psyfocus recycling</label>
     <description>Specialized neural loops reclaim half of the psyfocus normally lost when casting psycasts.</description>
     <displayOrderInCategory>3502</displayOrderInCategory>
     <evolution>4</evolution>
+    <unlockable>true</unlockable>
     <statFactors>
       <VPE_PsyfocusCostFactor>0.5</VPE_PsyfocusCostFactor>
     </statFactors>
   </VanillaRacesExpandedInsector.GenelineGeneDef>
-
-  <VanillaRacesExpandedInsector.GenelineGeneDef
-      ParentName="RC_OrgansMutationBase">
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_OrgansMutationBase">
     <defName>RC_Mutation_SmallThoracicArms</defName>
     <label>small thoracic arms</label>
     <description>A short secondary pair of chest arms assists ordinary manipulation without functioning as a weapon.</description>
     <displayOrderInCategory>3511</displayOrderInCategory>
     <mutation>2</mutation>
+    <unlockable>true</unlockable>
     <statOffsets>
       <WorkSpeedGlobal>0.10</WorkSpeedGlobal>
     </statOffsets>
@@ -108,14 +96,13 @@
       </li>
     </modExtensions>
   </VanillaRacesExpandedInsector.GenelineGeneDef>
-
-  <VanillaRacesExpandedInsector.GenelineGeneDef
-      ParentName="RC_OrgansMutationBase">
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_OrgansMutationBase">
     <defName>RC_Mutation_DorsalManipulators</defName>
     <label>dorsal manipulators</label>
     <description>Long articulated limbs extend from the back and assist complex work without replacing the carrier's hands.</description>
     <displayOrderInCategory>3521</displayOrderInCategory>
     <mutation>3</mutation>
+    <unlockable>true</unlockable>
     <statOffsets>
       <WorkSpeedGlobal>0.20</WorkSpeedGlobal>
     </statOffsets>
@@ -152,14 +139,13 @@
       </li>
     </modExtensions>
   </VanillaRacesExpandedInsector.GenelineGeneDef>
-
-  <VanillaRacesExpandedInsector.GenelineGeneDef
-      ParentName="RC_OrgansMutationBase">
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_OrgansMutationBase">
     <defName>RC_Mutation_PelvicWalkingLimbs</defName>
     <label>pelvic walking limbs</label>
     <description>An additional load-bearing pair of pelvic limbs improves movement and supports physical work.</description>
     <displayOrderInCategory>3531</displayOrderInCategory>
-    <mutation>4</mutation>
+    <mutation>1</mutation>
+    <unlockable>true</unlockable>
     <statOffsets>
       <WorkSpeedGlobal>0.20</WorkSpeedGlobal>
       <MoveSpeed>0.5</MoveSpeed>
@@ -197,14 +183,13 @@
       </li>
     </modExtensions>
   </VanillaRacesExpandedInsector.GenelineGeneDef>
-
-  <VanillaRacesExpandedInsector.GenelineGeneDef
-      ParentName="RC_OrgansMutationBase">
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_OrgansMutationBase">
     <defName>RC_Mutation_HypertrophiedJellyAbdomen</defName>
     <label>hypertrophied jelly abdomen</label>
     <description>An enlarged abdominal organ produces fifty units of insect jelly per day. It is independent of the original jelly sacks and both organs can function together.</description>
     <displayOrderInCategory>3541</displayOrderInCategory>
-    <mutation>5</mutation>
+    <mutation>0</mutation>
+    <unlockable>true</unlockable>
     <statOffsets>
       <MoveSpeed>-1</MoveSpeed>
     </statOffsets>
@@ -253,18 +238,13 @@
       </li>
     </modExtensions>
   </VanillaRacesExpandedInsector.GenelineGeneDef>
-
-  <VanillaRacesExpandedInsector.GenelineGeneDef
-      ParentName="RC_OrgansMutationBase">
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_OrgansMutationBase">
     <defName>RC_Mutation_BiologicalSickle</defName>
-    <label>biological sickle</label>
-    <description>Blunt harvesting plates act as a permanent biological sickle. They are not a weapon and cannot be dropped.</description>
+    <label>биологические рабочие инструменты</label>
+    <description>Комплекс хитиновых серпов, лопат, топоров и ударных пластин превращает тело носителя в универсальный рабочий инструмент улья. Скорость работы с растениями, добычи и обрезки повышается на 30%, строительства — на 35%, кузнечного дела — на 30%. Постоянное питание органов увеличивает скорость голода на 0,2.</description>
     <displayOrderInCategory>3551</displayOrderInCategory>
-    <mutation>2</mutation>
-    <customEffectDescriptions>
-      <li>Plant work speed: +30%, or the strongest equipped-tool effect.</li>
-      <li>Food need drain: +0.2 to the combined RedCrow factor.</li>
-    </customEffectDescriptions>
+    <mutation>1</mutation>
+    <unlockable>false</unlockable>
     <exclusionTags>
       <li>RC_BiologicalTool</li>
     </exclusionTags>
@@ -277,92 +257,40 @@
         <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
       </li>
     </modExtensions>
+    <customEffectDescriptions>
+      <li>Скорость работы с растениями: +30%.</li>
+      <li>Скорость добычи: +30%.</li>
+      <li>Скорость обрезки: +30%.</li>
+      <li>Скорость строительства: +35%.</li>
+      <li>Скорость кузнечного дела: +30%.</li>
+      <li>Скорость голода: +0,2.</li>
+    </customEffectDescriptions>
   </VanillaRacesExpandedInsector.GenelineGeneDef>
-
-  <VanillaRacesExpandedInsector.GenelineGeneDef
-      ParentName="RC_OrgansMutationBase">
+  <GeneDef>
     <defName>RC_Mutation_BiologicalDiggingTools</defName>
-    <label>biological digging tools</label>
-    <description>Reinforced non-combat digging plates function as a permanent biological earthworking tool.</description>
-    <displayOrderInCategory>3552</displayOrderInCategory>
-    <mutation>3</mutation>
-    <customEffectDescriptions>
-      <li>Plant work and mining speed: +30%, or the strongest equipped-tool effect.</li>
-      <li>Food need drain: +0.2 to the combined RedCrow factor.</li>
-    </customEffectDescriptions>
-    <exclusionTags>
-      <li>RC_BiologicalTool</li>
-    </exclusionTags>
-    <modExtensions Inherit="False">
-      <li Class="RedCrow.InsectorTweaks.RC_HungerGeneExtension">
-        <hungerAdditive>0.2</hungerAdditive>
-      </li>
-      <li Class="VanillaGenesExpanded.GeneExtension">
-        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
-        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
-      </li>
-    </modExtensions>
-  </VanillaRacesExpandedInsector.GenelineGeneDef>
-
-  <VanillaRacesExpandedInsector.GenelineGeneDef
-      ParentName="RC_OrgansMutationBase">
+    <label>устаревший биологический инструмент</label>
+    <description>Служебный Def для переноса старого сохранения на объединённую мутацию «Биологические рабочие инструменты».</description>
+    <selectionWeight>0</selectionWeight>
+  </GeneDef>
+  <GeneDef>
     <defName>RC_Mutation_BiologicalHandaxe</defName>
-    <label>biological handaxe</label>
-    <description>Dense chitinous edges function as a biological handaxe for plant work and pruning, but not as a weapon.</description>
-    <displayOrderInCategory>3553</displayOrderInCategory>
-    <mutation>2</mutation>
-    <customEffectDescriptions>
-      <li>Plant work speed: +30%, or the strongest equipped-tool effect.</li>
-      <li MayRequire="Ludeon.RimWorld.Ideology">Pruning speed: +30%, or the strongest equipped-tool effect.</li>
-      <li>Food need drain: +0.2 to the combined RedCrow factor.</li>
-    </customEffectDescriptions>
-    <exclusionTags>
-      <li>RC_BiologicalTool</li>
-    </exclusionTags>
-    <modExtensions Inherit="False">
-      <li Class="RedCrow.InsectorTweaks.RC_HungerGeneExtension">
-        <hungerAdditive>0.2</hungerAdditive>
-      </li>
-      <li Class="VanillaGenesExpanded.GeneExtension">
-        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
-        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
-      </li>
-    </modExtensions>
-  </VanillaRacesExpandedInsector.GenelineGeneDef>
-
-  <VanillaRacesExpandedInsector.GenelineGeneDef
-      ParentName="RC_OrgansMutationBase">
+    <label>устаревший биологический инструмент</label>
+    <description>Служебный Def для переноса старого сохранения на объединённую мутацию «Биологические рабочие инструменты».</description>
+    <selectionWeight>0</selectionWeight>
+  </GeneDef>
+  <GeneDef>
     <defName>RC_Mutation_BiologicalHammer</defName>
-    <label>biological hammer</label>
-    <description>Heavy chitin impact plates serve as a permanent biological construction and smithing tool without becoming a weapon.</description>
-    <displayOrderInCategory>3554</displayOrderInCategory>
-    <mutation>3</mutation>
-    <customEffectDescriptions>
-      <li>Construction speed: +35%, or the strongest equipped-tool effect.</li>
-      <li>Smithing speed: +30%, or the strongest equipped-tool effect.</li>
-      <li>Food need drain: +0.2 to the combined RedCrow factor.</li>
-    </customEffectDescriptions>
-    <exclusionTags>
-      <li>RC_BiologicalTool</li>
-    </exclusionTags>
-    <modExtensions Inherit="False">
-      <li Class="RedCrow.InsectorTweaks.RC_HungerGeneExtension">
-        <hungerAdditive>0.2</hungerAdditive>
-      </li>
-      <li Class="VanillaGenesExpanded.GeneExtension">
-        <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
-        <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
-      </li>
-    </modExtensions>
-  </VanillaRacesExpandedInsector.GenelineGeneDef>
-
-  <VanillaRacesExpandedInsector.GenelineGeneDef
-      ParentName="RC_OrgansMutationBase">
+    <label>устаревший биологический инструмент</label>
+    <description>Служебный Def для переноса старого сохранения на объединённую мутацию «Биологические рабочие инструменты».</description>
+    <selectionWeight>0</selectionWeight>
+  </GeneDef>
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_OrgansMutationBase">
     <defName>RC_Mutation_DuplicateCerebellum</defName>
     <label>duplicate cerebellum</label>
     <description>A redundant cerebellar structure improves overall neural coordination at a modest metabolic cost.</description>
     <displayOrderInCategory>3561</displayOrderInCategory>
-    <mutation>5</mutation>
+    <mutation>1</mutation>
+    <unlockable>true</unlockable>
     <capMods>
       <li>
         <capacity>Consciousness</capacity>
@@ -382,5 +310,4 @@
       </li>
     </modExtensions>
   </VanillaRacesExpandedInsector.GenelineGeneDef>
-
 </Defs>
