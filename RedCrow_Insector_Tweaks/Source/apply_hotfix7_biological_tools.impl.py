@@ -26,7 +26,7 @@ LEGACY = (
     "RC_Mutation_BiologicalHammer",
 )
 EXPECTED_ENTRIES = 115
-EXPECTED_LOCAL = 103
+EXPECTED_LOCAL = 104
 
 
 def write_if_changed(path: Path, content: str) -> None:
