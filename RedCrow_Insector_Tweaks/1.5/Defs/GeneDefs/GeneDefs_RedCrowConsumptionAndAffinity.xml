@@ -209,7 +209,7 @@
     <description>The carrier's antennae synchronize with the anima network, allowing the hive mind to maintain a natural meditation focus.</description>
     <displayOrderInCategory>3591</displayOrderInCategory>
     <evolution>1</evolution>
-    <unlockable>false</unlockable>
+    <unlockable>true</unlockable>
     <customEffectDescriptions>
       <li>Guarantees Natural Meditation focus on the pawn.</li>
     </customEffectDescriptions>

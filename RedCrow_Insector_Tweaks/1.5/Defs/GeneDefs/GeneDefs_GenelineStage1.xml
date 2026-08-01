@@ -56,7 +56,7 @@
 
   <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage1MutationBase">
     <defName>RC_Mutation_HeavyCasteStride</defName>
-    <label>тяжёлая поступь касты</label>
+    <label>наросты на панцирях</label>
     <description>Утолщённый панцирь и массивные опорные сегменты делают носителя устойчивее, но снижают скорость передвижения на 0,2 клетки в секунду.</description>
     <iconPath>UI/Icons/Genes/Gene_SlowMovespeed</iconPath>
     <displayOrderInCategory>2401</displayOrderInCategory>
@@ -77,7 +77,7 @@
     <iconPath>UI/Icons/Genes/Gene_QuickMovespeed</iconPath>
     <displayOrderInCategory>3102</displayOrderInCategory>
     <evolution>1</evolution>
-    <unlockable>true</unlockable>
+    <unlockable>false</unlockable>
     <statOffsets>
       <MoveSpeed>0.2</MoveSpeed>
     </statOffsets>

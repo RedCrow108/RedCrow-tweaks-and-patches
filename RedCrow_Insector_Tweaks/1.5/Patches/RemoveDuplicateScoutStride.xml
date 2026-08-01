@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Patch>
-  <Operation Class="PatchOperationRemove">
-    <xpath>/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Evolution_ScoutStride"]</xpath>
-  </Operation>
-</Patch>
+<Patch />

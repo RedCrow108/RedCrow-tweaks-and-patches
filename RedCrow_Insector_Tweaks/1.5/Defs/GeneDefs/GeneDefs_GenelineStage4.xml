@@ -63,6 +63,7 @@
     <description>Дополнительный нервный узел связывает носителя с коллективной обработкой информации. Психическая чувствительность повышается на 0,5, скорость исследований — на 33%, торговая выгода снижается на 10%, а максимальное здоровье мозга увеличивается на 10.</description>
     <displayOrderInCategory>3361</displayOrderInCategory>
     <evolution>3</evolution>
+    <unlockable>true</unlockable>
     <statOffsets>
       <PsychicSensitivity>0.5</PsychicSensitivity>
       <ResearchSpeed>0.33</ResearchSpeed>
@@ -85,6 +86,7 @@
     <description>Носитель выделяет коагулирующий секрет и прикосновением обрабатывает все доступные для перевязки раны дружественной цели с кровью насекомого. Применение расходует 20 единиц запаса инсекторного желе и не восстанавливает здоровье напрямую.</description>
     <displayOrderInCategory>3381</displayOrderInCategory>
     <evolution>4</evolution>
+    <unlockable>true</unlockable>
     <abilities>
       <li>RC_CoagulatingSecretion</li>
     </abilities>

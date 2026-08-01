@@ -401,6 +401,7 @@
     <iconPath>UI/Icons/Genes/AG_SonicBoom</iconPath>
     <displayOrderInCategory>3223</displayOrderInCategory>
     <evolution>3</evolution>
+    <unlockable>true</unlockable>
     <abilities>
       <li>AG_BansheeScream</li>
     </abilities>
@@ -418,6 +419,7 @@
     <description>При общей освещённости не ниже 50% скорость передвижения носителя умножается на 1,5; в темноте ниже 50% — на 0,5. Прямой солнечный свет не требуется.</description>
     <displayOrderInCategory>2521</displayOrderInCategory>
     <mutation>3</mutation>
+    <unlockable>true</unlockable>
     <conditionalStatAffecters>
       <li Class="VanillaGenesExpanded.ConditionalStatAffecter_Darkness">
         <statFactors>
@@ -442,6 +444,7 @@
     <description>В темноте ниже 50% скорость передвижения носителя умножается на 1,5; при общей освещённости не ниже 50% — на 0,5.</description>
     <displayOrderInCategory>2522</displayOrderInCategory>
     <mutation>3</mutation>
+    <unlockable>true</unlockable>
     <conditionalStatAffecters>
       <li Class="VanillaGenesExpanded.ConditionalStatAffecter_Darkness">
         <statFactors>
@@ -471,6 +474,7 @@
     <iconPath>UI/Icons/Genes/AG_Invisibility</iconPath>
     <displayOrderInCategory>3231</displayOrderInCategory>
     <evolution>4</evolution>
+    <unlockable>true</unlockable>
     <abilities>
       <li>AG_Invisibility</li>
     </abilities>
@@ -491,6 +495,7 @@
     <iconPath>UI/Icons/Genes/AG_InsanityBlast</iconPath>
     <displayOrderInCategory>3232</displayOrderInCategory>
     <evolution>4</evolution>
+    <unlockable>true</unlockable>
     <abilities>
       <li>AG_InsanityBlast</li>
     </abilities>
@@ -508,6 +513,7 @@
     <description>Прямой солнечный свет ускоряет носителя, а его отсутствие вызывает глубокую вялость. Под солнцем скорость передвижения ×1,3, общая скорость работы ×1,15 и скорость падения отдыха ×0,8; без солнца соответственно ×0,5, ×0,8 и ×1,25.</description>
     <displayOrderInCategory>2531</displayOrderInCategory>
     <mutation>4</mutation>
+    <unlockable>true</unlockable>
     <conditionalStatAffecters>
       <li Class="ConditionalStatAffecter_InSunlight">
         <statFactors>
@@ -537,6 +543,7 @@
     <description>Прямой солнечный свет почти полностью отключает нервную систему носителя: максимум сознания ограничивается 10%, пока пешка остаётся под солнцем.</description>
     <displayOrderInCategory>2532</displayOrderInCategory>
     <mutation>4</mutation>
+    <unlockable>true</unlockable>
     <dislikesSunlight>true</dislikesSunlight>
     <customEffectDescriptions>
       <li>Прямой солнечный свет: максимум сознания 10%.</li>
@@ -560,7 +567,8 @@
     <label>хлорофильный метаболизм</label>
     <description>Кожа носителя преобразует прямой солнечный свет в питание. Под солнцем скорость голода уменьшается почти до нуля на 0,9999; без прямого солнца обмен веществ работает обычно.</description>
     <displayOrderInCategory>3233</displayOrderInCategory>
-    <evolution>4</evolution>
+    <evolution>3</evolution>
+    <unlockable>true</unlockable>
     <customEffectDescriptions>
       <li>Прямой солнечный свет: скорость голода −0,9999.</li>
     </customEffectDescriptions>
@@ -585,7 +593,8 @@
     <label>солнечная гибель</label>
     <description>Ткани носителя вспыхивают под прямым солнечным светом. Каждые 500 тиков солнце наносит 15 единиц постоянного ожогового урона; без немедленного укрытия мутация смертельна.</description>
     <displayOrderInCategory>2541</displayOrderInCategory>
-    <mutation>5</mutation>
+    <mutation>10</mutation>
+    <unlockable>true</unlockable>
     <dislikesSunlight>true</dislikesSunlight>
     <skinColorOverride>(250, 240, 240)</skinColorOverride>
     <randomBrightnessFactor>0</randomBrightnessFactor>

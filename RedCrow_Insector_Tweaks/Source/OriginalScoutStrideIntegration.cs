@@ -12,15 +12,13 @@ namespace RedCrow.InsectorTweaks
     public static class OriginalScoutStrideIntegration
     {
         private const string LogPrefix =
-            "[RedCrow Original Scout Stride]";
-        private const string RemovedDefName =
+            "[RedCrow Scout Stride]";
+        private const string FallbackDefName =
             "RC_Evolution_ScoutStride";
         private const string ComponentTypeName =
             "VanillaRacesExpandedInsector.GameComponent_UnlockedGenes";
         private const string GeneTypeName =
             "VanillaRacesExpandedInsector.GenelineGeneDef";
-
-        private static bool logged;
 
         static OriginalScoutStrideIntegration()
         {
@@ -37,8 +35,7 @@ namespace RedCrow.InsectorTweaks
                 if (target == null || postfixMethod == null)
                 {
                     Log.Error(
-                        LogPrefix +
-                        " Game.FinalizeInit could not be patched.");
+                        LogPrefix + " Game.FinalizeInit could not be patched.");
                     return;
                 }
 
@@ -65,131 +62,125 @@ namespace RedCrow.InsectorTweaks
             try
             {
                 GeneDef original = FindOriginalScoutStride();
-                if (original == null)
+                GeneDef fallback =
+                    DefDatabase<GeneDef>.GetNamedSilentFail(FallbackDefName);
+                GeneDef available = original ?? fallback;
+                if (available == null)
                 {
-                    Log.Warning(
-                        LogPrefix +
-                        " Original evolution was not found. Checked labels " +
-                        "and the +0.2 MoveSpeed signature.");
+                    Log.Error(
+                        LogPrefix + " Neither an upstream original nor the " +
+                        "compatibility fallback was found.");
                     return;
                 }
 
-                Type geneType = AccessTools.TypeByName(GeneTypeName);
-                FieldInfo unlockableField = geneType == null
-                    ? null
-                    : AccessTools.Field(geneType, "unlockable");
-                if (unlockableField != null &&
-                    geneType.IsInstanceOfType(original))
+                SetStartingAvailability(available);
+                if (fallback != null)
                 {
-                    unlockableField.SetValue(original, true);
+                    SetStartingAvailability(fallback);
                 }
 
-                Type componentType =
-                    AccessTools.TypeByName(ComponentTypeName);
-                FieldInfo instanceField = componentType == null
-                    ? null
-                    : AccessTools.Field(componentType, "Instance");
-                object component = instanceField == null
-                    ? null
-                    : instanceField.GetValue(null);
-                FieldInfo poolField = componentType == null
-                    ? null
-                    : AccessTools.Field(
-                        componentType,
-                        "sorne_pherocore_genes");
-                FieldInfo allField = componentType == null
-                    ? null
-                    : AccessTools.Field(
-                        componentType,
-                        "allSorneGenesUnlocked");
-                IDictionary pool = component == null || poolField == null
-                    ? null
-                    : poolField.GetValue(component) as IDictionary;
-
-                if (pool == null)
-                {
-                    Log.Warning(
-                        LogPrefix +
-                        " Sorne pherocore pool was not available.");
-                    return;
-                }
-
-                bool migratedUnlockedState = false;
-                List<object> staleKeys = new List<object>();
-                foreach (DictionaryEntry pair in pool)
-                {
-                    Def def = pair.Key as Def;
-                    if (def == null ||
-                        def.defName != RemovedDefName)
-                    {
-                        continue;
-                    }
-
-                    if (pair.Value is bool && (bool)pair.Value)
-                    {
-                        migratedUnlockedState = true;
-                    }
-                    staleKeys.Add(pair.Key);
-                }
-
-                for (int index = 0;
-                    index < staleKeys.Count;
-                    index++)
-                {
-                    pool.Remove(staleKeys[index]);
-                }
-
-                if (pool.Contains(original))
-                {
-                    if (migratedUnlockedState)
-                    {
-                        pool[original] = true;
-                    }
-                }
-                else
-                {
-                    pool.Add(original, migratedUnlockedState);
-                }
-
-                bool allUnlocked = pool.Count > 0;
-                foreach (DictionaryEntry pair in pool)
-                {
-                    if (!(pair.Value is bool) ||
-                        !(bool)pair.Value)
-                    {
-                        allUnlocked = false;
-                        break;
-                    }
-                }
-
-                if (allField != null)
-                {
-                    allField.SetValue(component, allUnlocked);
-                }
-
+                int removed = RemoveFromSornePool(original, fallback);
                 ClearGeneListCache();
 
-                if (!logged)
-                {
-                    logged = true;
-                    string source =
-                        original.modContentPack == null
-                            ? "<no-source>"
-                            : original.modContentPack.PackageId;
-                    Log.Message(
-                        LogPrefix + " Using original " +
-                        original.defName + " from " + source +
-                        "; gated by Sorne, migrated unlocked=" +
-                        migratedUnlockedState +
-                        ", pool count=" + pool.Count + ".");
-                }
+                string source = available.modContentPack == null
+                    ? "<no-source>"
+                    : available.modContentPack.PackageId;
+                Log.Message(
+                    LogPrefix + " Available from the start: " +
+                    available.defName + " from " + source +
+                    "; removed from Sorne=" + removed +
+                    "; upstream original=" + (original != null) + ".");
             }
             catch (Exception exception)
             {
                 Log.Error(
-                    LogPrefix + " Integration failed:\n" +
-                    exception);
+                    LogPrefix + " Integration failed:\n" + exception);
             }
+        }
+
+        private static void SetStartingAvailability(GeneDef gene)
+        {
+            Type geneType = AccessTools.TypeByName(GeneTypeName);
+            FieldInfo unlockableField = geneType == null
+                ? null
+                : AccessTools.Field(geneType, "unlockable");
+            if (unlockableField != null &&
+                geneType.IsInstanceOfType(gene))
+            {
+                unlockableField.SetValue(gene, false);
+            }
+        }
+
+        private static int RemoveFromSornePool(
+            GeneDef original,
+            GeneDef fallback)
+        {
+            Type componentType = AccessTools.TypeByName(ComponentTypeName);
+            FieldInfo instanceField = componentType == null
+                ? null
+                : AccessTools.Field(componentType, "Instance");
+            object component = instanceField == null
+                ? null
+                : instanceField.GetValue(null);
+            FieldInfo poolField = componentType == null
+                ? null
+                : AccessTools.Field(
+                    componentType,
+                    "sorne_pherocore_genes");
+            FieldInfo allField = componentType == null
+                ? null
+                : AccessTools.Field(
+                    componentType,
+                    "allSorneGenesUnlocked");
+            IDictionary pool = component == null || poolField == null
+                ? null
+                : poolField.GetValue(component) as IDictionary;
+            if (pool == null)
+            {
+                Log.Warning(
+                    LogPrefix + " Sorne pherocore pool was unavailable.");
+                return 0;
+            }
+
+            List<object> staleKeys = new List<object>();
+            foreach (DictionaryEntry pair in pool)
+            {
+                GeneDef candidate = pair.Key as GeneDef;
+                if (candidate == null)
+                {
+                    continue;
+                }
+
+                if (candidate == original ||
+                    candidate == fallback ||
+                    candidate.defName == FallbackDefName ||
+                    IsScoutStrideLabel(candidate.label) ||
+                    IsScoutStrideLabel(candidate.LabelCap.ToString()))
+                {
+                    staleKeys.Add(pair.Key);
+                }
+            }
+
+            for (int index = 0; index < staleKeys.Count; index++)
+            {
+                pool.Remove(staleKeys[index]);
+            }
+
+            bool allUnlocked = pool.Count > 0;
+            foreach (DictionaryEntry pair in pool)
+            {
+                if (!(pair.Value is bool) || !(bool)pair.Value)
+                {
+                    allUnlocked = false;
+                    break;
+                }
+            }
+            if (allField != null)
+            {
+                allField.SetValue(component, allUnlocked);
+            }
+
+            return staleKeys.Count;
         }
 
         private static GeneDef FindOriginalScoutStride()
@@ -200,52 +191,27 @@ namespace RedCrow.InsectorTweaks
                 return null;
             }
 
-            GeneDef movementFallback = null;
             List<GeneDef> genes =
                 DefDatabase<GeneDef>.AllDefsListForReading;
             for (int index = 0; index < genes.Count; index++)
             {
                 GeneDef gene = genes[index];
                 if (gene == null ||
-                    gene.defName == RemovedDefName ||
+                    gene.defName == FallbackDefName ||
                     !geneType.IsInstanceOfType(gene) ||
-                    IsRedCrowDef(gene) ||
-                    !IsEvolution(gene, geneType))
+                    IsRedCrowDef(gene))
                 {
                     continue;
                 }
 
-                string rawLabel = gene.label ?? string.Empty;
-                string translatedLabel = gene.LabelCap.ToString();
-                if (IsScoutStrideLabel(rawLabel) ||
-                    IsScoutStrideLabel(translatedLabel))
+                if (IsScoutStrideLabel(gene.label) ||
+                    IsScoutStrideLabel(gene.LabelCap.ToString()))
                 {
                     return gene;
                 }
-
-                if (movementFallback == null &&
-                    HasMoveSpeedOffset(gene, 0.2f))
-                {
-                    movementFallback = gene;
-                }
             }
 
-            return movementFallback;
-        }
-
-        private static bool IsEvolution(
-            GeneDef gene,
-            Type geneType)
-        {
-            FieldInfo evolutionField =
-                AccessTools.Field(geneType, "evolution");
-            if (evolutionField == null)
-            {
-                return true;
-            }
-
-            object value = evolutionField.GetValue(gene);
-            return value is int && (int)value > 0;
+            return null;
         }
 
         private static bool IsRedCrowDef(Def def)
@@ -266,46 +232,16 @@ namespace RedCrow.InsectorTweaks
                 normalized.Contains("scout run");
         }
 
-        private static bool HasMoveSpeedOffset(
-            GeneDef gene,
-            float expected)
-        {
-            if (gene.statOffsets == null)
-            {
-                return false;
-            }
-
-            for (int index = 0;
-                index < gene.statOffsets.Count;
-                index++)
-            {
-                StatModifier modifier = gene.statOffsets[index];
-                if (modifier == null ||
-                    modifier.stat == null ||
-                    modifier.stat.defName != "MoveSpeed")
-                {
-                    continue;
-                }
-
-                if (Math.Abs(modifier.value - expected) < 0.0001f)
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
         private static void ClearGeneListCache()
         {
             Type utilsType = AccessTools.TypeByName(
                 "VanillaRacesExpandedInsector.Utils");
             FieldInfo cacheField = utilsType == null
                 ? null
-                : AccessTools.Field(
-                    utilsType,
-                    "cachedGeneDefsInOrder");
-            if (cacheField != null && cacheField.IsStatic)
+                : AccessTools.Field(utilsType, "cachedGeneDefsInOrder");
+            if (cacheField != null &&
+                cacheField.IsStatic &&
+                !cacheField.IsInitOnly)
             {
                 cacheField.SetValue(null, null);
             }

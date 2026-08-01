@@ -39,7 +39,8 @@
     <label>лик чуждого роя</label>
     <description>Черты носителя принимают отталкивающую, явно нечеловеческую форму. Красота снижается на 3. Любой психически восприимчивый человек в радиусе 6 клеток получает настроение −5 от увиденного.</description>
     <displayOrderInCategory>2601</displayOrderInCategory>
-    <mutation>1</mutation>
+    <mutation>10</mutation>
+    <unlockable>true</unlockable>
     <statOffsets>
       <PawnBeauty>-3</PawnBeauty>
     </statOffsets>
@@ -70,6 +71,7 @@
     <description>Железы носителя выделяют феромоны, усиливающие его социальное присутствие. Социальное влияние повышается на 0,25, но чувствительные ткани постоянно добавляют 0,0125 боли. Эффект не создаёт ауру настроения.</description>
     <displayOrderInCategory>3301</displayOrderInCategory>
     <evolution>2</evolution>
+    <unlockable>true</unlockable>
     <customEffectDescriptions>
       <li>Социальное влияние: +0,25.</li>
       <li>Боль: +0,0125.</li>
@@ -94,6 +96,7 @@
     <description>Сочленения панциря подстраиваются под одежду. Отрицательные модификаторы скорости передвижения от надетых предметов становятся равны нулю; остальные свойства одежды не меняются.</description>
     <displayOrderInCategory>3302</displayOrderInCategory>
     <evolution>2</evolution>
+    <unlockable>true</unlockable>
     <customEffectDescriptions>
       <li>Убирает только штрафы одежды к скорости передвижения.</li>
     </customEffectDescriptions>
@@ -111,6 +114,7 @@
     <description>Техноорганические катушки накапливают заряд и передают его ближайшим батареям. Каждые 40 тиков одна поддерживаемая батарея в радиусе 5 клеток получает 1 единицу энергии. Постоянное напряжение повышает порог нервного срыва на 0,2.</description>
     <displayOrderInCategory>2621</displayOrderInCategory>
     <mutation>3</mutation>
+    <unlockable>true</unlockable>
     <statOffsets>
       <MentalBreakThreshold>0.2</MentalBreakThreshold>
     </statOffsets>
@@ -137,6 +141,7 @@
     <description>Налётчики воспринимают носителя как особенно опасную цель. При расчёте богатства пешек его собственная рыночная стоимость умножается на 1,5.</description>
     <displayOrderInCategory>2622</displayOrderInCategory>
     <mutation>3</mutation>
+    <unlockable>true</unlockable>
     <customEffectDescriptions>
       <li>Вклад рыночной стоимости носителя в богатство пешек: ×1,5.</li>
     </customEffectDescriptions>
@@ -155,6 +160,7 @@
     <description>Разум носителя становится центром успокаивающего психического поля. Психическая чувствительность повышается на 0,5, эффективность медитации на 0,3, восстановление энтропии на 0,25. Психически восприимчивые люди в радиусе 6 клеток получают настроение +10.</description>
     <displayOrderInCategory>3321</displayOrderInCategory>
     <evolution>4</evolution>
+    <unlockable>true</unlockable>
     <statOffsets>
       <PsychicSensitivity>0.5</PsychicSensitivity>
       <MeditationFocusGain>0.3</MeditationFocusGain>
@@ -187,6 +193,7 @@
     <description>Одно присутствие носителя заставляет врагов готовить подавляющую силу. При расчёте богатства пешек его собственная рыночная стоимость умножается на 4.</description>
     <displayOrderInCategory>2641</displayOrderInCategory>
     <mutation>5</mutation>
+    <unlockable>true</unlockable>
     <customEffectDescriptions>
       <li>Вклад рыночной стоимости носителя в богатство пешек: ×4.</li>
     </customEffectDescriptions>
