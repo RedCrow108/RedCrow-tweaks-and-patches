@@ -193,8 +193,8 @@ def verify(entries: dict[str, dict[str, object]], found: set[str]) -> None:
                 raise RuntimeError(f"Balance verification failed for {def_name}")
             verified += 1
 
-    if verified != 103:
-        raise RuntimeError(f"Expected 103 local Defs, verified {verified}")
+    if verified != 104:
+        raise RuntimeError(f"Expected 104 local Defs, verified {verified}")
 
     for xml_path in MOD_ROOT.rglob("*.xml"):
         ET.parse(xml_path)
