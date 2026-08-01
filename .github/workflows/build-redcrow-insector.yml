@@ -83,7 +83,7 @@ jobs:
           if-no-files-found: error
 
       - name: Commit synchronized sources, XML and DLL
-        if: github.event_name == 'push' && github.actor != 'github-actions[bot]'
+        if: github.event_name == 'push'
         shell: pwsh
         run: |
           git config user.name 'github-actions[bot]'
