@@ -2,21 +2,23 @@
 <Patch>
   <Operation Class="PatchOperationConditional">
     <xpath>/Defs/FurDef[defName="VRE_MineralRichInsectskin"]</xpath>
-    <nomatch>
-      <li Class="PatchOperationAdd">
-        <xpath>/Defs</xpath>
-        <value>
-          <FurDef>
-            <defName>VRE_MineralRichInsectskin</defName>
-            <label>mineral-rich insectskin</label>
-            <bodyGraphicPath>Things/Pawn/Humanlike/Apparel/Naked/Naked_Hulk</bodyGraphicPath>
-            <headGraphicPath>Things/Pawn/Humanlike/Apparel/Naked/Naked_Hulk</headGraphicPath>
-            <bodyMaskPath>Things/Pawn/Humanlike/Apparel/Naked/Naked_Hulk_Mask</bodyMaskPath>
-            <headMaskPath>Things/Pawn/Humanlike/Apparel/Naked/Naked_Hulk_Mask</headMaskPath>
-            <hasHair>false</hasHair>
-          </FurDef>
-        </value>
-      </li>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs</xpath>
+      <value>
+        <FurDef>
+          <defName>VRE_MineralRichInsectskin</defName>
+          <noGraphic>true</noGraphic>
+          <bodyTypeGraphicPaths>
+            <Male>Things/Pawn/Humanlike/Bodies/InsectskinMineralized_Male</Male>
+            <Female>Things/Pawn/Humanlike/Bodies/InsectskinMineralized_Female</Female>
+            <Hulk>Things/Pawn/Humanlike/Bodies/InsectskinMineralized_Hulk</Hulk>
+            <Fat>Things/Pawn/Humanlike/Bodies/InsectskinMineralized_Fat</Fat>
+            <Thin>Things/Pawn/Humanlike/Bodies/InsectskinMineralized_Thin</Thin>
+            <Child>Things/Pawn/Humanlike/Bodies/InsectskinMineralized_Thin</Child>
+            <Baby>Things/Pawn/Humanlike/Bodies/Naked_FurChild</Baby>
+          </bodyTypeGraphicPaths>
+        </FurDef>
+      </value>
     </nomatch>
   </Operation>
 </Patch>

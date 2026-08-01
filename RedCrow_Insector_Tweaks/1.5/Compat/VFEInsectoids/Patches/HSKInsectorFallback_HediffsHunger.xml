@@ -1,35 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
   <Operation Class="PatchOperationConditional">
-    <xpath>/Defs/HediffDef[defName="VRE_RoyalJellyInjected"]</xpath>
-    <nomatch>
-      <li Class="PatchOperationAdd">
-        <xpath>/Defs</xpath>
-        <value>
-          <HediffDef>
-            <defName>VRE_RoyalJellyInjected</defName>
-            <label>royal jelly injected</label>
-            <description>Royal jelly has been injected, improving mood and immunity gain.</description>
-            <hediffClass>HediffWithComps</hediffClass>
-            <isBad>false</isBad>
-            <stages>
-              <li>
-                <statFactors>
-                  <ImmunityGainSpeed>1.5</ImmunityGainSpeed>
-                </statFactors>
-              </li>
-            </stages>
-          </HediffDef>
-          <HediffDef>
-            <defName>VRE_RoyalJellyInjectionWound</defName>
-            <label>injection wound</label>
-            <hediffClass>Hediff_Injury</hediffClass>
-            <isBad>true</isBad>
-            <tendable>true</tendable>
-            <initialSeverity>1</initialSeverity>
-          </HediffDef>
-        </value>
-      </li>
+    <xpath>/Defs/HediffDef[defName="VRE_Microsized"]</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs</xpath>
+      <value>
+        <HediffDef>
+          <defName>VRE_Microsized</defName>
+          <label>microsized</label>
+          <description>The smaller genetic size causes a decrease in hunger rate.</description>
+          <hediffClass>HediffWithComps</hediffClass>
+          <scenarioCanAdd>false</scenarioCanAdd>
+          <maxSeverity>1.0</maxSeverity>
+          <isBad>false</isBad>
+          <stages>
+            <li>
+              <hungerRateFactor>0.75</hungerRateFactor>
+            </li>
+          </stages>
+        </HediffDef>
+      </value>
+    </nomatch>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/HediffDef[defName="VRE_Colossal"]</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs</xpath>
+      <value>
+        <HediffDef>
+          <defName>VRE_Colossal</defName>
+          <label>colossal</label>
+          <description>The larger genetic size causes an increase in hunger rate.</description>
+          <hediffClass>HediffWithComps</hediffClass>
+          <scenarioCanAdd>false</scenarioCanAdd>
+          <maxSeverity>1.0</maxSeverity>
+          <isBad>false</isBad>
+          <stages>
+            <li>
+              <hungerRateFactor>2</hungerRateFactor>
+            </li>
+          </stages>
+        </HediffDef>
+      </value>
     </nomatch>
   </Operation>
 </Patch>

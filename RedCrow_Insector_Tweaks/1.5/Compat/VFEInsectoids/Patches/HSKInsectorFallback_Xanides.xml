@@ -1,7 +1,154 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <Patch>
-  <Operation Class="PatchOperationConditional"><xpath>/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_MineralRichInsectskin"]</xpath><nomatch><li Class="PatchOperationAdd"><xpath>/Defs</xpath><value><VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_EvolutionGene"><defName>VRE_MineralRichInsectskin</defName><label>mineral-rich insectskin</label><description>Carriers of this gene develop mineral-rich insectskin, forming thick, protective plating on their skin. This natural armor provides significant protection until enough damage is sustained to break it.</description><unlockable>false</unlockable><iconPath>UI/Icons/Genes/Gene_MineralrichInsectskin</iconPath><displayOrderInCategory>1008</displayOrderInCategory><exclusionTags><li>AG_Bodies</li><li>Bodies</li><li>Body</li><li>Fur</li><li>AG_Armour</li><li>Armour</li><li>Armor</li></exclusionTags><fur>VRE_MineralRichInsectskin</fur><skinIsHairColor>false</skinIsHairColor><tattoosVisible>false</tattoosVisible><renderNodeProperties><li><nodeClass>PawnRenderNode_Fur</nodeClass><workerClass>PawnRenderNodeWorker_Fur</workerClass><baseLayer>5</baseLayer><rotDrawMode>Fresh, Rotting</rotDrawMode><colorType>Skin</colorType><parentTagDef>Body</parentTagDef></li></renderNodeProperties><selectionWeight>0</selectionWeight><modExtensions><li Class="VanillaGenesExpanded.GeneExtension"><backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes><backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes><hediffToWholeBody>VRE_MineralRichInsectskin</hediffToWholeBody></li></modExtensions></VanillaRacesExpandedInsector.GenelineGeneDef></value></li></nomatch></Operation>
-  <Operation Class="PatchOperationConditional"><xpath>/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_ChargerClaws"]</xpath><nomatch><li Class="PatchOperationAdd"><xpath>/Defs</xpath><value><VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_EvolutionGene"><defName>VRE_ChargerClaws</defName><label>charger claws</label><unlockable>false</unlockable><description>Carriers of this gene develop large charger claws, granting them the ability to perform a charge towards a target, dealing significant damage to anything in their path and easily destroying defenses, with the ability to perform this action periodically and over a considerable distance.</description><selectionWeight>0</selectionWeight><iconPath>UI/Icons/Genes/Gene_ChargerClaws</iconPath><statOffsets><WorkSpeedGlobal>-0.4</WorkSpeedGlobal></statOffsets><displayOrderInCategory>1009</displayOrderInCategory><exclusionTags><li>Hands</li></exclusionTags><abilities><li>VFEI2_BreacherCharge_Colonists</li></abilities><modExtensions><li Class="VanillaGenesExpanded.GeneExtension"><backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes><backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes></li></modExtensions></VanillaRacesExpandedInsector.GenelineGeneDef></value></li></nomatch></Operation>
-  <Operation Class="PatchOperationConditional"><xpath>/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_HardLockedJoints"]</xpath><nomatch><li Class="PatchOperationAdd"><xpath>/Defs</xpath><value><VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene"><defName>VRE_HardLockedJoints</defName><label>hard-locked joints</label><description>Carriers of this gene have hardlocked joints, significantly slowing their movements. Their inflexible joints make bending and swift actions extremely difficult.</description><selectionWeight>0</selectionWeight><iconPath>UI/Icons/Genes/Gene_InflexibleJoints</iconPath><unlockable>false</unlockable><displayOrderInCategory>1008</displayOrderInCategory><statOffsets><MoveSpeed>-0.4</MoveSpeed></statOffsets><exclusionTags><li>InsectorMovement</li></exclusionTags><symbolPack><prefixSymbols><li><symbol>slow</symbol></li><li><symbol>lock</symbol></li></prefixSymbols></symbolPack><modExtensions><li Class="VanillaGenesExpanded.GeneExtension"><backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes><backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes></li></modExtensions></VanillaRacesExpandedInsector.GenelineGeneDef></value></li></nomatch></Operation>
-  <Operation Class="PatchOperationConditional"><xpath>/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_PassiveInsect"]</xpath><nomatch><li Class="PatchOperationAdd"><xpath>/Defs</xpath><value><VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene"><defName>VRE_PassiveInsect</defName><label>passive</label><description>Carriers of this gene are inherently passive, showing no interest in and being unable to participate in combat. Their nature compels them to avoid violent confrontations entirely.</description><iconPath>UI/Icons/Genes/Gene_Passive</iconPath><unlockable>false</unlockable><selectionWeight>0</selectionWeight><displayOrderInCategory>1009</displayOrderInCategory><disabledWorkTags><li>Violent</li><li>Hunting</li></disabledWorkTags><exclusionTags><li>InsectorAggression</li><li>MeleeDamage</li><li>ShootingAccuracy</li><li>Aggressive</li><li>KillThirst</li></exclusionTags><modExtensions><li Class="VanillaGenesExpanded.GeneExtension"><backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes><backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes></li></modExtensions></VanillaRacesExpandedInsector.GenelineGeneDef></value></li></nomatch></Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_MineralRichInsectskin"]</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs</xpath>
+      <value>
+        <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_EvolutionGene">
+          <defName>VRE_MineralRichInsectskin</defName>
+          <label>mineral-rich insectskin</label>
+          <description>Carriers of this gene develop mineral-rich insectskin, forming thick, protective plating on their skin. This natural armor provides significant protection until enough damage is sustained to break it.</description>
+          <unlockable>false</unlockable>
+          <iconPath>UI/Icons/Genes/Gene_MineralrichInsectskin</iconPath>
+          <displayOrderInCategory>1008</displayOrderInCategory>
+          <exclusionTags>
+            <li>AG_Bodies</li>
+            <li>Bodies</li>
+            <li>Body</li>
+            <li>Fur</li>
+            <li>AG_Armour</li>
+            <li>Armour</li>
+            <li>Armor</li>
+          </exclusionTags>
+          <fur>VRE_MineralRichInsectskin</fur>
+          <skinIsHairColor>false</skinIsHairColor>
+          <tattoosVisible>false</tattoosVisible>
+          <renderNodeProperties>
+            <li>
+              <nodeClass>PawnRenderNode_Fur</nodeClass>
+              <workerClass>PawnRenderNodeWorker_Fur</workerClass>
+              <baseLayer>5</baseLayer>
+              <rotDrawMode>Fresh, Rotting</rotDrawMode>
+              <colorType>Skin</colorType>
+              <parentTagDef>Body</parentTagDef>
+            </li>
+          </renderNodeProperties>
+          <selectionWeight>0</selectionWeight>
+          <modExtensions>
+            <li Class="VanillaGenesExpanded.GeneExtension">
+              <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
+              <backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes>
+              <hediffToWholeBody>VRE_MineralRichInsectskin</hediffToWholeBody>
+            </li>
+          </modExtensions>
+        </VanillaRacesExpandedInsector.GenelineGeneDef>
+      </value>
+    </nomatch>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_ChargerClaws"]</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs</xpath>
+      <value>
+        <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_EvolutionGene">
+          <defName>VRE_ChargerClaws</defName>
+          <label>charger claws</label>
+          <unlockable>false</unlockable>
+          <description>Carriers of this gene develop large charger claws, granting them the ability to perform a charge towards a target, dealing significant damage to anything in their path and easily destroying defenses, with the ability to perform this action periodically and over a considerable distance.</description>
+          <selectionWeight>0</selectionWeight>
+          <iconPath>UI/Icons/Genes/Gene_ChargerClaws</iconPath>
+          <statOffsets>
+            <WorkSpeedGlobal>-0.4</WorkSpeedGlobal>
+          </statOffsets>
+          <displayOrderInCategory>1009</displayOrderInCategory>
+          <exclusionTags>
+            <li>Hands</li>
+          </exclusionTags>
+          <abilities>
+            <li>VFEI2_BreacherCharge_Colonists</li>
+          </abilities>
+          <modExtensions>
+            <li Class="VanillaGenesExpanded.GeneExtension">
+              <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
+              <backgroundPathXenogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathXenogenes>
+            </li>
+          </modExtensions>
+        </VanillaRacesExpandedInsector.GenelineGeneDef>
+      </value>
+    </nomatch>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_HardLockedJoints"]</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs</xpath>
+      <value>
+        <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene">
+          <defName>VRE_HardLockedJoints</defName>
+          <label>hard-locked joints</label>
+          <description>Carriers of this gene have hardlocked joints, significantly slowing their movements. Their inflexible joints make bending and swift actions extremely difficult.</description>
+          <selectionWeight>0</selectionWeight>
+          <iconPath>UI/Icons/Genes/Gene_InflexibleJoints</iconPath>
+          <unlockable>false</unlockable>
+          <displayOrderInCategory>1008</displayOrderInCategory>
+          <statOffsets>
+            <MoveSpeed>-0.4</MoveSpeed>
+          </statOffsets>
+          <exclusionTags>
+            <li>InsectorMovement</li>
+          </exclusionTags>
+          <symbolPack>
+            <prefixSymbols>
+              <li>
+                <symbol>slow</symbol>
+              </li>
+              <li>
+                <symbol>lock</symbol>
+              </li>
+            </prefixSymbols>
+          </symbolPack>
+          <modExtensions>
+            <li Class="VanillaGenesExpanded.GeneExtension">
+              <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+              <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+            </li>
+          </modExtensions>
+        </VanillaRacesExpandedInsector.GenelineGeneDef>
+      </value>
+    </nomatch>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_PassiveInsect"]</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs</xpath>
+      <value>
+        <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="VRE_MutationGene">
+          <defName>VRE_PassiveInsect</defName>
+          <label>passive</label>
+          <description>Carriers of this gene are inherently passive, showing no interest in and being unable to participate in combat. Their nature compels them to avoid violent confrontations entirely.</description>
+          <iconPath>UI/Icons/Genes/Gene_Passive</iconPath>
+          <unlockable>false</unlockable>
+          <selectionWeight>0</selectionWeight>
+          <displayOrderInCategory>1009</displayOrderInCategory>
+          <disabledWorkTags>
+            <li>Violent</li>
+            <li>Hunting</li>
+          </disabledWorkTags>
+          <exclusionTags>
+            <li>InsectorAggression</li>
+            <li>MeleeDamage</li>
+            <li>ShootingAccuracy</li>
+            <li>Aggressive</li>
+            <li>KillThirst</li>
+          </exclusionTags>
+          <modExtensions>
+            <li Class="VanillaGenesExpanded.GeneExtension">
+              <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
+              <backgroundPathXenogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathXenogenes>
+            </li>
+          </modExtensions>
+        </VanillaRacesExpandedInsector.GenelineGeneDef>
+      </value>
+    </nomatch>
+  </Operation>
 </Patch>

@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <Defs>
-
   <ThingDef ParentName="VFEI2_BuildingInsectoidBase">
     <defName>RC_SynapticHiveNode</defName>
     <label>organic synaptic node</label>
     <description>A vast cordyceps-like organic relay that stores insect jelly and sustains every pawn consumed by the swarm on its map.</description>
     <thingClass>Building</thingClass>
     <graphicData>
-      <texPath>Things/Building/GlowPodLarge</texPath>
+      <texPath>Things/Building/RedCrow/OrganicSynapticNode</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(3, 3)</drawSize>
       <shadowData>
@@ -18,6 +17,7 @@
         <rect>(0.15, 0.15, 2.7, 2.7)</rect>
       </damageData>
     </graphicData>
+    <uiIconPath>Things/Building/RedCrow/OrganicSynapticNode</uiIconPath>
     <minifiedDef Inherit="False" />
     <altitudeLayer>Building</altitudeLayer>
     <passability>PassThroughOnly</passability>
@@ -62,5 +62,4 @@
     </researchPrerequisites>
     <terrainAffordanceNeeded>VFEI2_Creep</terrainAffordanceNeeded>
   </ThingDef>
-
 </Defs>

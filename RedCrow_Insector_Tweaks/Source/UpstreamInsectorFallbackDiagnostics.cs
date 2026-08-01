@@ -88,7 +88,8 @@ namespace RedCrow.InsectorTweaks
                 postfix.after = new[]
                 {
                     "RedCrow.InsectorTweaks.PherocoreBalanceIntegration",
-                    "RedCrow.InsectorTweaks.PherocoreInteractionAndSynapticHotfix"
+                    "RedCrow.InsectorTweaks.PherocoreInteractionAndSynapticHotfix",
+                    "RedCrow.InsectorTweaks.OriginalScoutStrideIntegration"
                 };
                 harmony.Patch(target, postfix: postfix);
             }
