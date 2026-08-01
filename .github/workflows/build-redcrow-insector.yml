@@ -36,7 +36,7 @@ jobs:
           python-version: '3.12'
 
       - name: Apply Hotfix 7 corrections
-        run: python RedCrow_Insector_Tweaks/Source/apply_hotfix7.py
+        run: python RedCrow_Insector_Tweaks/Source/run_hotfix7_idempotent.py
 
       - name: Consolidate biological tool mutations
         run: python RedCrow_Insector_Tweaks/Source/apply_hotfix7_biological_tools.py
