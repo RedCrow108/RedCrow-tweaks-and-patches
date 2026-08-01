@@ -47,7 +47,6 @@ def remove_legacy_balance_entries() -> None:
         if count == 0 and f'new BalanceEntry("{def_name}",' in text:
             raise RuntimeError(f"Could not remove legacy balance entry {def_name}")
 
-    # Repair the one possible missing comma caused by removing adjacent entries.
     text = re.sub(
         r'(new BalanceEntry\("RC_Mutation_BiologicalSickle"[^\n]*\))\s*\n(\s*new BalanceEntry)',
         r'\1,\n\2',
@@ -105,7 +104,6 @@ def replace_organ_defs() -> None:
         item = ET.SubElement(custom, "li")
         item.text = value
 
-    # Keep only one hunger extension on the canonical Def.
     extensions = canonical.find("modExtensions")
     if extensions is None:
         extensions = ET.SubElement(canonical, "modExtensions")
@@ -124,11 +122,9 @@ def replace_organ_defs() -> None:
         )
     set_text(hunger, "hungerAdditive", "0.2")
 
-    # Preserve old save references as ordinary hidden GeneDefs. They no longer
-    # enter the Insector mutation catalogue and are replaced at Game.FinalizeInit.
     for def_name in LEGACY:
         old = by_name.get(def_name)
-        if old is None:
+        if old is None or old.tag == "GeneDef":
             continue
         index = list(root).index(old)
         replacement = ET.Element("GeneDef")
