@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <VanillaRacesExpandedInsector.GenelineGeneDef ParentName="RC_Stage1EvolutionBase">
+    <defName>RC_Evolution_AcceleratedBroodMaturity</defName>
+    <label>early work maturity</label>
+    <description>Young hive members become capable of basic work earlier. Pawns carrying this gene unlock age-restricted work types one growth stage earlier than normal until reaching adulthood. Childhood aging speed is unchanged.</description>
+    <iconPath>UI/Icons/Genes/RC_GenelineFallback</iconPath>
+    <displayOrderInCategory>3106</displayOrderInCategory>
+    <evolution>3</evolution>
+    <unlockable>true</unlockable>
+  </VanillaRacesExpandedInsector.GenelineGeneDef>
+</Defs>
