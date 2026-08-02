@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationSequence">
+    <operations>
+      <li Class="PatchOperationReplace">
+        <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Mutation_PorousJellyReservoir"]/description</xpath>
+        <value>
+          <description>Fine leaks in the personal reservoir increase insect-jelly consumption by 10 units per day.</description>
+        </value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Mutation_PorousJellyReservoir"]/customEffectDescriptions/li</xpath>
+        <value>
+          <li>Personal insect-jelly consumption: +10 per day.</li>
+        </value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Mutation_PorousJellyReservoir"]/modExtensions/li[@Class="RedCrow.InsectorTweaks.RC_HungerGeneExtension"]</xpath>
+        <value>
+          <li Class="RedCrow.InsectorTweaks.RC_JellyConsumptionExtension">
+            <perDayAdditive>10</perDayAdditive>
+          </li>
+        </value>
+      </li>
+
+      <li Class="PatchOperationReplace">
+        <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Evolution_JellyConservation"]/description</xpath>
+        <value>
+          <description>Valves shaped by the hive reduce personal insect-jelly consumption by 10 units per day.</description>
+        </value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Evolution_JellyConservation"]/customEffectDescriptions/li</xpath>
+        <value>
+          <li>Personal insect-jelly consumption: -10 per day.</li>
+        </value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="RC_Evolution_JellyConservation"]/modExtensions/li[@Class="RedCrow.InsectorTweaks.RC_HungerGeneExtension"]</xpath>
+        <value>
+          <li Class="RedCrow.InsectorTweaks.RC_JellyConsumptionExtension">
+            <perDayAdditive>-10</perDayAdditive>
+          </li>
+        </value>
+      </li>
+    </operations>
+  </Operation>
+</Patch>
