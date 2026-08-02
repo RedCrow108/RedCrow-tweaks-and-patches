@@ -42,6 +42,7 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="BiologicalToolGeneMigration.cs" />
     <Compile Include="EarlyWorkMaturity.cs" />
+    <Compile Include="FoodConsumptionDisplayPatch.cs" />
     <Compile Include="GenelineOrganEffects.cs" />
     <Compile Include="GenelineFollowupEffects.cs" />
     <Compile Include="GeneReferenceCleanup.cs" />
