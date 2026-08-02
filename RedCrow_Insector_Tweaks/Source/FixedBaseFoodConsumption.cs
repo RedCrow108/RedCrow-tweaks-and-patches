@@ -17,6 +17,10 @@ namespace RedCrow.InsectorTweaks
     {
         private const string LogPrefix =
             "[RedCrow Base Food Consumption]";
+        private const float HumanBaseNutritionPerDay = 1.6f;
+
+        private static readonly HashSet<int> LoggedPawnIds =
+            new HashSet<int>();
 
         static FixedBaseFoodConsumption()
         {
@@ -52,8 +56,8 @@ namespace RedCrow.InsectorTweaks
 
                 Log.Message(
                     LogPrefix +
-                    " Fixed daily offsets are applied to base food " +
-                    "consumption before pawn-specific factors.");
+                    " Fixed daily offsets scale the completed hunger rate " +
+                    "from the adjusted base food consumption.");
             }
             catch (Exception exception)
             {
@@ -66,8 +70,6 @@ namespace RedCrow.InsectorTweaks
         [HarmonyPriority(Priority.Last)]
         public static void FoodFallPerTickPostfix(
             Pawn ___pawn,
-            HungerCategory hunger,
-            bool ignoreMalnutrition,
             ref float __result)
         {
             if (___pawn == null || __result <= 0f)
@@ -81,14 +83,27 @@ namespace RedCrow.InsectorTweaks
                 return;
             }
 
-            float scaledOffsetPerTick =
-                CalculateScaledOffsetPerTick(
-                    ___pawn,
-                    hunger,
-                    ignoreMalnutrition,
-                    basePerDayOffset);
+            float basePerDay = GetUnmodifiedBasePerDay(___pawn);
+            if (basePerDay <= 0.0001f)
+            {
+                return;
+            }
 
-            __result = Math.Max(0f, __result + scaledOffsetPerTick);
+            float targetBasePerDay = Math.Max(
+                0f,
+                basePerDay + basePerDayOffset);
+            float baseMultiplier = targetBasePerDay / basePerDay;
+
+            __result = Math.Max(0f, __result * baseMultiplier);
+
+            if (LoggedPawnIds.Add(___pawn.thingIDNumber))
+            {
+                Log.Message(
+                    LogPrefix + " Applied to " + ___pawn.LabelShort +
+                    ": base=" + basePerDay.ToString("0.###") +
+                    ", offset=" + basePerDayOffset.ToString("+0.###;-0.###;0") +
+                    ", multiplier=" + baseMultiplier.ToString("0.###") + ".");
+            }
         }
 
         public static float GetBasePerDayOffset(Pawn pawn)
@@ -122,55 +137,19 @@ namespace RedCrow.InsectorTweaks
             return offset;
         }
 
-        private static float CalculateScaledOffsetPerTick(
-            Pawn pawn,
-            HungerCategory hunger,
-            bool ignoreMalnutrition,
-            float basePerDayOffset)
+        public static float GetUnmodifiedBasePerDay(Pawn pawn)
         {
-            float factor = hunger.HungerMultiplier();
-
-            if (pawn.health != null)
+            if (pawn == null ||
+                pawn.RaceProps == null ||
+                pawn.ageTracker == null ||
+                pawn.ageTracker.CurLifeStage == null)
             {
-                factor *= pawn.health.hediffSet.GetHungerRateFactor(
-                    ignoreMalnutrition
-                        ? HediffDefOf.Malnutrition
-                        : null);
+                return 0f;
             }
 
-            if (pawn.story != null && pawn.story.traits != null)
-            {
-                factor *= pawn.story.traits.HungerRateFactor;
-            }
-
-            Building_Bed bed = pawn.CurrentBed();
-            if (bed != null)
-            {
-                factor *= bed.GetStatValue(
-                    StatDefOf.BedHungerRateFactor);
-            }
-
-            if (ModsConfig.BiotechActive && pawn.genes != null)
-            {
-                int metabolism = 0;
-                List<Gene> genes = pawn.genes.GenesListForReading;
-                for (int index = 0; index < genes.Count; index++)
-                {
-                    Gene gene = genes[index];
-                    if (gene != null &&
-                        gene.def != null &&
-                        !gene.Overridden)
-                    {
-                        metabolism += gene.def.biostatMet;
-                    }
-                }
-
-                factor *=
-                    GeneTuning.MetabolismToFoodConsumptionFactorCurve
-                        .Evaluate(metabolism);
-            }
-
-            return basePerDayOffset * factor / GenDate.TicksPerDay;
+            return pawn.RaceProps.baseHungerRate *
+                pawn.ageTracker.CurLifeStage.hungerRateFactor *
+                HumanBaseNutritionPerDay;
         }
     }
 }
