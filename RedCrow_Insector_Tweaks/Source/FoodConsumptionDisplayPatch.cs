@@ -17,6 +17,7 @@ namespace RedCrow.InsectorTweaks
             "FoodConsumption";
 
         private static readonly StatDef FoodConsumptionStat;
+        private static bool loggedFirstApplication;
 
         static FoodConsumptionDisplayPatch()
         {
@@ -34,27 +35,35 @@ namespace RedCrow.InsectorTweaks
                     return;
                 }
 
-                StatWorker worker = FoodConsumptionStat.Worker;
-                Type workerType = worker.GetType();
-
                 MethodInfo valueMethod = AccessTools.Method(
-                    workerType,
-                    "GetValueUnfinalized",
+                    typeof(StatWorker),
+                    "GetValue",
                     new[] { typeof(StatRequest), typeof(bool) });
                 MethodInfo explanationMethod = AccessTools.Method(
-                    workerType,
-                    "GetExplanationUnfinalized",
+                    typeof(StatWorker),
+                    "GetExplanationFull",
                     new[]
                     {
                         typeof(StatRequest),
-                        typeof(ToStringNumberSense)
+                        typeof(ToStringNumberSense),
+                        typeof(float)
                     });
 
-                if (valueMethod == null || explanationMethod == null)
+                MethodInfo valuePostfix = AccessTools.Method(
+                    typeof(FoodConsumptionDisplayPatch),
+                    "ValuePostfix");
+                MethodInfo explanationPostfix = AccessTools.Method(
+                    typeof(FoodConsumptionDisplayPatch),
+                    "ExplanationPostfix");
+
+                if (valueMethod == null ||
+                    explanationMethod == null ||
+                    valuePostfix == null ||
+                    explanationPostfix == null)
                 {
                     Log.Error(
                         LogPrefix +
-                        " FoodConsumption worker methods were not found.");
+                        " Final StatWorker display methods were not found.");
                     return;
                 }
 
@@ -62,21 +71,16 @@ namespace RedCrow.InsectorTweaks
                     "RedCrow.InsectorTweaks.FoodConsumptionDisplay");
                 harmony.Patch(
                     valueMethod,
-                    postfix: Last(
-                        AccessTools.Method(
-                            typeof(FoodConsumptionDisplayPatch),
-                            "ValuePostfix")));
+                    postfix: Last(valuePostfix));
                 harmony.Patch(
                     explanationMethod,
-                    postfix: Last(
-                        AccessTools.Method(
-                            typeof(FoodConsumptionDisplayPatch),
-                            "ExplanationPostfix")));
+                    postfix: Last(explanationPostfix));
 
                 Log.Message(
                     LogPrefix +
-                    " FoodConsumption stat now mirrors the RedCrow " +
-                    "hunger factor. Worker=" + workerType.FullName + ".");
+                    " Final FoodConsumption value and explanation are " +
+                    "patched through StatWorker wrappers. Worker=" +
+                    FoodConsumptionStat.Worker.GetType().FullName + ".");
             }
             catch (Exception exception)
             {
@@ -94,12 +98,18 @@ namespace RedCrow.InsectorTweaks
 
         [HarmonyPriority(Priority.Last)]
         public static void ValuePostfix(
+            StatWorker __instance,
             StatRequest req,
-            StatDef ___stat,
             ref float __result)
         {
+            if (FoodConsumptionStat == null ||
+                __instance != FoodConsumptionStat.Worker)
+            {
+                return;
+            }
+
             Pawn pawn = req.Thing as Pawn;
-            if (___stat != FoodConsumptionStat || pawn == null)
+            if (pawn == null)
             {
                 return;
             }
@@ -116,17 +126,35 @@ namespace RedCrow.InsectorTweaks
                 return;
             }
 
-            __result = Math.Max(0f, __result * factor);
+            float originalValue = __result;
+            __result = Math.Max(0f, originalValue * factor);
+
+            if (!loggedFirstApplication)
+            {
+                loggedFirstApplication = true;
+                Log.Message(
+                    LogPrefix + " Applied factor " +
+                    factor.ToString("0.###") + " to " +
+                    pawn.LabelShortCap + ": " +
+                    originalValue.ToString("0.###") + " -> " +
+                    __result.ToString("0.###") + ".");
+            }
         }
 
         [HarmonyPriority(Priority.Last)]
         public static void ExplanationPostfix(
+            StatWorker __instance,
             StatRequest req,
-            StatDef ___stat,
             ref string __result)
         {
+            if (FoodConsumptionStat == null ||
+                __instance != FoodConsumptionStat.Worker)
+            {
+                return;
+            }
+
             Pawn pawn = req.Thing as Pawn;
-            if (___stat != FoodConsumptionStat || pawn == null)
+            if (pawn == null)
             {
                 return;
             }
