@@ -7,6 +7,11 @@ using Verse;
 
 namespace RedCrow.InsectorTweaks
 {
+    public sealed class RC_JellyConsumptionExtension : DefModExtension
+    {
+        public float perDayAdditive;
+    }
+
     [StaticConstructorOnStartup]
     public static class GenelineFollowupEffects
     {
@@ -101,43 +106,89 @@ namespace RedCrow.InsectorTweaks
                 return;
             }
 
-            float factor = GetJellyConsumptionFactor(resource.pawn);
-            if (Math.Abs(factor - 1f) <= 0.0001f)
+            float factor;
+            float perDayAdditive;
+            GetJellyConsumptionModifiers(
+                resource.pawn,
+                out factor,
+                out perDayAdditive);
+
+            float baseLossPerDay = resource.def.resourceLossPerDay;
+            float targetLossPerDay = CalculateJellyLossPerDay(
+                baseLossPerDay,
+                factor,
+                perDayAdditive);
+            float extraLossPerTick =
+                (targetLossPerDay - baseLossPerDay) /
+                GenDate.TicksPerDay;
+
+            if (Math.Abs(extraLossPerTick) <= 0.000001f)
             {
                 return;
             }
 
-            float extraLoss =
-                resource.def.resourceLossPerDay *
-                (factor - 1f) /
-                GenDate.TicksPerDay;
-            resource.Value -= extraLoss;
+            resource.Value -= extraLossPerTick;
+        }
+
+        public static float CalculateJellyLossPerDay(
+            float baseLossPerDay,
+            float factor,
+            float perDayAdditive)
+        {
+            return Math.Max(
+                0f,
+                baseLossPerDay * Math.Max(0f, factor) +
+                perDayAdditive);
+        }
+
+        public static void GetJellyConsumptionModifiers(
+            Pawn pawn,
+            out float factor,
+            out float perDayAdditive)
+        {
+            factor = 1f;
+            perDayAdditive = 0f;
+            if (pawn == null || pawn.genes == null)
+            {
+                return;
+            }
+
+            List<Gene> genes = pawn.genes.GenesListForReading;
+            for (int index = 0; index < genes.Count; index++)
+            {
+                Gene gene = genes[index];
+                if (gene == null || !gene.Active || gene.def == null)
+                {
+                    continue;
+                }
+
+                RC_HungerGeneExtension percentageExtension =
+                    gene.def.GetModExtension<RC_HungerGeneExtension>();
+                if (percentageExtension != null)
+                {
+                    factor += percentageExtension.jellyAdditive;
+                }
+
+                RC_JellyConsumptionExtension fixedExtension =
+                    gene.def.GetModExtension<RC_JellyConsumptionExtension>();
+                if (fixedExtension != null)
+                {
+                    perDayAdditive += fixedExtension.perDayAdditive;
+                }
+            }
+
+            factor = Math.Max(0f, factor);
         }
 
         public static float GetJellyConsumptionFactor(Pawn pawn)
         {
-            float factor = 1f;
-            if (pawn != null && pawn.genes != null)
-            {
-                List<Gene> genes = pawn.genes.GenesListForReading;
-                for (int index = 0; index < genes.Count; index++)
-                {
-                    Gene gene = genes[index];
-                    if (gene == null || !gene.Active || gene.def == null)
-                    {
-                        continue;
-                    }
-
-                    RC_HungerGeneExtension extension =
-                        gene.def.GetModExtension<RC_HungerGeneExtension>();
-                    if (extension != null)
-                    {
-                        factor += extension.jellyAdditive;
-                    }
-                }
-            }
-
-            return Math.Max(0f, factor);
+            float factor;
+            float perDayAdditive;
+            GetJellyConsumptionModifiers(
+                pawn,
+                out factor,
+                out perDayAdditive);
+            return factor;
         }
 
         [HarmonyPriority(Priority.Last)]
