@@ -81,6 +81,22 @@ namespace RedCrow.InsectorTweaks
 
             PatchPostfix(
                 harmony,
+                AccessTools.Method(
+                    typeof(RaceProperties),
+                    "NutritionEatenPerDayExplanation",
+                    new[]
+                    {
+                        typeof(Pawn),
+                        typeof(bool),
+                        typeof(bool),
+                        typeof(bool)
+                    }),
+                AccessTools.Method(
+                    typeof(GenelineOrganEffects),
+                    "NutritionExplanationPostfix"));
+
+            PatchPostfix(
+                harmony,
                 AccessTools.Method(typeof(Need_Food), "GetTipString"),
                 AccessTools.Method(
                     typeof(GenelineOrganEffects),
@@ -231,9 +247,41 @@ namespace RedCrow.InsectorTweaks
             __result +=
                 "\n" +
                 "RC_HungerFormulaLine".Translate(
-                    multiplier.ToString("0.##"),
-                    additive.ToString("+0.##;-0.##;0"),
-                    factor.ToString("0.##"));
+                    factor.ToStringPercent());
+        }
+
+        [HarmonyPriority(Priority.Last)]
+        public static void NutritionExplanationPostfix(
+            Pawn p,
+            bool showCalculations,
+            ref string __result)
+        {
+            if (p == null || !showCalculations || __result.NullOrEmpty())
+            {
+                return;
+            }
+
+            string section = BuildHungerBreakdown(p);
+            if (section.NullOrEmpty())
+            {
+                return;
+            }
+
+            string finalPrefix =
+                "StatsReport_FinalValue".Translate() + ":";
+            int finalIndex = __result.LastIndexOf(
+                finalPrefix,
+                StringComparison.Ordinal);
+            string insertion = "\n\n" + section + "\n";
+
+            if (finalIndex >= 0)
+            {
+                __result = __result.Insert(finalIndex, insertion);
+            }
+            else
+            {
+                __result += insertion;
+            }
         }
 
         [HarmonyPriority(Priority.Last)]
@@ -274,11 +322,6 @@ namespace RedCrow.InsectorTweaks
             }
 
             Pawn pawn = (Pawn)req.Thing;
-            if (___stat.defName == "FoodConsumption")
-            {
-                AppendHungerBreakdown(pawn, ref __result);
-            }
-
             if (BiologicalToolsIntegratedWithSurvivalTools)
             {
                 return;
@@ -431,6 +474,14 @@ namespace RedCrow.InsectorTweaks
                     continue;
                 }
 
+                bool hasHungerEffect =
+                    Math.Abs(extension.hungerMultiplier - 1f) > 0.0001f ||
+                    Math.Abs(extension.hungerAdditive) > 0.0001f;
+                if (!hasHungerEffect)
+                {
+                    continue;
+                }
+
                 found = true;
                 multiplier *= extension.hungerMultiplier;
                 additive += extension.hungerAdditive;
@@ -458,9 +509,7 @@ namespace RedCrow.InsectorTweaks
             return true;
         }
 
-        private static void AppendHungerBreakdown(
-            Pawn pawn,
-            ref string explanation)
+        private static string BuildHungerBreakdown(Pawn pawn)
         {
             float multiplier;
             float additive;
@@ -471,10 +520,13 @@ namespace RedCrow.InsectorTweaks
                     out additive,
                     out factor))
             {
-                return;
+                return string.Empty;
             }
 
             StringBuilder lines = new StringBuilder();
+            lines.Append("RC_HungerGroupLabel".Translate());
+            lines.Append(":");
+
             if (pawn.genes != null)
             {
                 List<Gene> genes = pawn.genes.GenesListForReading;
@@ -496,8 +548,9 @@ namespace RedCrow.InsectorTweaks
                     if (Math.Abs(extension.hungerMultiplier - 1f) >
                         0.0001f)
                     {
+                        lines.AppendLine();
+                        lines.Append("    ");
                         lines.Append(
-                            "\n" +
                             "RC_HungerSourceMultiplier".Translate(
                                 gene.LabelCap,
                                 extension.hungerMultiplier
@@ -506,8 +559,9 @@ namespace RedCrow.InsectorTweaks
 
                     if (Math.Abs(extension.hungerAdditive) > 0.0001f)
                     {
+                        lines.AppendLine();
+                        lines.Append("    ");
                         lines.Append(
-                            "\n" +
                             "RC_HungerSourceAdditive".Translate(
                                 gene.LabelCap,
                                 extension.hungerAdditive.ToString(
@@ -523,20 +577,20 @@ namespace RedCrow.InsectorTweaks
                 pawn.health != null &&
                 pawn.health.hediffSet.HasHediff(swarmDef, false))
             {
+                lines.AppendLine();
+                lines.Append("    ");
                 lines.Append(
-                    "\n" +
                     "RC_HungerSourceAdditive".Translate(
                         swarmDef.LabelCap,
                         1f.ToString("+0.##;-0.##;0")));
             }
 
+            lines.AppendLine();
+            lines.Append("    ");
             lines.Append(
-                "\n" +
-                "RC_HungerFormulaLine".Translate(
-                    multiplier.ToString("0.##"),
-                    additive.ToString("+0.##;-0.##;0"),
-                    factor.ToString("0.##")));
-            explanation += lines.ToString();
+                "RC_HungerTotalFactor".Translate(
+                    factor.ToStringPercent()));
+            return lines.ToString();
         }
 
         private static bool TryGetBiologicalToolFactor(
