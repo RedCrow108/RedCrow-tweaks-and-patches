@@ -13,12 +13,28 @@ namespace RedCrow.InsectorTweaks
     {
         private const string LogPrefix =
             "[RedCrow Food Consumption Display]";
+        private const string FoodConsumptionStatDefName =
+            "FoodConsumption";
+
+        private static readonly StatDef FoodConsumptionStat;
 
         static FoodConsumptionDisplayPatch()
         {
             try
             {
-                StatWorker worker = StatDefOf.FoodConsumption.Worker;
+                FoodConsumptionStat =
+                    DefDatabase<StatDef>.GetNamedSilentFail(
+                        FoodConsumptionStatDefName);
+                if (FoodConsumptionStat == null ||
+                    FoodConsumptionStat.Worker == null)
+                {
+                    Log.Error(
+                        LogPrefix +
+                        " FoodConsumption StatDef or worker was not found.");
+                    return;
+                }
+
+                StatWorker worker = FoodConsumptionStat.Worker;
                 Type workerType = worker.GetType();
 
                 MethodInfo valueMethod = AccessTools.Method(
@@ -83,7 +99,7 @@ namespace RedCrow.InsectorTweaks
             ref float __result)
         {
             Pawn pawn = req.Thing as Pawn;
-            if (___stat != StatDefOf.FoodConsumption || pawn == null)
+            if (___stat != FoodConsumptionStat || pawn == null)
             {
                 return;
             }
@@ -110,7 +126,7 @@ namespace RedCrow.InsectorTweaks
             ref string __result)
         {
             Pawn pawn = req.Thing as Pawn;
-            if (___stat != StatDefOf.FoodConsumption || pawn == null)
+            if (___stat != FoodConsumptionStat || pawn == null)
             {
                 return;
             }
