@@ -152,12 +152,12 @@ Assert-NodeValue $psyfocus "./statFactors/VPE_PsyfocusCostFactor" `
     "0.5" "RC_Evolution_HivePsyfocusRecycling"
 
 $consumptionPairs = [ordered]@{
-    RC_Mutation_RavenousCrop = "hungerAdditive:0.1"
-    RC_Mutation_DevouringCrop = "hungerAdditive:0.2"
+    RC_Mutation_RavenousCrop = "hungerMultiplier:1.1"
+    RC_Mutation_DevouringCrop = "hungerMultiplier:1.2"
     RC_Mutation_PorousJellyReservoir = "jellyAdditive:0.1"
     RC_Mutation_LeakingJellyReservoir = "jellyAdditive:0.2"
-    RC_Evolution_EfficientCrop = "hungerAdditive:-0.1"
-    RC_Evolution_ClosedDigestiveCycle = "hungerAdditive:-0.2"
+    RC_Evolution_EfficientCrop = "hungerMultiplier:0.9"
+    RC_Evolution_ClosedDigestiveCycle = "hungerMultiplier:0.8"
     RC_Evolution_JellyConservation = "jellyAdditive:-0.1"
     RC_Evolution_SealedJellyReservoir = "jellyAdditive:-0.2"
 }
@@ -176,13 +176,13 @@ foreach ($entry in $consumptionPairs.GetEnumerator()) {
 $foodPositiveTags = @(
     $consumptionGeneXml.SelectNodes(
         "/Defs/*[starts-with(defName,'RC_Mutation_')]" +
-        "[modExtensions/li/hungerAdditive]/exclusionTags/li"
+        "[modExtensions/li/hungerMultiplier]/exclusionTags/li"
     ) | ForEach-Object { $_.InnerText }
 )
 $foodNegativeTags = @(
     $consumptionGeneXml.SelectNodes(
         "/Defs/*[starts-with(defName,'RC_Evolution_')]" +
-        "[modExtensions/li/hungerAdditive]/exclusionTags/li"
+        "[modExtensions/li/hungerMultiplier]/exclusionTags/li"
     ) | ForEach-Object { $_.InnerText }
 )
 Assert-True (
@@ -418,10 +418,23 @@ $followupSource = Get-Content -LiteralPath $followupSourcePath `
 $projectText = Get-Content -LiteralPath $projectPath `
     -Raw -Encoding UTF8
 
+$fixedBaseSourcePath = Join-Path $ModRoot "Source\FixedBaseFoodConsumption.cs"
+$fixedBasePatchPath = Join-Path $ModRoot `
+    "1.5\Patches\Patch_FixedBaseFoodConsumption.xml"
+Assert-True (-not (Test-Path -LiteralPath $fixedBaseSourcePath)) `
+    "Obsolete FixedBaseFoodConsumption.cs must be removed"
+Assert-True (-not (Test-Path -LiteralPath $fixedBasePatchPath)) `
+    "Obsolete Patch_FixedBaseFoodConsumption.xml must be removed"
+Assert-True (-not $projectText.Contains("FixedBaseFoodConsumption.cs")) `
+    "Project still compiles obsolete FixedBaseFoodConsumption.cs"
+
 foreach ($requiredText in @(
     "multiplier *= extension.hungerMultiplier",
     "additive += extension.hungerAdditive",
     "__result *= factor",
+    "NutritionEatenPerDayExplanation",
+    "RC_HungerGroupLabel",
+    "RC_HungerTotalFactor",
     "RC_BiologicalTool",
     "SurvivalToolsLite.StatPart_SurvivalTool",
     "Priority.Last"

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-  <RC_HungerFormulaLine>Коэффициент голода RedCrow: {0} {1} = x{2}</RC_HungerFormulaLine>
-  <RC_HungerSourceMultiplier>{0}: потребление пищи {1}</RC_HungerSourceMultiplier>
-  <RC_HungerSourceAdditive>{0}: коэффициент пищи RedCrow {1}</RC_HungerSourceAdditive>
+  <RC_HungerGroupLabel>Genline</RC_HungerGroupLabel>
+  <RC_HungerFormulaLine>Коэффициент голода Genline: ×{0}</RC_HungerFormulaLine>
+  <RC_HungerSourceMultiplier>{0}: ×{1}</RC_HungerSourceMultiplier>
+  <RC_HungerSourceAdditive>{0}: {1} к коэффициенту Genline</RC_HungerSourceAdditive>
+  <RC_HungerTotalFactor>Итоговый коэффициент Genline: ×{0}</RC_HungerTotalFactor>
   <RC_BiologicalToolExplanation>{0}: биологический инструмент {1} (используется сильнейший эффект инструмента)</RC_BiologicalToolExplanation>
   <RC_HiveAnimaNaturalFocus>резонанс улья с анимой</RC_HiveAnimaNaturalFocus>
 </LanguageData>

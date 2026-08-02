@@ -9,7 +9,7 @@
     <mutation>3</mutation>
     <unlockable>false</unlockable>
     <customEffectDescriptions>
-      <li>Food need drain: +0.1 to the combined RedCrow factor.</li>
+      <li>Food consumption: ×110%.</li>
     </customEffectDescriptions>
     <exclusionTags>
       <li>RC_FoodP01_N01</li>
@@ -17,7 +17,7 @@
     </exclusionTags>
     <modExtensions Inherit="False">
       <li Class="RedCrow.InsectorTweaks.RC_HungerGeneExtension">
-        <hungerAdditive>0.1</hungerAdditive>
+        <hungerMultiplier>1.1</hungerMultiplier>
       </li>
       <li Class="VanillaGenesExpanded.GeneExtension">
         <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
@@ -34,7 +34,7 @@
     <mutation>6</mutation>
     <unlockable>true</unlockable>
     <customEffectDescriptions>
-      <li>Food need drain: +0.2 to the combined RedCrow factor.</li>
+      <li>Food consumption: ×120%.</li>
     </customEffectDescriptions>
     <exclusionTags>
       <li>RC_FoodP02_N01</li>
@@ -42,7 +42,7 @@
     </exclusionTags>
     <modExtensions Inherit="False">
       <li Class="RedCrow.InsectorTweaks.RC_HungerGeneExtension">
-        <hungerAdditive>0.2</hungerAdditive>
+        <hungerMultiplier>1.2</hungerMultiplier>
       </li>
       <li Class="VanillaGenesExpanded.GeneExtension">
         <backgroundPathEndogenes>UI/Icons/Genes/VRE_MutationBG</backgroundPathEndogenes>
@@ -109,7 +109,7 @@
     <evolution>3</evolution>
     <unlockable>false</unlockable>
     <customEffectDescriptions>
-      <li>Food need drain: -0.1 from the combined RedCrow factor.</li>
+      <li>Food consumption: ×90%.</li>
     </customEffectDescriptions>
     <exclusionTags>
       <li>RC_FoodP01_N01</li>
@@ -117,7 +117,7 @@
     </exclusionTags>
     <modExtensions Inherit="False">
       <li Class="RedCrow.InsectorTweaks.RC_HungerGeneExtension">
-        <hungerAdditive>-0.1</hungerAdditive>
+        <hungerMultiplier>0.9</hungerMultiplier>
       </li>
       <li Class="VanillaGenesExpanded.GeneExtension">
         <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>
@@ -134,7 +134,7 @@
     <evolution>6</evolution>
     <unlockable>true</unlockable>
     <customEffectDescriptions>
-      <li>Food need drain: -0.2 from the combined RedCrow factor.</li>
+      <li>Food consumption: ×80%.</li>
     </customEffectDescriptions>
     <exclusionTags>
       <li>RC_FoodP01_N02</li>
@@ -142,7 +142,7 @@
     </exclusionTags>
     <modExtensions Inherit="False">
       <li Class="RedCrow.InsectorTweaks.RC_HungerGeneExtension">
-        <hungerAdditive>-0.2</hungerAdditive>
+        <hungerMultiplier>0.8</hungerMultiplier>
       </li>
       <li Class="VanillaGenesExpanded.GeneExtension">
         <backgroundPathEndogenes>UI/Icons/Genes/VRE_EvolutionBG</backgroundPathEndogenes>

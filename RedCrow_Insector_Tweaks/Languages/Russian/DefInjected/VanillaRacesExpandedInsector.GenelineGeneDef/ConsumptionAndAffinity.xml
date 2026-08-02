@@ -2,10 +2,10 @@
 <LanguageData>
   <RC_Mutation_RavenousCrop.label>ненасытный зоб</RC_Mutation_RavenousCrop.label>
   <RC_Mutation_RavenousCrop.description>Увеличенный пищеварительный зоб постоянно требует дополнительной пищи для поддержания тканей.</RC_Mutation_RavenousCrop.description>
-  <RC_Mutation_RavenousCrop.customEffectDescriptions.0>Базовое потребление пищи: +0,2 ед. питания в сутки.</RC_Mutation_RavenousCrop.customEffectDescriptions.0>
+  <RC_Mutation_RavenousCrop.customEffectDescriptions.0>Потребление пищи: ×110%.</RC_Mutation_RavenousCrop.customEffectDescriptions.0>
   <RC_Mutation_DevouringCrop.label>пожирающий зоб</RC_Mutation_DevouringCrop.label>
   <RC_Mutation_DevouringCrop.description>Переросший зоб сжигает огромные запасы питательных веществ ради поддержки быстро меняющегося тела.</RC_Mutation_DevouringCrop.description>
-  <RC_Mutation_DevouringCrop.customEffectDescriptions.0>Базовое потребление пищи: +0,4 ед. питания в сутки.</RC_Mutation_DevouringCrop.customEffectDescriptions.0>
+  <RC_Mutation_DevouringCrop.customEffectDescriptions.0>Потребление пищи: ×120%.</RC_Mutation_DevouringCrop.customEffectDescriptions.0>
   <RC_Mutation_PorousJellyReservoir.label>пористый резервуар желе</RC_Mutation_PorousJellyReservoir.label>
   <RC_Mutation_PorousJellyReservoir.description>Мелкие утечки в личном резервуаре увеличивают расход инсекторного желе на 10 единиц в сутки.</RC_Mutation_PorousJellyReservoir.description>
   <RC_Mutation_PorousJellyReservoir.customEffectDescriptions.0>Расход личного инсекторного желе: +10 ед. в сутки.</RC_Mutation_PorousJellyReservoir.customEffectDescriptions.0>
@@ -13,10 +13,10 @@
   <RC_Mutation_LeakingJellyReservoir.description>Нестабильный резервуар постоянно теряет инсекторное желе через раздутые сосудистые стенки.</RC_Mutation_LeakingJellyReservoir.description>
   <RC_Evolution_EfficientCrop.label>эффективный зоб</RC_Evolution_EfficientCrop.label>
   <RC_Evolution_EfficientCrop.description>Компактный пищеварительный зоб извлекает больше полезного питания из каждой порции.</RC_Evolution_EfficientCrop.description>
-  <RC_Evolution_EfficientCrop.customEffectDescriptions.0>Базовое потребление пищи: −0,2 ед. питания в сутки.</RC_Evolution_EfficientCrop.customEffectDescriptions.0>
+  <RC_Evolution_EfficientCrop.customEffectDescriptions.0>Потребление пищи: ×90%.</RC_Evolution_EfficientCrop.customEffectDescriptions.0>
   <RC_Evolution_ClosedDigestiveCycle.label>замкнутый пищеварительный цикл</RC_Evolution_ClosedDigestiveCycle.label>
   <RC_Evolution_ClosedDigestiveCycle.description>Рой возвращает почти все продукты обмена в замкнутый пищеварительный контур.</RC_Evolution_ClosedDigestiveCycle.description>
-  <RC_Evolution_ClosedDigestiveCycle.customEffectDescriptions.0>Базовое потребление пищи: −0,4 ед. питания в сутки.</RC_Evolution_ClosedDigestiveCycle.customEffectDescriptions.0>
+  <RC_Evolution_ClosedDigestiveCycle.customEffectDescriptions.0>Потребление пищи: ×80%.</RC_Evolution_ClosedDigestiveCycle.customEffectDescriptions.0>
   <RC_Evolution_JellyConservation.label>сбережение желе</RC_Evolution_JellyConservation.label>
   <RC_Evolution_JellyConservation.description>Сформированные роем клапаны снижают расход личного инсекторного желе на 10 единиц в сутки.</RC_Evolution_JellyConservation.description>
   <RC_Evolution_JellyConservation.customEffectDescriptions.0>Расход личного инсекторного желе: −10 ед. в сутки.</RC_Evolution_JellyConservation.customEffectDescriptions.0>
