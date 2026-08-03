@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!--
+    VRE_HypothermicHibernation is added as a xenogene. Its MinTemperature
+    exclusion tag suppresses an existing temperature endogene and silently
+    changes the pawn's total metabolic efficiency. Keep the Insector-specific
+    conflict, but allow ordinary MinTemperature genes to remain active.
+  -->
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/VanillaRacesExpandedInsector.GenelineGeneDef[defName="VRE_HypothermicHibernation"]/exclusionTags/li[text()="MinTemperature"]</xpath>
+  </Operation>
+
+</Patch>
