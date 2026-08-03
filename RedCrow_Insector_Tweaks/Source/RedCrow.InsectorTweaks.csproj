@@ -47,6 +47,7 @@
     <Compile Include="GeneReferenceCleanup.cs" />
     <Compile Include="HiveInsectFilthPatch.cs" />
     <Compile Include="Hotfix8GenePresentation.cs" />
+    <Compile Include="HypothermicHibernationMetabolismFix.cs" />
     <Compile Include="MetapodInfrastructure.cs" />
     <Compile Include="MetapodTransformations.cs" />
     <Compile Include="OriginalScoutStrideIntegration.cs" />
